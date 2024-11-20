@@ -31,11 +31,11 @@
             padding: 0 15px;
         }
         main {
-            padding: 0px;
+            padding: 0;
         }
         section {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(800px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 15px;
             background-image: url('3840_2160.jpg'); /* Cambia 'fondo.jpg' por la ruta de tu imagen */
             background-size: cover;
@@ -54,8 +54,8 @@
         }
         .chapter img {
             width: 100%;
-            height: 600px;  /* Fija la altura de las imágenes */
-            object-fit: contain;  /* Mantiene la proporción sin recortar */
+            max-height: 400px; /* Limita la altura máxima para dispositivos más pequeños */
+            object-fit: contain;
         }
         .chapter a {
             text-decoration: none;
@@ -69,6 +69,30 @@
         .new {
             color: #27ae60;
             font-weight: bold;
+        }
+        /* Media query para pantallas más pequeñas */
+        @media (max-width: 768px) {
+            header {
+                padding: 15px;
+                font-size: 18px;
+            }
+            nav {
+                flex-direction: column;
+                align-items: center;
+            }
+            nav a {
+                padding: 5px 10px;
+            }
+            section {
+                padding: 10px;
+                grid-template-columns: 1fr; /* Una sola columna en pantallas pequeñas */
+            }
+            .chapter {
+                padding: 5px;
+            }
+            .chapter img {
+                max-height: 300px; /* Ajusta la altura máxima de las imágenes */
+            }
         }
     </style>
 </head>
@@ -89,23 +113,22 @@
                 <span class="new">NUEVO</span>
             </div>
             <div class="chapter">
-                <a href="paginadeCireMomore.html"><img src="Cire Momore\1080_1920.jpg" alt="Cire Momore"></a>
+                <a href="paginadeCireMomore.html"><img src="Cire Momore/1080_1920.jpg" alt="Cire Momore"></a>
                 <a href="paginadeCireMomore.html">Cire Momore</a>
             </div>
             <div class="chapter">
-                <a href="paginadefragmentosencontrados.html"><img src="Fragmentos encontrados\Acidrik_Rasgapanza.jpg" alt="Fragmentos Encontrados"></a>
+                <a href="paginadefragmentosencontrados.html"><img src="Fragmentos encontrados/Acidrik_Rasgapanza.jpg" alt="Fragmentos Encontrados"></a>
                 <a href="paginadefragmentosencontrados.html">Fragmentos Encontrados</a>
                 <span class="new">NUEVO</span>
             </div>
             <div class="chapter">
-                <a href="gspec.html"><img src="videos\7_1280.jpg" alt="Especial"></a>
+                <a href="gspec.html"><img src="videos/7_1280.jpg" alt="Especial"></a>
                 <a href="gspec.html">Especial de Gultard</a>
             </div>
             <div class="chapter">
                 <a href="paginadelancedurS.html"><img src="10-10.jpg" alt="Especial"></a>
                 <a href="paginadelancedurS.html">Lance Dur Serie</a>
             </div>
-            <!-- Agrega más capítulos con sus respectivos enlaces -->
         </section>
     </main>
 </body>
