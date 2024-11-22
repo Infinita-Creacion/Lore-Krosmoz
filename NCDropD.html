@@ -8,28 +8,29 @@
         body {
             font-family: Arial, sans-serif;
             margin: 0;
-            padding: 20px;
+            padding: 0;
             background-color: #d35400;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(800px, 1fr));
-            gap: 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
             background-image: url('3840_2160.jpg'); /* Cambia 'fondo.jpg' por la ruta de tu imagen */
-            background-size: 100%;
+            background-size: cover;
             background-position: center;
-            padding: 200px;
-            border-radius: 10px;
             color: #333;
         }
         .container {
+            width: 90%;
             max-width: 600px;
-            margin: 0 auto;
-            padding: 20px;
-            background: #d35400;
+            background: #d35400; rgba(255, 255, 255, 0.9);
             border-radius: 8px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
         }
         h1 {
-            text-align: center;
+            font-size: 2rem;
             margin-bottom: 20px;
         }
         label {
@@ -39,32 +40,67 @@
         }
         input {
             width: 100%;
-            padding: 8px;
+            padding: 10px;
             margin-top: 5px;
             border: 1px solid #ddd;
             border-radius: 4px;
         }
         button {
-            display: block;
             width: 100%;
             padding: 10px;
+            margin-top: 15px;
             background: #5cb85c;
             color: white;
             border: none;
             border-radius: 4px;
+            font-size: 1rem;
             cursor: pointer;
         }
         button:hover {
             background-color: #4cae4c;
         }
         .result {
-            margin-top: 10px;
-            font-size: 18px;
+            margin-top: 20px;
+            font-size: 1.2rem;
             font-weight: bold;
-            text-align: center;
             background: #f9f9f9;
             padding: 10px;
             border-radius: 4px;
+        }
+        .button a {
+            text-decoration: none;
+        }
+        .button h2 {
+            margin-top: 20px;
+            font-size: 1rem;
+            color: #333;
+        }
+        /* Adaptación responsiva */
+        @media (max-width: 768px) {
+            body {
+                padding: 20px;
+            }
+            h1 {
+                font-size: 1.5rem;
+            }
+            button {
+                font-size: 0.9rem;
+            }
+            .result {
+                font-size: 1rem;
+            }
+        }
+        @media (max-width: 480px) {
+            .container {
+                padding: 15px;
+            }
+            h1 {
+                font-size: 1.2rem;
+            }
+            button {
+                padding: 8px;
+                font-size: 0.8rem;
+            }
         }
     </style>
 </head>
@@ -93,7 +129,6 @@
 
     <script>
         function calculateDrop() {
-            // Obtener los valores ingresados
             const baseRate = parseFloat(document.getElementById("baseRate").value);
             const prospection = parseFloat(document.getElementById("prospection").value);
             const combats = parseInt(document.getElementById("combats").value);
@@ -103,13 +138,9 @@
                 return;
             }
 
-            // Calcular la tasa de obtención ajustada por prospección
             const adjustedRate = (baseRate * prospection) / 100;
-
-            // Calcular la probabilidad de obtener al menos un objeto en "combats" combates
             const dropChance = 1 - Math.pow(1 - (adjustedRate / 100), combats);
 
-            // Mostrar el resultado
             document.getElementById("result").textContent = 
                 `Probabilidad de obtener el recurso en ${combats} combates: ${(dropChance * 100).toFixed(2)}%`;
         }
