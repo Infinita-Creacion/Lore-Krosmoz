@@ -11,13 +11,13 @@
       padding: 20px;
       background-color: #d35400;
       display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(800px, 1fr));
-            gap: 15px;
-            background-image: url('3840_2160.jpg'); /* Cambia 'fondo.jpg' por la ruta de tu imagen */
-            background-size: cover;
-            background-position: center;
-            padding: 90px;
-            border-radius: 10px;
+      grid-template-columns: repeat(auto-fit, minmax(800px, 1fr));
+      gap: 15px;
+      background-image: url('3840_2160.jpg'); /* Cambia 'fondo.jpg' por la ruta de tu imagen */
+      background-size: cover;
+      background-position: center;
+      padding: 90px;
+      border-radius: 10px;
       color: #333;
     }
     .container {
@@ -70,6 +70,43 @@
       font-weight: bold;
       text-align: center;
       background: #f9f9f9;
+    }
+
+    /* Adaptaciones para dispositivos móviles */
+    @media (max-width: 768px) {
+      body {
+        grid-template-columns: 1fr;
+        padding: 20px;
+      }
+      .container {
+        max-width: 100%;
+        padding: 15px;
+        background-color: rgba(211, 84, 0, 0.9); /* Fondo ligeramente translúcido */
+      }
+      h1 {
+        font-size: 24px;
+      }
+      button {
+        padding: 8px 15px;
+      }
+    }
+    @media (max-width: 480px) {
+      body {
+        padding: 10px;
+      }
+      h1 {
+        font-size: 20px;
+      }
+      .form-group input,
+      .form-group select,
+      .result {
+        font-size: 14px;
+        padding: 6px;
+      }
+      button {
+        padding: 6px 10px;
+        font-size: 14px;
+      }
     }
   </style>
 </head>
@@ -142,11 +179,11 @@
     </div>
     <div class="result" id="resultado"></div>
     <div class="button">
-    <a href="index.html">
-      <button>Historias del Krosmoz</button>
-    </a>
+      <a href="index.html">
+        <button>Historias del Krosmoz</button>
+      </a>
+    </div>
   </div>
-</div>
 
   <script>
     function calcular(tipo) {
