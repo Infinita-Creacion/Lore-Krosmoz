@@ -150,27 +150,31 @@
 </div>
 
   <script>
-    function calcular(tipo) {
-      const dropRate = parseFloat(document.getElementById('dropRate').value) || 0;
-      const pp = Math.min(parseFloat(document.getElementById('pp').value) || 0, 200);
-      const boosterpack = parseFloat(document.getElementById('boosterpack').value) / 100;
-      const bonusPacto = parseFloat(document.getElementById('bonusPacto').value) / 100;
-      const pocimaBotin = parseFloat(document.getElementById('pocimaBotin').value) || 0;
+    function calcularProbabilidad(tipo) {
+        const tasaDrop = parseFloat(document.getElementById("tasaDrop").value) / 100 || 0; // Tasa base
+        const pp = Math.min(parseFloat(document.getElementById("pp").value || 0), 200) / 100; // Máx. 200%
+        const boosterpack = parseFloat(document.getElementById("boosterpack").value || 0); // Boosterpack %
+        const bonusPacto = parseFloat(document.getElementById("bonusPacto").value || 0); // Bonus Pacto %
+        const pocima = parseFloat(document.getElementById("pocima").value || 0) / 100; // Pócima en %
 
-      let bonusStasis = parseFloat(document.getElementById('bonusStasis').value) / 100;
-      let bonusStasisModulado = parseFloat(document.getElementById('bonusStasisModulado').value) / 100;
+        // Obtenemos Bonus Stasis o Bonus Stasis Modulado según el modo
+        let bonusStasis;
+        if (tipo === "normal") {
+            bonusStasis = parseFloat(document.getElementById("bonusStasis").value || 0);
+        } else if (tipo === "modulado") {
+            bonusStasis = parseFloat(document.getElementById("bonusStasisModulado").value || 0);
+        }
 
-      let bonusDrop;
-      if (tipo === 'stasis') {
-        bonusDrop = pocimaBotin + bonusStasis + bonusPacto;
-      } else {
-        bonusDrop = pocimaBotin + bonusStasisModulado + bonusPacto;
-      }
+        // Calculamos BonusDrop (suma de los multiplicadores adicionales)
+        const bonusDrop = pocima + bonusStasis + bonusPacto;
 
-      const probabilidad = dropRate * (1 + boosterpack) * (1 + pp / 100) * (1 + bonusDrop);
-      document.getElementById('resultado').innerText = 
-        `Probabilidad de obtener el objeto: ${probabilidad.toFixed(2)}%`;
+        // Fórmula final: Tasa de Drop * Boosterpack * (1 + PP/100) * (1 + BonusDrop)
+        const probabilidad = tasaDrop * (1 + boosterpack) * (1 + pp) * (1 + bonusDrop);
+
+        // Mostramos el resultado
+        document.getElementById("result").innerText = 
+            `La probabilidad de obtener el objeto es ${(probabilidad * 100).toFixed(2)}%.`;
     }
-  </script>
+</script>
 </body>
 </html>
