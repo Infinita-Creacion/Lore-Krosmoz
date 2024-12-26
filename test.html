@@ -53,9 +53,16 @@
             flex-direction: column;
             align-items: center;
         }
-        #viewer canvas {
-            max-width: 100%;
-            height: auto;
+        #viewer.paginada canvas {
+            display: none; /* Ocultar todas las imágenes por defecto */
+        }
+        #viewer.paginada .visible {
+            display: block; /* Mostrar solo la imagen visible */
+        }
+        #viewer.cascada {
+            flex-direction: column;
+        }
+        #viewer.cascada canvas {
             margin: 10px 0;
         }
         .comentarios {
@@ -83,11 +90,11 @@
         <h2 style="text-align: center; margin: 20px 0;">Fragmentos Encontrados</h2>
 
         <div class="controls">
-            <button id="prevPage">Página Anterior</button>
-            <button id="nextPage">Página Siguiente</button>
+            <button id="paginadaBtn" onclick="cambiarFormato('paginada')">Paginada</button>
+            <button id="cascadaBtn" onclick="cambiarFormato('cascada')">Cascada</button>
         </div>
 
-        <section id="viewer"></section>
+        <section id="viewer" class="paginada"></section>
 
         <div class="controls" style="text-align: center; margin: 20px;">
             <a href="elcantodelmundo.html">
@@ -107,8 +114,8 @@
     <script>
         const url = "HyrkulelTendencioso.pdf";
         const viewer = document.getElementById('viewer');
-        const prevPageBtn = document.getElementById('prevPage');
-        const nextPageBtn = document.getElementById('nextPage');
+        const paginadaBtn = document.getElementById('paginadaBtn');
+        const cascadaBtn = document.getElementById('cascadaBtn');
         let pdfDoc = null;
         let currentPage = 1;
 
@@ -130,7 +137,11 @@
                 canvas.width = viewport.width;
                 canvas.height = viewport.height;
 
-                viewer.innerHTML = ''; // Limpiar el contenedor
+                // Si está en formato paginado, ocultar las demás imágenes
+                if (viewer.classList.contains('paginada')) {
+                    canvas.style.display = (pageNum === currentPage) ? 'block' : 'none';
+                }
+
                 viewer.appendChild(canvas);
 
                 page.render({
@@ -142,18 +153,58 @@
             });
         }
 
+        // Cambiar de formato (paginada o cascada)
+        function cambiarFormato(formato) {
+            viewer.innerHTML = ''; // Limpiar el visor
+            if (formato === 'paginada') {
+                viewer.className = 'paginada';
+                for (let i = 1; i <= pdfDoc.numPages; i++) {
+                    renderPage(i);
+                }
+                mostrarPagina(currentPage);
+                paginadaBtn.style.display = "none";
+                cascadaBtn.style.display = "block";
+            } else if (formato === 'cascada') {
+                viewer.className = 'cascada';
+                for (let i = 1; i <= pdfDoc.numPages; i++) {
+                    renderPage(i);
+                }
+                paginadaBtn.style.display = "block";
+                cascadaBtn.style.display = "none";
+            }
+        }
+
+        // Mostrar la página actual
+        function mostrarPagina(pageNum) {
+            const canvases = viewer.querySelectorAll('canvas');
+            canvases.forEach((canvas, index) => {
+                canvas.style.display = (index + 1 === pageNum) ? 'block' : 'none';
+            });
+        }
+
         // Navegar entre páginas
-        prevPageBtn.addEventListener('click', () => {
-            if (currentPage > 1) {
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'ArrowRight' && currentPage < pdfDoc.numPages) {
+                currentPage++;
+                mostrarPagina(currentPage);
+            } else if (event.key === 'ArrowLeft' && currentPage > 1) {
                 currentPage--;
-                renderPage(currentPage);
+                mostrarPagina(currentPage);
             }
         });
 
-        nextPageBtn.addEventListener('click', () => {
+        // Navegación por botones
+        document.getElementById('prevPage').addEventListener('click', () => {
+            if (currentPage > 1) {
+                currentPage--;
+                mostrarPagina(currentPage);
+            }
+        });
+
+        document.getElementById('nextPage').addEventListener('click', () => {
             if (currentPage < pdfDoc.numPages) {
                 currentPage++;
-                renderPage(currentPage);
+                mostrarPagina(currentPage);
             }
         });
     </script>
