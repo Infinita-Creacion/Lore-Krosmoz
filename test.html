@@ -152,17 +152,19 @@
 
                 // Hacer clic en la imagen para avanzar o retroceder
                 canvas.addEventListener('click', (event) => {
-                    const canvasWidth = canvas.width;
-                    const clickX = event.offsetX;
+                    if (viewer.classList.contains('paginada')) {
+                        const canvasWidth = canvas.width;
+                        const clickX = event.offsetX;
 
-                    if (clickX > canvasWidth / 2 && currentPage < pdfDoc.numPages) {
-                        // Hizo clic en la parte derecha, ir a la siguiente página
-                        currentPage++;
-                        mostrarPagina(currentPage);
-                    } else if (clickX <= canvasWidth / 2 && currentPage > 1) {
-                        // Hizo clic en la parte izquierda, ir a la página anterior
-                        currentPage--;
-                        mostrarPagina(currentPage);
+                        if (clickX > canvasWidth / 2 && currentPage < pdfDoc.numPages) {
+                            // Hizo clic en la parte derecha, ir a la siguiente página
+                            currentPage++;
+                            mostrarPagina(currentPage);
+                        } else if (clickX <= canvasWidth / 2 && currentPage > 1) {
+                            // Hizo clic en la parte izquierda, ir a la página anterior
+                            currentPage--;
+                            mostrarPagina(currentPage);
+                        }
                     }
                 });
             }).catch(error => {
@@ -212,14 +214,14 @@
 
         // Navegación por botones
         document.getElementById('prevPage').addEventListener('click', () => {
-            if (currentPage > 1) {
+            if (currentPage > 1 && viewer.classList.contains('paginada')) {
                 currentPage--;
                 mostrarPagina(currentPage);
             }
         });
 
         document.getElementById('nextPage').addEventListener('click', () => {
-            if (currentPage < pdfDoc.numPages) {
+            if (currentPage < pdfDoc.numPages && viewer.classList.contains('paginada')) {
                 currentPage++;
                 mostrarPagina(currentPage);
             }
