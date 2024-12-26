@@ -142,11 +142,28 @@
                     canvas.style.display = (pageNum === currentPage) ? 'block' : 'none';
                 }
 
+                // Agregar la página al contenedor de visualización
                 viewer.appendChild(canvas);
 
                 page.render({
                     canvasContext: context,
                     viewport: viewport
+                });
+
+                // Hacer clic en la imagen para avanzar o retroceder
+                canvas.addEventListener('click', (event) => {
+                    const canvasWidth = canvas.width;
+                    const clickX = event.offsetX;
+
+                    if (clickX > canvasWidth / 2 && currentPage < pdfDoc.numPages) {
+                        // Hizo clic en la parte derecha, ir a la siguiente página
+                        currentPage++;
+                        mostrarPagina(currentPage);
+                    } else if (clickX <= canvasWidth / 2 && currentPage > 1) {
+                        // Hizo clic en la parte izquierda, ir a la página anterior
+                        currentPage--;
+                        mostrarPagina(currentPage);
+                    }
                 });
             }).catch(error => {
                 console.error('Error al renderizar la página:', error);
@@ -184,10 +201,10 @@
 
         // Navegar entre páginas
         document.addEventListener('keydown', function(event) {
-            if (event.key === 'ArrowRight' && currentPage < pdfDoc.numPages) {
+            if (event.key === 'ArrowRight' && currentPage < pdfDoc.numPages && viewer.classList.contains('paginada')) {
                 currentPage++;
                 mostrarPagina(currentPage);
-            } else if (event.key === 'ArrowLeft' && currentPage > 1) {
+            } else if (event.key === 'ArrowLeft' && currentPage > 1 && viewer.classList.contains('paginada')) {
                 currentPage--;
                 mostrarPagina(currentPage);
             }
