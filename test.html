@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lectura de Capítulos</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
     <style>
         * {
             box-sizing: border-box;
@@ -52,22 +53,10 @@
             flex-direction: column;
             align-items: center;
         }
-        #viewer.paginada .capitulo {
-            display: none; /* Ocultar todas las imágenes por defecto */
-        }
-        #viewer.paginada .capitulo.visible {
-            display: block; /* Mostrar solo la imagen visible */
-        }
-        #viewer.cascada {
-            flex-direction: column;
-        }
-        .capitulo img {
+        #viewer canvas {
             max-width: 100%;
             height: auto;
-        }
-        /* Sin margen entre imágenes en formato cascada */
-        #viewer.cascada .capitulo img {
-            margin: 10;
+            margin: 10px 0;
         }
         .comentarios {
             margin: 20px;
@@ -85,7 +74,7 @@
         <div class="navbar">
             <h1>Lectura de Capítulos</h1>
             <nav>
-                <a href="paginadefragmentosencontrados.html">Capitulos</a>
+                <a href="paginadefragmentosencontrados.html">Capítulos</a>
                 <a href="index.html">Otras historias</a>
             </nav>
         </div>
@@ -94,15 +83,32 @@
         <h2 style="text-align: center; margin: 20px 0;">Fragmentos Encontrados</h2>
 
         <div class="controls">
-            <button id="paginadaBtn" onclick="cambiarFormato('paginada')">Paginada</button>
-            <button id="cascadaBtn" onclick="cambiarFormato('cascada')">Cascada</button>
+            <button id="prevPage">Página Anterior</button>
+            <button id="nextPage">Página Siguiente</button>
         </div>
 
-        <section id="viewer" class="paginada">
-    <!-- Código PDF -->
+        <section id="viewer"></section>
+
+        <div class="controls" style="text-align: center; margin: 20px;">
+            <a href="elcantodelmundo.html">
+                <button>Capítulo Anterior</button>
+            </a>
+            <a href="lahoradelosdragones.html">
+                <button>Siguiente Capítulo</button>
+            </a>
+        </div>
+
+        <section class="comentarios">
+            <h3>Deja un comentario:</h3>
+            <textarea placeholder="Escribe tu comentario aquí..."></textarea>
+        </section>
+    </main>
+
     <script>
-        const url = "HyrkulelTendencioso.pdf"; // Cambia esto por la ruta de tu PDF
+        const url = "HyrkulelTendencioso.pdf";
         const viewer = document.getElementById('viewer');
+        const prevPageBtn = document.getElementById('prevPage');
+        const nextPageBtn = document.getElementById('nextPage');
         let pdfDoc = null;
         let currentPage = 1;
 
@@ -110,6 +116,8 @@
         pdfjsLib.getDocument(url).promise.then(pdf => {
             pdfDoc = pdf;
             renderPage(currentPage);
+        }).catch(error => {
+            console.error('Error al cargar el PDF:', error);
         });
 
         // Renderizar una página
@@ -122,118 +130,32 @@
                 canvas.width = viewport.width;
                 canvas.height = viewport.height;
 
-                const capituloDiv = document.createElement('div');
-                capituloDiv.className = 'capitulo';
-                if (viewer.classList.contains('paginada') && pageNum !== currentPage) {
-                    capituloDiv.style.display = 'none';
-                }
+                viewer.innerHTML = ''; // Limpiar el contenedor
+                viewer.appendChild(canvas);
 
                 page.render({
                     canvasContext: context,
-                    viewport: viewport,
-                }).promise.then(() => {
-                    capituloDiv.appendChild(canvas);
-                    viewer.appendChild(capituloDiv);
+                    viewport: viewport
                 });
+            }).catch(error => {
+                console.error('Error al renderizar la página:', error);
             });
-        }
-
-        // Cambiar de formato
-        function cambiarFormato(formato) {
-            const capitulos = viewer.querySelectorAll('.capitulo');
-            if (formato === 'paginada') {
-                viewer.className = 'paginada';
-                capitulos.forEach((capitulo, index) => {
-                    capitulo.style.display = index + 1 === currentPage ? 'block' : 'none';
-                });
-            } else if (formato === 'cascada') {
-                viewer.className = 'cascada';
-                capitulos.forEach(capitulo => {
-                    capitulo.style.display = 'block';
-                });
-            }
         }
 
         // Navegar entre páginas
-        document.addEventListener('keydown', function(event) {
-            if (viewer.className.includes('paginada')) {
-                if (event.key === 'ArrowRight' && currentPage < pdfDoc.numPages) {
-                    currentPage++;
-                    cambiarFormato('paginada');
-                } else if (event.key === 'ArrowLeft' && currentPage > 1) {
-                    currentPage--;
-                    cambiarFormato('paginada');
-                }
-            }
-        });
-    </script>
-</section>
-
-
-            <!-- Botón "Siguiente capítulo" -->
-            <div class="controls" style="text-align: center; margin: 20px;">
-            <a href="elcantodelmundo.html">
-            <button>Capítulo anterior</button></a>
-            <a href="lahoradelosdragones.html">
-            <button>Siguiente capítulo</button></a>
-            </div>
-
-        <section class="comentarios">
-            <h3>Deja un comentario:</h3>
-            <textarea placeholder="Escribe tu comentario aquí..."></textarea>
-        </section>
-    </main>
-
-    <script>
-        let currentPage = 0; // Página inicial
-        const viewer = document.getElementById('viewer');
-        const chapters = document.querySelectorAll('.capitulo');
-        const paginadaBtn = document.getElementById('paginadaBtn');
-        const cascadaBtn = document.getElementById('cascadaBtn');
-
-        function cambiarFormato(formato) {
-            if (formato === 'paginada') {
-                viewer.className = 'paginada';
-                mostrarPagina(currentPage);
-                paginadaBtn.style.display = "none";
-                cascadaBtn.style.display = "block";
-            } else if (formato === 'cascada') {
-                viewer.className = 'cascada';
-                chapters.forEach(chapter => chapter.classList.remove('visible'));
-                paginadaBtn.style.display = "block";
-                cascadaBtn.style.display = "none";
-            }
-        }
-
-        function mostrarPagina(pagina) {
-            chapters.forEach((chapter, index) => {
-                chapter.classList.toggle('visible', index === pagina);
-            });
-        }
-
-        // Manejar teclas de flecha
-        document.addEventListener('keydown', function(event) {
-            if (viewer.className.includes('paginada')) {
-                if (event.key === 'ArrowRight') {
-                    currentPage = (currentPage + 1) % chapters.length;
-                    mostrarPagina(currentPage);
-                } else if (event.key === 'ArrowLeft') {
-                    currentPage = (currentPage - 1 + chapters.length) % chapters.length;
-                    mostrarPagina(currentPage);
-                }
+        prevPageBtn.addEventListener('click', () => {
+            if (currentPage > 1) {
+                currentPage--;
+                renderPage(currentPage);
             }
         });
 
-        // Navegación mediante clic
-        chapters.forEach((chapter, index) => {
-            chapter.addEventListener('click', function() {
-                currentPage = (index + 1) % chapters.length;
-                mostrarPagina(currentPage);
-            });
+        nextPageBtn.addEventListener('click', () => {
+            if (currentPage < pdfDoc.numPages) {
+                currentPage++;
+                renderPage(currentPage);
+            }
         });
-
-        // Mostrar la primera página al cargar
-        mostrarPagina(currentPage);
     </script>
 </body>
 </html>
