@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lore del Krosmoz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #d35400;
+            padding: 20px;
+            text-align: center;
+            color: white;
+        }
+        nav {
+            background-color: #e67e22;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 0 15px;
+        }
+        main {
+            padding: 20px;
+        }
+        .chapter {
+            margin-bottom: 15px;
+            padding: 15px;
+            background-color: white;
+            border-radius: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .chapter a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+        }
+        .chapter a:hover {
+            color: #d35400;
+        }
+        .new {
+            color: #27ae60;
+            font-weight: bold;
+        }
+        .capitulo img {
+            max-width: 75%;
+            height: auto;
+        }
+
+        /* Media query para pantallas más pequeñas */
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                align-items: center;
+            }
+            .chapter {
+                flex-direction: column;
+                text-align: center;
+            }
+            .capitulo img {
+                width: 100%;
+                height: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Wakfu Mangas</h1>
+        <div class="capitulo visible">
+            <img src="wakfum.jpg" style="width: 30%; height: auto;">
+        </div>
+    </header>
+    <nav>
+        <a href="index.html">Otras historias</a>
+    </nav>
+    <main>
+        <section>
+            <div class="chapter">
+                <a href="wakfum5.html">#05: La Reina del Invierno</a>
+                <span class="new">NUEVO</span>
+            </div>
+            <div class="chapter">
+                <a href="wakfum4.html">#04: El Naufragio de los Selatrop</a>
+                <span class="new">NUEVO</span>
+            </div>
+            <div class="chapter">
+                <a href="wakfum3.html">#03: Las Minas de Lamororia</a>
+                <span class="new">NUEVO</span>
+            </div>
+            <div class="chapter">
+                <a href="wakfum2.html">#02: La Leyenda de Jiva</a>
+                <span class="new">NUEVO</span>
+            </div>
+            <div class="chapter">
+                <a href="wakfum1.html">#01: La Búsqueda de los Dofus Selatrop</a>
+                <span class="new">NUEVO</span>
+            </div>
+            <div class="chapter">
+                <a href="wakfumshak.html">#Especial: Shak Shaka</a>
+                <span class="new">NUEVO</span>
+            </div>
+            <div class="chapter">
+                <a href="wakfumtango.html">#Especial: Tango Mango</a>
+                <span class="new">NUEVO</span>
+            </div>
+            <div class="chapter">
+                <a href="wakfumkama.html">#Especial: Las Kamas de la Sed</a>
+                <span class="new">NUEVO</span>
+            </div>
+            <!-- Agrega más capítulos con sus respectivos enlaces -->
+        </section>
+    </main>
+</body>
+</html>
