@@ -59,13 +59,16 @@
             height: auto;
         }
         #viewer.paginada canvas {
-            display: none;
+            display: none; /* Ocultar todas las imágenes por defecto */
         }
-        #viewer.paginada canvas.visible {
-            display: block;
+        #viewer.paginada .visible {
+            display: block; /* Mostrar solo la imagen visible */
         }
         #viewer.cascada {
             flex-direction: column;
+        }
+        #viewer.cascada canvas {
+            margin: 10px 0;
         }
         .comentarios {
             margin: 20px;
@@ -111,27 +114,18 @@
     <script>
         const url = "Ogrest Tomo 1.pdf";
         const viewer = document.getElementById('viewer');
+        const paginadaBtn = document.getElementById('paginadaBtn');
+        const cascadaBtn = document.getElementById('cascadaBtn');
         let pdfDoc = null;
         let currentPage = 1;
 
-        // Cargar el PDF
         pdfjsLib.getDocument(url).promise.then(pdf => {
             pdfDoc = pdf;
-            renderAllPages();
-            mostrarPagina(currentPage);
+            renderPage(currentPage);
         }).catch(error => {
             console.error('Error al cargar el PDF:', error);
         });
 
-        // Renderizar todas las páginas
-        function renderAllPages() {
-            viewer.innerHTML = ''; // Limpiar el viewer
-            for (let i = 1; i <= pdfDoc.numPages; i++) {
-                renderPage(i);
-            }
-        }
-
-        // Renderizar una página
         function renderPage(pageNum) {
             pdfDoc.getPage(pageNum).then(page => {
                 const canvas = document.createElement('canvas');
@@ -140,7 +134,6 @@
 
                 canvas.width = viewport.width;
                 canvas.height = viewport.height;
-                canvas.className = `page page-${pageNum}`;
 
                 viewer.appendChild(canvas);
 
@@ -153,43 +146,46 @@
                     canvas.style.display = 'none';
                 }
 
-                // Agregar eventos de navegación táctil y clic
+                // Navegación táctil en móviles y clic en escritorio
                 canvas.addEventListener('click', handlePageNavigation);
                 canvas.addEventListener('touchend', handlePageNavigation);
             });
         }
 
-        // Manejar navegación en modo paginada
         function handlePageNavigation(event) {
             const canvas = event.currentTarget;
-            const rect = canvas.getBoundingClientRect();
-            const clickX = event.type === 'touchend'
-                ? event.changedTouches[0].clientX - rect.left
-                : event.offsetX;
+            const canvasWidth = canvas.width;
 
-            if (clickX > rect.width / 2 && currentPage < pdfDoc.numPages) {
+            let clickX;
+            if (event.type === 'touchend') {
+                clickX = event.changedTouches[0].clientX - canvas.getBoundingClientRect().left;
+            } else {
+                clickX = event.offsetX;
+            }
+
+            if (clickX > canvasWidth / 2 && currentPage < pdfDoc.numPages) {
                 currentPage++;
                 mostrarPagina(currentPage);
-            } else if (clickX <= rect.width / 2 && currentPage > 1) {
+            } else if (clickX <= canvasWidth / 2 && currentPage > 1) {
                 currentPage--;
                 mostrarPagina(currentPage);
             }
         }
 
-        // Cambiar el formato de visualización
         function cambiarFormato(formato) {
             viewer.className = formato;
+            currentPage = 1;
 
             if (formato === 'paginada') {
                 mostrarPagina(currentPage);
-            } else if (formato === 'cascada') {
-                viewer.querySelectorAll('canvas').forEach(canvas => {
-                    canvas.style.display = 'block';
-                });
+            } else {
+                viewer.innerHTML = '';
+                for (let i = 1; i <= pdfDoc.numPages; i++) {
+                    renderPage(i);
+                }
             }
         }
 
-        // Mostrar la página actual en modo paginada
         function mostrarPagina(pageNum) {
             const canvases = viewer.querySelectorAll('canvas');
             canvases.forEach((canvas, index) => {
@@ -197,7 +193,6 @@
             });
         }
 
-        // Navegación con teclas del teclado
         document.addEventListener('keydown', function(event) {
             if (event.key === 'ArrowRight' && currentPage < pdfDoc.numPages && viewer.classList.contains('paginada')) {
                 currentPage++;
@@ -210,3 +205,4 @@
     </script>
 </body>
 </html>
+
