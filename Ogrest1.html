@@ -53,6 +53,11 @@
             flex-direction: column;
             align-items: center;
         }
+        #viewer canvas {
+            margin: 20px auto;
+            max-width: 90%;
+            height: auto;
+        }
         #viewer.paginada canvas {
             display: none; /* Ocultar todas las imágenes por defecto */
         }
@@ -96,10 +101,9 @@
 
         <section id="viewer" class="paginada"></section>
 
-        <!-- Botón "Siguiente capítulo" -->
-            <div class="controls" style="text-align: center; margin: 20px;">
-                <a href="Ogrest2.html"><button>Siguiente capítulo</button></a>
-            </div>
+        <div class="controls" style="text-align: center; margin: 20px;">
+            <a href="Ogrest2.html"><button>Siguiente capítulo</button></a>
+        </div>
 
         <section class="comentarios">
             <h3>Deja un comentario:</h3>
@@ -115,7 +119,6 @@
         let pdfDoc = null;
         let currentPage = 1;
 
-        // Cargar el PDF
         pdfjsLib.getDocument(url).promise.then(pdf => {
             pdfDoc = pdf;
             renderPage(currentPage);
@@ -123,7 +126,6 @@
             console.error('Error al cargar el PDF:', error);
         });
 
-        // Renderizar una página
         function renderPage(pageNum) {
             pdfDoc.getPage(pageNum).then(page => {
                 const canvas = document.createElement('canvas');
@@ -133,12 +135,6 @@
                 canvas.width = viewport.width;
                 canvas.height = viewport.height;
 
-                // Si está en formato paginado, ocultar las demás imágenes
-                if (viewer.classList.contains('paginada')) {
-                    canvas.style.display = (pageNum === currentPage) ? 'block' : 'none';
-                }
-
-                // Agregar la página al contenedor de visualización
                 viewer.appendChild(canvas);
 
                 page.render({
@@ -146,50 +142,26 @@
                     viewport: viewport
                 });
 
-                // Hacer clic en la imagen para avanzar o retroceder
-                canvas.addEventListener('click', (event) => {
-                    if (viewer.classList.contains('paginada')) {
-                        const canvasWidth = canvas.width;
-                        const clickX = event.offsetX;
-
-                        if (clickX > canvasWidth / 2 && currentPage < pdfDoc.numPages) {
-                            // Hizo clic en la parte derecha, ir a la siguiente página
-                            currentPage++;
-                            mostrarPagina(currentPage);
-                        } else if (clickX <= canvasWidth / 2 && currentPage > 1) {
-                            // Hizo clic en la parte izquierda, ir a la página anterior
-                            currentPage--;
-                            mostrarPagina(currentPage);
-                        }
-                    }
-                });
-            }).catch(error => {
-                console.error('Error al renderizar la página:', error);
+                if (viewer.classList.contains('paginada') && pageNum !== currentPage) {
+                    canvas.style.display = 'none';
+                }
             });
         }
 
-        // Cambiar de formato (paginada o cascada)
         function cambiarFormato(formato) {
-            viewer.innerHTML = ''; // Limpiar el visor
+            viewer.className = formato;
+            currentPage = 1;
+
             if (formato === 'paginada') {
-                viewer.className = 'paginada';
-                for (let i = 1; i <= pdfDoc.numPages; i++) {
-                    renderPage(i);
-                }
                 mostrarPagina(currentPage);
-                paginadaBtn.style.display = "none";
-                cascadaBtn.style.display = "block";
-            } else if (formato === 'cascada') {
-                viewer.className = 'cascada';
+            } else {
+                viewer.innerHTML = '';
                 for (let i = 1; i <= pdfDoc.numPages; i++) {
                     renderPage(i);
                 }
-                paginadaBtn.style.display = "block";
-                cascadaBtn.style.display = "none";
             }
         }
 
-        // Mostrar la página actual
         function mostrarPagina(pageNum) {
             const canvases = viewer.querySelectorAll('canvas');
             canvases.forEach((canvas, index) => {
@@ -197,28 +169,12 @@
             });
         }
 
-        // Navegar entre páginas
         document.addEventListener('keydown', function(event) {
             if (event.key === 'ArrowRight' && currentPage < pdfDoc.numPages && viewer.classList.contains('paginada')) {
                 currentPage++;
                 mostrarPagina(currentPage);
             } else if (event.key === 'ArrowLeft' && currentPage > 1 && viewer.classList.contains('paginada')) {
                 currentPage--;
-                mostrarPagina(currentPage);
-            }
-        });
-
-        // Navegación por botones
-        document.getElementById('prevPage').addEventListener('click', () => {
-            if (currentPage > 1 && viewer.classList.contains('paginada')) {
-                currentPage--;
-                mostrarPagina(currentPage);
-            }
-        });
-
-        document.getElementById('nextPage').addEventListener('click', () => {
-            if (currentPage < pdfDoc.numPages && viewer.classList.contains('paginada')) {
-                currentPage++;
                 mostrarPagina(currentPage);
             }
         });
