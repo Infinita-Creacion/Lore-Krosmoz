@@ -59,16 +59,13 @@
             height: auto;
         }
         #viewer.paginada canvas {
-            display: none; /* Ocultar todas las imágenes por defecto */
+            display: none;
         }
-        #viewer.paginada .visible {
-            display: block; /* Mostrar solo la imagen visible */
+        #viewer.paginada canvas.visible {
+            display: block;
         }
         #viewer.cascada {
             flex-direction: column;
-        }
-        #viewer.cascada canvas {
-            margin: 10px 0;
         }
         .comentarios {
             margin: 20px;
@@ -114,8 +111,6 @@
     <script>
         const url = "Ogrest Tomo 1.pdf";
         const viewer = document.getElementById('viewer');
-        const paginadaBtn = document.getElementById('paginadaBtn');
-        const cascadaBtn = document.getElementById('cascadaBtn');
         let pdfDoc = null;
         let currentPage = 1;
 
@@ -134,6 +129,7 @@
 
                 canvas.width = viewport.width;
                 canvas.height = viewport.height;
+                canvas.className = 'page-' + pageNum;
 
                 viewer.appendChild(canvas);
 
@@ -142,11 +138,11 @@
                     viewport: viewport
                 });
 
-                if (viewer.classList.contains('paginada') && pageNum !== currentPage) {
+                // Control inicial para modo paginada
+                if (pageNum !== currentPage && viewer.classList.contains('paginada')) {
                     canvas.style.display = 'none';
                 }
 
-                // Navegación táctil en móviles y clic en escritorio
                 canvas.addEventListener('click', handlePageNavigation);
                 canvas.addEventListener('touchend', handlePageNavigation);
             });
@@ -154,19 +150,15 @@
 
         function handlePageNavigation(event) {
             const canvas = event.currentTarget;
-            const canvasWidth = canvas.width;
+            const rect = canvas.getBoundingClientRect();
+            const clickX = event.type === 'touchend'
+                ? event.changedTouches[0].clientX - rect.left
+                : event.offsetX;
 
-            let clickX;
-            if (event.type === 'touchend') {
-                clickX = event.changedTouches[0].clientX - canvas.getBoundingClientRect().left;
-            } else {
-                clickX = event.offsetX;
-            }
-
-            if (clickX > canvasWidth / 2 && currentPage < pdfDoc.numPages) {
+            if (clickX > rect.width / 2 && currentPage < pdfDoc.numPages) {
                 currentPage++;
                 mostrarPagina(currentPage);
-            } else if (clickX <= canvasWidth / 2 && currentPage > 1) {
+            } else if (clickX <= rect.width / 2 && currentPage > 1) {
                 currentPage--;
                 mostrarPagina(currentPage);
             }
@@ -174,12 +166,15 @@
 
         function cambiarFormato(formato) {
             viewer.className = formato;
-            currentPage = 1;
+            viewer.innerHTML = '';
 
             if (formato === 'paginada') {
+                currentPage = 1;
+                for (let i = 1; i <= pdfDoc.numPages; i++) {
+                    renderPage(i);
+                }
                 mostrarPagina(currentPage);
             } else {
-                viewer.innerHTML = '';
                 for (let i = 1; i <= pdfDoc.numPages; i++) {
                     renderPage(i);
                 }
