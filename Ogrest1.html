@@ -161,6 +161,11 @@
 
         // Manejar navegación en modo paginada
         function handlePageNavigation(event) {
+            // Salir si estamos en modo cascada
+            if (viewer.classList.contains('cascada')) {
+                return;
+            }
+
             const canvas = event.currentTarget;
             const rect = canvas.getBoundingClientRect();
             const clickX = event.type === 'touchend'
