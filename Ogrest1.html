@@ -145,7 +145,31 @@
                 if (viewer.classList.contains('paginada') && pageNum !== currentPage) {
                     canvas.style.display = 'none';
                 }
+
+                // Navegación táctil en móviles y clic en escritorio
+                canvas.addEventListener('click', handlePageNavigation);
+                canvas.addEventListener('touchend', handlePageNavigation);
             });
+        }
+
+        function handlePageNavigation(event) {
+            const canvas = event.currentTarget;
+            const canvasWidth = canvas.width;
+
+            let clickX;
+            if (event.type === 'touchend') {
+                clickX = event.changedTouches[0].clientX - canvas.getBoundingClientRect().left;
+            } else {
+                clickX = event.offsetX;
+            }
+
+            if (clickX > canvasWidth / 2 && currentPage < pdfDoc.numPages) {
+                currentPage++;
+                mostrarPagina(currentPage);
+            } else if (clickX <= canvasWidth / 2 && currentPage > 1) {
+                currentPage--;
+                mostrarPagina(currentPage);
+            }
         }
 
         function cambiarFormato(formato) {
