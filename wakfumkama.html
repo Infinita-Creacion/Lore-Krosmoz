@@ -100,46 +100,45 @@
     </main>
 
     <script>
-        const url = "Las Kamas de la Sed.pdf";
-        const viewer = document.getElementById('viewer');
-        let pdfDoc = null;
-        let currentPage = 1;
+    const url = "Las Kamas de la Sed.pdf";
+    const viewer = document.getElementById('viewer');
+    let pdfDoc = null;
+    let currentPage = 1;
 
-        // Cargar el PDF
-        pdfjsLib.getDocument(url).promise.then(pdf => {
-            pdfDoc = pdf;
-            renderAllPages();
-            mostrarPagina(currentPage);
-        }).catch(error => {
-            console.error('Error al cargar el PDF:', error);
-        });
+    // Cargar el PDF
+    pdfjsLib.getDocument(url).promise.then(pdf => {
+        pdfDoc = pdf;
+        renderAllPagesSequentially();
+        mostrarPagina(currentPage);
+    }).catch(error => {
+        console.error('Error al cargar el PDF:', error);
+    });
 
-        // Renderizar todas las páginas
-        function renderAllPages() {
-            viewer.innerHTML = ''; // Limpiar el viewer
-            for (let i = 1; i <= pdfDoc.numPages; i++) {
-                renderPage(i);
-            }
+    // Renderizar todas las páginas en orden
+    async function renderAllPagesSequentially() {
+        viewer.innerHTML = ''; // Limpiar el viewer
+        for (let i = 1; i <= pdfDoc.numPages; i++) {
+            await renderPage(i);
         }
+    }
 
-        // Renderizar una página
-        function renderPage(pageNum) {
-            pdfDoc.getPage(pageNum).then(page => {
-                const canvas = document.createElement('canvas');
-                const context = canvas.getContext('2d');
-                const viewport = page.getViewport({ scale: 1.5 });
+    // Renderizar una página con espera
+    async function renderPage(pageNum) {
+        return pdfDoc.getPage(pageNum).then(page => {
+            const canvas = document.createElement('canvas');
+            const context = canvas.getContext('2d');
+            const viewport = page.getViewport({ scale: 1.5 });
 
-                canvas.width = viewport.width;
-                canvas.height = viewport.height;
-                canvas.className = `page page-${pageNum}`;
+            canvas.width = viewport.width;
+            canvas.height = viewport.height;
+            canvas.className = `page page-${pageNum}`;
 
-                viewer.appendChild(canvas);
+            viewer.appendChild(canvas);
 
-                page.render({
-                    canvasContext: context,
-                    viewport: viewport
-                });
-
+            return page.render({
+                canvasContext: context,
+                viewport: viewport
+            }).promise.then(() => {
                 if (viewer.classList.contains('paginada') && pageNum !== currentPage) {
                     canvas.style.display = 'none';
                 }
@@ -148,61 +147,59 @@
                 canvas.addEventListener('click', handlePageNavigation);
                 canvas.addEventListener('touchend', handlePageNavigation);
             });
+        });
+    }
+
+    // Manejar navegación en modo paginada
+    function handlePageNavigation(event) {
+        if (viewer.classList.contains('cascada')) return;
+
+        const canvas = event.currentTarget;
+        const rect = canvas.getBoundingClientRect();
+        const clickX = event.type === 'touchend'
+            ? event.changedTouches[0].clientX - rect.left
+            : event.offsetX;
+
+        if (clickX > rect.width / 2 && currentPage < pdfDoc.numPages) {
+            currentPage++;
+            mostrarPagina(currentPage);
+        } else if (clickX <= rect.width / 2 && currentPage > 1) {
+            currentPage--;
+            mostrarPagina(currentPage);
         }
+    }
 
-        // Manejar navegación en modo paginada
-        function handlePageNavigation(event) {
-            // Salir si estamos en modo cascada
-            if (viewer.classList.contains('cascada')) {
-                return;
-            }
+    // Cambiar el formato de visualización
+    function cambiarFormato(formato) {
+        viewer.className = formato;
 
-            const canvas = event.currentTarget;
-            const rect = canvas.getBoundingClientRect();
-            const clickX = event.type === 'touchend'
-                ? event.changedTouches[0].clientX - rect.left
-                : event.offsetX;
-
-            if (clickX > rect.width / 2 && currentPage < pdfDoc.numPages) {
-                currentPage++;
-                mostrarPagina(currentPage);
-            } else if (clickX <= rect.width / 2 && currentPage > 1) {
-                currentPage--;
-                mostrarPagina(currentPage);
-            }
-        }
-
-        // Cambiar el formato de visualización
-        function cambiarFormato(formato) {
-            viewer.className = formato;
-
-            if (formato === 'paginada') {
-                mostrarPagina(currentPage);
-            } else if (formato === 'cascada') {
-                viewer.querySelectorAll('canvas').forEach(canvas => {
-                    canvas.style.display = 'block';
-                });
-            }
-        }
-
-        // Mostrar la página actual en modo paginada
-        function mostrarPagina(pageNum) {
-            const canvases = viewer.querySelectorAll('canvas');
-            canvases.forEach((canvas, index) => {
-                canvas.style.display = (index + 1 === pageNum) ? 'block' : 'none';
+        if (formato === 'paginada') {
+            mostrarPagina(currentPage);
+        } else if (formato === 'cascada') {
+            viewer.querySelectorAll('canvas').forEach(canvas => {
+                canvas.style.display = 'block';
             });
         }
+    }
 
-        // Navegación con teclas del teclado
-        document.addEventListener('keydown', function(event) {
-            if (event.key === 'ArrowRight' && currentPage < pdfDoc.numPages && viewer.classList.contains('paginada')) {
-                currentPage++;
-                mostrarPagina(currentPage);
-            } else if (event.key === 'ArrowLeft' && currentPage > 1 && viewer.classList.contains('paginada')) {
-                currentPage--;
-                mostrarPagina(currentPage);
-            }
+    // Mostrar la página actual en modo paginada
+    function mostrarPagina(pageNum) {
+        const canvases = viewer.querySelectorAll('canvas');
+        canvases.forEach((canvas, index) => {
+            canvas.style.display = (index + 1 === pageNum) ? 'block' : 'none';
         });
-    </script>
+    }
+
+    // Navegación con teclas del teclado
+    document.addEventListener('keydown', function(event) {
+        if (event.key === 'ArrowRight' && currentPage < pdfDoc.numPages && viewer.classList.contains('paginada')) {
+            currentPage++;
+            mostrarPagina(currentPage);
+        } else if (event.key === 'ArrowLeft' && currentPage > 1 && viewer.classList.contains('paginada')) {
+            currentPage--;
+            mostrarPagina(currentPage);
+        }
+    });
+</script>
 </body>
 </html>
