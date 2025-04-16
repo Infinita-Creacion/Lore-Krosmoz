@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lore del Krosmoz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #d35400;
+            padding: 20px;
+            text-align: center;
+            color: white;
+        }
+        
+        /* Barra de navegación mejorada */
+        .navbar {
+            background-color: #d35400;
+            border-top: 2px solid #b34700;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 0 0.1%;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            max-width: 1200px;
+        margin: 0 auto;
+        border-radius: 30px 30px 30px 30px;
+        }
+        
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .hamburger {
+            font-size: 28px;
+            color: white;
+            cursor: pointer;
+            display: none;
+            padding: 10px;
+        }
+        
+        .menu {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+            gap: 5px;
+        }
+        
+        .menu > li > a {
+            display: block;
+            padding: 15px 20px;
+            color: white;
+            text-decoration: none;
+            background-color: rgba(0, 0, 0, 0.2);
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            font-weight: bold;
+            border-radius: 10px 10px 10px 10px;
+        }
+        
+        .menu > li > a:hover {
+            background-color: rgba(0, 0, 0, 0.4);
+            transform: translateY(-2px);
+        }
+        
+        .menu > li > a img {
+            vertical-align: middle;
+            height: 24px;
+        }
+        
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+        
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+        
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        
+        main {
+            padding: 0;
+        }
+        
+        section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(800px, 1fr));
+            gap: 15px;
+            background-image: url('3840_2160.jpg');
+            background-size: contain;
+            background-position: bottom;
+            padding: 100px;
+            border-radius: 0px;
+        }
+        
+        .quest-container {
+            background-color: rgba(255, 255, 255, 0.85);
+            padding: 30px;
+            border-radius: 5px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .quest-container h2 {
+            color: #d35400;
+            margin-top: 0;
+            border-bottom: 2px solid #d35400;
+            padding-bottom: 10px;
+        }
+        
+        .quest {
+            margin-bottom: 30px;
+            background-color: rgba(255, 255, 255, 0.7);
+            padding: 20px;
+            border-radius: 5px;
+            border-left: 4px solid #d35400;
+        }
+        
+        .quest a {
+            text-decoration: none;
+            color: #d35400;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        .quest-header {
+            font-weight: bold;
+            font-size: 1.2em;
+            color: #d35400;
+            margin-bottom: 10px;
+        }
+        
+        .quest-details {
+            line-height: 1.6;
+        }
+        
+        .quest-reward {
+            font-style: italic;
+            color: #27ae60;
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 1px dashed #ccc;
+        }
+
+        .quest img {
+            width: 100%;
+            max-height: 400px;
+            object-fit: contain;
+            border-radius: 3px;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            header {
+                padding: 15px;
+                font-size: 18px;
+            }
+            
+            .navbar {
+                padding: 0 5%;
+            }
+            
+            .hamburger {
+                display: block;
+            }
+            
+            .menu {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                gap: 0;
+            }
+            
+            .menu.show {
+                display: flex;
+            }
+            
+            .menu > li {
+                width: 100%;
+            }
+            
+            .menu > li > a {
+                border-radius: 0;
+                border-bottom: 1px solid #b34700;
+                background-color: transparent;
+            }
+            
+            .dropdown-content {
+                position: static;
+                box-shadow: none;
+                background-color: rgba(0, 0, 0, 0.1);
+            }
+            
+            section {
+                padding: 20px;
+                grid-template-columns: 1fr;
+            }
+            
+            .quest-container {
+                padding: 15px;
+            }
+            
+            .quest {
+                padding: 15px;
+            }
+            
+            .quest img {
+                max-height: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Lore del Krosmoz</h1>
+        <nav class="navbar">
+            <div class="container">
+                <div class="hamburger" id="hamburger">&#9776;</div>
+                <ul class="menu" id="menu">
+                    <li><a href="https://discord.gg/U8UM3rwcbb"><img src="dc.png" alt="Discord"></a></li>
+                    <li class="dropdown"><a href="#">BIEN DÉBUTER</a></li>
+                    <li><a href="#">QUÊTES</a></li>
+                    <li><a href="#">PVM</a></li>
+                    <li><a href="#">OPTIMISATION</a></li>
+                    <li><a href="#">ARTISANAT</a></li>
+                    <li><a href="#">DIVERS</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <div class="quest-container">
+                <h2>Isla de Rii y Astrub - Inicios de la aventura</h2>
+                <p>Tras fallar en nuestra misión en la era de los Dofus, y ser rencarnados empezaremos una nueva aventura pero en la era del Wakfu en la isla de Rii.</p>
+                <p>¿Te preguntaras porque en la isla de Rii y no en Incarnam? Hace un tiempo la isla del dragón Prysmaradoth fue contaminada con el Stasis y los primeros encarnados de esta era no lograron solventar el caos de la isla, aun cuando contaban con el apoyo del gran alquimista Otomai.</p>
+                <img src="20.png", width="100%";>
+                <p>Como puedes ver tal cual reencarnas (y generar una gran onda de Wakfu), estás a las puertas de la isla de Incarnam, gran parte de las nubes son violetas porque el Stasis está consumiendo la isla, pero tranquilo por el momento no llegara a la isla de Rii.</p>
+                <p>Tras ser empujado por el Dark Wonejo de la isla de Incarnam, caerás a Rii donde el dragón Grugaloragrán y Otomai te recibirán, tras sentir la onda de Wakfu, ellos creen que es tu primera encarnación en el plano material, pero realmente es la segunda, igualmente te aconsejan adaptarte haciendo algunas interacciones en la isla.</p>
+                <img src="21.png", width="100%";>
+                <p></p>
+                <h2></h2>
+
+                <div class="quest">
+                    <div class="quest-header">1 - Rii, la isla celestial.</div>
+                    <div class="quest-details">
+                        <p>La isla celestial llamada Rii propone numerosas enseñanzas.</p>
+                        <p>No dudes en dar una vuelta por el lugar antes de ir a ver a Grugaloragrán</p>
+                        <img src="1.png">
+                        <p>En esta saga de misiones que deberás aprender lo básico del combate, posicionamiento funciones entre otras cosas, pero tranquilo/a, te iré acompañando paso a paso</p>
+                        <img src="19.png">
+                        <p>A la izquierda de la pantalla veremos ese pequeño texto flotante, básicamente son las misiones que seguimos, es decir misiones que seleccionamos para saber qué debemos hacer sin necesidad de abrir la interfaz de misiones, podemos tener un máximo de 4 seleccionadas, además como pueden ver hay una pequeña brújula, al darle clic nos aparecerá una flecha al rededor del personaje que nos guiara a donde debemos ir en el mapa (solo funciona si estamos en la zona de la misión si estamos en otra isla no aparecerá el botón).</p>
+                        <img src="23.png">
+                        <p>Primero te comentare la ubicación de todo y un par de cositas que necesitas saber. (Con el comando Shift + M abrirás la interfaz del mini mapa además en la parte inferior derecha veras la posición en coordenadas en X e Y)</p>
+                        <img src="10.png">
+                        <p>Como puedes observar en el mapa hay varias marcas, en la de color rojo estará Huly, al lado de ella estará un altar que te permite cambiar de clase, siempre y cuando no sobrepases el nivel 30.</p>
+                        <p>En la marca morada estará Otomai y el taller para la fabricación de la pócima.</p>
+                        <p>En la marca verde encontraras a Airyna y además es donde podrás probar a los Sacos de papas, criaturas diseñadas para que testes tus daños.</p>
+                        <p>En las marcas rosas encontraras a 2 monstruos el <a href="https://www.wakfu.com/es/mmorpg/enciclopedia/monstruos/5526-jalato-celestial">"Jalato Celestial"</a> y el <a href="https://www.wakfu.com/es/mmorpg/enciclopedia/monstruos/5527-dark-wonejo">"Dark Wonejo"</a>.</p>
+                        <p>En la marca amarilla encontraras a Grugaloragrán, será el final de todo.</p>
+                        <p>En esta saga de misiones que deberás aprender lo básico del combate, posicionamiento funciones entre otras cosas, pero tranquilo/a, te iré acompañando paso a paso</p>
+                        <h2></h2>
+                        <p><strong>Habla con Huly:</strong></p>
+                        <img src="2.png">
+                        <p>Huly nos contara cómo funcionan las reencarnaciones.</p>
+                        <p>Nos comenta que las almas no mueren, aun cuando dejan su cuerpo, simplemente son redirigidas por el flujo del Wakfu y son reencarnadas en Incarnam.</p>
+                        <p>Tras ese proceso perdemos nuestras memorias de nuestra vida anterior. Ya fuésemos reyes o panaderos, todos partimos desde el mismo punto otra vez en Incarnam.</p>
+                        <p>Por otro lado, ella es un alma en pena, por lo que se convirtió en un gostofo (fantasma) que nunca ha logrado reencarnar (como dato si se negara a morir o reencarnar se convertiría en un <a href="https://dofus.fandom.com/es/wiki/Chafer">"Chafer"</a>) por eso a dedicado su vida a guiar a encarnarse a los nuevos aventureros.</p>
+                        <p>También nos dice que no somos los únicos en caer en Rii, algunas almas bajan directo al mundo tras encarnarse en Incarnam, además que cada alma es libre de escoger a que clase/religión es decir de quien quiere ser discípulo/fiel.</p>
+                        <p><strong>Habla con Airyna:</strong></p>
+                        <img src="11.png">
+                        <p>Entra en el dojo y habla con ella.</p>
+                        <p>Nos dará la bienvenida a su dojo, preguntando si nos interesa aprender las bases del combate.</p>
+                        <p>Al aceptar nos darán una nueva misión.</p>
+                    <div class="quest">
+                    <div class="quest-header">1.1 - Las bases del combate.</div>
+                    <div class="quest-details">
+                    <img src="22.png">
+                    <p>En el dojo celestial, Airyna te ofrece un repaso de las capacidades básicas de combate.</p>
+                    <p>¡Completa todas las pruebas del principiante para obtener el diploma de su escuela!</p>
+                    <h5>NOTA: Los PA o Puntos de Acción, son algo que necesitas para poder atacar con prácticamente cualquier cosa. Los PM Puntos de Movimiento, son lo que te permite desplazarte, 1 PM es una casilla. Los PW/BC/S o Puntos de Wakfu/Brisa Cuadramental/Stasis son un punta extra que dependiendo de cada clase varia su regeneración y método de regeneración a diferencia de los PA o PM que se regeneran cada inicio de turno.</h5>
+                    <h2></h2>
+                    <p>Tras aceptar repasar los conceptos básicos de combate, veremos diferentes opciones, que nos guiarán poco a poco.</p>
+                    <img src="24.png">
+                    <p>En la primera tarea aprenderemos sobre la orientación, a diferencia de otros juegos, acá en Wakfu el daño por los costados aumenta un 10% y por espalda un 25%, por lo que es importante antes de terminar el turno cambiar la orientación de nuestro personaje.</p>
+                    <img src="25.png">
+                    <p>Podemos usar las flechas del teclado para indicar la dirección del personaje o las flechas bajo la vida.</p>
+                    <p>nuestro objetivo en este combate, es caminar hasta la espalda y golpear al Saco de papas con cualquier cosa.</p>
+                    <img src="26.png">
+                    <h2></h2>
+                    <p>En la segunda tarea aprenderemos sobre las resistencias elementales y los daños elementales.</p>
+                    <p>Haciendo clic derecho sobre el monstruo nos abrirá una interfaz del enemigo que nos dirá sus estadísticas (la espada es el daño, el escudo la resistencia) (también funciona con nuestro personaje o el de un aliado).</p>
+                    <img src="27.png">
+                    <p>Lo que debemos hacer es mirar a que tiene 0 de resistencia y pegarle con uno de los hechizos especiales que nos han dado, para hacer daño a la resistencia mas baja, esto lo denominamos "debilidad elemental" o "debilidad" (en algunos combates o mazmorras nos darán hechizos especiales para cumplir ciertas condiciones, por favor léanlos antes de iniciar combates).</p>
+                    <img src="28.png">
+                    <p>Deberemos hacer 1 golpe por turno y ganaremos el combate al realizar 4 golpes con las debilidades correctas, además cada turno la "debilidad" posiblemente cambie, por lo que será necesario mirar la interfaz de estadísticas del Saco de papas antes de pegarle (en algunas mazmorras varios monstruos o el jefe tendrán está condición, además algunas clases tienen hechizos para bajar las resistencias de los enemigos).</p>
+                    <h2></h2>
+                    <p>En la tercera tarea aprenderemos las distancias, en Wakfu se considera un ataque meleé/CaC cuando un objetivo esta a 2 o menos casillas y un ataque a distancia cuando el objetivo.</p>
+                    <img src="29.png">
+                    <p>Como podemos ver en la imagen, las casillas en verde es la zona meleé/CaC del Saco de papas y la zona en rojo es la zona distancia, para ganar deberemos hacer daño posicionándonos en las casillas verdes y usar el hechizo especial que nos dieron, cambiara cada golpe que demos, acá no será necesario pasar de turno.</p>
+                    <p>Esto es importante porque forma parte de las estadísticas de nuestro personaje y las podemos subir para mejorar nuestros daños o curas.
+                    <h2></h2>
+                    <p>En la cuarta tarea aprenderemos sobre la línea de visión.
+                    <img src="32.png">
+                    <p>En la imagen podemos observar los datos del hechizo, para esto basta con poner el ratón sobre el hechizo y podremos leer los datos, entre ellos está el alcance, daños, efectos entre otros.</p>
+                    <img src="33.png">
+                    <p>Además veremos que hay un pequeño ojito, este nos indicara si podemos golpear o no a través de un obstáculo. Para saber si podemos deberá haber una "X" sobre el ojo, también habrá otro con unas líneas sobre el mismo, esto nos indicará si el hechizo tiene alcance modificable (ya que con algunas partes de equipamiento o subiendo un punto en nuestras estadísticas podremos aumentar el alcance).</p>
+                    <p>Ahora, si el hechizo <strong>NO</strong> tiene la "X" en el ojo le denominamos que tiene línea de visión, si por el contrario tiene la "X" denominamos que <strong>NO</strong> tiene línea de visión.</p>
+                    <img src="30.png">
+                    <p>Nuestro objetivo será pegar al Saco de papas sin que nos estorben los pedruscos, cada golpe que hagamos cambiara la posición de estos, además deberemos golpear a 4 casillas de distancia, ya que es el alcance mínimo del hechizo especial que nos darán.</p>
+                    <img src="31.png">
+                    <h2></h2>
+                    <p>En la quinta tarea aprenderemos sobre sobre la zona de los hechizos, algunos hechizos hacen daño en mas de una casilla, estos los llamamos hechizos en zona, mientras que los que hemos estado usando son hechizos mono objetivo.</p>
+                    <img src="34.png">
+                    <p>Al igual que en los combates anteriores nos darán hechizos especiales, en este caso serán 3, la idea es que golpeemos a todos los Sacos de papas al mismo tiempo para poder ganar debemos golpearlos 4 veces.</p>
+                    <p>Así mismo cada que los golpeemos cambiaran su posición, por ende deberemos variar el hechizo que usamos para hacer daño (si estas con daño meleé y la zona afecta hasta la casilla 3, el monstruo en esa ultima casilla lo tomará como distancia y el daño se reduce y viceversa si la zona de efecto de tu hechizo golpea a un enemigo que este a melee de ti se reduce el daño si eres de distancia).</p>
+                    <h2></h2>
+                    <p>En la sexta tarea aprenderemos sobre los hechizos de desplazamiento.</p>
+                    <p>Existen 5 tipos de desplazamientos: Teleportación propia, teleportación aliado/enemigo, transposición (intercambio de posición con el objetivo) empuje y atracción.</p>
+                    <img src="35.png">
+                    <p>Nuestro objetivo es usar los 4 hechizos especiales, tendremos transposición, teleportación propia, atracción y empuje, con estos llevar al Saco de papas a la casilla verde, no tendremos PM y tendremos PA suficientes para usar 3 hechizos en 1 turno y deberemos hacerlo 4 veces.</p>
+                    <h2></h2>
+                    <p>En la última tarea aprenderemos de los efectos de combate.</p>
+                    <img src="36.png">
+                    <p>Nuestro objetivo será generar daño según el efecto que tiene el Saco de papas, tendrá 4 efectos aleatorios: Hacerte a más de 6 casillas de distancia y pasar de turno, hacerte en contacto con el Saco de papas y pasar de turno, hacerte sobre una casilla roja y usar el hechizo especial para golpear al Saco de papas y finalmente hacerte en una casilla verde y usar el hechizo especial para golpear al Saco de papas.</p>
+                    <img src="37.png">
+                    <p>Además podremos ver nuestros estados en la parte superior derecha de la pantalla, de esta forma no será necesario abrir nuestra interfaz normalmente.</p>
+                    <img src="38.png">
+                    <p>al lado derecho también el orden de turno de los monstruos y personajes, tiempo de turno y una barra verde que se llena más rápido, cuando pasamos turno rápido, esto nos permite elegir una de las 6 opciones de bonus extra, si no se usan se mantienen, pero si se escoge una, otro jugador no podrá usarla, por lo que lo mejor es usarlo cada que aparece.</p>
+                    <p></p>
+                    <p class="quest-reward">Récompensa : Experiencia: 769 - Emote Saludar.</p>
+                    </div>
+                </div>
+                        <p><strong>Habla con Otomai:</strong></p>
+                        
+                        <p><strong>Habla con Huly:</strong></p>
+                        <p>- <strong>Patrie à Pépé Pôle</strong></p>
+                        <p class="quest-reward">Récompensa : Experiencia: 769 - Emote Saludar.</p>
+                    </div>
+                </div>
+
+                <div class="quest">
+                    <div class="quest-header">1.1 - QUÊTE BONUS - UN AMOUR DE GÉLUTIN</div>
+                    <div class="quest-details">
+                        <p>« Même Pôle a quelque chose à vous dire avant que vous partiez, vous devriez aller lui faire vos adieux. »</p>
+                        <p>- <strong>Patrie à Mémé Pôle</strong></p>
+                        <p class="quest-reward">Récompense : Dot + Géturettes Noirs + 3 Coquimettes de Fortune</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script>
+        // Menú hamburguesa
+        const hamburger = document.getElementById('hamburger');
+        const menu = document.getElementById('menu');
+        const dropdowns = document.querySelectorAll('.dropdown');
+        
+        hamburger.addEventListener('click', () => {
+            menu.classList.toggle('show');
+        });
+        
+        // Efecto de scroll en la barra de navegación
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.background = 'rgba(211, 84, 0, 0.95)';
+            } else {
+                navbar.style.background = '#d35400';
+            }
+        });
+        
+        // Manejo de submenús en móvil
+        dropdowns.forEach(dropdown => {
+            dropdown.addEventListener('click', function(e) {
+                if (window.innerWidth <= 768) {
+                    e.preventDefault();
+                    const submenu = this.querySelector('.dropdown-content');
+                    if (submenu) {
+                        submenu.style.display = submenu.style.display === 'block' ? 'none' : 'block';
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
