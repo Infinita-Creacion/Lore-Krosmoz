@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-translate="title">Lore del Krosmoz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #d35400;
+            padding: 20px;
+            text-align: center;
+            color: white;
+        }
+        
+        /* Barra de navegación mejorada */
+        .navbar {
+            background-color: #d35400;
+            border-top: 2px solid #b34700;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 0 0.1%;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            max-width: 1200px;
+        margin: 0 auto;
+        border-radius: 30px 30px 30px 30px;
+        }
+        
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .hamburger {
+            font-size: 28px;
+            color: white;
+            cursor: pointer;
+            display: none;
+            padding: 10px;
+        }
+        
+        .menu {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+            gap: 5px;
+        }
+        
+        .menu > li > a {
+            display: block;
+            padding: 15px 20px;
+            color: white;
+            text-decoration: none;
+            background-color: rgba(0, 0, 0, 0.2);
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            font-weight: bold;
+            border-radius: 10px 10px 10px 10px;
+        }
+        
+        .menu > li > a:hover {
+            background-color: rgba(0, 0, 0, 0.4);
+            transform: translateY(-2px);
+        }
+        
+        .menu > li > a img {
+            vertical-align: middle;
+            height: 24px;
+        }
+        
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+        
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+        
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        
+        main {
+            padding: 0;
+        }
+        
+        section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(800px, 1fr));
+            gap: 15px;
+            background-image: url('430154.jpg');
+            background-size: contain;
+            padding: 100px;
+            border-radius: 0px;
+        }
+        
+        .quest-container {
+            background-color: rgba(255, 255, 255, 0.35);
+            padding: 30px;
+            border-radius: 5px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .quest-container h2 {
+            color: #d35400;
+            margin-top: 0;
+            border-bottom: 2px solid #d35400;
+            padding-bottom: 10px;
+        }
+        
+        .quest {
+            margin-bottom: 30px;
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 5px;
+            border-left: 4px solid #d35400;
+        }
+        
+        .quest a {
+            text-decoration: none;
+            color: #d35400;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        .quest-header {
+            font-weight: bold;
+            font-size: 1.2em;
+            color: #d35400;
+            margin-bottom: 10px;
+        }
+        
+        .quest-details {
+            line-height: 1.6;
+        }
+        
+        .quest-reward {
+            font-style: italic;
+            color: #27ae60;
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 1px dashed #ccc;
+        }
+
+        .quest img {
+            width: 100%;
+            max-height: 600px;
+            object-fit: contain;
+            border-radius: 3px;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            header {
+                padding: 15px;
+                font-size: 18px;
+            }
+            
+            .navbar {
+                padding: 0 5%;
+            }
+            
+            .hamburger {
+                display: block;
+            }
+            
+            .menu {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                gap: 0;
+            }
+            
+            .menu.show {
+                display: flex;
+            }
+            
+            .menu > li {
+                width: 100%;
+            }
+            
+            .menu > li > a {
+                border-radius: 0;
+                border-bottom: 1px solid #b34700;
+                background-color: transparent;
+            }
+            
+            .dropdown-content {
+                position: static;
+                box-shadow: none;
+                background-color: rgba(0, 0, 0, 0.1);
+            }
+            
+            section {
+                padding: 20px;
+                grid-template-columns: 1fr;
+            }
+            
+            .quest-container {
+                padding: 15px;
+            }
+            
+            .quest {
+                padding: 15px;
+            }
+            
+            .quest img {
+                max-height: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Lore del Krosmoz</h1>
+        <nav class="navbar">
+            <div class="container">
+                <div class="hamburger" id="hamburger">&#9776;</div>
+                <ul class="menu" id="menu">
+                    <li><a href="https://discord.gg/U8UM3rwcbb" target="_blank" rel="noopener noreferrer"><img src="dc.png" alt="Discord"></a></li>
+                    <li><a href="#" data-translate="nav.home">Buen inicio</a></li>
+                    <li><a href="#" data-translate="nav.quests">Misiones</a></li>
+                    <li><a href="#" data-translate="nav.dungeons">Mazmorras</a></li>
+                    <li><a href="#" data-translate="nav.optimization">Optimización</a></li>
+                    <li><a href="#" data-translate="nav.crafts">Oficios</a></li>
+                    <li><a href="#" data-translate="nav.misc">Varios</a></li>
+                    <!-- Nuevo botón de idioma integrado en el menú -->
+                    <li><a class="language-toggle" id="languageToggle">PT</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <div class="quest-container">
+                <h2 data-translate="section.title">Isla de Rii y Astrub - Inicios de la aventura</h2>
+                <p data-translate="section.intro1">Tras fallar en nuestra misión en la era de los Dofus, y ser rencarnados empezaremos una nueva aventura pero en la era del Wakfu en la isla de Rii.</p>
+                <p data-translate="section.intro2">¿Te preguntaras porque en la isla de Rii y no en Incarnam? Hace un tiempo la isla del dragón Prysmaradoth fue contaminada con el Stasis y los primeros encarnados de esta era no lograron solventar el caos de la isla, aun cuando contaban con el apoyo del gran alquimista Otomai.</p>
+                <img src="01Rii\20.png" width="100%">
+                <p data-translate="section.image1_desc">Como puedes ver tal cual reencarnas (generas una gran onda de Wakfu), estás a las puertas de la isla de Incarnam, gran parte de las nubes son violetas porque el Stasis está consumiendo la isla, pero tranquilo por el momento no llegara a la isla de Rii.</p>
+                <p data-translate="section.intro3">Tras ser empujado por el Dark Wonejo de la isla de Incarnam, caerás a Rii donde el dragón Grugaloragrán y Otomai te recibirán, tras sentir la onda de Wakfu, ellos creen que es tu primera encarnación en el plano material, pero realmente es la segunda, igualmente te aconsejan adaptarte haciendo algunas interacciones en la isla.</p>
+                <img src="01Rii\21.png" width="100%">
+                
+                <div class="quest">
+                    <div class="quest-header" data-translate="quest1.title">1 - Rii, la isla celestial.</div>
+                    <div class="quest-details">
+                        <p data-translate="quest1.desc1">La isla celestial llamada Rii propone numerosas enseñanzas.</p>
+                        <p data-translate="quest1.desc2">No dudes en dar una vuelta por el lugar antes de ir a ver a Grugaloragrán</p>
+                        <img src="01Rii\1.png">
+                        <p data-translate="quest1.desc3">En esta saga de misiones que deberás aprender lo básico del combate, posicionamiento funciones entre otras cosas, pero tranquilo/a, te iré acompañando paso a paso</p>
+                        <img src="01Rii\19.png">
+                        <p data-translate="quest1.desc4">A la izquierda de la pantalla veremos ese pequeño texto flotante, básicamente son las misiones que seguimos, es decir misiones que seleccionamos para saber qué debemos hacer sin necesidad de abrir la interfaz de misiones, podemos tener un máximo de 4 seleccionadas, además como pueden ver hay una pequeña brújula, al darle clic nos aparecerá una flecha al rededor del personaje que nos guiara a donde debemos ir en el mapa (solo funciona si estamos en la zona de la misión si estamos en otra isla no aparecerá el botón).</p>
+                        <img src="01Rii\23.png">
+                        <p data-translate="quest1.desc5">Primero te comentare la ubicación de todo y un par de cositas que necesitas saber. (Con el comando Shift + M abrirás la interfaz del mini mapa además en la parte inferior derecha veras la posición en coordenadas en X e Y)</p>
+                        <img src="01Rii\10.png">
+                        <p data-translate="quest1.desc6">Como puedes observar en el mapa hay varias marcas, en la de color rojo estará Huly, al lado de ella estará un altar que te permite cambiar de clase, siempre y cuando no sobrepases el nivel 30.</p>
+                        <p data-translate="quest1.desc7">En la marca morada estará Otomai y el taller para la fabricación de la pócima.</p>
+                        <p data-translate="quest1.desc8">En la marca verde encontraras a Airyna y además es donde podrás probar a los Sacos de papas, criaturas diseñadas para que testes tus daños.</p>
+                        <p data-translate="quest1.desc9">En las marcas rosas encontraras a 2 monstruos el <a href="https://www.wakfu.com/es/mmorpg/enciclopedia/monstruos/5526-jalato-celestial" target="_blank" rel="noopener noreferrer">"Jalato Celestial"</a> y el <a href="https://www.wakfu.com/es/mmorpg/enciclopedia/monstruos/5527-dark-wonejo" target="_blank" rel="noopener noreferrer">"Dark Wonejo"</a>.</p>
+                        <p data-translate="quest1.desc10">En la marca amarilla encontraras a Grugaloragrán, será el final de todo.</p>
+                        <p data-translate="quest1.desc11">con estás misiones que deberás aprender lo básico del combate, posicionamiento funciones entre otras cosas, pero tranquilo/a, te iré acompañando paso a paso</p>
+                        
+                        <p data-translate="quest1.huly_title"><strong>Habla con Huly (la Aniripsa):</strong></p>
+                        <img src="01Rii\2.png">
+                        <p data-translate="quest1.huly_desc">Huly nos contara cómo funcionan las reencarnaciones.</p>
+                        <p data-translate="quest1.huly_desc2">Nos comenta que las almas no mueren, aun cuando dejan su cuerpo, simplemente son redirigidas por el flujo del Wakfu y son reencarnadas en Incarnam.</p>
+                        <p data-translate="quest1.huly_desc3">Tras ese proceso perdemos nuestras memorias de nuestra vida anterior. Ya fuésemos reyes o panaderos, todos partimos desde el mismo punto otra vez en Incarnam.</p>
+                        <p data-translate="quest1.huly_desc4">Por otro lado, ella es un alma en pena, por lo que se convirtió en un gostofo (fantasma) que nunca ha logrado reencarnar (como dato si se negara a morir o reencarnar se convertiría en un <a href="https://dofus.fandom.com/es/wiki/Chafer" target="_blank" rel="noopener noreferrer">"Chafer"</a>) por eso a dedicado su vida a guiar a encarnarse a los nuevos aventureros.</p>
+                        <p data-translate="quest1.huly_desc5">También nos dice que no somos los únicos en caer en Rii, algunas almas bajan directo al mundo tras encarnarse en Incarnam, además que cada alma es libre de escoger a que clase/religión es decir de quien quiere ser discípulo/fiel.</p>
+                        
+                        <p data-translate="quest1.airyna_title"><strong>Habla con Airyna (la Sacrógrito):</strong></p>
+                        <img src="01Rii\11.png">
+                        <p data-translate="quest1.airyna_desc">Entra en el dojo y habla con ella.</p>
+                        <p data-translate="quest1.airyna_desc2">Nos dará la bienvenida a her dojo, preguntando si nos interesa aprender las bases del combate.</p>
+                        <p data-translate="quest1.airyna_desc3">Al aceptar nos darán una nueva misión.</p>
+                        
+                        <div class="quest">
+                            <div class="quest-header" data-translate="quest1.subquest1.title">1.1 - Las bases del combate.</div>
+                            <div class="quest-details">
+                                <img src="01Rii\22.png">
+                                <p data-translate="quest1.subquest1.desc1">En el dojo celestial, Airyna te ofrece un repaso de las capacidades básicas de combate.</p>
+                                <p data-translate="quest1.subquest1.desc2">¡Completa todas las pruebas del principiante para obtener el diploma de su escuela!</p>
+                                <h5 data-translate="quest1.subquest1.note">NOTA: Los PA o Puntos de Acción, son algo que necesitas para poder atacar con prácticamente cualquier cosa. Los PM Puntos de Movimiento, son lo que te permite desplazarte, 1 PM es una casilla. Los PW/BC/S o Puntos de Wakfu/Brisa Cuadramental/Stasis son un punta extra que dependiendo de cada clase varia su regeneración y método de regeneración a diferencia de los PA o PM que se regeneran cada inicio de turno.</h5>
+                                <img src="01Rii\24.png">
+                                <p data-translate="quest1.subquest1.desc3">En la primera tarea aprenderemos sobre la orientación, a diferencia de otros juegos, acá en Wakfu el daño por los costados aumenta un 10% y por espalda un 25%, por lo que es importante antes de terminar el turno cambiar la orientación de nuestro personaje.</p>
+                                <img src="01Rii\25.png">
+                                <p data-translate="quest1.subquest1.desc4">Podemos usar las flechas del teclado para indicar la dirección del personaje o las flechas bajo la vida.</p>
+                                <p data-translate="quest1.subquest1.desc5">nuestro objetivo en este combate, es caminar hasta la espalda y golpear al Saco de papas con cualquier cosa.</p>
+                                <img src="01Rii\26.png">
+                                <p data-translate="quest1.subquest1.desc6">En la segunda tarea aprenderemos sobre las resistencias elementales y los daños elementales.</p>
+                                <img src="01Rii\27.png">
+                                <p data-translate="quest1.subquest1.desc7">Haciendo clic derecho sobre el monstruo nos abrirá una interfaz del enemigo que nos dirá sus estadísticas (la espada es el daño, el escudo la resistencia) (también funciona con nuestro personaje o el de un aliado).</p>
+                                <img src="01Rii\28.png">
+                                <p data-translate="quest1.subquest1.desc8">Lo que debemos hacer es mirar a que tiene 0 de resistencia y pegarle con uno de los hechizos especiales que nos han dado, para hacer daño a la resistencia mas baja, esto lo denominamos "debilidad elemental" o "debilidad" (en algunos combates o mazmorras nos darán hechizos especiales para cumplir ciertas condiciones, por favor léanlos antes de iniciar combates).</p>
+                                <p data-translate="quest1.subquest1.desc9">Deberemos hacer 1 golpe por turno y ganaremos el combate al realizar 4 golpes con las debilidades correctas, además cada turno la "debilidad" posiblemente cambie, por lo que será necesario mirar la interfaz de estadísticas del Saco de papas antes de pegarle (en algunas mazmorras varios monstruos o el jefe tendrán está condición, además algunas clases tienen hechizos para bajar las resistencias de los enemigos).</p>
+                                <img src="01Rii\29.png">
+                                <p data-translate="quest1.subquest1.desc10">En la tercera tarea aprenderemos las distancias, en Wakfu se considera un ataque meleé/CaC cuando un objetivo esta a 2 o menos casillas y un ataque a distancia cuando el objetivo.</p>
+                                <p data-translate="quest1.subquest1.desc11">Como podemos ver en la imagen, las casillas en verde es la zona meleé/CaC del Saco de papas y la zona en rojo es la zona distancia, para ganar deberemos hacer daño posicionándonos en las casillas verdes y usar el hechizo especial que nos dieron, cambiara cada golpe que demos, acá no será necesario pasar de turno.</p>
+                                <p data-translate="quest1.subquest1.desc12">Esto es importante porque forma parte de las estadísticas de nuestro personaje y las podemos subir para mejorar nuestros daños o curas.</p>
+                                <img src="01Rii\32.png">
+                                <p data-translate="quest1.subquest1.desc13">En la cuarta tarea aprenderemos sobre la línea de visión.</p>
+                                <img src="01Rii\33.png">
+                                <p data-translate="quest1.subquest1.desc14">En la imagen podemos observar los datos del hechizo, para esto basta con poner el ratón sobre el hechizo y podremos leer los datos, entre ellos está el alcance, daños, efectos entre otros.</p>
+                                <p data-translate="quest1.subquest1.desc15">Además veremos que hay un pequeño ojito, este nos indicara si podemos golpear o no a través de un obstáculo. Para saber si podemos deberá haber una "X" sobre el ojo, también habrá otro con unas líneas sobre el mismo, esto nos indicará si el hechizo tiene alcance modificable (ya que con algunas partes de equipamiento o subiendo un punto en nuestras estadísticas podremos aumentar el alcance).</p>
+                                <p data-translate="quest1.subquest1.desc16">Ahora, si el hechizo <strong>NO</strong> tiene la "X" en el ojo le denominamos que tiene línea de visión, si por el contrario tiene la "X" denominamos que <strong>NO</strong> tiene línea de visión.</p>
+                                <img src="01Rii\30.png">
+                                <p data-translate="quest1.subquest1.desc17">Nuestro objetivo será pegar al Saco de papas sin que nos estorben los pedruscos, cada golpe que hagamos cambiara la posición de estos, además deberemos golpear a 4 casillas de distancia, ya que es el alcance mínimo del hechizo especial que nos darán.</p>
+                                <img src="01Rii\31.png">
+                                <p data-translate="quest1.subquest1.desc18">En la quinta tarea aprenderemos sobre sobre la zona de los hechizos, algunos hechizos hacen daño en mas de una casilla, estos los llamamos hechizos en zona, mientras que los que hemos estado usando son hechizos mono objetivo.</p>
+                                <img src="01Rii\34.png">
+                                <p data-translate="quest1.subquest1.desc19">Al igual que en los combates anteriores nos darán hechizos especiales, en este caso serán 3, la idea es que golpeemos a todos los Sacos de papas al mismo tiempo para poder ganar debemos golpearlos 4 veces.</p>
+                                <p data-translate="quest1.subquest1.desc20">Así mismo cada que los golpeemos cambiaran su posición, por ende deberemos variar el hechizo que usamos para hacer daño (si estas con daño meleé y la zona afecta hasta la casilla 3, el monstruo en esa ultima casilla lo tomará como distancia y el daño se reduce y viceversa si la zona de efecto de tu hechizo golpea a un enemigo que este a melee de ti se reduce el daño si eres de distancia).</p>
+                                <img src="01Rii\35.png">
+                                <p data-translate="quest1.subquest1.desc21">En la sexta tarea aprenderemos sobre los hechizos de desplazamiento.</p>
+                                <p data-translate="quest1.subquest1.desc22">Existen 5 tipos de desplazamientos: Teleportación propia, teleportación aliado/enemigo, transposición (intercambio de posición con el objetivo) empuje y atracción.</p>
+                                <p data-translate="quest1.subquest1.desc23">Nuestro objetivo es usar los 4 hechizos especiales, tendremos transposición, teleportación propia, atracción y empuje, con estos llevar al Saco de papas a la casilla verde, no tendremos PM y tendremos PA suficientes para usar 3 hechizos en 1 turno y deberemos hacerlo 4 veces.</p>
+                                <img src="01Rii\36.png">
+                                <p data-translate="quest1.subquest1.desc24">En la última tarea aprenderemos de los efectos de combate.</p>
+                                <img src="01Rii\37.png">
+                                <p data-translate="quest1.subquest1.desc25">Nuestro objetivo será generar daño según el efecto que tiene el Saco de papas, tendrá 4 efectos aleatorios: Hacerte a más de 6 casillas de distancia y pasar de turno, hacerte en contacto con el Saco de papas y pasar de turno, hacerte sobre una casilla roja y usar el hechizo especial para golpear al Saco de papas y finalmente hacerte en una casilla verde y usar el hechizo especial para golpear al Saco de papas.</p>
+                                <img src="01Rii\38.png">
+                                <p data-translate="quest1.subquest1.desc26">Además podremos ver nuestros estados en la parte superior derecha de la pantalla, de esta forma no será necesario abrir nuestra interfaz normalmente.</p>
+                                <p data-translate="quest1.subquest1.desc27">al lado derecho también el orden de turno de los monstruos y personajes, tiempo de turno y una barra verde que se llena más rápido, cuando pasamos turno rápido, esto nos permite elegir una de las 6 opciones de bonus extra, si no se usan se mantienen, pero si se escoge una, otro jugador no podrá usarla, por lo que lo mejor es usarlo cada que aparece.</p>
+                                <p class="quest-reward" data-translate="quest1.subquest1.reward">Récompensa : Experiencia (varia según el nivel) - Emote Saludar.</p>
+                            </div>
+                        </div>
+                        
+                        <p data-translate="quest1.kheperalia_title"><strong>Habla con Kheperalia (la Sadida):</strong></p>
+                        <img src="01Rii\5.png">
+                        <p data-translate="quest1.kheperalia_desc">Ella estará caminando por toda la isla, por lo que deberemos buscarla.</p>
+                        <p data-translate="quest1.kheperalia_desc2">Una vez la encontremos, nos comentara que ayuda a Otomai regulando la fauna y flora de los ecosistemas y responde tranquilamente nuestras preguntas sobre estos.</p>
+                        <p data-translate="quest1.kheperalia_desc3">Nos contara que le gusta el equilibrio de las fuerzas que nos rodean (Wakfu energia de la vida y Stasis energia de la destrucción), por eso le da una gran importancia al equilibrio del ecosistema.</p>
+                        <p data-translate="quest1.kheperalia_desc4">Nuestras acciones afectan al mundo y debemos aprender a mantener el equilibrio.</p>
+                        <p data-translate="quest1.kheperalia_desc5">Nos ofreceremos a ayudarla y aprender sobre nuestras acciones en el mundo.</p>
+                        
+                        <div class="quest">
+                            <div class="quest-header" data-translate="quest1.subquest2.title">1.2 - Las bases del ecosistema - Monstruos</div>
+                            <div class="quest-details">
+                                <img src="01Rii\39.png">
+                                <p data-translate="quest1.subquest2.desc1">Kheperalia te ha confiado unas misiones para controlar el ecosistema de la isla celestial.</p>
+                                <p data-translate="quest1.subquest2.desc2">Cuando muere un monstruo, desaparece para siempre, al igual que los árboles talados o las plantas recolectadas.</p>
+                                <p data-translate="quest1.subquest2.desc3">Depende de ti replantar en el ecosistema lo que consumes, ¡o podrías desajustarlo!</p>
+                                <img src="01Rii\41.png">
+                                <p data-translate="quest1.subquest2.desc4">Con la tecla "W" o clicando en el Jalató bajo la imagen del Miembro De Clan (MDC) en la parte superior derecha de la pantalla abriremos una nueva interfaz.</p>
+                                <img src="01Rii\46.png">
+                                <p data-translate="quest1.subquest2.desc5">Con esta interfaz podremos conocer el estado del territorio que maneja él/la MDC.</p>
+                                <img src="01Rii\49.png">
+                                <p data-translate="quest1.subquest2.desc6">La sabiduría es una caracteristica que nos aumenta el porcentual(%) de experiencia ganada, 1 punto equivale a 1% de experiencia extra y tiene un tope de 150% (aunque el juego diga 200%).</p>
+                                <p data-translate="quest1.subquest2.desc7">La prospección aumenta la probabilidad de obtener recursos de monstruos, equipables u otros tipos de objetos, esto lo explico mejor en la <a>"Guia de la prospección"</a> tiene un limite de 200 puntos.</p>
+                                <img src="01Rii\48.png">
+                                <p data-translate="quest1.subquest2.desc8">Abajo del nivel de satisfacción podemos observar que son frascos con una linea a la izquierda que indica la cantidad y bajo de estos en algunos casos una estrella con 2 limites de cantidad que son minimos y maximos.</p>
+                                <p data-translate="quest1.subquest2.desc9">Si la cantidad de recursos/monstruos está dentro de los limites indicados aumentara el nivel de satisfacción y esto nos ayudara a subir mas fácil los oficios o el personaje de nivel.</p>
+                                <p data-translate="quest1.subquest2.desc10">Tambien los logos nos diran que tipo de recurso, los monstruos tendran su propio logo que sera una pequeña imagen de la cara de dicho monstruo, mientras que los recursos de oficios serán todos un solo logo por categoria.</p>
+                                <p data-translate="quest1.subquest2.desc11">todos los recursos de campesino se indican con el logo del trigo, los de leñador con el arbol y plantas con la flor.</p>
+                                <p data-translate="quest1.subquest2.desc12">Ahora que hemos aprendido lo básico del ecosistema podremos hacer las misiones, empezaremos matando 3 monstruos de la familia Embrialmas ya sea el </a> y el <a href="https://www.wakfu.com/es/mmorpg/enciclopedia/monstruos/5455-wonejo" target="_blank" rel="noopener noreferrer">"Wonejo"</a> o la <a href="https://www.wakfu.com/es/mmorpg/enciclopedia/monstruos/5456-mama-wonejo" target="_blank" rel="noopener noreferrer">"Mamá wonejo"</a>.</p>
+                                <img src="01Rii\50.png">
+                                <p data-translate="quest1.subquest2.desc13">Para esto debemos dar clic derecho en alguno de los monstruos y darle clic izquierdo a la imagen de la espada, de esta forma iniciamos un combate.</p>
+                                <p data-translate="quest1.subquest2.desc14">También al poner el ratón sobre un monstruo veremos la cantidad de monstruos en el grupo al que nos enfrentaremos, está varia de 1 a 6 generalmente, pero acá es un maximo de 4.</p>
+                                <img src="01Rii\42.png">
+                                <p data-translate="quest1.subquest2.desc15">Ahora deberemos conseguir 3 semillas de monstruo y plantarlas para mantener el equilibrio del ecosistema.</p>
+                                <p data-translate="quest1.subquest2.desc16">Para esto debemos hacer el mismo proceso anterior, pero con la diferencia de escoger la pocima en lugar de la espada.</p>
+                                <p data-translate="quest1.subquest2.desc17">Nos agacharemos para recoger la semilla, esta cinematica tiene un tiempo que debemos esperar de la recolección y aplica en todos los oficios, en la ciudad de Astrub veremos este tema con mas detalle.</p>
+                                <p data-translate="quest1.subquest2.desc18">Por defecto se agregara a la interfaz de acceso rapido en la parte inferior derecha de la pantalla</p>
+                                <img src="01Rii\43.png">
+                                <p data-translate="quest1.subquest2.desc19">También podemos verlas en el inventario al cual podemos acceder con la tecla "I" o accediendo desde la interfaz de accesos en la parte inferior izquierda de la pantalla, dando un clic izquierdo en la bolsa.</p>
+                                <img src="01Rii\44.png">
+                                <p data-translate="quest1.subquest2.desc20">En la interfaz de inventario veremos varias cosas.</p>
+                                <img src="01Rii\45.png">
+                                <p data-translate="quest1.subquest2.desc21">Primero veremos en la parte superior izquierda la cara de nuestro personaje y abajo de esta un circulo con un "+" esto es en caso de tener el <a>"Booster pack"</a>, luego en la parte derecha veremos 5 imagenes: -Un bolso que será nuestro inventario tal cual. -Una llave que serán objetos clave de misiones y otras cosas que algunas se comparten entre los personajes del mismo servidor. -Una estrella que será donde se guardaran todos nuestros cosmeticos y al igual que en el anterior se comparten entre los personajes del mismo servidor. -Un martillo que sirve para romper recursos o equipables para tener mas especio. -Un diablo que esto es parte de una función del juego llamada <a>"Pacto demoniaco"</a> (esta mecanica no se mirará ni se profundizara en ningun apartado de esta pagina).</p>
+                                <p data-translate="quest1.subquest2.desc22">Abajo de estos botones veremos una barra de busqueda y un boton con unas flechas "↑↓" esto sirve para order el inventario completo de forma automatica.</p>
+                                <p data-translate="quest1.subquest2.desc23">Luego tendremos los "Bolsillos" o "Bolsos" que a la derecha tendremos el botón "↑↓" para order solo ese bolsillo y la cantidad de espacios disponibles que a diferencia de muchos juegos que nos limitan la cantidad de objetos por peso, en este caso se limita por cantidad diferente de objetos, si son los mismos objetos se acumulan entre ellos y se les llama "Stacks", por lo que el limite de espacios se basa en la cantidad de diferentes objetos.</p>
+                                <p data-translate="quest1.subquest2.desc24">Finalmente tendremos 5 espacios, 3 para "Bolsos" y 2 para "Cajitas" estas ultimas varian su función de almacenamiento según el tipo de caja y la cantidad de kamas.</p>
+                                <p data-translate="quest1.subquest2.desc25">Para usar las semillas tendremos que usar la tecla "1" (si las tenemos en la barrade acceso rapido) o en el inventario doble clic izquierdo para usar la semilla.</p>
+                                <div style="display: flex; gap: 10px;">
+                                    <img src="01Rii\51.png">
+                                    <img src="01Rii\52.png">
+                                </div>
+                                <p data-translate="quest1.subquest2.desc26">Generalmente tendremos casillas especificas para plantar, ya sean monstruos o recursos.</p>
+                                <p data-translate="quest1.subquest2.desc27">Si hay un exceso en la zona simplemente el personaje movera la cabeza</p>
+                                <img src="01Rii\53.png">
+                                <p class="quest-reward" data-translate="quest1.subquest2.reward">Recompensa : Experiencia (varia según tu nivel).</p>
+                            </div>
+                        </div>
+                        
+                        <p data-translate="quest1.otomai_title"><strong>Habla con Otomai:</strong></p>
+                        <p class="quest-reward" data-translate="quest1.reward">Récompensa : Experiencia: 769 - Emote acostarse - Bolsa celestial.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Traducciones completas ES/PT
+        const translations = {
+            es: {
+                "title": "Lore del Krosmoz",
+                "nav.home": "Buen inicio",
+                "nav.quests": "Misiones",
+                "nav.dungeons": "Mazmorras",
+                "nav.optimization": "Optimización",
+                "nav.crafts": "Oficios",
+                "nav.misc": "Varios",
+                "section.title": "Isla de Rii y Astrub - Inicios de la aventura",
+                "section.intro1": "Tras fallar en nuestra misión en la era de los Dofus, y ser rencarnados empezaremos una nueva aventura pero en la era del Wakfu en la isla de Rii.",
+                "section.intro2": "¿Te preguntaras porque en la isla de Rii y no en Incarnam? Hace un tiempo la isla del dragón Prysmaradoth fue contaminada con el Stasis y los primeros encarnados de esta era no lograron solventar el caos de la isla, aun cuando contaban con el apoyo del gran alquimista Otomai.",
+                "section.image1_desc": "Como puedes ver tal cual reencarnas (generas una gran onda de Wakfu), estás a las puertas de la isla de Incarnam, gran parte de las nubes son violetas porque el Stasis está consumiendo la isla, pero tranquilo por el momento no llegara a la isla de Rii.",
+                "section.intro3": "Tras ser empujado por el Dark Wonejo de la isla de Incarnam, caerás a Rii donde el dragón Grugaloragrán y Otomai te recibirán, tras sentir la onda de Wakfu, ellos creen que es tu primera encarnación en el plano material, pero realmente es la segunda, igualmente te aconsejan adaptarte haciendo algunas interacciones en la isla.",
+                "quest1.title": "1 - Rii, la isla celestial.",
+                "quest1.desc1": "La isla celestial llamada Rii propone numerosas enseñanzas.",
+                "quest1.desc2": "No dudes en dar una vuelta por el lugar antes de ir a ver a Grugaloragrán",
+                "quest1.desc3": "En esta saga de misiones que deberás aprender lo básico del combate, posicionamiento funciones entre otras cosas, pero tranquilo/a, te iré acompañando paso a paso",
+                "quest1.desc4": "A la izquierda de la pantalla veremos ese pequeño texto flotante, básicamente son las misiones que seguimos, es decir misiones que seleccionamos para saber qué debemos hacer sin necesidad de abrir la interfaz de misiones, podemos tener un máximo de 4 seleccionadas, además como pueden ver hay una pequeña brújula, al darle clic nos aparecerá una flecha al rededor del personaje que nos guiara a donde debemos ir en el mapa (solo funciona si estamos en la zona de la misión si estamos en otra isla no aparecerá el botón).",
+                "quest1.desc5": "Primero te comentare la ubicación de todo y un par de cositas que necesitas saber. (Con el comando Shift + M abrirás la interfaz del mini mapa además en la parte inferior derecha veras la posición en coordenadas en X e Y)",
+                "quest1.desc6": "Como puedes observar en el mapa hay varias marcas, en la de color rojo estará Huly, al lado de ella estará un altar que te permite cambiar de clase, siempre y cuando no sobrepases el nivel 30.",
+                "quest1.desc7": "En la marca morada estará Otomai y el taller para la fabricación de la pócima.",
+                "quest1.desc8": "En la marca verde encontraras a Airyna y además es donde podrás probar a los Sacos de papas, criaturas diseñadas para que testes tus daños.",
+                "quest1.desc9": "En las marcas rosas encontraras a 2 monstruos el \"Jalato Celestial\" y el \"Dark Wonejo\".",
+                "quest1.desc10": "En la marca amarilla encontraras a Grugaloragrán, será el final de todo.",
+                "quest1.desc11": "con estás misiones que deberás aprender lo básico del combate, posicionamiento funciones entre otras cosas, pero tranquilo/a, te iré acompañando paso a paso",
+                "quest1.huly_title": "<strong>Habla con Huly (la Aniripsa):</strong>",
+                "quest1.huly_desc": "Huly nos contara cómo funcionan las reencarnaciones.",
+                "quest1.huly_desc2": "Nos comenta que las almas no mueren, aun cuando dejan su cuerpo, simplemente son redirigidas por el flujo del Wakfu y son reencarnadas en Incarnam.",
+                "quest1.huly_desc3": "Tras ese proceso perdemos nuestras memorias de nuestra vida anterior. Ya fuésemos reyes o panaderos, todos partimos desde el mismo punto otra vez en Incarnam.",
+                "quest1.huly_desc4": "Por otro lado, ella es un alma en pena, por lo que se convirtió en un gostofo (fantasma) que nunca ha logrado reencarnar (como dato si se negara a morir o reencarnar se convertiría en un \"Chafer\") por eso a dedicado su vida a guiar a encarnarse a los nuevos aventureros.",
+                "quest1.huly_desc5": "También nos dice que no somos los únicos en caer en Rii, algunas almas bajan directo al mundo tras encarnarse en Incarnam, además que cada alma es libre de escoger a que clase/religión es decir de quien quiere ser discípulo/fiel.",
+                "quest1.airyna_title": "<strong>Habla con Airyna (la Sacrógrito):</strong>",
+                "quest1.airyna_desc": "Entra en el dojo y habla con ella.",
+                "quest1.airyna_desc2": "Nos dará la bienvenida a su dojo, preguntando si nos interesa aprender las bases del combate.",
+                "quest1.airyna_desc3": "Al aceptar nos darán una nueva misión.",
+                "quest1.subquest1.title": "1.1 - Las bases del combate.",
+                "quest1.subquest1.desc1": "En el dojo celestial, Airyna te ofrece un repaso de las capacidades básicas de combate.",
+                "quest1.subquest1.desc2": "¡Completa todas las pruebas del principiante para obtener el diploma de su escuela!",
+                "quest1.subquest1.note": "NOTA: Los PA o Puntos de Acción, son algo que necesitas para poder atacar con prácticamente cualquier cosa. Los PM Puntos de Movimiento, son lo que te permite desplazarte, 1 PM es una casilla. Los PW/BC/S o Puntos de Wakfu/Brisa Cuadramental/Stasis son un punta extra que dependiendo de cada clase varia su regeneración y método de regeneración a diferencia de los PA o PM que se regeneran cada inicio de turno.",
+                "quest1.subquest1.desc3": "En la primera tarea aprenderemos sobre la orientación, a diferencia de otros juegos, acá en Wakfu el daño por los costados aumenta un 10% y por espalda un 25%, por lo que es importante antes de terminar el turno cambiar la orientación de nuestro personaje.",
+                "quest1.subquest1.desc4": "Podemos usar las flechas del teclado para indicar la dirección del personaje o las flechas bajo la vida.",
+                "quest1.subquest1.desc5": "nuestro objetivo en este combate, es caminar hasta la espalda y golpear al Saco de papas con cualquier cosa.",
+                "quest1.subquest1.desc6": "En la segunda tarea aprenderemos sobre las resistencias elementales y los daños elementales.",
+                "quest1.subquest1.desc7": "Haciendo clic derecho sobre el monstruo nos abrirá una interfaz del enemigo que nos dirá sus estadísticas (la espada es el daño, el escudo la resistencia) (también funciona con nuestro personaje o el de un aliado).",
+                "quest1.subquest1.desc8": "Lo que debemos hacer es mirar a que tiene 0 de resistencia y pegarle con uno de los hechizos especiales que nos han dado, para hacer daño a la resistencia mas baja, esto lo denominamos \"debilidad elemental\" o \"debilidad\" (en algunos combates o mazmorras nos darán hechizos especiales para cumplir ciertas condiciones, por favor léanlos antes de iniciar combates).",
+                "quest1.subquest1.desc9": "Deberemos hacer 1 golpe por turno y ganaremos el combate al realizar 4 golpes con las debilidades correctas, además cada turno la \"debilidad\" posiblemente cambie, por lo que será necesario mirar la interfaz de estadísticas del Saco de papas antes de pegarle (en algunas mazmorras varios monstruos o el jefe tendrán está condición, además algunas clases tienen hechizos para bajar las resistencias de los enemigos).",
+                "quest1.subquest1.desc10": "En la tercera tarea aprenderemos las distancias, en Wakfu se considera un ataque meleé/CaC cuando un objetivo esta a 2 o menos casillas y un ataque a distancia cuando el objetivo.",
+                "quest1.subquest1.desc11": "Como podemos ver en la imagen, las casillas en verde es la zona meleé/CaC del Saco de papas y la zona en rojo es la zona distancia, para ganar deberemos hacer daño posicionándonos en las casillas verdes y usar el hechizo especial que nos dieron, cambiara cada golpe que demos, acá no será necesario pasar de turno.",
+                "quest1.subquest1.desc12": "Esto es importante porque forma parte de las estadísticas de nuestro personaje y las podemos subir para mejorar nuestros daños o curas.",
+                "quest1.subquest1.desc13": "En la cuarta tarea aprenderemos sobre la línea de visión.",
+                "quest1.subquest1.desc14": "En la imagen podemos observar los datos del hechizo, para esto basta con poner el ratón sobre el hechizo y podremos leer los datos, entre ellos está el alcance, daños, efectos entre otros.",
+                "quest1.subquest1.desc15": "Además veremos que hay un pequeño ojito, este nos indicara si podemos golpear o no a través de un obstáculo. Para saber si podemos deberá haber una \"X\" sobre el ojo, también habrá otro con unas líneas sobre el mismo, esto nos indicará si el hechizo tiene alcance modificable (ya que con algunas partes de equipamiento o subiendo un punto en nuestras estadísticas podremos aumentar el alcance).",
+                "quest1.subquest1.desc16": "Ahora, si el hechizo <strong>NO</strong> tiene la \"X\" en el ojo le denominamos que tiene línea de visión, si por el contrario tiene la \"X\" denominamos que <strong>NO</strong> tiene línea de visión.",
+                "quest1.subquest1.desc17": "Nuestro objetivo será pegar al Saco de papas sin que nos estorben los pedruscos, cada golpe que hagamos cambiara la posición de estos, además deberemos golpear a 4 casillas de distancia, ya que es el alcance mínimo del hechizo especial que nos darán.",
+                "quest1.subquest1.desc18": "En la quinta tarea aprenderemos sobre sobre la zona de los hechizos, algunos hechizos hacen daño en mas de una casilla, estos los llamamos hechizos en zona, mientras que los que hemos estado usando son hechizos mono objetivo.",
+                "quest1.subquest1.desc19": "Al igual que en los combates anteriores nos darán hechizos especiales, en este caso serán 3, la idea es que golpeemos a todos los Sacos de papas al mismo tiempo para poder ganar debemos golpearlos 4 veces.",
+                "quest1.subquest1.desc20": "Así mismo cada que los golpeemos cambiaran su posición, por ende deberemos variar el hechizo que usamos para hacer daño (si estas con daño meleé y la zona afecta hasta la casilla 3, el monstruo en esa ultima casilla lo tomará como distancia y el daño se reduce y viceversa si la zona de efecto de tu hechizo golpea a un enemigo que este a melee de ti se reduce el daño si eres de distancia).",
+                "quest1.subquest1.desc21": "En la sexta tarea aprenderemos sobre los hechizos de desplazamiento.",
+                "quest1.subquest1.desc22": "Existen 5 tipos de desplazamientos: Teleportación propia, teleportación aliado/enemigo, transposición (intercambio de posición con el objetivo) empuje y atracción.",
+                "quest1.subquest1.desc23": "Nuestro objetivo es usar los 4 hechizos especiales, tendremos transposición, teleportación propia, atracción y empuje, con estos llevar al Saco de papas a la casilla verde, no tendremos PM y tendremos PA suficientes para usar 3 hechizos en 1 turno y deberemos hacerlo 4 veces.",
+                "quest1.subquest1.desc24": "En la última tarea aprenderemos de los efectos de combate.",
+                "quest1.subquest1.desc25": "Nuestro objetivo será generar daño según el efecto que tiene el Saco de papas, tendrá 4 efectos aleatorios: Hacerte a más de 6 casillas de distancia y pasar de turno, hacerte en contacto con el Saco de papas y pasar de turno, hacerte sobre una casilla roja y usar el hechizo especial para golpear al Saco de papas y finalmente hacerte en una casilla verde y usar el hechizo especial para golpear al Saco de papas.",
+                "quest1.subquest1.desc26": "Además podremos ver nuestros estados en la parte superior derecha de la pantalla, de esta forma no será necesario abrir nuestra interfaz normalmente.",
+                "quest1.subquest1.desc27": "al lado derecho también el orden de turno de los monstruos y personajes, tiempo de turno y una barra verde que se llena más rápido, cuando pasamos turno rápido, esto nos permite elegir una de las 6 opciones de bonus extra, si no se usan se mantienen, pero si se escoge una, otro jugador no podrá usarla, por lo que lo mejor es usarlo cada que aparece.",
+                "quest1.subquest1.reward": "Récompensa : Experiencia (varia según el nivel) - Emote Saludar.",
+                "quest1.kheperalia_title": "<strong>Habla con Kheperalia (la Sadida):</strong>",
+                "quest1.kheperalia_desc": "Ella estará caminando por toda la isla, por lo que deberemos buscarla.",
+                "quest1.kheperalia_desc2": "Una vez la encontremos, nos comentara que ayuda a Otomai regulando la fauna y flora de los ecosistemas y responde tranquilamente nuestras preguntas sobre estos.",
+                "quest1.kheperalia_desc3": "Nos contara que le gusta el equilibrio de las fuerzas que nos rodean (Wakfu energia de la vida y Stasis energia de la destrucción), por eso le da una gran importancia al equilibrio del ecosistema.",
+                "quest1.kheperalia_desc4": "Nuestras acciones afectan al mundo y debemos aprender a mantener el equilibrio.",
+                "quest1.kheperalia_desc5": "Nos ofreceremos a ayudarla y aprender sobre nuestras acciones en el mundo.",
+                "quest1.subquest2.title": "1.2 - Las bases del ecosistema - Monstruos",
+                "quest1.subquest2.desc1": "Kheperalia te ha confiado unas misiones para controlar el ecosistema de la isla celestial.",
+                "quest1.subquest2.desc2": "Cuando muere un monstruo, desaparece para siempre, al igual que los árboles talados o las plantas recolectadas.",
+                "quest1.subquest2.desc3": "Depende de ti replantar en el ecosistema lo que consumes, ¡o podrías desajustarlo!",
+                "quest1.subquest2.desc4": "Con la tecla \"W\" o clicando en el Jalató bajo la imagen del Miembro De Clan (MDC) en la parte superior derecha de la pantalla abriremos una nueva interfaz.",
+                "quest1.subquest2.desc5": "Con esta interfaz podremos conocer el estado del territorio que maneja él/la MDC.",
+                "quest1.subquest2.desc6": "La sabiduría es una caracteristica que nos aumenta el porcentual(%) de experiencia ganada, 1 punto equivale a 1% de experiencia extra y tiene un tope de 150% (aunque el juego diga 200%).",
+                "quest1.subquest2.desc7": "La prospección aumenta la probabilidad de obtener recursos de monstruos, equipables u otros tipos de objetos, esto lo explico mejor en la \"Guia de la prospección\" tiene un limite de 200 puntos.",
+                "quest1.subquest2.desc8": "Abajo del nivel de satisfacción podemos observar que son frascos con una linea a la izquierda que indica la cantidad y bajo de estos en algunos casos una estrella con 2 limites de cantidad que son minimos y maximos.",
+                "quest1.subquest2.desc9": "Si la cantidad de recursos/monstruos está dentro de los limites indicados aumentara el nivel de satisfacción y esto nos ayudara a subir mas fácil los oficios o el personaje de nivel.",
+                "quest1.subquest2.desc10": "Tambien los logos nos diran que tipo de recurso, los monstruos tendran su propio logo que sera una pequeña imagen de la cara de dicho monstruo, mientras que los recursos de oficios serán todos un solo logo por categoria.",
+                "quest1.subquest2.desc11": "todos los recursos de campesino se indican con el logo del trigo, los de leñador con el arbol y plantas con la flor.",
+                "quest1.subquest2.desc12": "Ahora que hemos aprendido lo básico del ecosistema podremos hacer las misiones, empezaremos matando 3 monstruos de la familia Embrialmas ya sea el \"Wonejo\" o la \"Mamá wonejo\".",
+                "quest1.subquest2.desc13": "Para esto debemos dar clic derecho en alguno de los monstruos y darle clic izquierdo a la imagen de la espada, de esta forma iniciamos un combate.",
+                "quest1.subquest2.desc14": "También al poner el ratón sobre un monstruo veremos la cantidad de monstruos en el grupo al que nos enfrentaremos, está varia de 1 a 6 generalmente, pero acá es un maximo de 4.",
+                "quest1.subquest2.desc15": "Ahora deberemos conseguir 3 semillas de monstruo y plantarlas para mantener el equilibrio del ecosistema.",
+                "quest1.subquest2.desc16": "Para esto debemos hacer el mismo proceso anterior, pero con la diferencia de escoger la pocima en lugar de la espada.",
+                "quest1.subquest2.desc17": "Nos agacharemos para recoger la semilla, esta cinematica tiene un tiempo que debemos esperar de la recolección y aplica en todos los oficios, en la ciudad de Astrub veremos este tema con mas detalle.",
+                "quest1.subquest2.desc18": "Por defecto se agregara a la interfaz de acceso rapido en la parte inferior derecha de la pantalla",
+                "quest1.subquest2.desc19": "También podemos verlas en el inventario al cual podemos acceder con la tecla \"I\" o accediendo desde la interfaz de accesos en la parte inferior izquierda de la pantalla, dando un clic izquierdo en la bolsa.",
+                "quest1.subquest2.desc20": "En la interfaz de inventario veremos varias cosas.",
+                "quest1.subquest2.desc21": "Primero veremos en la parte superior izquierda la cara de nuestro personaje y abajo de esta un circulo con un \"+\" esto es en caso de tener el \"Booster pack\", luego en la parte derecha veremos 5 imagenes: -Un bolso que será nuestro inventario tal cual. -Una llave que serán objetos clave de misiones y otras cosas que algunas se comparten entre los personajes del mismo servidor. -Una estrella que será donde se guardaran todos nuestros cosmeticos y al igual que en el anterior se comparten entre los personajes del mismo servidor. -Un martillo que sirve para romper recursos o equipables para tener mas especio. -Un diablo que esto es parte de una función del juego llamada \"Pacto demoniaco\" (esta mecanica no se mirará ni se profundizara en ningun apartado de esta pagina).",
+                "quest1.subquest2.desc22": "Abajo de estos botones veremos una barra de busqueda y un boton con unas flechas \"↑↓\" esto sirve para order el inventario completo de forma automatica.",
+                "quest1.subquest2.desc23": "Luego tendremos los \"Bolsillos\" o \"Bolsos\" que a la derecha tendremos el botón \"↑↓\" para order solo ese bolsillo y la cantidad de espacios disponibles que a diferencia de muchos juegos que nos limitan la cantidad de objetos por peso, en este caso se limita por cantidad diferente de objetos, si son los mismos objetos se acumulan entre ellos y se les llama \"Stacks\", por lo que el limite de espacios se basa en la cantidad de diferentes objetos.",
+                "quest1.subquest2.desc24": "Finalmente tendremos 5 espacios, 3 para \"Bolsos\" y 2 para \"Cajitas\" estas ultimas varian su función de almacenamiento según el tipo de caja y la cantidad de kamas.",
+                "quest1.subquest2.desc25": "Para usar las semillas tendremos que usar la tecla \"1\" (si las tenemos en la barrade acceso rapido) o en el inventario doble clic izquierdo para usar la semilla.",
+                "quest1.subquest2.desc26": "Generalmente tendremos casillas especificas para plantar, ya sean monstruos o recursos.",
+                "quest1.subquest2.desc27": "Si hay un exceso en la zona simplemente el personaje movera la cabeza",
+                "quest1.subquest2.reward": "Recompensa : Experiencia (varia según tu nivel).",
+                "quest1.otomai_title": "<strong>Habla con Otomai:</strong>",
+                "quest1.reward": "Récompensa : Experiencia: 769 - Emote acostarse - Bolsa celestial."
+            },
+            pt: {
+                "title": "Lore do Krosmoz",
+                "nav.home": "Bom começo",
+                "nav.quests": "Missões",
+                "nav.dungeons": "Masmorras",
+                "nav.optimization": "Otimização",
+                "nav.crafts": "Profissões",
+                "nav.misc": "Variados",
+                "section.title": "Ilha de Rii e Astrub - Início da aventura",
+                "section.intro1": "Após falharmos em nossa missão na era dos Dofus e sermos reencarnados, começaremos uma nova aventura na era do Wakfu na ilha de Rii.",
+                "section.intro2": "Você deve estar se perguntando por que na ilha de Rii e não em Incarnam? Há algum tempo, a ilha do dragão Prysmaradoth foi contaminada com o Stasis, e os primeiros encarnados desta era não conseguiram resolver o caos na ilha, mesmo com o apoio do grande alquimista Otomai.",
+                "section.image1_desc": "Como você pode ver, ao reencarnar (gerando uma grande onda de Wakfu), você está nos portões da ilha de Incarnam. Grande parte das nuvens estão roxas porque o Stasis está consumindo a ilha, mas fique tranquilo, por enquanto não chegará à ilha de Rii.",
+                "section.intro3": "Após ser empurrado pelo Dark Wonejo da ilha de Incarnam, você cairá em Rii, onde o dragão Grugaloragrán e Otomai o receberão. Ao sentir a onda de Wakfu, eles acreditarão que esta é sua primeira encarnação no plano material, mas na verdade é a segunda. Mesmo assim, eles o aconselharão a se adaptar fazendo algumas interações na ilha.",
+                "quest1.title": "1 - Rii, a ilha celestial.",
+                "quest1.desc1": "A ilha celestial chamada Rii oferece muitos ensinamentos.",
+                "quest1.desc2": "Não hesite em dar uma volta pelo local antes de ir ver Grugaloragrán",
+                "quest1.desc3": "Nesta série de missões, você aprenderá o básico de combate, posicionamento e outras funções, mas fique tranquilo(a), eu o acompanharei passo a passo.",
+                "quest1.desc4": "À esquerda da tela, veremos um pequeno texto flutuante, que basicamente são as missões que estamos seguindo, ou seja, missões que selecionamos para saber o que fazer sem precisar abrir a interface de missões. Podemos ter no máximo 4 missões selecionadas. Além disso, como você pode ver, há uma pequena bússola; ao clicar nela, aparecerá uma flecha ao redor do personagem que nos guiará para onde devemos ir no mapa (só funciona se estivermos na área da missão; se estivermos em outra ilha, o botão não aparecerá).",
+                "quest1.desc5": "Primeiro, vou explicar a localização de tudo e algumas coisinhas que você precisa saber. (Com o comando Shift + M, você abrirá a interface do minimapa, e no canto inferior direito você verá a posição em coordenadas X e Y).",
+                "quest1.desc6": "Como você pode ver no mapa, há várias marcas. Na marca vermelha estará Huly, e ao lado dela haverá um altar que permite mudar de classe, desde que você não ultrapasse o nível 30.",
+                "quest1.desc7": "Na marca roxa estará Otomai e a oficina para a fabricação da poção.",
+                "quest1.desc8": "Na marca verde, você encontrará Airyna e também poderá testar seus danos nos Sacos de batatas, criaturas projetadas para esse fim.",
+                "quest1.desc9": "Nas marcas rosas, você encontrará 2 monstros: o \"Jalato Celestial\" e o \"Dark Wonejo\".",
+                "quest1.desc10": "Na marca amarela, você encontrará Grugaloragrán, que será o final de tudo.",
+                "quest1.desc11": "Com estas missões, você aprenderá o básico de combate, posicionamento e outras funções, mas fique tranquilo(a), eu o acompanharei passo a passo.",
+                "quest1.huly_title": "<strong>Fale com Huly (a Aniripsa):</strong>",
+                "quest1.huly_desc": "Huly nos contará como funcionam as reencarnações.",
+                "quest1.huly_desc2": "Ela nos diz que as almas não morrem, mesmo quando deixam seus corpos; elas são simplesmente redirecionadas pelo fluxo do Wakfu e reencarnam em Incarnam.",
+                "quest1.huly_desc3": "Após esse processo, perdemos as memórias de nossa vida anterior. Seja você um rei ou um padeiro, todos começam do mesmo ponto novamente em Incarnam.",
+                "quest1.huly_desc4": "Por outro lado, ela é uma alma penada, por isso se tornou um gostofo (fantasma) que nunca conseguiu reencarnar (como curiosidade, se ela se recusasse a morrer ou reencarnar, se tornaria um \"Chafer\"). Por isso, ela dedicou sua vida a guiar novos aventureiros em sua encarnação.",
+                "quest1.huly_desc5": "Ela também nos diz que não somos os únicos a cair em Rii; algumas almas descem diretamente ao mundo após encarnarem em Incarnam. Além disso, cada alma é livre para escolher a qual classe/religião deseja ser discípulo(a) ou fiel.",
+                "quest1.airyna_title": "<strong>Fale com Airyna (a Sacrógrito):</strong>",
+                "quest1.airyna_desc": "Entre no dojo e fale com ela.",
+                "quest1.airyna_desc2": "Ela nos dará as boas-vindas ao seu dojo, perguntando se estamos interessados em aprender as bases do combate.",
+                "quest1.airyna_desc3": "Ao aceitar, receberemos uma nova missão.",
+                "quest1.subquest1.title": "1.1 - As bases do combate.",
+                "quest1.subquest1.desc1": "No dojo celestial, Airyna oferece uma revisão das habilidades básicas de combate.",
+                "quest1.subquest1.desc2": "Complete todos os testes para iniciantes para obter o diploma de sua escola!",
+                "quest1.subquest1.note": "NOTA: Os PA ou Pontos de Ação são necessários para atacar com praticamente qualquer coisa. Os PM ou Pontos de Movimento são o que permitem que você se mova (1 PM equivale a uma casa). Os PW/BC/S ou Pontos de Wakfu/Brisa Quadramental/Stasis são um recurso extra que, dependendo da classe, varia em sua regeneração e método de regeneração, diferentemente dos PA ou PM, que se regeneram no início de cada turno.",
+                "quest1.subquest1.desc3": "Na primeira tarefa, aprenderemos sobre orientação. Diferente de outros jogos, no Wakfu, o dano pelos lados aumenta em 10% e pelas costas em 25%, por isso é importante mudar a orientação do personagem antes de terminar o turno.",
+                "quest1.subquest1.desc4": "Podemos usar as teclas de seta do teclado ou as setas abaixo da barra de vida para indicar a direção do personagem.",
+                "quest1.subquest1.desc5": "Nosso objetivo neste combate é caminhar até as costas do Saco de Batatas e atacá-lo com qualquer coisa.",
+                "quest1.subquest1.desc6": "Na segunda tarefa, aprenderemos sobre resistências elementais e danos elementais.",
+                "quest1.subquest1.desc7": "Clicando com o botão direito no monstro, abriremos uma interface que mostrará suas estatísticas (a espada é o dano, o escudo é a resistência) (isso também funciona com nosso personagem ou aliados).",
+                "quest1.subquest1.desc8": "O que devemos fazer é verificar qual resistência está em 0 e atacar com um dos feitiços especiais que recebemos, para causar dano na resistência mais baixa. Chamamos isso de \"fraqueza elemental\" ou \"fraqueza\" (em algumas masmorras ou combates, receberemos feitiços especiais para cumprir certas condições; por favor, leia-os antes de iniciar os combates).",
+                "quest1.subquest1.desc9": "Devemos realizar 1 ataque por turno e venceremos o combate ao realizar 4 ataques com as fraquezas corretas. Além disso, a \"fraqueza\" pode mudar a cada turno, por isso é necessário verificar as estatísticas do Saco de Batatas antes de atacar (em algumas masmorras, vários monstros ou o chefe terão essa condição, e algumas classes têm feitiços para reduzir as resistências dos inimigos).",
+                "quest1.subquest1.desc10": "Na terceira tarefa, aprenderemos sobre distâncias. No Wakfu, um ataque corpo a corpo (CaC) é considerado quando o alvo está a 2 casas ou menos, e um ataque à distância quando o alvo está mais longe.",
+                "quest1.subquest1.desc11": "Como podemos ver na imagem, as casas verdes são a zona de corpo a corpo do Saco de Batatas, e a zona vermelha é a zona de distância. Para vencer, devemos causar dano posicionando-nos nas casas verdes e usar o feitiço especial que nos foi dado. O feitiço mudará a cada ataque, e não será necessário passar o turno.",
+                "quest1.subquest1.desc12": "Isso é importante porque faz parte das estatísticas do nosso personagem e podemos aumentá-las para melhorar nosso dano ou cura.",
+                "quest1.subquest1.desc13": "Na quarta tarefa, aprenderemos sobre a linha de visão.",
+                "quest1.subquest1.desc14": "Na imagem, podemos ver os dados do feitiço. Para isso, basta passar o mouse sobre o feitiço e ler os dados, incluindo alcance, dano, efeitos e outros.",
+                "quest1.subquest1.desc15": "Além disso, veremos um pequeno olho, que indica se podemos ou não atacar através de um obstáculo. Se não houver um \"X\" sobre o olho, o feitiço tem linha de visão; se houver um \"X\", não tem. Também há outro ícone com linhas, que indica se o alcance do feitiço pode ser modificado (com equipamentos ou aumentando um ponto em nossas estatísticas, podemos aumentar o alcance).",
+                "quest1.subquest1.desc16": "Agora, se o feitiço <strong>NÃO</strong> tiver um \"X\" no olho, dizemos que tem linha de visão; caso contrário, não tem.",
+                "quest1.subquest1.desc17": "Nosso objetivo será atacar o Saco de Batatas sem que os pedregulhos nos atrapalhem. Cada ataque mudará a posição deles, e devemos atacar a 4 casas de distância, pois esse é o alcance mínimo do feitiço especial que recebemos.",
+                "quest1.subquest1.desc18": "Na quinta tarefa, aprenderemos sobre a área dos feitiços. Alguns feitiços causam dano em mais de uma casa; esses são chamados de feitiços em área, enquanto os que usamos até agora são feitiços de alvo único.",
+                "quest1.subquest1.desc19": "Como nos combates anteriores, receberemos feitiços especiais, neste caso 3. A ideia é atacar todos os Sacos de Batatas ao mesmo tempo para vencer; precisamos acertá-los 4 vezes.",
+                "quest1.subquest1.desc20": "Da mesma forma, cada vez que os atingirmos, sua posição mudará, então devemos variar o feitiço usado para causar dano (se você estiver com dano corpo a corpo e a área afetar até a casa 3, o monstro na última casa será considerado à distância, e o dano será reduzido, e vice-versa se a área do feitiço atingir um inimigo que está em corpo a corpo com você).",
+                "quest1.subquest1.desc21": "Na sexta tarefa, aprenderemos sobre feitiços de deslocamento.",
+                "quest1.subquest1.desc22": "Existem 5 tipos de deslocamento: Teleporte próprio, teleporte de aliado/inimigo, transposição (troca de posição com o alvo), empurrão e atração.",
+                "quest1.subquest1.desc23": "Nosso objetivo é usar os 4 feitiços especiais: transposição, teleporte próprio, atração e empurrão. Com eles, devemos levar o Saco de Batatas até a casa verde. Não teremos PM e teremos PA suficientes para usar 3 feitiços em 1 turno, e precisamos fazer isso 4 vezes.",
+                "quest1.subquest1.desc24": "Na última tarefa, aprenderemos sobre os efeitos de combate.",
+                "quest1.subquest1.desc25": "Nosso objetivo será causar dano de acordo com o efeito que o Saco de Batatas tiver. Ele terá 4 efeitos aleatórios: ficar a mais de 6 casas de distância e passar o turno, ficar em contato com o Saco de Batatas e passar o turno, ficar em uma casa vermelha e usar o feitiço especial para atacar o Saco de Batatas e, finalmente, ficar em uma casa verde e usar o feitiço especial para atacar o Saco de Batatas.",
+                "quest1.subquest1.desc26": "Além disso, podemos ver nossos estados no canto superior direito da tela, para não precisarmos abrir nossa interface normalmente.",
+                "quest1.subquest1.desc27": "No lado direito, também veremos a ordem de turno dos monstros e personagens, o tempo do turno e uma barra verde que enche mais rápido quando passamos o turno rapidamente. Isso nos permite escolher um dos 6 bônus extras. Se não forem usados, permanecem, mas se um for escolhido, outro jogador não poderá usá-lo, então é melhor usá-lo sempre que aparecer.",
+                "quest1.subquest1.reward": "Recompensa: Experiência (varia de acordo com o nível) - Emote Saudar.",
+                "quest1.kheperalia_title": "<strong>Fale com Kheperalia (a Sadida):</strong>",
+                "quest1.kheperalia_desc": "Ela estará andando por toda a ilha, então precisamos procurá-la.",
+                "quest1.kheperalia_desc2": "Quando a encontrarmos, ela nos dirá que ajuda Otomai regulando a fauna e a flora dos ecossistemas e responde calmamente às nossas perguntas sobre eles.",
+                "quest1.kheperalia_desc3": "Ela nos contará que gosta do equilíbrio das forças que nos rodeiam (Wakfu, energia da vida, e Stasis, energia da destruição), por isso dá grande importância ao equilíbrio do ecossistema.",
+                "quest1.kheperalia_desc4": "Nossas ações afetam o mundo, e devemos aprender a manter o equilíbrio.",
+                "quest1.kheperalia_desc5": "Nos ofereceremos para ajudá-la e aprender sobre nossas ações no mundo.",
+                "quest1.subquest2.title": "1.2 - As bases do ecossistema - Monstros",
+                "quest1.subquest2.desc1": "Kheperalia confiou a você algumas missões para controlar o ecossistema da ilha celestial.",
+                "quest1.subquest2.desc2": "Quando um monstro morre, ele desaparece para sempre, assim como árvores cortadas ou plantas coletadas.",
+                "quest1.subquest2.desc3": "Cabe a você replantar no ecossistema o que você consome, ou você poderá desequilibrá-lo!",
+                "quest1.subquest2.desc4": "Com a tecla \"W\" ou clicando no Jalató sob a imagem do Membro do Clã (MDC) no canto superior direito da tela, abriremos uma nova interface.",
+                "quest1.subquest2.desc5": "Com esta interface, podemos ver o estado do território que o(a) MDC administra.",
+                "quest1.subquest2.desc6": "A sabedoria é uma característica que aumenta a porcentagem(%) de experiência ganha. 1 ponto equivale a 1% de experiência extra, com um limite de 150% (embora o jogo diga 200%).",
+                "quest1.subquest2.desc7": "A prospecção aumenta a probabilidade de obter recursos de monstros, equipamentos ou outros tipos de itens. Isso é explicado melhor no \"Guia de Prospecção\" e tem um limite de 200 pontos.",
+                "quest1.subquest2.desc8": "Abaixo do nível de satisfação, podemos ver frascos com uma linha à esquerda que indica a quantidade e, em alguns casos, uma estrela com 2 limites de quantidade (mínimo e máximo).",
+                "quest1.subquest2.desc9": "Se a quantidade de recursos/monstros estiver dentro dos limites indicados, o nível de satisfação aumentará, o que nos ajudará a subir de nível mais facilmente em profissões ou no personagem.",
+                "quest1.subquest2.desc10": "Os logotipos também nos dirão que tipo de recurso é. Os monstros terão seu próprio logotipo, que será uma pequena imagem do rosto do monstro, enquanto os recursos de profissões terão um único logotipo por categoria.",
+                "quest1.subquest2.desc11": "Todos os recursos de agricultor são indicados com o logotipo do trigo, os de lenhador com a árvore e as plantas com a flor.",
+                "quest1.subquest2.desc12": "Agora que aprendemos o básico do ecossistema, podemos fazer as missões. Começaremos matando 3 monstros da família Embrialmas, seja o \"Wonejo\" ou a \"Mamãe Wonejo\".",
+                "quest1.subquest2.desc13": "Para isso, devemos clicar com o botão direito em um dos monstros e clicar com o botão esquerdo na imagem da espada para iniciar um combate.",
+                "quest1.subquest2.desc14": "Ao passar o mouse sobre um monstro, também veremos quantos monstros há no grupo que enfrentaremos. Geralmente varia de 1 a 6, mas aqui é no máximo 4.",
+                "quest1.subquest2.desc15": "Agora, precisamos obter 3 sementes de monstro e plantá-las para manter o equilíbrio do ecossistema.",
+                "quest1.subquest2.desc16": "Para isso, faremos o mesmo processo anterior, mas escolhendo a poção em vez da espada.",
+                "quest1.subquest2.desc17": "Vamos nos agachar para coletar a semente. Esta animação tem um tempo de espera para a coleta e se aplica a todas as profissões. Veremos isso com mais detalhes na cidade de Astrub.",
+                "quest1.subquest2.desc18": "Por padrão, será adicionado à interface de acesso rápido no canto inferior direito da tela.",
+                "quest1.subquest2.desc19": "Também podemos vê-las no inventário, acessado com a tecla \"I\" ou clicando na bolsa na parte inferior esquerda da tela.",
+                "quest1.subquest2.desc20": "Na interface do inventário, veremos várias coisas.",
+                "quest1.subquest2.desc21": "Primeiro, veremos no canto superior esquerdo o rosto do nosso personagem e, abaixo dele, um círculo com um \"+\" (isso é para quem tem o \"Booster pack\"). À direita, veremos 5 imagens: -Uma bolsa, que é nosso inventário. -Uma chave, que são itens-chave de missões e outros que são compartilhados entre personagens do mesmo servidor. -Uma estrela, onde todos os nossos cosméticos são armazenados (também compartilhados). -Um martelo, usado para quebrar recursos ou equipamentos para liberar espaço. -Um diabo, que faz parte de uma função do jogo chamada \"Pacto Demoníaco\" (não abordaremos essa mecânica aqui).",
+                "quest1.subquest2.desc22": "Abaixo desses botões, haverá uma barra de pesquisa e um botão com setas \"↑↓\" para organizar o inventário automaticamente.",
+                "quest1.subquest2.desc23": "Em seguida, teremos os \"Bolsos\" ou \"Bolsas\", que à direita terão um botão \"↑↓\" para organizar apenas esse bolso e a quantidade de espaços disponíveis. Diferente de muitos jogos que limitam por peso, aqui o limite é por quantidade de itens diferentes. Itens iguais se acumulam e são chamados de \"Stacks\", então o limite de espaço é baseado na quantidade de itens diferentes.",
+                "quest1.subquest2.desc24": "Finalmente, teremos 5 espaços: 3 para \"Bolsas\" e 2 para \"Caixinhas\", que variam em função de armazenamento dependendo do tipo de caixa e da quantidade de kamas.",
+                "quest1.subquest2.desc25": "Para usar as sementes, pressionaremos a tecla \"1\" (se estiverem na barra de acesso rápido) ou clicaremos duas vezes com o botão esquerdo no inventário.",
+                "quest1.subquest2.desc26": "Geralmente, haverá espaços específicos para plantar, seja monstros ou recursos.",
+                "quest1.subquest2.desc27": "Se houver excesso na área, o personagem simplesmente balançará a cabeça.",
+                "quest1.subquest2.reward": "Recompensa: Experiência (varia de acordo com seu nível).",
+                "quest1.otomai_title": "<strong>Fale com Otomai:</strong>",
+                "quest1.reward": "Recompensa: Experiência: 769 - Emote Deitar - Bolsa celestial."
+            }
+        };
+
+        // Sistema de cambio de idioma
+const languageToggle = document.getElementById('languageToggle'); // <-- ESTA LÍNEA VA PRIMERO
+let currentLanguage = 'es';
+
+function translatePage(lang) {
+    currentLanguage = lang;
+    document.querySelectorAll('[data-translate]').forEach(element => {
+        const key = element.getAttribute('data-translate');
+        if (translations[lang] && translations[lang][key]) {
+            if (element.hasAttribute('data-translate-innerhtml')) {
+                element.innerHTML = translations[lang][key];
+            } else {
+                element.textContent = translations[lang][key];
+            }
+        }
+    });
+    languageToggle.textContent = lang === 'es' ? 'PT' : 'ES';
+    document.documentElement.lang = lang;
+}
+
+languageToggle.addEventListener('click', () => {
+    const newLang = currentLanguage === 'es' ? 'pt' : 'es';
+    translatePage(newLang);
+});
+
+        // Menú hamburguesa
+        const hamburger = document.getElementById('hamburger');
+        const menu = document.getElementById('menu');
+        
+        hamburger.addEventListener('click', () => {
+            menu.classList.toggle('show');
+        });
+        
+        // Efecto de scroll en la barra de navegación
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.background = 'rgba(211, 84, 0, 0.95)';
+            } else {
+                navbar.style.background = '#d35400';
+            }
+        });
+
+        // Manejo de submenús en móvil
+        document.querySelectorAll('.dropdown').forEach(dropdown => {
+            dropdown.addEventListener('click', function(e) {
+                if (window.innerWidth <= 768) {
+                    e.preventDefault();
+                    const submenu = this.querySelector('.dropdown-content');
+                    if (submenu) {
+                        submenu.style.display = submenu.style.display === 'block' ? 'none' : 'block';
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
