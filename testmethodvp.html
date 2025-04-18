@@ -118,16 +118,23 @@
         }
         
         .quest-container {
-            background-color: rgba(255, 255, 255, 0.35);
+            font-style: arial;
+            font-weight: bold;
+            text-shadow: 1px 1px 15px #ffffff;
+                         -1px -1px 15px #ffffff;
+            background-color: rgba(255, 255, 255, 0.65);
             padding: 30px;
             border-radius: 5px;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
             max-width: 1000px;
             margin: 0 auto;
         }
         
         .quest-container h2 {
-            color: #d35400;
+            font-weight: bold;
+            text-shadow: 1px 1px 15px #ffffff;
+                         -1px -1px 15px #ffffff;
+            color: #27ae60;
             margin-top: 0;
             border-bottom: 2px solid #d35400;
             padding-bottom: 10px;
@@ -142,15 +149,18 @@
         }
         
         .quest a {
-            text-decoration: none;
-            color: #d35400;
             font-weight: bold;
+            text-shadow: 1px 1px 15px #ffffff;
+                         -1px -1px 15px #ffffff;
+            text-decoration: none;
+            color: #e00404;
+            font-weight: 850;
             margin-top: 10px;
         }
         .quest-header {
             font-weight: bold;
             font-size: 1.2em;
-            color: #d35400;
+            color: #27ae60;
             margin-bottom: 10px;
         }
         
@@ -160,7 +170,10 @@
         
         .quest-reward {
             font-style: italic;
-            color: #27ae60;
+            text-shadow: 1px 1px 15px #ffffff;
+                         -1px -1px 15px #ffffff;
+            font-weight: 850;
+            color: #e00404;
             margin-top: 10px;
             padding-top: 10px;
             border-top: 1px dashed #ccc;
@@ -270,9 +283,9 @@
                     <div class="quest-details">
                         <p data-translate="quest1.desc1">La isla celestial llamada Rii propone numerosas enseñanzas.</p>
                         <p data-translate="quest1.desc2">No dudes en dar una vuelta por el lugar antes de ir a ver a Grugaloragrán</p>
-                        <img src="01Rii\1.png">
+                        <img data-translate-src="01Rii/1.png|01Rii/1_pt.png" src="01Rii/1.png">
                         <p data-translate="quest1.desc3">En esta saga de misiones que deberás aprender lo básico del combate, posicionamiento funciones entre otras cosas, pero tranquilo/a, te iré acompañando paso a paso</p>
-                        <img src="01Rii\19.png">
+                        <img data-translate-src="01Rii/19.png|01Rii/19_pt.png" src="01Rii/19.png">
                         <p data-translate="quest1.desc4">A la izquierda de la pantalla veremos ese pequeño texto flotante, básicamente son las misiones que seguimos, es decir misiones que seleccionamos para saber qué debemos hacer sin necesidad de abrir la interfaz de misiones, podemos tener un máximo de 4 seleccionadas, además como pueden ver hay una pequeña brújula, al darle clic nos aparecerá una flecha al rededor del personaje que nos guiara a donde debemos ir en el mapa (solo funciona si estamos en la zona de la misión si estamos en otra isla no aparecerá el botón).</p>
                         <img src="01Rii\23.png">
                         <p data-translate="quest1.desc5">Primero te comentare la ubicación de todo y un par de cositas que necesitas saber. (Con el comando Shift + M abrirás la interfaz del mini mapa además en la parte inferior derecha veras la posición en coordenadas en X e Y)</p>
@@ -284,7 +297,7 @@
                         <p data-translate="quest1.desc10">En la marca amarilla encontraras a Grugaloragrán, será el final de todo.</p>
                         <p data-translate="quest1.desc11">con estás misiones que deberás aprender lo básico del combate, posicionamiento funciones entre otras cosas, pero tranquilo/a, te iré acompañando paso a paso</p>
                         
-                        <p data-translate="quest1.huly_title"><strong>Habla con Huly (la Aniripsa):</strong></p>
+                        <p data-translate="quest1.huly_title">Habla con Huly (la Aniripsa):</p>
                         <img src="01Rii\2.png">
                         <p data-translate="quest1.huly_desc">Huly nos contara cómo funcionan las reencarnaciones.</p>
                         <p data-translate="quest1.huly_desc2">Nos comenta que las almas no mueren, aun cuando dejan su cuerpo, simplemente son redirigidas por el flujo del Wakfu y son reencarnadas en Incarnam.</p>
@@ -292,7 +305,7 @@
                         <p data-translate="quest1.huly_desc4">Por otro lado, ella es un alma en pena, por lo que se convirtió en un gostofo (fantasma) que nunca ha logrado reencarnar (como dato si se negara a morir o reencarnar se convertiría en un <a href="https://dofus.fandom.com/es/wiki/Chafer" target="_blank" rel="noopener noreferrer">"Chafer"</a>) por eso a dedicado su vida a guiar a encarnarse a los nuevos aventureros.</p>
                         <p data-translate="quest1.huly_desc5">También nos dice que no somos los únicos en caer en Rii, algunas almas bajan directo al mundo tras encarnarse en Incarnam, además que cada alma es libre de escoger a que clase/religión es decir de quien quiere ser discípulo/fiel.</p>
                         
-                        <p data-translate="quest1.airyna_title"><strong>Habla con Airyna (la Sacrógrito):</strong></p>
+                        <p data-translate="quest1.airyna_title">Habla con Airyna (la Sacrógrito):</p>
                         <img src="01Rii\11.png">
                         <p data-translate="quest1.airyna_desc">Entra en el dojo y habla con ella.</p>
                         <p data-translate="quest1.airyna_desc2">Nos dará la bienvenida a her dojo, preguntando si nos interesa aprender las bases del combate.</p>
@@ -301,18 +314,18 @@
                         <div class="quest">
                             <div class="quest-header" data-translate="quest1.subquest1.title">1.1 - Las bases del combate.</div>
                             <div class="quest-details">
-                                <img src="01Rii\22.png">
+                            <img data-translate-src="01Rii/22.png|01Rii/22_pt.png" src="01Rii/22.png">
                                 <p data-translate="quest1.subquest1.desc1">En el dojo celestial, Airyna te ofrece un repaso de las capacidades básicas de combate.</p>
                                 <p data-translate="quest1.subquest1.desc2">¡Completa todas las pruebas del principiante para obtener el diploma de su escuela!</p>
                                 <h5 data-translate="quest1.subquest1.note">NOTA: Los PA o Puntos de Acción, son algo que necesitas para poder atacar con prácticamente cualquier cosa. Los PM Puntos de Movimiento, son lo que te permite desplazarte, 1 PM es una casilla. Los PW/BC/S o Puntos de Wakfu/Brisa Cuadramental/Stasis son un punta extra que dependiendo de cada clase varia su regeneración y método de regeneración a diferencia de los PA o PM que se regeneran cada inicio de turno.</h5>
-                                <img src="01Rii\24.png">
+                            <img data-translate-src="01Rii/24.png|01Rii/24_pt.png" src="01Rii/24.png">
                                 <p data-translate="quest1.subquest1.desc3">En la primera tarea aprenderemos sobre la orientación, a diferencia de otros juegos, acá en Wakfu el daño por los costados aumenta un 10% y por espalda un 25%, por lo que es importante antes de terminar el turno cambiar la orientación de nuestro personaje.</p>
                                 <img src="01Rii\25.png">
                                 <p data-translate="quest1.subquest1.desc4">Podemos usar las flechas del teclado para indicar la dirección del personaje o las flechas bajo la vida.</p>
                                 <p data-translate="quest1.subquest1.desc5">nuestro objetivo en este combate, es caminar hasta la espalda y golpear al Saco de papas con cualquier cosa.</p>
                                 <img src="01Rii\26.png">
                                 <p data-translate="quest1.subquest1.desc6">En la segunda tarea aprenderemos sobre las resistencias elementales y los daños elementales.</p>
-                                <img src="01Rii\27.png">
+                            <img data-translate-src="01Rii/27.png|01Rii/27_pt.png" src="01Rii/27.png">
                                 <p data-translate="quest1.subquest1.desc7">Haciendo clic derecho sobre el monstruo nos abrirá una interfaz del enemigo que nos dirá sus estadísticas (la espada es el daño, el escudo la resistencia) (también funciona con nuestro personaje o el de un aliado).</p>
                                 <img src="01Rii\28.png">
                                 <p data-translate="quest1.subquest1.desc8">Lo que debemos hacer es mirar a que tiene 0 de resistencia y pegarle con uno de los hechizos especiales que nos han dado, para hacer daño a la resistencia mas baja, esto lo denominamos "debilidad elemental" o "debilidad" (en algunos combates o mazmorras nos darán hechizos especiales para cumplir ciertas condiciones, por favor léanlos antes de iniciar combates).</p>
@@ -321,12 +334,12 @@
                                 <p data-translate="quest1.subquest1.desc10">En la tercera tarea aprenderemos las distancias, en Wakfu se considera un ataque meleé/CaC cuando un objetivo esta a 2 o menos casillas y un ataque a distancia cuando el objetivo.</p>
                                 <p data-translate="quest1.subquest1.desc11">Como podemos ver en la imagen, las casillas en verde es la zona meleé/CaC del Saco de papas y la zona en rojo es la zona distancia, para ganar deberemos hacer daño posicionándonos en las casillas verdes y usar el hechizo especial que nos dieron, cambiara cada golpe que demos, acá no será necesario pasar de turno.</p>
                                 <p data-translate="quest1.subquest1.desc12">Esto es importante porque forma parte de las estadísticas de nuestro personaje y las podemos subir para mejorar nuestros daños o curas.</p>
-                                <img src="01Rii\32.png">
+                            <img data-translate-src="01Rii/32.png|01Rii/32_pt.png" src="01Rii/32.png">
                                 <p data-translate="quest1.subquest1.desc13">En la cuarta tarea aprenderemos sobre la línea de visión.</p>
-                                <img src="01Rii\33.png">
+                            <img data-translate-src="01Rii/33.png|01Rii/33_pt.png" src="01Rii/33.png">
                                 <p data-translate="quest1.subquest1.desc14">En la imagen podemos observar los datos del hechizo, para esto basta con poner el ratón sobre el hechizo y podremos leer los datos, entre ellos está el alcance, daños, efectos entre otros.</p>
                                 <p data-translate="quest1.subquest1.desc15">Además veremos que hay un pequeño ojito, este nos indicara si podemos golpear o no a través de un obstáculo. Para saber si podemos deberá haber una "X" sobre el ojo, también habrá otro con unas líneas sobre el mismo, esto nos indicará si el hechizo tiene alcance modificable (ya que con algunas partes de equipamiento o subiendo un punto en nuestras estadísticas podremos aumentar el alcance).</p>
-                                <p data-translate="quest1.subquest1.desc16">Ahora, si el hechizo <strong>NO</strong> tiene la "X" en el ojo le denominamos que tiene línea de visión, si por el contrario tiene la "X" denominamos que <strong>NO</strong> tiene línea de visión.</p>
+                                <p data-translate="quest1.subquest1.desc16">Ahora, si el hechizo NO tiene la "X" en el ojo le denominamos que tiene línea de visión, si por el contrario tiene la "X" denominamos que NO tiene línea de visión.</p>
                                 <img src="01Rii\30.png">
                                 <p data-translate="quest1.subquest1.desc17">Nuestro objetivo será pegar al Saco de papas sin que nos estorben los pedruscos, cada golpe que hagamos cambiara la posición de estos, además deberemos golpear a 4 casillas de distancia, ya que es el alcance mínimo del hechizo especial que nos darán.</p>
                                 <img src="01Rii\31.png">
@@ -338,9 +351,9 @@
                                 <p data-translate="quest1.subquest1.desc21">En la sexta tarea aprenderemos sobre los hechizos de desplazamiento.</p>
                                 <p data-translate="quest1.subquest1.desc22">Existen 5 tipos de desplazamientos: Teleportación propia, teleportación aliado/enemigo, transposición (intercambio de posición con el objetivo) empuje y atracción.</p>
                                 <p data-translate="quest1.subquest1.desc23">Nuestro objetivo es usar los 4 hechizos especiales, tendremos transposición, teleportación propia, atracción y empuje, con estos llevar al Saco de papas a la casilla verde, no tendremos PM y tendremos PA suficientes para usar 3 hechizos en 1 turno y deberemos hacerlo 4 veces.</p>
-                                <img src="01Rii\36.png">
+                            <img data-translate-src="01Rii/36.png|01Rii/36_pt.png" src="01Rii/36.png">
                                 <p data-translate="quest1.subquest1.desc24">En la última tarea aprenderemos de los efectos de combate.</p>
-                                <img src="01Rii\37.png">
+                            <img data-translate-src="01Rii/37.png|01Rii/37_pt.png" src="01Rii/37.png">
                                 <p data-translate="quest1.subquest1.desc25">Nuestro objetivo será generar daño según el efecto que tiene el Saco de papas, tendrá 4 efectos aleatorios: Hacerte a más de 6 casillas de distancia y pasar de turno, hacerte en contacto con el Saco de papas y pasar de turno, hacerte sobre una casilla roja y usar el hechizo especial para golpear al Saco de papas y finalmente hacerte en una casilla verde y usar el hechizo especial para golpear al Saco de papas.</p>
                                 <img src="01Rii\38.png">
                                 <p data-translate="quest1.subquest1.desc26">Además podremos ver nuestros estados en la parte superior derecha de la pantalla, de esta forma no será necesario abrir nuestra interfaz normalmente.</p>
@@ -349,7 +362,7 @@
                             </div>
                         </div>
                         
-                        <p data-translate="quest1.kheperalia_title"><strong>Habla con Kheperalia (la Sadida):</strong></p>
+                        <p data-translate="quest1.kheperalia_title">Habla con Kheperalia (la Sadida):</p>
                         <img src="01Rii\5.png">
                         <p data-translate="quest1.kheperalia_desc">Ella estará caminando por toda la isla, por lo que deberemos buscarla.</p>
                         <p data-translate="quest1.kheperalia_desc2">Una vez la encontremos, nos comentara que ayuda a Otomai regulando la fauna y flora de los ecosistemas y responde tranquilamente nuestras preguntas sobre estos.</p>
@@ -360,15 +373,15 @@
                         <div class="quest">
                             <div class="quest-header" data-translate="quest1.subquest2.title">1.2 - Las bases del ecosistema - Monstruos</div>
                             <div class="quest-details">
-                                <img src="01Rii\39.png">
+                            <img data-translate-src="01Rii/39.png|01Rii/39_pt.png" src="01Rii/39.png">
                                 <p data-translate="quest1.subquest2.desc1">Kheperalia te ha confiado unas misiones para controlar el ecosistema de la isla celestial.</p>
                                 <p data-translate="quest1.subquest2.desc2">Cuando muere un monstruo, desaparece para siempre, al igual que los árboles talados o las plantas recolectadas.</p>
                                 <p data-translate="quest1.subquest2.desc3">Depende de ti replantar en el ecosistema lo que consumes, ¡o podrías desajustarlo!</p>
                                 <img src="01Rii\41.png">
                                 <p data-translate="quest1.subquest2.desc4">Con la tecla "W" o clicando en el Jalató bajo la imagen del Miembro De Clan (MDC) en la parte superior derecha de la pantalla abriremos una nueva interfaz.</p>
-                                <img src="01Rii\46.png">
+                                <img data-translate-src="01Rii/7.png|01Rii/7_pt.png" src="01Rii/7.png">
                                 <p data-translate="quest1.subquest2.desc5">Con esta interfaz podremos conocer el estado del territorio que maneja él/la MDC.</p>
-                                <img src="01Rii\49.png">
+                                <img data-translate-src="01Rii/49.png|01Rii/49_pt.png" src="01Rii/49.png">
                                 <p data-translate="quest1.subquest2.desc6">La sabiduría es una caracteristica que nos aumenta el porcentual(%) de experiencia ganada, 1 punto equivale a 1% de experiencia extra y tiene un tope de 150% (aunque el juego diga 200%).</p>
                                 <p data-translate="quest1.subquest2.desc7">La prospección aumenta la probabilidad de obtener recursos de monstruos, equipables u otros tipos de objetos, esto lo explico mejor en la <a>"Guia de la prospección"</a> tiene un limite de 200 puntos.</p>
                                 <img src="01Rii\48.png">
@@ -406,7 +419,7 @@
                             </div>
                         </div>
                         
-                        <p data-translate="quest1.otomai_title"><strong>Habla con Otomai:</strong></p>
+                        <p data-translate="quest1.otomai_title"> Habla con Otomai:</p>
                         <p class="quest-reward" data-translate="quest1.reward">Récompensa : Experiencia: 769 - Emote acostarse - Bolsa celestial.</p>
                     </div>
                 </div>
@@ -442,13 +455,13 @@
                 "quest1.desc9": "En las marcas rosas encontraras a 2 monstruos el \"Jalato Celestial\" y el \"Dark Wonejo\".",
                 "quest1.desc10": "En la marca amarilla encontraras a Grugaloragrán, será el final de todo.",
                 "quest1.desc11": "con estás misiones que deberás aprender lo básico del combate, posicionamiento funciones entre otras cosas, pero tranquilo/a, te iré acompañando paso a paso",
-                "quest1.huly_title": "<strong>Habla con Huly (la Aniripsa):</strong>",
+                "quest1.huly_title": "Habla con Huly (la Aniripsa):",
                 "quest1.huly_desc": "Huly nos contara cómo funcionan las reencarnaciones.",
                 "quest1.huly_desc2": "Nos comenta que las almas no mueren, aun cuando dejan su cuerpo, simplemente son redirigidas por el flujo del Wakfu y son reencarnadas en Incarnam.",
                 "quest1.huly_desc3": "Tras ese proceso perdemos nuestras memorias de nuestra vida anterior. Ya fuésemos reyes o panaderos, todos partimos desde el mismo punto otra vez en Incarnam.",
                 "quest1.huly_desc4": "Por otro lado, ella es un alma en pena, por lo que se convirtió en un gostofo (fantasma) que nunca ha logrado reencarnar (como dato si se negara a morir o reencarnar se convertiría en un \"Chafer\") por eso a dedicado su vida a guiar a encarnarse a los nuevos aventureros.",
                 "quest1.huly_desc5": "También nos dice que no somos los únicos en caer en Rii, algunas almas bajan directo al mundo tras encarnarse en Incarnam, además que cada alma es libre de escoger a que clase/religión es decir de quien quiere ser discípulo/fiel.",
-                "quest1.airyna_title": "<strong>Habla con Airyna (la Sacrógrito):</strong>",
+                "quest1.airyna_title": "Habla con Airyna (la Sacrógrito):",
                 "quest1.airyna_desc": "Entra en el dojo y habla con ella.",
                 "quest1.airyna_desc2": "Nos dará la bienvenida a su dojo, preguntando si nos interesa aprender las bases del combate.",
                 "quest1.airyna_desc3": "Al aceptar nos darán una nueva misión.",
@@ -469,7 +482,7 @@
                 "quest1.subquest1.desc13": "En la cuarta tarea aprenderemos sobre la línea de visión.",
                 "quest1.subquest1.desc14": "En la imagen podemos observar los datos del hechizo, para esto basta con poner el ratón sobre el hechizo y podremos leer los datos, entre ellos está el alcance, daños, efectos entre otros.",
                 "quest1.subquest1.desc15": "Además veremos que hay un pequeño ojito, este nos indicara si podemos golpear o no a través de un obstáculo. Para saber si podemos deberá haber una \"X\" sobre el ojo, también habrá otro con unas líneas sobre el mismo, esto nos indicará si el hechizo tiene alcance modificable (ya que con algunas partes de equipamiento o subiendo un punto en nuestras estadísticas podremos aumentar el alcance).",
-                "quest1.subquest1.desc16": "Ahora, si el hechizo <strong>NO</strong> tiene la \"X\" en el ojo le denominamos que tiene línea de visión, si por el contrario tiene la \"X\" denominamos que <strong>NO</strong> tiene línea de visión.",
+                "quest1.subquest1.desc16": "Ahora, si el hechizo NO tiene la \"X\" en el ojo le denominamos que tiene línea de visión, si por el contrario tiene la \"X\" denominamos que NO tiene línea de visión.",
                 "quest1.subquest1.desc17": "Nuestro objetivo será pegar al Saco de papas sin que nos estorben los pedruscos, cada golpe que hagamos cambiara la posición de estos, además deberemos golpear a 4 casillas de distancia, ya que es el alcance mínimo del hechizo especial que nos darán.",
                 "quest1.subquest1.desc18": "En la quinta tarea aprenderemos sobre sobre la zona de los hechizos, algunos hechizos hacen daño en mas de una casilla, estos los llamamos hechizos en zona, mientras que los que hemos estado usando son hechizos mono objetivo.",
                 "quest1.subquest1.desc19": "Al igual que en los combates anteriores nos darán hechizos especiales, en este caso serán 3, la idea es que golpeemos a todos los Sacos de papas al mismo tiempo para poder ganar debemos golpearlos 4 veces.",
@@ -482,7 +495,7 @@
                 "quest1.subquest1.desc26": "Además podremos ver nuestros estados en la parte superior derecha de la pantalla, de esta forma no será necesario abrir nuestra interfaz normalmente.",
                 "quest1.subquest1.desc27": "al lado derecho también el orden de turno de los monstruos y personajes, tiempo de turno y una barra verde que se llena más rápido, cuando pasamos turno rápido, esto nos permite elegir una de las 6 opciones de bonus extra, si no se usan se mantienen, pero si se escoge una, otro jugador no podrá usarla, por lo que lo mejor es usarlo cada que aparece.",
                 "quest1.subquest1.reward": "Récompensa : Experiencia (varia según el nivel) - Emote Saludar.",
-                "quest1.kheperalia_title": "<strong>Habla con Kheperalia (la Sadida):</strong>",
+                "quest1.kheperalia_title": "Habla con Kheperalia (la Sadida):",
                 "quest1.kheperalia_desc": "Ella estará caminando por toda la isla, por lo que deberemos buscarla.",
                 "quest1.kheperalia_desc2": "Una vez la encontremos, nos comentara que ayuda a Otomai regulando la fauna y flora de los ecosistemas y responde tranquilamente nuestras preguntas sobre estos.",
                 "quest1.kheperalia_desc3": "Nos contara que le gusta el equilibrio de las fuerzas que nos rodean (Wakfu energia de la vida y Stasis energia de la destrucción), por eso le da una gran importancia al equilibrio del ecosistema.",
@@ -517,7 +530,7 @@
                 "quest1.subquest2.desc26": "Generalmente tendremos casillas especificas para plantar, ya sean monstruos o recursos.",
                 "quest1.subquest2.desc27": "Si hay un exceso en la zona simplemente el personaje movera la cabeza",
                 "quest1.subquest2.reward": "Recompensa : Experiencia (varia según tu nivel).",
-                "quest1.otomai_title": "<strong>Habla con Otomai:</strong>",
+                "quest1.otomai_title": "Habla con Otomai:",
                 "quest1.reward": "Récompensa : Experiencia: 769 - Emote acostarse - Bolsa celestial."
             },
             pt: {
@@ -545,13 +558,13 @@
                 "quest1.desc9": "Nas marcas rosas, você encontrará 2 monstros: o \"Jalato Celestial\" e o \"Dark Wonejo\".",
                 "quest1.desc10": "Na marca amarela, você encontrará Grugaloragrán, que será o final de tudo.",
                 "quest1.desc11": "Com estas missões, você aprenderá o básico de combate, posicionamento e outras funções, mas fique tranquilo(a), eu o acompanharei passo a passo.",
-                "quest1.huly_title": "<strong>Fale com Huly (a Aniripsa):</strong>",
+                "quest1.huly_title": "Fale com Huly (a Aniripsa):",
                 "quest1.huly_desc": "Huly nos contará como funcionam as reencarnações.",
                 "quest1.huly_desc2": "Ela nos diz que as almas não morrem, mesmo quando deixam seus corpos; elas são simplesmente redirecionadas pelo fluxo do Wakfu e reencarnam em Incarnam.",
                 "quest1.huly_desc3": "Após esse processo, perdemos as memórias de nossa vida anterior. Seja você um rei ou um padeiro, todos começam do mesmo ponto novamente em Incarnam.",
                 "quest1.huly_desc4": "Por outro lado, ela é uma alma penada, por isso se tornou um gostofo (fantasma) que nunca conseguiu reencarnar (como curiosidade, se ela se recusasse a morrer ou reencarnar, se tornaria um \"Chafer\"). Por isso, ela dedicou sua vida a guiar novos aventureiros em sua encarnação.",
                 "quest1.huly_desc5": "Ela também nos diz que não somos os únicos a cair em Rii; algumas almas descem diretamente ao mundo após encarnarem em Incarnam. Além disso, cada alma é livre para escolher a qual classe/religião deseja ser discípulo(a) ou fiel.",
-                "quest1.airyna_title": "<strong>Fale com Airyna (a Sacrógrito):</strong>",
+                "quest1.airyna_title": "Fale com Airyna (a Sacrógrito):",
                 "quest1.airyna_desc": "Entre no dojo e fale com ela.",
                 "quest1.airyna_desc2": "Ela nos dará as boas-vindas ao seu dojo, perguntando se estamos interessados em aprender as bases do combate.",
                 "quest1.airyna_desc3": "Ao aceitar, receberemos uma nova missão.",
@@ -572,7 +585,7 @@
                 "quest1.subquest1.desc13": "Na quarta tarefa, aprenderemos sobre a linha de visão.",
                 "quest1.subquest1.desc14": "Na imagem, podemos ver os dados do feitiço. Para isso, basta passar o mouse sobre o feitiço e ler os dados, incluindo alcance, dano, efeitos e outros.",
                 "quest1.subquest1.desc15": "Além disso, veremos um pequeno olho, que indica se podemos ou não atacar através de um obstáculo. Se não houver um \"X\" sobre o olho, o feitiço tem linha de visão; se houver um \"X\", não tem. Também há outro ícone com linhas, que indica se o alcance do feitiço pode ser modificado (com equipamentos ou aumentando um ponto em nossas estatísticas, podemos aumentar o alcance).",
-                "quest1.subquest1.desc16": "Agora, se o feitiço <strong>NÃO</strong> tiver um \"X\" no olho, dizemos que tem linha de visão; caso contrário, não tem.",
+                "quest1.subquest1.desc16": "Agora, se o feitiço NÃO tiver um \"X\" no olho, dizemos que tem linha de visão; caso contrário, não tem.",
                 "quest1.subquest1.desc17": "Nosso objetivo será atacar o Saco de Batatas sem que os pedregulhos nos atrapalhem. Cada ataque mudará a posição deles, e devemos atacar a 4 casas de distância, pois esse é o alcance mínimo do feitiço especial que recebemos.",
                 "quest1.subquest1.desc18": "Na quinta tarefa, aprenderemos sobre a área dos feitiços. Alguns feitiços causam dano em mais de uma casa; esses são chamados de feitiços em área, enquanto os que usamos até agora são feitiços de alvo único.",
                 "quest1.subquest1.desc19": "Como nos combates anteriores, receberemos feitiços especiais, neste caso 3. A ideia é atacar todos os Sacos de Batatas ao mesmo tempo para vencer; precisamos acertá-los 4 vezes.",
@@ -585,7 +598,7 @@
                 "quest1.subquest1.desc26": "Além disso, podemos ver nossos estados no canto superior direito da tela, para não precisarmos abrir nossa interface normalmente.",
                 "quest1.subquest1.desc27": "No lado direito, também veremos a ordem de turno dos monstros e personagens, o tempo do turno e uma barra verde que enche mais rápido quando passamos o turno rapidamente. Isso nos permite escolher um dos 6 bônus extras. Se não forem usados, permanecem, mas se um for escolhido, outro jogador não poderá usá-lo, então é melhor usá-lo sempre que aparecer.",
                 "quest1.subquest1.reward": "Recompensa: Experiência (varia de acordo com o nível) - Emote Saudar.",
-                "quest1.kheperalia_title": "<strong>Fale com Kheperalia (a Sadida):</strong>",
+                "quest1.kheperalia_title": "Fale com Kheperalia (a Sadida):",
                 "quest1.kheperalia_desc": "Ela estará andando por toda a ilha, então precisamos procurá-la.",
                 "quest1.kheperalia_desc2": "Quando a encontrarmos, ela nos dirá que ajuda Otomai regulando a fauna e a flora dos ecossistemas e responde calmamente às nossas perguntas sobre eles.",
                 "quest1.kheperalia_desc3": "Ela nos contará que gosta do equilíbrio das forças que nos rodeiam (Wakfu, energia da vida, e Stasis, energia da destruição), por isso dá grande importância ao equilíbrio do ecossistema.",
@@ -620,7 +633,7 @@
                 "quest1.subquest2.desc26": "Geralmente, haverá espaços específicos para plantar, seja monstros ou recursos.",
                 "quest1.subquest2.desc27": "Se houver excesso na área, o personagem simplesmente balançará a cabeça.",
                 "quest1.subquest2.reward": "Recompensa: Experiência (varia de acordo com seu nível).",
-                "quest1.otomai_title": "<strong>Fale com Otomai:</strong>",
+                "quest1.otomai_title": "Fale com Otomai:",
                 "quest1.reward": "Recompensa: Experiência: 769 - Emote Deitar - Bolsa celestial."
             }
         };
@@ -641,6 +654,13 @@ function translatePage(lang) {
             }
         }
     });
+
+    // Cambiar imágenes según el idioma
+    document.querySelectorAll('[data-translate-src]').forEach(img => {
+        const sources = img.getAttribute('data-translate-src').split('|');
+        img.src = lang === 'es' ? sources[0] : sources[1] || sources[0]; // Usa la primera imagen si no hay una específica para PT
+    });
+
     languageToggle.textContent = lang === 'es' ? 'PT' : 'ES';
     document.documentElement.lang = lang;
 }
