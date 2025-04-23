@@ -15,7 +15,7 @@
         }
         header {
             background-color: #d35400;
-            padding: 20px;
+            padding: 1px;
             text-align: center;
             color: white;
         }
@@ -112,8 +112,8 @@
             grid-template-columns: repeat(auto-fit, minmax(800px, 1fr));
             gap: 15px;
             background-image: url('430154.jpg');
-            background-size: contain;
-            padding: 100px;
+            background-size: auto;
+            padding: 100px 100px 100px 100px;
             border-radius: 0px;
         }
         
@@ -242,6 +242,57 @@
             display: block;
         }
         
+        /* Estilos para el botón de modo oscuro */
+.dark-mode-toggle > a {
+    display: block;
+    padding: 10px 10px;
+    color: white;
+    text-decoration: none;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.dark-mode-toggle:hover > a {
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+/* Estilos para el modo oscuro */
+.dark-mode header {
+    background-color: #1a1a1a;
+}
+
+.dark-mode .navbar {
+    background-color: #1a1a1a;
+    border-top: 2px solid #333;
+}
+
+.dark-mode .menu > li > a {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode .menu > li > a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.dark-mode .quest-container {
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #eee;
+}
+
+.dark-mode .quest-container h2 {
+    color: #2ecc71;
+}
+
+.dark-mode .quest {
+    background-color: rgba(0, 0, 0, 0.3);
+}
+        section {
+    background-attachment: fixed;
+}
         /* Responsive */
         @media (max-width: 768px) {
             header {
@@ -314,7 +365,17 @@
                 width: 100%;
                 border-radius: 0;
             }
-
+            
+            @media (max-width: 768px) {
+    .dark-mode-toggle {
+        width: 100%;
+    }
+    
+    .dark-mode-toggle > a {
+        border-radius: 0;
+        border-bottom: 1px solid #333;
+        background-color: transparent;
+    }
         }
     </style>
 </head>
@@ -340,6 +401,8 @@
                             <li><a href="#" data-lang="pt">PT</a></li>
                             <li><a href="#" data-lang="en">EN</a></li>
                         </ul>
+                    <li class="dark-mode-toggle">
+    <a href="#" id="darkModeToggle">🌙</a>
                     </li>
                 </ul>
             </div>
@@ -363,7 +426,7 @@
                         <p data-translate="quest1.desc2">No dudes en dar una vuelta por el lugar antes de ir a ver a Grugaloragrán</p>
                         <img data-translate-src="01Rii/1.png|01Rii/1_pt.png|01Rii/1_en.png" src="01Rii/1.png">
                         <p data-translate="quest1.desc3">En esta saga de misiones que deberás aprender lo básico del combate, posicionamiento funciones entre otras cosas, pero tranquilo/a, te iré acompañando paso a paso</p>
-                        <img data-translate-src="01Rii/19.png|01Rii/19_pt.png" src="01Rii/19.png">
+                        <img data-translate-src="01Rii/19.png|01Rii/19_pt.png|01Rii/19_en.png" src="01Rii/19.png">
                         <p data-translate="quest1.desc4">A la izquierda de la pantalla veremos ese pequeño texto flotante, básicamente son las misiones que seguimos, es decir misiones que seleccionamos para saber qué debemos hacer sin necesidad de abrir la interfaz de misiones, podemos tener un máximo de 4 seleccionadas, además como pueden ver hay una pequeña brújula, al darle clic nos aparecerá una flecha al rededor del personaje que nos guiara a donde debemos ir en el mapa (solo funciona si estamos en la zona de la misión si estamos en otra isla no aparecerá el botón).</p>
                         <img src="01Rii\23.png">
                         <p data-translate="quest1.desc5">Primero te comentare la ubicación de todo y un par de cositas que necesitas saber. (Con el comando Shift + M abrirás la interfaz del mini mapa además en la parte inferior derecha veras la posición en coordenadas en X e Y)</p>
@@ -371,19 +434,25 @@
                         <p data-translate="quest1.desc6">Como puedes observar en el mapa hay varias marcas, en la de color rojo estará Huly, al lado de ella estará un altar que te permite cambiar de clase, siempre y cuando no sobrepases el nivel 30.</p>
                         <p data-translate="quest1.desc7">En la marca morada estará Otomai y el taller para la fabricación de la pócima.</p>
                         <p data-translate="quest1.desc8">En la marca verde encontraras a Airyna y además es donde podrás probar a los Sacos de papas, criaturas diseñadas para que testes tus daños.</p>
-                        <p>En las marcas rosas encontraras a 2 monstruos el <a href="https://www.wakfu.com/es/mmorpg/enciclopedia/monstruos/5526-jalato-celestial" 
-   data-translate-href="es|https://www.wakfu.com/es/mmorpg/enciclopedia/monstruos/5526-jalato-celestial|pt|https://www.wakfu.com/pt/mmorpg/enciclopedia/monstros/5526-papatudo-celestial|en|https://www.wakfu.com/en/mmorpg/encyclopedia/monsters/5526-celestial-gobball" 
-   target="_blank" 
-   rel="noopener noreferrer" 
-   data-translate-text="es|Jalato Celestial|pt|Papatudo Celestial|en|Celestial Gobball">
-   Jalato Celestial
-</a> y el <a href="https://www.wakfu.com/es/mmorpg/enciclopedia/monstruos/5527-dark-wonejo" 
-   data-translate-href="es|https://www.wakfu.com/es/mmorpg/enciclopedia/monstruos/5527-dark-wonejo|pt|https://www.wakfu.com/pt/mmorpg/enciclopedia/monstros/5527-dark-lepowide|en|https://www.wakfu.com/en/mmorpg/encyclopedia/monsters/5527-darth-wodent" 
-   target="_blank" 
-   rel="noopener noreferrer" 
-   data-translate-text="es|Dark Wonejo|pt|Dark Lepowide|en|Darth Wodent">
-   Dark Wonejo
-</a></p>
+                        <p>
+  <span data-translate="quest1.desc9.part1">En las marcas rosas encontrarás a 2 monstruos: el</span>
+  <a href="https://www.wakfu.com/es/mmorpg/enciclopedia/monstruos/5526-jalato-celestial"
+     data-translate-href="es|https://www.wakfu.com/es/mmorpg/enciclopedia/monstruos/5526-jalato-celestial|pt|https://www.wakfu.com/pt/mmorpg/enciclopedia/monstros/5526-papatudo-celestial|en|https://www.wakfu.com/en/mmorpg/encyclopedia/monsters/5526-celestial-gobball"
+     target="_blank"
+     rel="noopener noreferrer"
+     data-translate-text="es|Jalato Celestial|pt|Papatudo Celestial|en|Celestial Gobball">
+    Jalato Celestial
+  </a>
+  <span data-translate="quest1.desc9.part2">y el</span>
+  <a href="https://www.wakfu.com/es/mmorpg/enciclopedia/monstruos/5527-dark-wonejo"
+     data-translate-href="es|https://www.wakfu.com/es/mmorpg/enciclopedia/monstruos/5527-dark-wonejo|pt|https://www.wakfu.com/pt/mmorpg/enciclopedia/monstros/5527-dark-lepowide|en|https://www.wakfu.com/en/mmorpg/encyclopedia/monsters/5527-darth-wodent"
+     target="_blank"
+     rel="noopener noreferrer"
+     data-translate-text="es|Dark Wonejo|pt|Dark Lepowide|en|Darth Wodent">
+    Dark Wonejo
+  </a>
+  <span data-translate="quest1.desc9.part3">.</span>
+</p>
                         <p data-translate="quest1.desc10">En la marca amarilla encontraras a Grugaloragrán, será el final de todo.</p>
                         <p data-translate="quest1.desc11">con estás misiones que deberás aprender lo básico del combate, posicionamiento funciones entre otras cosas, pero tranquilo/a, te iré acompañando paso a paso</p>
                         
@@ -392,14 +461,17 @@
                         <p data-translate="quest1.huly_desc">Huly nos contara cómo funcionan las reencarnaciones.</p>
                         <p data-translate="quest1.huly_desc2">Nos comenta que las almas no mueren, aun cuando dejan su cuerpo, simplemente son redirigidas por el flujo del Wakfu y son reencarnadas en Incarnam.</p>
                         <p data-translate="quest1.huly_desc3">Tras ese proceso perdemos nuestras memorias de nuestra vida anterior. Ya fuésemos reyes o panaderos, todos partimos desde el mismo punto otra vez en Incarnam.</p>
-                        <p data-translate="quest1.huly_desc4">Por otro lado, ella es un alma en pena, por lo que se convirtió en un gostofo (fantasma) que nunca ha logrado reencarnar (como dato si se negara a morir o reencarnar se convertiría en un 
-<a href="https://dofus.fandom.com/es/wiki/Chafer" 
+                        <p>
+  <span data-translate="quest1.huly_desc4.part1">Por otro lado, ella es un alma en pena, por lo que se convirtió en un gostofo (fantasma) que nunca ha logrado reencarnar (como dato si se negara a morir o reencarnar se convertiría en un</span>
+  <a href="https://dofus.fandom.com/es/wiki/Chafer" 
    data-translate-href="es|https://dofus.fandom.com/es/wiki/Chafer|pt|https://dofus.fandom.com/pt-br/wiki/Chafer|en|https://dofuswiki.fandom.com/wiki/Chafer" 
    target="_blank" 
    rel="noopener noreferrer" 
    data-translate-text="es|Chafer|pt|Chafer|en|Chafer">
    Chafer
-</a> ) por eso a dedicado su vida a guiar a encarnarse a los nuevos aventureros.</p>
+</a>
+  <span data-translate="quest1.huly_desc4.part2">) por eso a dedicado su vida a guiar a encarnarse a los nuevos aventureros.</span>
+</p>
                         <p data-translate="quest1.huly_desc5">También nos dice que no somos los únicos en caer en Rii, algunas almas bajan directo al mundo tras encarnarse en Incarnam, además que cada alma es libre de escoger a que clase/religión es decir de quien quiere ser discípulo/fiel.</p>
                         
                         <p data-translate="quest1.airyna_title">Habla con Airyna (la Sacrógrito):</p>
@@ -411,18 +483,18 @@
                         <div class="quest">
                             <div class="quest-header" data-translate="quest1.subquest1.title">1.1 - Las bases del combate.</div>
                             <div class="quest-details">
-                            <img data-translate-src="01Rii/22.png|01Rii/22_pt.png" src="01Rii/22.png">
+                            <img data-translate-src="01Rii/22.png|01Rii/22_pt.png|01Rii/22_en.png" src="01Rii/22.png">
                                 <p data-translate="quest1.subquest1.desc1">En el dojo celestial, Airyna te ofrece un repaso de las capacidades básicas de combate.</p>
                                 <p data-translate="quest1.subquest1.desc2">¡Completa todas las pruebas del principiante para obtener el diploma de su escuela!</p>
                                 <h5 data-translate="quest1.subquest1.note">NOTA: Los PA o Puntos de Acción, son algo que necesitas para poder atacar con prácticamente cualquier cosa. Los PM Puntos de Movimiento, son lo que te permite desplazarte, 1 PM es una casilla. Los PW/BC/S o Puntos de Wakfu/Brisa Cuadramental/Stasis son un punta extra que dependiendo de cada clase varia su regeneración y método de regeneración a diferencia de los PA o PM que se regeneran cada inicio de turno.</h5>
-                            <img data-translate-src="01Rii/24.png|01Rii/24_pt.png" src="01Rii/24.png">
+                            <img data-translate-src="01Rii/24.png|01Rii/24_pt.png|01Rii/24_en.png" src="01Rii/24.png">
                                 <p data-translate="quest1.subquest1.desc3">En la primera tarea aprenderemos sobre la orientación, a diferencia de otros juegos, acá en Wakfu el daño por los costados aumenta un 10% y por espalda un 25%, por lo que es importante antes de terminar el turno cambiar la orientación de nuestro personaje.</p>
                                 <img src="01Rii\25.png">
                                 <p data-translate="quest1.subquest1.desc4">Podemos usar las flechas del teclado para indicar la dirección del personaje o las flechas bajo la vida.</p>
                                 <p data-translate="quest1.subquest1.desc5">nuestro objetivo en este combate, es caminar hasta la espalda y golpear al Saco de papas con cualquier cosa.</p>
                                 <img src="01Rii\26.png">
                                 <p data-translate="quest1.subquest1.desc6">En la segunda tarea aprenderemos sobre las resistencias elementales y los daños elementales.</p>
-                            <img data-translate-src="01Rii/27.png|01Rii/27_pt.png" src="01Rii/27.png">
+                            <img data-translate-src="01Rii/27.png|01Rii/27_pt.png|01Rii/27_en.png" src="01Rii/27.png">
                                 <p data-translate="quest1.subquest1.desc7">Haciendo clic derecho sobre el monstruo nos abrirá una interfaz del enemigo que nos dirá sus estadísticas (la espada es el daño, el escudo la resistencia) (también funciona con nuestro personaje o el de un aliado).</p>
                                 <img src="01Rii\28.png">
                                 <p data-translate="quest1.subquest1.desc8">Lo que debemos hacer es mirar a que tiene 0 de resistencia y pegarle con uno de los hechizos especiales que nos han dado, para hacer daño a la resistencia mas baja, esto lo denominamos "debilidad elemental" o "debilidad" (en algunos combates o mazmorras nos darán hechizos especiales para cumplir ciertas condiciones, por favor léanlos antes de iniciar combates).</p>
@@ -431,9 +503,9 @@
                                 <p data-translate="quest1.subquest1.desc10">En la tercera tarea aprenderemos las distancias, en Wakfu se considera un ataque meleé/CaC cuando un objetivo esta a 2 o menos casillas y un ataque a distancia cuando el objetivo.</p>
                                 <p data-translate="quest1.subquest1.desc11">Como podemos ver en la imagen, las casillas en verde es la zona meleé/CaC del Saco de papas y la zona en rojo es la zona distancia, para ganar deberemos hacer daño posicionándonos en las casillas verdes y usar el hechizo especial que nos dieron, cambiara cada golpe que demos, acá no será necesario pasar de turno.</p>
                                 <p data-translate="quest1.subquest1.desc12">Esto es importante porque forma parte de las estadísticas de nuestro personaje y las podemos subir para mejorar nuestros daños o curas.</p>
-                            <img data-translate-src="01Rii/32.png|01Rii/32_pt.png" src="01Rii/32.png">
+                            <img data-translate-src="01Rii/32.png|01Rii/32_pt.png|01Rii/32_en.png" src="01Rii/32.png">
                                 <p data-translate="quest1.subquest1.desc13">En la cuarta tarea aprenderemos sobre la línea de visión.</p>
-                            <img data-translate-src="01Rii/33.png|01Rii/33_pt.png" src="01Rii/33.png">
+                            <img data-translate-src="01Rii/33.png|01Rii/33_pt.png|01Rii/33_en.png" src="01Rii/33.png">
                                 <p data-translate="quest1.subquest1.desc14">En la imagen podemos observar los datos del hechizo, para esto basta con poner el ratón sobre el hechizo y podremos leer los datos, entre ellos está el alcance, daños, efectos entre otros.</p>
                                 <p data-translate="quest1.subquest1.desc15">Además veremos que hay un pequeño ojito, este nos indicara si podemos golpear o no a través de un obstáculo. Para saber si podemos deberá haber una "X" sobre el ojo, también habrá otro con unas líneas sobre el mismo, esto nos indicará si el hechizo tiene alcance modificable (ya que con algunas partes de equipamiento o subiendo un punto en nuestras estadísticas podremos aumentar el alcance).</p>
                                 <p data-translate="quest1.subquest1.desc16">Ahora, si el hechizo NO tiene la "X" en el ojo le denominamos que tiene línea de visión, si por el contrario tiene la "X" denominamos que NO tiene línea de visión.</p>
@@ -448,9 +520,9 @@
                                 <p data-translate="quest1.subquest1.desc21">En la sexta tarea aprenderemos sobre los hechizos de desplazamiento.</p>
                                 <p data-translate="quest1.subquest1.desc22">Existen 5 tipos de desplazamientos: Teleportación propia, teleportación aliado/enemigo, transposición (intercambio de posición con el objetivo) empuje y atracción.</p>
                                 <p data-translate="quest1.subquest1.desc23">Nuestro objetivo es usar los 4 hechizos especiales, tendremos transposición, teleportación propia, atracción y empuje, con estos llevar al Saco de papas a la casilla verde, no tendremos PM y tendremos PA suficientes para usar 3 hechizos en 1 turno y deberemos hacerlo 4 veces.</p>
-                            <img data-translate-src="01Rii/36.png|01Rii/36_pt.png" src="01Rii/36.png">
+                            <img data-translate-src="01Rii/36.png|01Rii/36_pt.png|01Rii/36_en.png" src="01Rii/36.png">
                                 <p data-translate="quest1.subquest1.desc24">En la última tarea aprenderemos de los efectos de combate.</p>
-                            <img data-translate-src="01Rii/37.png|01Rii/37_pt.png" src="01Rii/37.png">
+                            <img data-translate-src="01Rii/37.png|01Rii/37_pt.png|01Rii/37_en.png" src="01Rii/37.png">
                                 <p data-translate="quest1.subquest1.desc25">Nuestro objetivo será generar daño según el efecto que tiene el Saco de papas, tendrá 4 efectos aleatorios: Hacerte a más de 6 casillas de distancia y pasar de turno, hacerte en contacto con el Saco de papas y pasar de turno, hacerte sobre una casilla roja y usar el hechizo especial para golpear al Saco de papas y finalmente hacerte en una casilla verde y usar el hechizo especial para golpear al Saco de papas.</p>
                                 <img src="01Rii\38.png">
                                 <p data-translate="quest1.subquest1.desc26">Además podremos ver nuestros estados en la parte superior derecha de la pantalla, de esta forma no será necesario abrir nuestra interfaz normalmente.</p>
@@ -470,23 +542,47 @@
                         <div class="quest">
                             <div class="quest-header" data-translate="quest1.subquest2.title">1.2 - Las bases del ecosistema - Monstruos</div>
                             <div class="quest-details">
-                            <img data-translate-src="01Rii/39.png|01Rii/39_pt.png" src="01Rii/39.png">
+                            <img data-translate-src="01Rii/39.png|01Rii/39_pt.png|01Rii/39_en.png" src="01Rii/39.png">
                                 <p data-translate="quest1.subquest2.desc1">Kheperalia te ha confiado unas misiones para controlar el ecosistema de la isla celestial.</p>
                                 <p data-translate="quest1.subquest2.desc2">Cuando muere un monstruo, desaparece para siempre, al igual que los árboles talados o las plantas recolectadas.</p>
                                 <p data-translate="quest1.subquest2.desc3">Depende de ti replantar en el ecosistema lo que consumes, ¡o podrías desajustarlo!</p>
                                 <img src="01Rii\41.png">
                                 <p data-translate="quest1.subquest2.desc4">Con la tecla "W" o clicando en el Jalató bajo la imagen del Miembro De Clan (MDC) en la parte superior derecha de la pantalla abriremos una nueva interfaz.</p>
-                                <img data-translate-src="01Rii/7.png|01Rii/7_pt.png" src="01Rii/7.png">
+                                <img data-translate-src="01Rii/7.png|01Rii/7_pt.png|01Rii/7_en.png" src="01Rii/7.png">
                                 <p data-translate="quest1.subquest2.desc5">Con esta interfaz podremos conocer el estado del territorio que maneja él/la MDC.</p>
-                                <img data-translate-src="01Rii/49.png|01Rii/49_pt.png" src="01Rii/49.png">
+                                <img data-translate-src="01Rii/49.png|01Rii/49_pt.png|01Rii/49_en.png" src="01Rii/49.png">
                                 <p data-translate="quest1.subquest2.desc6">La sabiduría es una caracteristica que nos aumenta el porcentual(%) de experiencia ganada, 1 punto equivale a 1% de experiencia extra y tiene un tope de 150% (aunque el juego diga 200%).</p>
-                                <p data-translate="quest1.subquest2.desc7">La prospección aumenta la probabilidad de obtener recursos de monstruos, equipables u otros tipos de objetos, esto lo explico mejor en la <a>"Guia de la prospección"</a> tiene un limite de 200 puntos.</p>
+                                <p>
+  <span data-translate="quest1.subquest2.desc7.part1">La prospección aumenta la probabilidad de obtener recursos de monstruos, equipables u otros tipos de objetos, esto lo explico mejor en la</span>
+  <a data-translate-text="es|Guia de la prospección|pt|Guia de Prospecção|en|Prospecting Guide">
+    Guia de la prospección
+  </a>
+  <span data-translate="quest1.subquest2.desc7.part2">tiene un limite de 200 puntos.</span>
+</p>
                                 <img src="01Rii\48.png">
                                 <p data-translate="quest1.subquest2.desc8">Abajo del nivel de satisfacción podemos observar que son frascos con una linea a la izquierda que indica la cantidad y bajo de estos en algunos casos una estrella con 2 limites de cantidad que son minimos y maximos.</p>
                                 <p data-translate="quest1.subquest2.desc9">Si la cantidad de recursos/monstruos está dentro de los limites indicados aumentara el nivel de satisfacción y esto nos ayudara a subir mas fácil los oficios o el personaje de nivel.</p>
                                 <p data-translate="quest1.subquest2.desc10">Tambien los logos nos diran que tipo de recurso, los monstruos tendran su propio logo que sera una pequeña imagen de la cara de dicho monstruo, mientras que los recursos de oficios serán todos un solo logo por categoria.</p>
                                 <p data-translate="quest1.subquest2.desc11">todos los recursos de campesino se indican con el logo del trigo, los de leñador con el arbol y plantas con la flor.</p>
-                                <p data-translate="quest1.subquest2.desc12">Ahora que hemos aprendido lo básico del ecosistema podremos hacer las misiones, empezaremos matando 3 monstruos de la familia Embrialmas ya sea el <a href="https://www.wakfu.com/es/mmorpg/enciclopedia/monstruos/5455-wonejo" target="_blank" rel="noopener noreferrer">"Wonejo"</a> o la <a href="https://www.wakfu.com/es/mmorpg/enciclopedia/monstruos/5456-mama-wonejo" target="_blank" rel="noopener noreferrer">"Mamá wonejo"</a>.</p>
+                                <p>
+  <span data-translate="quest1.subquest2.desc12.part1">Ahora que hemos aprendido lo básico del ecosistema podremos hacer las misiones, empezaremos matando 3 monstruos de la familia Embrialmas ya sea el</span>
+  <a href="https://www.wakfu.com/es/mmorpg/enciclopedia/monstruos/5455-wonejo"
+     data-translate-href="es|https://www.wakfu.com/es/mmorpg/enciclopedia/monstruos/5455-wonejo|pt|https://www.wakfu.com/pt/mmorpg/enciclopedia/monstros/5455-lepowide|en|https://www.wakfu.com/en/mmorpg/encyclopedia/monsters/5455-wodent"
+     target="_blank"
+     rel="noopener noreferrer"
+     data-translate-text="es|Wonejo|pt|Lepowide|en|Wodent">
+    Wonejo
+  </a>
+  <span data-translate="quest1.subquest2.desc12.part2">o la</span>
+  <a href="https://www.wakfu.com/es/mmorpg/enciclopedia/monstruos/5456-mama-wonejo"
+     data-translate-href="es|https://www.wakfu.com/es/mmorpg/enciclopedia/monstruos/5456-mama-wonejo|pt|https://www.wakfu.com/pt/mmorpg/enciclopedia/monstros/5456-mamae-lepowide|en|https://www.wakfu.com/en/mmorpg/encyclopedia/monsters/5456-mama-wodent"
+     target="_blank"
+     rel="noopener noreferrer"
+     data-translate-text="es|Mamá wonejo|pt|Mamãe Lepowide|en|Mama Wodent">
+    Mamá wonejo
+  </a>
+  <span data-translate="quest1.subquest2.desc12.part3">.</span>
+</p>
                                 <img src="01Rii\50.png">
                                 <p data-translate="quest1.subquest2.desc13">Para esto debemos dar clic derecho en alguno de los monstruos y darle clic izquierdo a la imagen de la espada, de esta forma iniciamos un combate.</p>
                                 <p data-translate="quest1.subquest2.desc14">También al poner el ratón sobre un monstruo veremos la cantidad de monstruos en el grupo al que nos enfrentaremos, está varia de 1 a 6 generalmente, pero acá es un maximo de 4.</p>
@@ -500,7 +596,17 @@
                                 <img src="01Rii\44.png">
                                 <p data-translate="quest1.subquest2.desc20">En la interfaz de inventario veremos varias cosas.</p>
                                 <img src="01Rii\45.png">
-                                <p data-translate="quest1.subquest2.desc21">Primero veremos en la parte superior izquierda la cara de nuestro personaje y abajo de esta un circulo con un "+" esto es en caso de tener el <a>"Booster pack"</a>, luego en la parte derecha veremos 5 imagenes: -Un bolso que será nuestro inventario tal cual. -Una llave que serán objetos clave de misiones y otras cosas que algunas se comparten entre los personajes del mismo servidor. -Una estrella que será donde se guardaran todos nuestros cosmeticos y al igual que en el anterior se comparten entre los personajes del mismo servidor. -Un martillo que sirve para romper recursos o equipables para tener mas especio. -Un diablo que esto es parte de una función del juego llamada <a>"Pacto demoniaco"</a> (esta mecanica no se mirará ni se profundizara en ningun apartado de esta pagina).</p>
+                                <p>
+  <span data-translate="quest1.subquest2.desc21.part1">Primero veremos en la parte superior izquierda la cara de nuestro personaje y abajo de esta un circulo con un "+" esto es en caso de tener el</span>
+  <a data-translate-text="es|Booster pack|pt|Booster pack|en|Booster pack">
+    Booster pack
+  </a>
+  <span data-translate="quest1.subquest2.desc21.part2">, luego en la parte derecha veremos 5 imagenes: -Un bolso que será nuestro inventario tal cual. -Una llave que serán objetos clave de misiones y otras cosas que algunas se comparten entre los personajes del mismo servidor. -Una estrella que será donde se guardaran todos nuestros cosmeticos y al igual que en el anterior se comparten entre los personajes del mismo servidor. -Un martillo que sirve para romper recursos o equipables para tener mas especio. -Un diablo que esto es parte de una función del juego llamada</span>
+  <a data-translate-text="es|Pacto demoniaco|pt|Guia de Prospecção|en|Prospecting Guide">
+    Pacto demoniaco
+  </a>
+  <span data-translate="quest1.subquest2.desc21.part3">(esta mecanica no se mirará ni se profundizara en ningun apartado de esta pagina).</span>
+</p>
                                 <p data-translate="quest1.subquest2.desc22">Abajo de estos botones veremos una barra de busqueda y un boton con unas flechas "↑↓" esto sirve para order el inventario completo de forma automatica.</p>
                                 <p data-translate="quest1.subquest2.desc23">Luego tendremos los "Bolsillos" o "Bolsos" que a la derecha tendremos el botón "↑↓" para order solo ese bolsillo y la cantidad de espacios disponibles que a diferencia de muchos juegos que nos limitan la cantidad de objetos por peso, en este caso se limita por cantidad diferente de objetos, si son los mismos objetos se acumulan entre ellos y se les llama "Stacks", por lo que el limite de espacios se basa en la cantidad de diferentes objetos.</p>
                                 <p data-translate="quest1.subquest2.desc24">Finalmente tendremos 5 espacios, 3 para "Bolsos" y 2 para "Cajitas" estas ultimas varian su función de almacenamiento según el tipo de caja y la cantidad de kamas.</p>
@@ -552,14 +658,17 @@
                 "quest1.desc6": "Como puedes observar en el mapa hay varias marcas, en la de color rojo estará Huly, al lado de ella estará un altar que te permite cambiar de clase, siempre y cuando no sobrepases el nivel 30.",
                 "quest1.desc7": "En la marca morada estará Otomai y el taller para la fabricación de la pócima.",
                 "quest1.desc8": "En la marca verde encontraras a Airyna y además es donde podrás probar a los Sacos de papas, criaturas diseñadas para que testes tus daños.",
-                "quest1.desc9": "En las marcas rosas encontraras a 2 monstruos el \"Jalato Celestial\" y el \"Dark Wonejo\".",
+                "quest1.desc9.part1": "En las marcas rosas encontrarás a 2 monstruos: el",
+    "quest1.desc9.part2": "y el",
+    "quest1.desc9.part3": ".",
                 "quest1.desc10": "En la marca amarilla encontraras a Grugaloragrán, será el final de todo.",
                 "quest1.desc11": "con estás misiones que deberás aprender lo básico del combate, posicionamiento funciones entre otras cosas, pero tranquilo/a, te iré acompañando paso a paso",
                 "quest1.huly_title": "Habla con Huly (la Aniripsa):",
                 "quest1.huly_desc": "Huly nos contara cómo funcionan las reencarnaciones.",
                 "quest1.huly_desc2": "Nos comenta que las almas no mueren, aun cuando dejan su cuerpo, simplemente son redirigidas por el flujo del Wakfu y son reencarnadas en Incarnam.",
                 "quest1.huly_desc3": "Tras ese proceso perdemos nuestras memorias de nuestra vida anterior. Ya fuésemos reyes o panaderos, todos partimos desde el mismo punto otra vez en Incarnam.",
-                "quest1.huly_desc4": "Por otro lado, ella es un alma en pena, por lo que se convirtió en un gostofo (fantasma) que nunca ha logrado reencarnar (como dato si se negara a morir o reencarnar se convertiría en un \"Chafer\" por eso a dedicado su vida a guiar a encarnarse a los nuevos aventureros.",
+                "quest1.huly_desc4.part1": "Por otro lado, ella es un alma en pena, por lo que se convirtió en un gostofo (fantasma) que nunca ha logrado reencarnar (como dato si se negara a morir o reencarnar se convertiría en un",
+    "quest1.huly_desc4.part2": ") por eso a dedicado su vida a guiar a encarnarse a los nuevos aventureros.",
                 "quest1.huly_desc5": "También nos dice que no somos los únicos en caer en Rii, algunas almas bajan directo al mundo tras encarnarse en Incarnam, además que cada alma es libre de escoger a que clase/religión es decir de quien quiere ser discípulo/fiel.",
                 "quest1.airyna_title": "Habla con Airyna (la Sacrógrito):",
                 "quest1.airyna_desc": "Entra en el dojo y habla con ella.",
@@ -608,12 +717,15 @@
                 "quest1.subquest2.desc4": "Con la tecla \"W\" o clicando en el Jalató bajo la imagen del Miembro De Clan (MDC) en la parte superior derecha de la pantalla abriremos una nueva interfaz.",
                 "quest1.subquest2.desc5": "Con esta interfaz podremos conocer el estado del territorio que maneja él/la MDC.",
                 "quest1.subquest2.desc6": "La sabiduría es una caracteristica que nos aumenta el porcentual(%) de experiencia ganada, 1 punto equivale a 1% de experiencia extra y tiene un tope de 150% (aunque el juego diga 200%).",
-                "quest1.subquest2.desc7": "La prospección aumenta la probabilidad de obtener recursos de monstruos, equipables u otros tipos de objetos, esto lo explico mejor en la \"Guia de la prospección\" tiene un limite de 200 puntos.",
+                "quest1.subquest2.desc7.part1": "La prospección aumenta la probabilidad de obtener recursos de monstruos, equipables u otros tipos de objetos, esto lo explico mejor en la",
+    "quest1.subquest2.desc7.part2": "tiene un limite de 200 puntos.",
                 "quest1.subquest2.desc8": "Abajo del nivel de satisfacción podemos observar que son frascos con una linea a la izquierda que indica la cantidad y bajo de estos en algunos casos una estrella con 2 limites de cantidad que son minimos y maximos.",
                 "quest1.subquest2.desc9": "Si la cantidad de recursos/monstruos está dentro de los limites indicados aumentara el nivel de satisfacción y esto nos ayudara a subir mas fácil los oficios o el personaje de nivel.",
                 "quest1.subquest2.desc10": "Tambien los logos nos diran que tipo de recurso, los monstruos tendran su propio logo que sera una pequeña imagen de la cara de dicho monstruo, mientras que los recursos de oficios serán todos un solo logo por categoria.",
                 "quest1.subquest2.desc11": "todos los recursos de campesino se indican con el logo del trigo, los de leñador con el arbol y plantas con la flor.",
-                "quest1.subquest2.desc12": "Ahora que hemos aprendido lo básico del ecosistema podremos hacer las misiones, empezaremos matando 3 monstruos de la familia Embrialmas ya sea el \"Wonejo\" o la \"Mamá wonejo\".",
+                "quest1.subquest2.desc12.part1": "Ahora que hemos aprendido lo básico del ecosistema podremos hacer las misiones, empezaremos matando 3 monstruos de la familia Embrialmas ya sea el",
+    "quest1.subquest2.desc12.part2": "o la",
+    "quest1.subquest2.desc12.part3": ".",
                 "quest1.subquest2.desc13": "Para esto debemos dar clic derecho en alguno de los monstruos y darle clic izquierdo a la imagen de la espada, de esta forma iniciamos un combate.",
                 "quest1.subquest2.desc14": "También al poner el ratón sobre un monstruo veremos la cantidad de monstruos en el grupo al que nos enfrentaremos, está varia de 1 a 6 generalmente, pero acá es un maximo de 4.",
                 "quest1.subquest2.desc15": "Ahora deberemos conseguir 3 semillas de monstruo y plantarlas para mantener el equilibrio del ecosistema.",
@@ -622,7 +734,9 @@
                 "quest1.subquest2.desc18": "Por defecto se agregara a la interfaz de acceso rapido en la parte inferior derecha de la pantalla",
                 "quest1.subquest2.desc19": "También podemos verlas en el inventario al cual podemos acceder con la tecla \"I\" o accediendo desde la interfaz de accesos en la parte inferior izquierda de la pantalla, dando un clic izquierdo en la bolsa.",
                 "quest1.subquest2.desc20": "En la interfaz de inventario veremos varias cosas.",
-                "quest1.subquest2.desc21": "Primero veremos en la parte superior izquierda la cara de nuestro personaje y abajo de esta un circulo con un \"+\" esto es en caso de tener el \"Booster pack\", luego en la parte derecha veremos 5 imagenes: -Un bolso que será nuestro inventario tal cual. -Una llave que serán objetos clave de misiones y otras cosas que algunas se comparten entre los personajes del mismo servidor. -Una estrella que será donde se guardaran todos nuestros cosmeticos y al igual que en el anterior se comparten entre los personajes del mismo servidor. -Un martillo que sirve para romper recursos o equipables para tener mas especio. -Un diablo que esto es parte de una función del juego llamada \"Pacto demoniaco\" (esta mecanica no se mirará ni se profundizara en ningun apartado de esta pagina).",
+                "quest1.subquest2.desc21.part1": "Primero veremos en la parte superior izquierda la cara de nuestro personaje y abajo de esta un circulo con un "+" esto es en caso de tener el",
+    "quest1.subquest2.desc21.part2": "luego en la parte derecha veremos 5 imagenes: -Un bolso que será nuestro inventario tal cual. -Una llave que serán objetos clave de misiones y otras cosas que algunas se comparten entre los personajes del mismo servidor. -Una estrella que será donde se guardaran todos nuestros cosmeticos y al igual que en el anterior se comparten entre los personajes del mismo servidor. -Un martillo que sirve para romper recursos o equipables para tener mas especio. -Un diablo que esto es parte de una función del juego llamada",
+    "quest1.subquest2.desc21.part3": "(esta mecanica no se mirará ni se profundizara en ningun apartado de esta pagina).",
                 "quest1.subquest2.desc22": "Abajo de estos botones veremos una barra de busqueda y un boton con unas flechas \"↑↓\" esto sirve para order el inventario completo de forma automatica.",
                 "quest1.subquest2.desc23": "Luego tendremos los \"Bolsillos\" o \"Bolsos\" que a la derecha tendremos el botón \"↑↓\" para order solo ese bolsillo y la cantidad de espacios disponibles que a diferencia de muchos juegos que nos limitan la cantidad de objetos por peso, en este caso se limita por cantidad diferente de objetos, si son los mismos objetos se acumulan entre ellos y se les llama \"Stacks\", por lo que el limite de espacios se basa en la cantidad de diferentes objetos.",
                 "quest1.subquest2.desc24": "Finalmente tendremos 5 espacios, 3 para \"Bolsos\" y 2 para \"Cajitas\" estas ultimas varian su función de almacenamiento según el tipo de caja y la cantidad de kamas.",
@@ -658,14 +772,17 @@
                 "quest1.desc6": "Como você pode ver no mapa, há várias marcas. Na marca vermelha estará Huly, e ao lado dela haverá um altar que permite mudar de classe, desde que você não ultrapasse o nível 30.",
                 "quest1.desc7": "Na marca roxa estará Otomai e a oficina para a fabricação da poção.",
                 "quest1.desc8": "Na marca verde, você encontrará Airyna e também poderá testar seus danos nos Sacos de batatas, criaturas projetadas para esse fim.",
-                "quest1.desc9": "Nas marcas rosas, você encontrará 2 monstros: o \"Papatudo Celestial\" e o \"Dark Lepowide\".",
+                "quest1.desc9.part1": "Nas marcas rosas, você encontrará 2 monstros: o",
+    "quest1.desc9.part2": "e o",
+    "quest1.desc9.part3": ".",
                 "quest1.desc10": "Na marca amarela, você encontrará Grugaloragrán, que será o final de tudo.",
                 "quest1.desc11": "Com estas missões, você aprenderá o básico de combate, posicionamento e outras funções, mas fique tranquilo(a), eu o acompanharei passo a passo.",
                 "quest1.huly_title": "Fale com Huly (a Aniripsa):",
                 "quest1.huly_desc": "Huly nos contará como funcionam as reencarnações.",
                 "quest1.huly_desc2": "Ela nos diz que as almas não morrem, mesmo quando deixam seus corpos; elas são simplesmente redirecionadas pelo fluxo do Wakfu e reencarnam em Incarnam.",
                 "quest1.huly_desc3": "Após esse processo, perdemos as memórias de nossa vida anterior. Seja você um rei ou um padeiro, todos começam do mesmo ponto novamente em Incarnam.",
-                "quest1.huly_desc4": "Por outro lado, ela é uma alma penada, por isso se tornou um gostofo (fantasma) que nunca conseguiu reencarnar (como curiosidade, se ela se recusasse a morrer ou reencarnar, se tornaria um \"Chafer\" ). Por isso, ela dedicou sua vida a guiar novos aventureiros em sua encarnação.",
+                "quest1.huly_desc4.part1": "Por outro lado, ela é uma alma penada, por isso se tornou um gostofo (fantasma) que nunca conseguiu reencarnar (como curiosidade, se ela se recusasse a morrer ou reencarnar, se tornaria um",
+                "quest1.huly_desc4.part2": "). Por isso, ela dedicou sua vida a guiar novos aventureiros em sua encarnação.",
                 "quest1.huly_desc5": "Ela também nos diz que não somos os únicos a cair em Rii; algumas almas descem diretamente ao mundo após encarnarem em Incarnam. Além disso, cada alma é livre para escolher a qual classe/religião deseja ser discípulo(a) ou fiel.",
                 "quest1.airyna_title": "Fale com Airyna (a Sacrógrito):",
                 "quest1.airyna_desc": "Entre no dojo e fale com ela.",
@@ -714,12 +831,15 @@
                 "quest1.subquest2.desc4": "Com a tecla \"W\" ou clicando no Jalató sob a imagem do Membro do Clã (MDC) no canto superior direito da tela, abriremos uma nova interface.",
                 "quest1.subquest2.desc5": "Com esta interface, podemos ver o estado do território que o(a) MDC administra.",
                 "quest1.subquest2.desc6": "A sabedoria é uma característica que aumenta a porcentagem(%) de experiência ganha. 1 ponto equivale a 1% de experiência extra, com um limite de 150% (embora o jogo diga 200%).",
-                "quest1.subquest2.desc7": "A prospecção aumenta a probabilidade de obter recursos de monstros, equipamentos ou outros tipos de itens. Isso é explicado melhor no \"Guia de Prospecção\" e tem um limite de 200 pontos.",
+                "quest1.subquest2.desc7.part1": "A prospecção aumenta a probabilidade de obter recursos de monstros, equipamentos ou outros tipos de itens. Isso é explicado melhor no",
+    "quest1.subquest2.desc7.part2": "e tem um limite de 200 pontos.",
                 "quest1.subquest2.desc8": "Abaixo do nível de satisfação, podemos ver frascos com uma linha à esquerda que indica a quantidade e, em alguns casos, uma estrela com 2 limites de quantidade (mínimo e máximo).",
                 "quest1.subquest2.desc9": "Se a quantidade de recursos/monstros estiver dentro dos limites indicados, o nível de satisfação aumentará, o que nos ajudará a subir de nível mais facilmente em profissões ou no personagem.",
                 "quest1.subquest2.desc10": "Os logotipos também nos dirão que tipo de recurso é. Os monstros terão seu próprio logotipo, que será uma pequena imagem do rosto do monstro, enquanto os recursos de profissões terão um único logotipo por categoria.",
                 "quest1.subquest2.desc11": "Todos os recursos de agricultor são indicados com o logotipo do trigo, os de lenhador com a árvore e as plantas com a flor.",
-                "quest1.subquest2.desc12": "Agora que aprendemos o básico do ecossistema, podemos fazer as missões. Começaremos matando 3 monstros da família Embrialmas, seja o \"Wonejo\" ou a \"Mamãe Wonejo\".",
+                "quest1.subquest2.desc12.part1": "Agora que aprendemos o básico do ecossistema, podemos fazer as missões. Começaremos matando 3 monstros da família Embrialmas, seja o",
+    "quest1.subquest2.desc12.part2": "ou a",
+    "quest1.subquest2.desc12.part3": ".",
                 "quest1.subquest2.desc13": "Para isso, devemos clicar com o botão direito em um dos monstros e clicar com o botão esquerdo na imagem da espada para iniciar um combate.",
                 "quest1.subquest2.desc14": "Ao passar o mouse sobre um monstro, também veremos quantos monstros há no grupo que enfrentaremos. Geralmente varia de 1 a 6, mas aqui é no máximo 4.",
                 "quest1.subquest2.desc15": "Agora, precisamos obter 3 sementes de monstro e plantá-las para manter o equilíbrio do ecossistema.",
@@ -728,7 +848,9 @@
                 "quest1.subquest2.desc18": "Por padrão, será adicionado à interface de acesso rápido no canto inferior direito da tela.",
                 "quest1.subquest2.desc19": "Também podemos vê-las no inventário, acessado com a tecla \"I\" ou clicando na bolsa na parte inferior esquerda da tela.",
                 "quest1.subquest2.desc20": "Na interface do inventário, veremos várias coisas.",
-                "quest1.subquest2.desc21": "Primeiro, veremos no canto superior esquerdo o rosto do nosso personagem e, abaixo dele, um círculo com um \"+\" (isso é para quem tem o \"Booster pack\"). À direita, veremos 5 imagens: -Uma bolsa, que é nosso inventário. -Uma chave, que são itens-chave de missões e outros que são compartilhados entre personagens do mesmo servidor. -Uma estrela, onde todos os nossos cosméticos são armazenados (também compartilhados). -Um martelo, usado para quebrar recursos ou equipamentos para liberar espaço. -Um diabo, que faz parte de uma função do jogo chamada \"Pacto Demoníaco\" (não abordaremos essa mecânica aqui).",
+                "quest1.subquest2.desc21.part1": "Primeiro, veremos no canto superior esquerdo o rosto do nosso personagem e, abaixo dele, um círculo com um \"+\" isso é para quem tem o",
+    "quest1.subquest2.desc21.part2": "À direita, veremos 5 imagens: -Uma bolsa, que é nosso inventário. -Uma chave, que são itens-chave de missões e outros que são compartilhados entre personagens do mesmo servidor. -Uma estrela, onde todos os nossos cosméticos são armazenados (também compartilhados). -Um martelo, usado para quebrar recursos ou equipamentos para liberar espaço. -Um diabo, que faz parte de uma função do jogo chamada",
+    "quest1.subquest2.desc21.part3": "(não abordaremos essa mecânica aqui).",
                 "quest1.subquest2.desc22": "Abaixo desses botões, haverá uma barra de pesquisa e um botão com setas \"↑↓\" para organizar o inventário automaticamente.",
                 "quest1.subquest2.desc23": "Em seguida, teremos os \"Bolsos\" ou \"Bolsas\", que à direita terão um botão \"↑↓\" para organizar apenas esse bolso e a quantidade de espaços disponíveis. Diferente de muitos jogos que limitam por peso, aqui o limite é por quantidade de itens diferentes. Itens iguais se acumulam e são chamados de \"Stacks\", então o limite de espaço é baseado na quantidade de itens diferentes.",
                 "quest1.subquest2.desc24": "Finalmente, teremos 5 espaços: 3 para \"Bolsas\" e 2 para \"Caixinhas\", que variam em função de armazenamento dependendo do tipo de caixa e da quantidade de kamas.",
@@ -763,14 +885,17 @@
     "quest1.desc6": "As you can see on the map, there are several markers. At the red marker is Huly, and next to her is an altar that allows you to change class, as long as you haven't surpassed level 30.",
     "quest1.desc7": "At the purple marker is Otomai and the workshop for potion making.",
     "quest1.desc8": "At the green marker you'll find Airyna and also where you can test your damage on the Potato Sacks, creatures designed for damage testing.",
-    "quest1.desc9": "At the pink markers you'll find 2 monsters: the \"Celestial Gobball\" and the \"Darth Wodent\".",
+    "quest1.desc9.part1": "At the pink markers you'll find 2 monsters: the",
+    "quest1.desc9.part2": "and the",
+    "quest1.desc9.part3": ".",
     "quest1.desc10": "At the yellow marker you'll find Grugaloragrán - this will be the end of everything.",
     "quest1.desc11": "With these quests, you'll learn the basics of combat, positioning, functions and more, but don't worry, I'll guide you step by step",
     "quest1.huly_title": "Talk to Huly (the Aniripsa):",
     "quest1.huly_desc": "Huly will tell us how reincarnations work.",
     "quest1.huly_desc2": "She explains that souls don't die, even when they leave their bodies; they're simply redirected by the Wakfu flow and reincarnated in Incarnam.",
     "quest1.huly_desc3": "After this process, we lose memories of our previous life. Whether we were kings or bakers, we all start from the same point again in Incarnam.",
-    "quest1.huly_desc4": "On the other hand, she's a lost soul who became a ghost (gostofo) that has never managed to reincarnate (as a side note, if she refused to die or reincarnate, she would become a \"Chafer\" , which is why she's dedicated her life to guiding new adventurers in their incarnation.",
+    "quest1.huly_desc4.part1": "On the other hand, she's a lost soul who became a ghost (gostofo) that has never managed to reincarnate (as a side note, if she refused to die or reincarnate, she would become a",
+    "quest1.huly_desc4.part2": "), which is why she's dedicated her life to guiding new adventurers in their incarnation.",
     "quest1.huly_desc5": "She also tells us we're not the only ones who fall on Rii - some souls go directly to the world after incarnating in Incarnam. Additionally, each soul is free to choose which class/religion they want to follow, meaning whose disciple/follower they want to be.",
     "quest1.airyna_title": "Talk to Airyna (the Sacrier):",
     "quest1.airyna_desc": "Enter the dojo and talk to her.",
@@ -819,12 +944,15 @@
     "quest1.subquest2.desc4": "With the \"W\" key or by clicking on the Gobball under the Clan Member (CM) image in the top right of the screen, we'll open a new interface.",
     "quest1.subquest2.desc5": "With this interface, we can see the state of the territory managed by the CM.",
     "quest1.subquest2.desc6": "Wisdom is a characteristic that increases the percentage(%) of experience gained. 1 point equals 1% extra experience with a cap of 150% (though the game says 200%).",
-    "quest1.subquest2.desc7": "Prospecting increases the probability of getting resources from monsters, equipment or other types of items. This is better explained in the \"Prospecting Guide\" and has a limit of 200 points.",
+    "quest1.subquest2.desc7.part1": "Prospecting increases the probability of getting resources from monsters, equipment or other types of items. This is better explained in the",
+    "quest1.subquest2.desc7.part2": "and has a limit of 200 points.",
     "quest1.subquest2.desc8": "Below the satisfaction level, we can see vials with a line on the left indicating the quantity and, in some cases, a star with 2 quantity limits that are minimums and maximums.",
     "quest1.subquest2.desc9": "If the quantity of resources/monsters is within the indicated limits, the satisfaction level will increase, helping us level up professions or our character more easily.",
     "quest1.subquest2.desc10": "The logos will also tell us what type of resource it is. Monsters will have their own logo which is a small image of the monster's face, while profession resources will all have one logo per category.",
     "quest1.subquest2.desc11": "All farmer resources are indicated with the wheat logo, lumberjack with the tree, and plants with the flower.",
-    "quest1.subquest2.desc12": "Now that we've learned the basics of the ecosystem, we can do the quests. We'll start by killing 3 monsters from the Embrialmas family, either the \"Wonejo\" or the \"Mama Wonejo\".",
+    "quest1.subquest2.desc12.part1": "Now that we've learned the basics of the ecosystem, we can do the quests. We'll start by killing 3 monsters from the Embrysouls family, either the",
+    "quest1.subquest2.desc12.part2": "or the",
+    "quest1.subquest2.desc12.part3": ".",
     "quest1.subquest2.desc13": "To do this, we should right-click on one of the monsters and left-click on the sword image to start a combat.",
     "quest1.subquest2.desc14": "By hovering over a monster, we'll also see how many monsters are in the group we'll face. This usually varies from 1 to 6, but here it's a maximum of 4.",
     "quest1.subquest2.desc15": "Now we need to get 3 monster seeds and plant them to maintain ecosystem balance.",
@@ -833,7 +961,9 @@
     "quest1.subquest2.desc18": "By default, it will be added to the quick access interface in the bottom right of the screen.",
     "quest1.subquest2.desc19": "We can also see them in the inventory, accessed with the \"I\" key or by clicking the bag in the bottom left of the screen.",
     "quest1.subquest2.desc20": "In the inventory interface, we'll see several things.",
-    "quest1.subquest2.desc21": "First, in the top left we'll see our character's face and below it a circle with a \"+\" (this is for those with the \"Booster pack\"). Then on the right we'll see 5 images: -A bag which is our inventory. -A key which are key quest items and other things that are sometimes shared between characters on the same server. -A star where all our cosmetics are stored (also shared). -A hammer used to break down resources or equipment to free up space. -A devil which is part of a game function called \"Demonic Pact\" (this mechanic won't be covered in any section of this page).",
+    "quest1.subquest2.desc21.part1": "First, in the top left we'll see our character's face and below it a circle with a \"+\" this is for those with the ",
+    "quest1.subquest2.desc21.part2": "Then on the right we'll see 5 images: -A bag which is our inventory. -A key which are key quest items and other things that are sometimes shared between characters on the same server. -A star where all our cosmetics are stored (also shared). -A hammer used to break down resources or equipment to free up space. -A devil which is part of a game function called",
+    "quest1.subquest2.desc21.part3": "(this mechanic won't be covered in any section of this page).",
     "quest1.subquest2.desc22": "Below these buttons, there's a search bar and a button with arrows \"↑↓\" to automatically sort the entire inventory.",
     "quest1.subquest2.desc23": "Then we'll have \"Pockets\" or \"Bags\" which on the right will have an \"↑↓\" button to sort just that pocket and the number of available spaces. Unlike many games that limit by weight, here the limit is by number of different items. If they're the same items, they stack together and are called \"Stacks\", so the space limit is based on the number of different items.",
     "quest1.subquest2.desc24": "Finally, we'll have 5 spaces: 3 for \"Bags\" and 2 for \"Little Boxes\" which vary in storage function depending on the box type and amount of kamas.",
@@ -843,75 +973,102 @@
     "quest1.subquest2.reward": "Reward: Experience (varies by your level).",
     "quest1.otomai_title": "Talk to Otomai:",
     "quest1.reward": "Reward: Experience: 769 - Lie Down Emote - Celestial Bag."
-}
+},
     };
     // ==================== SISTEMA DE TRADUCCIÓN ====================
     
     // Sistema de cambio de idioma
-    let currentLanguage = 'es';
-    
-    function translatePage(lang) {
-        currentLanguage = lang;
-        
-        // Traducir textos normales
-        document.querySelectorAll('[data-translate]').forEach(element => {
-            const key = element.getAttribute('data-translate');
-            if (translations[lang] && translations[lang][key]) {
-                element.textContent = translations[lang][key];
+    let currentLanguage = localStorage.getItem('selectedLanguage') || 'es';
+
+function translatePage(lang) {
+    currentLanguage = lang;
+    // Guardar el idioma en localStorage
+    localStorage.setItem('selectedLanguage', lang);
+
+    // Traducir textos normales
+    document.querySelectorAll('[data-translate]').forEach(element => {
+        const key = element.getAttribute('data-translate');
+        if (translations[lang] && translations[lang][key]) {
+            element.textContent = translations[lang][key];
+        }
+    });
+
+    // Traducir imágenes
+    document.querySelectorAll('[data-translate-src]').forEach(img => {
+        const sources = img.getAttribute('data-translate-src').split('|');
+        img.src = sources[lang === 'es' ? 0 : lang === 'pt' ? 1 : 2] || sources[0];
+    });
+
+    // Traducir enlaces (tanto href como texto)
+    document.querySelectorAll('[data-translate-href]').forEach(link => {
+        // Manejar href
+        const hrefs = link.getAttribute('data-translate-href').split('|');
+        let selectedHref = hrefs[1]; // Valor por defecto (URL en español)
+
+        for (let i = 0; i < hrefs.length; i += 2) {
+            if (hrefs[i] === lang) {
+                selectedHref = hrefs[i + 1];
+                break;
             }
-        });
-        
-        // Traducir imágenes
-        document.querySelectorAll('[data-translate-src]').forEach(img => {
-            const sources = img.getAttribute('data-translate-src').split('|');
-            img.src = sources[lang === 'es' ? 0 : lang === 'pt' ? 1 : 2] || sources[0];
-        });
-        
-        // Traducir enlaces (tanto href como texto)
-        document.querySelectorAll('[data-translate-href]').forEach(link => {
-            // Manejar href
-            const hrefs = link.getAttribute('data-translate-href').split('|');
-            let selectedHref = hrefs[1]; // Valor por defecto (URL en español)
-            
-            for (let i = 0; i < hrefs.length; i += 2) {
-                if (hrefs[i] === lang) {
-                    selectedHref = hrefs[i+1];
+        }
+        link.href = selectedHref;
+
+        // Manejar texto
+        if (link.hasAttribute('data-translate-text')) {
+            const texts = link.getAttribute('data-translate-text').split('|');
+            let selectedText = texts[1]; // Valor por defecto (texto en español)
+
+            for (let i = 0; i < texts.length; i += 2) {
+                if (texts[i] === lang) {
+                    selectedText = texts[i + 1];
                     break;
                 }
             }
-            link.href = selectedHref;
-            
-            // Manejar texto
-            if (link.hasAttribute('data-translate-text')) {
-                const texts = link.getAttribute('data-translate-text').split('|');
-                let selectedText = texts[1]; // Valor por defecto (texto en español)
-                
-                for (let i = 0; i < texts.length; i += 2) {
-                    if (texts[i] === lang) {
-                        selectedText = texts[i+1];
-                        break;
-                    }
-                }
-                // Asignar el texto traducido, incluso si el enlace estaba vacío
-                link.innerHTML = selectedText;
-            }
-        });
-        
-        // Actualizar botón principal
-        document.getElementById('currentLanguage').textContent = lang.toUpperCase();
-        document.documentElement.lang = lang;
-    }
-    
-    // Selector de idiomas
-    document.querySelectorAll('.language-dropdown a[data-lang]').forEach(item => {
-        item.addEventListener('click', function(e) {
-            e.preventDefault();
-            translatePage(this.getAttribute('data-lang'));
-        });
+            link.textContent = selectedText;
+        }
     });
 
-    // Inicializar con español
-    translatePage('es');
+    // Actualizar botón principal
+    document.getElementById('currentLanguage').textContent = lang.toUpperCase();
+    document.documentElement.lang = lang;
+}
+
+// Selector de idiomas
+document.querySelectorAll('.language-dropdown a[data-lang]').forEach(item => {
+    item.addEventListener('click', function(e) {
+        e.preventDefault();
+        translatePage(this.getAttribute('data-lang'));
+    });
+});
+
+// Modo oscuro
+const darkModeToggle = document.getElementById('darkModeToggle');
+let darkMode = localStorage.getItem('darkMode') === 'true';
+
+// Aplicar modo oscuro si estaba activado
+if (darkMode) {
+    document.body.classList.add('dark-mode');
+    darkModeToggle.textContent = '☀️';
+}
+
+// Manejar el click
+darkModeToggle.addEventListener('click', function(e) {
+    e.preventDefault();
+    darkMode = !darkMode;
+    
+    if (darkMode) {
+        document.body.classList.add('dark-mode');
+        this.textContent = '☀️';
+    } else {
+        document.body.classList.remove('dark-mode');
+        this.textContent = '🌙';
+    }
+    
+    localStorage.setItem('darkMode', darkMode);
+});
+
+// Inicializar con el idioma guardado o español por defecto
+translatePage(currentLanguage);
 </script>
 </body>
 </html>
