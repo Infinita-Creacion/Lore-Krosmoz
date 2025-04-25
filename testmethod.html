@@ -293,6 +293,20 @@
         section {
     background-attachment: fixed;
 }
+
+.dark-mode section {
+        background-image: url('430154.jpg');
+        background-color: rgba(0, 0, 0, 0.3); /* Ajusta el valor alpha (0.6) */
+        background-blend-mode: multiply;
+    }
+
+    .dark-mode .quest-container,
+    .dark-mode .quest-container h2,
+    .dark-mode .quest a,
+    .dark-mode .quest-reward,
+    .dark-mode .quest-details {
+        text-shadow: none !important;
+    }
         /* Responsive */
         @media (max-width: 768px) {
             header {
