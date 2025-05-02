@@ -243,70 +243,175 @@
         }
         
         /* Estilos para el botón de modo oscuro */
-.dark-mode-toggle > a {
-    display: block;
-    padding: 10px 10px;
-    color: white;
-    text-decoration: none;
-    background-color: rgba(0, 0, 0, 0.2);
-    border-radius: 10px;
-    transition: all 0.3s ease;
-    font-weight: bold;
-    cursor: pointer;
-    font-size: 15px;
-}
-
-.dark-mode-toggle:hover > a {
-    background-color: rgba(0, 0, 0, 0.4);
-}
-
-/* Estilos para el modo oscuro */
-.dark-mode header {
-    background-color: #1a1a1a;
-}
-
-.dark-mode .navbar {
-    background-color: #1a1a1a;
-    border-top: 2px solid #333;
-}
-
-.dark-mode .menu > li > a {
-    background-color: rgba(255, 255, 255, 0.1);
-}
-
-.dark-mode .menu > li > a:hover {
-    background-color: rgba(255, 255, 255, 0.2);
-}
-
-.dark-mode .quest-container {
-    background-color: rgba(0, 0, 0, 0.7);
-    color: #eee;
-}
-
-.dark-mode .quest-container h2 {
-    color: #2ecc71;
-}
-
-.dark-mode .quest {
-    background-color: rgba(0, 0, 0, 0.3);
-}
+        .dark-mode-toggle > a {
+            display: block;
+            padding: 10px 10px;
+            color: white;
+            text-decoration: none;
+            background-color: rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 15px;
+        }
+        
+        .dark-mode-toggle:hover > a {
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+        
+        /* Estilos para el modo oscuro */
+        .dark-mode header {
+            background-color: #1a1a1a;
+        }
+        
+        .dark-mode .navbar {
+            background-color: #1a1a1a;
+            border-top: 2px solid #333;
+        }
+        
+        .dark-mode .menu > li > a {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        .dark-mode .menu > li > a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        
+        .dark-mode .quest-container {
+            background-color: rgba(0, 0, 0, 0.7);
+            color: #eee;
+        }
+        
+        .dark-mode .quest-container h2 {
+            color: #2ecc71;
+        }
+        
+        .dark-mode .quest {
+            background-color: rgba(0, 0, 0, 0.3);
+        }
         section {
-    background-attachment: fixed;
-}
+            background-attachment: fixed;
+        }
+        
+        .dark-mode section {
+            background-image: url('430154.jpg');
+            background-color: rgba(0, 0, 0, 0.3); /* Ajusta el valor alpha (0.6) */
+            background-blend-mode: multiply;
+        }
 
-.dark-mode section {
-        background-image: url('430154.jpg');
-        background-color: rgba(0, 0, 0, 0.3); /* Ajusta el valor alpha (0.6) */
-        background-blend-mode: multiply;
-    }
+        .dark-mode .quest-container,
+        .dark-mode .quest-container h2,
+        .dark-mode .quest a,
+        .dark-mode .quest-reward,
+        .dark-mode .quest-details {
+            text-shadow: none !important;
+        }
+        
+        .dark-mode .language-dropdown {
+            background-color: #333; /* fondo oscuro */
+            box-shadow: 0px 4px 8px rgba(255,255,255,0.1);
+        }
 
-    .dark-mode .quest-container,
-    .dark-mode .quest-container h2,
-    .dark-mode .quest a,
-    .dark-mode .quest-reward,
-    .dark-mode .quest-details {
-        text-shadow: none !important;
-    }
+        .dark-mode .language-dropdown a {
+            color: #fff;
+        }
+
+        .dark-mode .language-dropdown a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Sidebar de navegación */
+        .sidebar-nav {
+            position: fixed;
+            right: 20px;
+            top: 250px;
+            width: 220px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+            padding: 15px;
+            max-height: 70vh;
+            overflow-y: auto;
+            transition: all 0.3s ease;
+            z-index: 999;
+            backdrop-filter: blur(5px);
+        }
+        
+        .sidebar-nav h3 {
+            color: #d35400;
+            margin-top: 0;
+            border-bottom: 2px solid #d35400;
+            padding-bottom: 10px;
+            text-align: center;
+            font-size: 1.2em;
+            margin-bottom: 15px;
+        }
+        
+        .sidebar-nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .sidebar-nav li {
+            margin-bottom: 8px;
+            position: relative;
+        }
+        
+        .sidebar-nav > ul > li > ul {
+            margin-left: 15px;
+            padding-left: 10px;
+            border-left: 2px solid rgba(211, 84, 0, 0.3);
+        }
+        
+        .sidebar-nav a {
+            color: #333;
+            text-decoration: none;
+            display: block;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            font-size: 0.9em;
+        }
+        
+        .sidebar-nav a:hover {
+            background-color: rgba(211, 84, 0, 0.2);
+            transform: translateX(5px);
+        }
+        
+        .sidebar-nav a.active {
+            background-color: rgba(211, 84, 0, 0.4);
+            font-weight: bold;
+        }
+        
+        /* Estilos para el modo oscuro */
+        .dark-mode .sidebar-nav {
+            background-color: rgba(0, 0, 0, 0.7);
+            color: #eee;
+        }
+        
+        .dark-mode .sidebar-nav h3 {
+            color: #2ecc71;
+            border-bottom: 2px solid #2ecc71;
+        }
+        
+        .dark-mode .sidebar-nav a {
+            color: #eee;
+        }
+        
+        .dark-mode .sidebar-nav a:hover {
+            background-color: rgba(46, 204, 113, 0.2);
+        }
+        
+        .dark-mode .sidebar-nav a.active {
+            background-color: rgba(46, 204, 113, 0.4);
+        }
+        
+        .dark-mode .sidebar-nav > ul > li > ul {
+            border-left: 2px solid rgba(46, 204, 113, 0.3);
+        }
+        
         /* Responsive */
         @media (max-width: 768px) {
             header {
@@ -381,15 +486,41 @@
             }
             
             @media (max-width: 768px) {
-    .dark-mode-toggle {
-        width: 100%;
-    }
+            .dark-mode-toggle {
+                width: 100%;
+            }
     
-    .dark-mode-toggle > a {
-        border-radius: 0;
-        border-bottom: 1px solid #333;
-        background-color: transparent;
-    }
+            .dark-mode-toggle > a {
+                border-radius: 0;
+                border-bottom: 1px solid #333;
+                background-color: transparent;
+            }
+
+            /* Responsive - Ocultar sidebar en móviles */
+            @media (max-width: 768px) {
+                .sidebar-nav {
+                    display: none;
+                }
+            }
+            
+            /* Scrollbar personalizada para la sidebar */
+            .sidebar-nav::-webkit-scrollbar {
+                width: 6px;
+            }
+            
+            .sidebar-nav::-webkit-scrollbar-track {
+                background: rgba(0, 0, 0, 0.1);
+                border-radius: 3px;
+            }
+            
+            .sidebar-nav::-webkit-scrollbar-thumb {
+                background: #d35400;
+                border-radius: 3px;
+            }
+            
+            .dark-mode .sidebar-nav::-webkit-scrollbar-thumb {
+                background: #2ecc71;
+            }
         }
     </style>
 </head>
@@ -423,9 +554,23 @@
         </nav>
     </header>
     <main>
+      <div class="sidebar-nav" id="sidebarNav">
+            <h3 data-translate="sidebar.title">Navegación</h3>
+            <ul>
+                <li><a href="#section-intro" data-translate="sidebar.intro">Introducción</a></li>
+                <li><a href="#quest1" data-translate="sidebar.quest1">Rii, la isla celestial</a></li>
+                <li>
+                    <ul>
+                        <li><a href="#subquest1" data-translate="sidebar.subquest1">Bases del combate</a></li>
+                        <li><a href="#subquest2" data-translate="sidebar.subquest2">Bases del ecosistema</a></li>
+                    </ul>
+                </li>
+                <li><a href="#otomai" data-translate="sidebar.otomai">Habla con Otomai</a></li>
+            </ul>
+        </div>
         <section>
             <div class="quest-container">
-                <h2 data-translate="section.title">Isla de Rii y Astrub - Inicios de la aventura</h2>
+                <h2 id="section-intro" data-translate="section.title">Isla de Rii y Astrub - Inicios de la aventura</h2>
                 <p data-translate="section.intro1">Tras fallar en nuestra misión en la era de los Dofus, y ser rencarnados empezaremos una nueva aventura pero en la era del Wakfu en la isla de Rii.</p>
                 <p data-translate="section.intro2">¿Te preguntaras porque en la isla de Rii y no en Incarnam? Hace un tiempo la isla del dragón Prysmaradoth fue contaminada con el Stasis y los primeros encarnados de esta era no lograron solventar el caos de la isla, aun cuando contaban con el apoyo del gran alquimista Otomai.</p>
                 <img src="01Rii\20.png" width="100%">
@@ -433,7 +578,7 @@
                 <p data-translate="section.intro3">Tras ser empujado por el Dark Wonejo de la isla de Incarnam, caerás a Rii donde el dragón Grugaloragrán y Otomai te recibirán, tras sentir la onda de Wakfu, ellos creen que es tu primera encarnación en el plano material, pero realmente es la segunda, igualmente te aconsejan adaptarte haciendo algunas interacciones en la isla.</p>
                 <img src="01Rii\21.png" width="100%">
                 
-                <div class="quest">
+                <div class="quest" id="quest1">
                     <div class="quest-header" data-translate="quest1.title">1 - Rii, la isla celestial.</div>
                     <div class="quest-details">
                         <p data-translate="quest1.desc1">La isla celestial llamada Rii propone numerosas enseñanzas.</p>
@@ -494,8 +639,8 @@
                         <p data-translate="quest1.airyna_desc2">Nos dará la bienvenida a her dojo, preguntando si nos interesa aprender las bases del combate.</p>
                         <p data-translate="quest1.airyna_desc3">Al aceptar nos darán una nueva misión.</p>
                         
-                        <div class="quest">
-                            <div class="quest-header" data-translate="quest1.subquest1.title">1.1 - Las bases del combate.</div>
+                        <div class="quest" id="subquest1">
+                        <div class="quest-header" data-translate="quest1.subquest1.title">1.1 - Las bases del combate.</div>
                             <div class="quest-details">
                             <img data-translate-src="01Rii/22.png|01Rii/22_pt.png|01Rii/22_en.png" src="01Rii/22.png">
                                 <p data-translate="quest1.subquest1.desc1">En el dojo celestial, Airyna te ofrece un repaso de las capacidades básicas de combate.</p>
@@ -553,8 +698,8 @@
                         <p data-translate="quest1.kheperalia_desc4">Nuestras acciones afectan al mundo y debemos aprender a mantener el equilibrio.</p>
                         <p data-translate="quest1.kheperalia_desc5">Nos ofreceremos a ayudarla y aprender sobre nuestras acciones en el mundo.</p>
                         
-                        <div class="quest">
-                            <div class="quest-header" data-translate="quest1.subquest2.title">1.2 - Las bases del ecosistema - Monstruos</div>
+                        <div class="quest" id="subquest2">
+                        <div class="quest-header" data-translate="quest1.subquest2.title">1.2 - Las bases del ecosistema - Monstruos</div>
                             <div class="quest-details">
                             <img data-translate-src="01Rii/39.png|01Rii/39_pt.png|01Rii/39_en.png" src="01Rii/39.png">
                                 <p data-translate="quest1.subquest2.desc1">Kheperalia te ha confiado unas misiones para controlar el ecosistema de la isla celestial.</p>
@@ -636,7 +781,7 @@
                             </div>
                         </div>
                         
-                        <p data-translate="quest1.otomai_title"> Habla con Otomai:</p>
+                        <p id="otomai" data-translate="quest1.otomai_title"> Habla con Otomai:</p>
                         <p class="quest-reward" data-translate="quest1.reward">Récompensa : Experiencia: 769 - Emote acostarse - Bolsa celestial.</p>
                     </div>
                 </div>
@@ -759,7 +904,13 @@
                 "quest1.subquest2.desc27": "Si hay un exceso en la zona simplemente el personaje movera la cabeza",
                 "quest1.subquest2.reward": "Recompensa : Experiencia (varia según tu nivel).",
                 "quest1.otomai_title": "Habla con Otomai:",
-                "quest1.reward": "Récompensa : Experiencia: 769 - Emote acostarse - Bolsa celestial."
+                "quest1.reward": "Récompensa : Experiencia: 769 - Emote acostarse - Bolsa celestial.",
+                "sidebar.title": "Navegación",
+                "sidebar.intro": "Introducción",
+                "sidebar.quest1": "Rii, la isla celestial",
+                "sidebar.subquest1": "Bases del combate",
+                "sidebar.subquest2": "Bases del ecosistema",
+                "sidebar.otomai": "Habla con Otomai"
             },
             
 
@@ -873,7 +1024,13 @@
                 "quest1.subquest2.desc27": "Se houver excesso na área, o personagem simplesmente balançará a cabeça.",
                 "quest1.subquest2.reward": "Recompensa: Experiência (varia de acordo com seu nível).",
                 "quest1.otomai_title": "Fale com Otomai:",
-                "quest1.reward": "Recompensa: Experiência: 769 - Emote Deitar - Bolsa celestial."
+                "quest1.reward": "Recompensa: Experiência: 769 - Emote Deitar - Bolsa celestial.",
+                "sidebar.title": "Navegação",
+                "sidebar.intro": "Introdução",
+                "sidebar.quest1": "Rii, a ilha celestial",
+                "sidebar.subquest1": "Bases de combate",
+                "sidebar.subquest2": "Bases do ecossistema",
+                "sidebar.otomai": "Fale com Otomai"
 },
 
             // ==================== EN version ==================== \\
@@ -986,23 +1143,73 @@
     "quest1.subquest2.desc27": "If there's an excess in the area, the character will simply shake their head",
     "quest1.subquest2.reward": "Reward: Experience (varies by your level).",
     "quest1.otomai_title": "Talk to Otomai:",
-    "quest1.reward": "Reward: Experience: 769 - Lie Down Emote - Celestial Bag."
+    "quest1.reward": "Reward: Experience: 769 - Lie Down Emote - Celestial Bag.",
+                "sidebar.title": "Navigation",
+                "sidebar.intro": "Introduction",
+                "sidebar.quest1": "Rii, the Celestial Island",
+                "sidebar.subquest1": "Combat Basics",
+                "sidebar.subquest2": "Ecosystem Basics",
+                "sidebar.otomai": "Talk to Otomai"
 },
     };
-    // ==================== SISTEMA DE TRADUCCIÓN ====================
+
+        // ==================== FUNCIONALIDAD DE LA SIDEBAR ====================
+
+        // Scroll suave para los enlaces de la sidebar
+        document.querySelectorAll('.sidebar-nav a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 20,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Resaltar la sección activa en la sidebar
+        function highlightActiveSection() {
+            const sections = document.querySelectorAll('.quest-container [id]');
+            const sidebarLinks = document.querySelectorAll('.sidebar-nav a');
+            let currentActive = null;
+            
+            sections.forEach(section => {
+                const rect = section.getBoundingClientRect();
+                if (rect.top <= 100 && rect.bottom >= 100) {
+                    currentActive = '#' + section.id;
+                }
+            });
+            
+            sidebarLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === currentActive) {
+                    link.classList.add('active');
+                }
+            });
+        }
+
+        // Escuchar el evento de scroll
+        window.addEventListener('scroll', highlightActiveSection);
+        window.addEventListener('load', highlightActiveSection);
     
-    // Sistema de cambio de idioma
-    let currentLanguage = localStorage.getItem('selectedLanguage') || 'es';
-
-function translatePage(lang) {
-    currentLanguage = lang;
-    // Guardar el idioma en localStorage
-    localStorage.setItem('selectedLanguage', lang);
-
-    // Traducir textos normales
-    document.querySelectorAll('[data-translate]').forEach(element => {
-        const key = element.getAttribute('data-translate');
-        if (translations[lang] && translations[lang][key]) {
+        // ==================== SISTEMA DE TRADUCCIÓN ====================
+    
+        // Sistema de cambio de idioma
+            let currentLanguage = localStorage.getItem('selectedLanguage') || 'es';
+    
+            function translatePage(lang) {
+            currentLanguage = lang;
+        // Guardar el idioma en localStorage
+            localStorage.setItem('selectedLanguage', lang);
+        
+        // Traducir textos normales
+            document.querySelectorAll('[data-translate]').forEach(element => {
+            const key = element.getAttribute('data-translate');
+            if (translations[lang] && translations[lang][key]) {
             element.textContent = translations[lang][key];
         }
     });
