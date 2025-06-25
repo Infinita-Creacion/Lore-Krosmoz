@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Colab API Integration</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        #colab-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        button {
+            background-color: #4285F4;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 10px 0;
+        }
+        button:hover {
+            background-color: #3367D6;
+        }
+        #notebook-viewer {
+            width: 100%;
+            height: 600px;
+            border: 1px solid #ddd;
+            margin-top: 20px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div id="colab-container">
+        <h1>Google Colab Notebook Viewer</h1>
+        <button id="auth-button">Autenticar con Google</button>
+        <button id="load-button" disabled>Cargar Notebook</button>
+        
+        <div id="notebook-viewer"></div>
+    </div>
+
+    <script src="https://apis.google.com/js/api.js"></script>
+    <script>
+        // Configuración de la API
+        const API_KEY = 'TU_API_KEY'; // Reemplaza con tu API key
+        const CLIENT_ID = 'TU_CLIENT_ID.apps.googleusercontent.com'; // Reemplaza con tu Client ID
+        const NOTEBOOK_ID = '1pbPXa_YOdpBf_9yTo-TzJWdVOAq5TwCx'; // ID de tu notebook
+        
+        // Inicialización de la API
+        function initClient() {
+            gapi.client.init({
+                'apiKey': API_KEY,
+                'clientId': CLIENT_ID,
+                'scope': 'https://www.googleapis.com/auth/drive.readonly',
+                'discoveryDocs': ['https://www.googleapis.com/discovery/v1/apis/drive/v3/rest']
+            }).then(function() {
+                document.getElementById('auth-button').onclick = handleAuthClick;
+                document.getElementById('load-button').onclick = loadNotebook;
+            });
+        }
+        
+        // Manejo de autenticación
+        function handleAuthClick() {
+            gapi.auth2.getAuthInstance().signIn().then(function() {
+                document.getElementById('auth-button').style.display = 'none';
+                document.getElementById('load-button').disabled = false;
+            });
+        }
+        
+        // Carga del notebook
+        function loadNotebook() {
+            const viewer = document.getElementById('notebook-viewer');
+            viewer.innerHTML = '<iframe src="https://colab.research.google.com/drive/' + NOTEBOOK_ID + '" width="100%" height="100%" frameborder="0"></iframe>';
+        }
+        
+        // Cargar la API al iniciar
+        gapi.load('client:auth2', initClient);
+    </script>
+</body>
+</html>
