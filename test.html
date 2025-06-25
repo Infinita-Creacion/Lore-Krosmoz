@@ -3,68 +3,298 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Visor de Archivos (Públicos)</title>
+    <title>Lector y Buscador de PDFs</title>
+    
     <style>
+        /* style.css (Para darle un mejor aspecto) - Integrado aquí */
         body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-            background-color: #f4f4f4;
-            color: #333;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start; /* Alinea arriba para evitar que se salga de la pantalla con contenido largo */
+            min-height: 100vh;
+            background-color: #eef2f7;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box; /* Incluye padding en el tamaño total */
         }
+
         .container {
-            background-color: #fff;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            max-width: 600px;
-            margin: auto;
-        }
-        h1 {
-            color: #0056b3;
+            background-color: #ffffff;
+            padding: 35px;
+            border-radius: 12px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
             text-align: center;
-            margin-bottom: 30px;
+            max-width: 800px;
+            width: 100%;
         }
-        ul {
-            list-style: none;
-            padding: 0;
+
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 25px;
+            font-size: 2.2em;
         }
-        li {
-            margin-bottom: 10px;
-        }
-        a {
-            text-decoration: none;
-            color: #007bff;
-            font-weight: bold;
-            padding: 8px 12px;
-            border: 1px solid #007bff;
-            border-radius: 5px;
-            display: inline-block;
-            transition: background-color 0.3s ease, color 0.3s ease;
-        }
-        a:hover {
-            background-color: #007bff;
+
+        .upload-button {
+            background-color: #3498db;
             color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1.1em;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            display: inline-block; /* Para que parezca un botón */
+            margin-top: 15px;
+        }
+
+        .upload-button:hover {
+            background-color: #2980b9;
+            transform: translateY(-2px);
+        }
+
+        input[type="file"] {
+            display: none; /* Oculta el input de archivo por defecto */
+        }
+
+        #fileNameDisplay {
+            margin-top: 10px;
+            font-style: italic;
+            color: #555;
+        }
+
+        #processingArea {
+            margin-top: 25px;
+            border-top: 1px solid #eee;
+            padding-top: 25px;
+        }
+
+        #statusMessage {
+            color: #e67e22;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        #pdfTextDisplay {
+            width: calc(100% - 20px); /* Ajusta por padding */
+            height: 300px;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 1em;
+            line-height: 1.6;
+            resize: vertical; /* Permite redimensionar verticalmente */
+            box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
+            text-align: left;
+            overflow-y: scroll; /* Asegura el scroll para contenido largo */
+        }
+
+        .search-area {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        #searchInput {
+            flex-grow: 1;
+            padding: 10px 15px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 1em;
+            outline: none; /* Quita el contorno al enfocar */
+        }
+
+        #searchInput:focus {
+            border-color: #3498db;
+            box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+        }
+
+        #searchButton {
+            background-color: #28a745;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.3s ease;
+        }
+
+        #searchButton:hover {
+            background-color: #218838;
+        }
+
+        #searchResults {
+            text-align: left;
+            background-color: #f9f9f9;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            padding: 15px;
+            max-height: 250px;
+            overflow-y: auto; /* Scroll para resultados largos */
+            box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        #searchResults p {
+            margin-bottom: 8px;
+            line-height: 1.5;
+        }
+
+        #searchResults p strong {
+            background-color: #ffe082; /* Resaltado para la búsqueda */
+            padding: 2px 4px;
+            border-radius: 3px;
+        }
+
+        #searchResults .no-results {
+            color: #e74c3c;
+            font-weight: bold;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Archivos Relacionados con el Proyecto</h1>
-        <p>Estos enlaces te llevarán a los archivos si han sido compartidos públicamente. Si no puedes acceder, es porque no están configurados para acceso público.</p>
-        <ul>
-            <li>
-                <a href="https://example.com/ruta/a/tu_modelo.tflite" target="_blank">Ver Modelo TensorFlow Lite (.tflite)</a>
-            </li>
-            <li>
-                <a href="https://example.com/ruta/a/ejemplo_libro.pdf" target="_blank">Ver Ejemplo de Libro (PDF)</a>
-            </li>
-            <li>
-                <a href="https://example.com/ruta/a/otro_archivo.txt" target="_blank">Ver Otro Archivo de Texto</a>
-            </li>
-            </ul>
-        <p>
-            **Nota Importante:** Para que estos enlaces funcionen, los archivos deben estar accesibles públicamente en la URL que proveas. Esto significa que si están en Google Drive, deben tener la configuración de "cualquier persona con el enlace puede ver".
-        </p>
+        <h1>Lector y Buscador de Contenido</h1>
+        
+        <input type="file" id="pdfFileInput" accept=".pdf">
+        <label for="pdfFileInput" class="upload-button">Subir un archivo PDF</label>
+        <p id="fileNameDisplay"></p>
+
+        <div id="processingArea" style="display: none;">
+            <p id="statusMessage">Cargando PDF...</p>
+            <textarea id="pdfTextDisplay" readonly placeholder="El texto del PDF aparecerá aquí..."></textarea>
+            
+            <div class="search-area">
+                <input type="text" id="searchInput" placeholder="Buscar texto en el PDF...">
+                <button id="searchButton">Buscar</button>
+            </div>
+            
+            <div id="searchResults"></div>
+        </div>
     </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
+    <script>
+        // Configura la ruta del worker de PDF.js
+        pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.worker.min.js';
+    </script>
+
+    <script>
+        // script.js (La lógica de lectura y búsqueda de PDFs) - Integrado aquí
+        const pdfFileInput = document.getElementById('pdfFileInput');
+        const fileNameDisplay = document.getElementById('fileNameDisplay');
+        const processingArea = document.getElementById('processingArea');
+        const statusMessage = document.getElementById('statusMessage');
+        const pdfTextDisplay = document.getElementById('pdfTextDisplay');
+        const searchInput = document.getElementById('searchInput');
+        const searchButton = document.getElementById('searchButton');
+        const searchResults = document.getElementById('searchResults');
+
+        let fullPdfText = ''; // Variable para almacenar todo el texto del PDF
+
+        pdfFileInput.addEventListener('change', async (event) => {
+            const file = event.target.files[0];
+            if (!file) {
+                fileNameDisplay.textContent = '';
+                processingArea.style.display = 'none';
+                return;
+            }
+
+            if (file.type !== 'application/pdf') {
+                alert('Por favor, selecciona un archivo PDF.');
+                pdfFileInput.value = ''; // Limpia la selección
+                return;
+            }
+
+            fileNameDisplay.textContent = `Archivo seleccionado: ${file.name}`;
+            processingArea.style.display = 'block';
+            statusMessage.textContent = 'Leyendo y extrayendo texto del PDF...';
+            pdfTextDisplay.value = '';
+            searchResults.innerHTML = '';
+            fullPdfText = '';
+
+            try {
+                const arrayBuffer = await file.arrayBuffer();
+                const pdf = await pdfjsLib.getDocument({ data: arrayBuffer }).promise;
+                let textContent = [];
+
+                for (let i = 1; i <= pdf.numPages; i++) {
+                    const page = await pdf.getPage(i);
+                    const text = await page.getTextContent();
+                    textContent.push(text.items.map(item => item.str).join(' '));
+                }
+
+                fullPdfText = textContent.join('\n\n'); // Unir el texto de todas las páginas
+                pdfTextDisplay.value = fullPdfText;
+                statusMessage.textContent = `PDF "${file.name}" cargado. Total de ${pdf.numPages} páginas.`;
+
+                // Habilitar la búsqueda una vez que el PDF está cargado
+                searchInput.disabled = false;
+                searchButton.disabled = false;
+
+            } catch (error) {
+                console.error('Error al leer el PDF:', error);
+                statusMessage.textContent = 'Error al cargar el PDF. Revisa la consola.';
+                pdfTextDisplay.value = 'No se pudo leer el PDF.';
+                searchInput.disabled = true;
+                searchButton.disabled = true;
+            }
+        });
+
+        searchButton.addEventListener('click', performSearch);
+        searchInput.addEventListener('keyup', (event) => {
+            if (event.key === 'Enter') {
+                performSearch();
+            }
+        });
+
+        function performSearch() {
+            const searchTerm = searchInput.value.trim();
+            searchResults.innerHTML = ''; // Limpiar resultados anteriores
+
+            if (!searchTerm || !fullPdfText) {
+                searchResults.innerHTML = '<p class="no-results">Ingresa un término de búsqueda y asegúrate de que el PDF esté cargado.</p>';
+                return;
+            }
+
+            const regex = new RegExp(`(${searchTerm})`, 'gi'); // 'gi' para búsqueda global e insensible a mayúsculas/minúsculas
+            const lines = fullPdfText.split('\n');
+            let resultsCount = 0;
+            
+            // Limitar el número de líneas a mostrar para evitar sobrecargar el navegador
+            const MAX_LINES_TO_DISPLAY = 100; 
+
+            for (let i = 0; i < lines.length; i++) {
+                const line = lines[i];
+                if (line.match(regex)) {
+                    const highlightedLine = line.replace(regex, '<strong>$1</strong>');
+                    const p = document.createElement('p');
+                    p.innerHTML = `Línea ${i + 1}: ${highlightedLine}`;
+                    searchResults.appendChild(p);
+                    resultsCount++;
+
+                    if (resultsCount >= MAX_LINES_TO_DISPLAY) {
+                        const moreResultsMsg = document.createElement('p');
+                        moreResultsMsg.innerHTML = `<strong class="no-results">Se encontraron más de ${MAX_LINES_TO_DISPLAY} resultados. Mostrando los primeros ${MAX_LINES_TO_DISPLAY}.</strong>`;
+                        searchResults.appendChild(moreResultsMsg);
+                        break;
+                    }
+                }
+            }
+
+            if (resultsCount === 0) {
+                searchResults.innerHTML = `<p class="no-results">No se encontraron resultados para "${searchTerm}".</p>`;
+            } else {
+                const countMsg = document.createElement('p');
+                countMsg.innerHTML = `<strong>Se encontraron ${resultsCount} resultados.</strong>`;
+                searchResults.prepend(countMsg); // Añadir el conteo al principio
+            }
+        }
+
+        // Deshabilitar la búsqueda al inicio hasta que se cargue un PDF
+        searchInput.disabled = true;
+        searchButton.disabled = true;
+    </script>
 </body>
 </html>

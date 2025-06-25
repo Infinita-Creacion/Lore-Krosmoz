@@ -2,59 +2,29 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Documentación Integral</title>
+    <title>Documentación</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            padding: 20px;
-            background-color: #f5f5f5;
-        }
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            background: white;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-        .section {
-            margin-bottom: 40px;
-            padding: 20px;
-            border-left: 4px solid #4285F4;
-            background-color: #f8f9fa;
-        }
-        iframe {
-            width: 100%;
-            height: 500px;
-            border: 1px solid #ddd;
-            margin-top: 15px;
+        body { font-family: Arial; max-width: 800px; margin: 0 auto; padding: 20px; }
+        .btn {
+            display: inline-block; 
+            padding: 10px 20px; 
+            margin: 10px;
+            background: #4285F4; 
+            color: white; 
+            text-decoration: none;
+            border-radius: 4px;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Documentación Completa</h1>
-        
-        <div class="section" id="bilingual">
-            <h2>Contenido Bilingüe</h2>
-            <!-- Inserta aquí el contenido generado por la primera sección -->
-            <iframe src="bilingual.html"></iframe>
-        </div>
-        
-        <div class="section" id="preview">
-            <h2>Vista Previa</h2>
-            <!-- Inserta aquí el contenido de preview -->
-            <iframe src="preview.html"></iframe>
-        </div>
-        
-        <div class="section" id="full-docs">
-            <h2>Documentación Integral</h2>
-            <!-- Inserta aquí el contenido completo -->
-            <iframe src="full_documentation.html"></iframe>
-        </div>
+    <h1>Documentación Completa</h1>
+    
+    <div>
+        <a href="bilingual.html" class="btn" target="_blank">Contenido Bilingüe</a>
+        <a href="preview.html" class="btn" target="_blank">Vista Previa</a>
+        <a href="full_documentation.html" class="btn" target="_blank">Documentación Integral</a>
     </div>
+
+    <p>Si los enlaces no funcionan, verifica que los archivos estén en el repositorio.</p>
 </body>
 </html>
