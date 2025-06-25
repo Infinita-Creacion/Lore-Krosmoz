@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Buscador de Documentos DofusDB</title>
+    <title>Visor y Buscador de Documentos Generados</title>
     
     <style>
         body {
@@ -43,7 +43,7 @@
 
         #searchInput {
             flex-grow: 1;
-            max-width: 400px; /* Limita el ancho del input de búsqueda */
+            max-width: 400px;
             padding: 12px 18px;
             border: 1px solid #ccc;
             border-radius: 8px;
@@ -78,8 +78,8 @@
             font-weight: bold;
             margin-bottom: 20px;
         }
-
-        #documentsList {
+        
+        #contentDisplay {
             text-align: left;
             background-color: #f9f9f9;
             border: 1px solid #eee;
@@ -88,44 +88,31 @@
             max-height: 600px; /* Limita la altura para el scroll */
             overflow-y: auto;
             box-shadow: inset 0 2px 5px rgba(0,0,0,0.03);
+            white-space: pre-wrap; /* Mantiene saltos de línea y espacios del texto */
+            word-wrap: break-word; /* Rompe palabras largas */
         }
 
-        .document-item {
-            background-color: #ffffff;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            padding: 15px;
-            margin-bottom: 12px;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        #searchResults {
+            text-align: left;
+            background-color: #f9f9f9;
+            border: 1px solid #eee;
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 20px;
+            max-height: 300px;
+            overflow-y: auto;
+            box-shadow: inset 0 2px 5px rgba(0,0,0,0.03);
         }
 
-        .document-item:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .document-item h3 {
-            color: #34495e;
-            margin-top: 0;
+        #searchResults p {
             margin-bottom: 8px;
-            font-size: 1.4em;
+            line-height: 1.5;
         }
 
-        .document-item p {
-            color: #555;
-            margin-bottom: 5px;
-            line-height: 1.6;
-        }
-
-        .document-item a {
-            color: #007bff;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        .document-item a:hover {
-            text-decoration: underline;
+        #searchResults p strong {
+            background-color: #ffe082; /* Resaltado para la búsqueda */
+            padding: 2px 4px;
+            border-radius: 3px;
         }
 
         .no-results {
@@ -143,7 +130,7 @@
             height: 30px;
             animation: spin 1s linear infinite;
             margin: 20px auto;
-            display: none; /* Oculto por defecto */
+            display: none;
         }
 
         @keyframes spin {
@@ -154,17 +141,21 @@
 </head>
 <body>
     <div class="container">
-        <h1>Buscador de Documentos DofusDB</h1>
+        <h1>Visor y Buscador de Documentos</h1>
         
         <div class="search-area">
-            <input type="text" id="searchInput" placeholder="Buscar por título o contenido...">
+            <input type="text" id="searchInput" placeholder="Buscar texto en los documentos...">
             <button id="searchButton">Buscar</button>
         </div>
         
-        <p id="statusMessage">Cargando documentos...</p>
+        <p id="statusMessage">Cargando contenido...</p>
         <div class="loading-spinner" id="loadingSpinner"></div>
 
-        <div id="documentsList">
+        <div id="contentDisplay">
+            <p>Por favor, asegúrate de que el archivo `all_bilingual_docs.html` (o el nombre que le hayas dado) esté en la misma carpeta que este `index.html` en tu repositorio de GitHub.</p>
+        </div>
+        
+        <div id="searchResults">
             </div>
     </div>
 
@@ -172,116 +163,71 @@
         const searchInput = document.getElementById('searchInput');
         const searchButton = document.getElementById('searchButton');
         const statusMessage = document.getElementById('statusMessage');
-        const documentsList = document.getElementById('documentsList');
+        const contentDisplay = document.getElementById('contentDisplay');
+        const searchResults = document.getElementById('searchResults');
         const loadingSpinner = document.getElementById('loadingSpinner');
 
-        const API_URL = 'https://api.dofusdb.fr/documents'; // La API que mencionaste
+        // *** IMPORTANTE: Reemplaza 'all_bilingual_docs.html' con el nombre del archivo HTML que tu Colab genera ***
+        // Este archivo debe estar en la misma carpeta que este index.html en tu repositorio de GitHub.
+        const DOCUMENT_HTML_PATH = 'all_bilingual_docs.html'; 
 
-        let allDocuments = []; // Almacenará todos los documentos cargados de la API
+        let fullDocumentContent = ''; // Almacenará el texto plano del HTML cargado
 
-        // Función para mostrar el spinner de carga
-        function showLoading(show) {
+        // Función para mostrar/ocultar el spinner
+        function showLoading(show, message = '') {
             loadingSpinner.style.display = show ? 'block' : 'none';
+            statusMessage.textContent = message;
             statusMessage.style.display = show ? 'block' : 'none';
-            if (!show) {
-                statusMessage.textContent = ''; // Limpiar mensaje de estado al ocultar
-            }
         }
 
-        // Función para cargar los documentos de la API
-        async function loadDocuments() {
-            showLoading(true);
-            statusMessage.textContent = 'Cargando documentos desde DofusDB...';
-            documentsList.innerHTML = ''; // Limpiar lista anterior
+        // Cargar el archivo HTML generado por el Colab
+        async function loadGeneratedHtml() {
+            showLoading(true, 'Cargando documentos generados...');
+            contentDisplay.innerHTML = '';
+            searchResults.innerHTML = '';
+            fullDocumentContent = '';
 
             try {
-                const response = await fetch(API_URL);
+                const response = await fetch(DOCUMENT_HTML_PATH);
                 if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
+                    throw new Error(`HTTP error! estado: ${response.status}. Asegúrate de que "${DOCUMENT_HTML_PATH}" existe y es accesible.`);
                 }
-                const data = await response.json();
+                const htmlContent = await response.text();
                 
-                // Asumiendo que la API devuelve un array de objetos documento.
-                // Cada objeto podría tener 'id', 'name', 'type', 'content', 'url', etc.
-                // Ajusta las propiedades 'name', 'content' y 'url' según la estructura real de la API.
-                allDocuments = data; // Almacenamos todos los documentos
-                displayDocuments(allDocuments); // Mostrar todos al inicio
-                statusMessage.textContent = `Se cargaron ${allDocuments.length} documentos.`;
+                // Inyectar el HTML cargado en el div. Esto mostrará el contenido tal cual.
+                contentDisplay.innerHTML = htmlContent;
+
+                // Extraer solo el texto para la búsqueda
+                // Crear un elemento temporal para parsear el HTML y obtener su texto
+                const tempDiv = document.createElement('div');
+                tempDiv.innerHTML = htmlContent;
+                fullDocumentContent = tempDiv.textContent || tempDiv.innerText;
+
+                showLoading(false, 'Documentos cargados. Puedes buscar.');
+                searchInput.disabled = false;
+                searchButton.disabled = false;
 
             } catch (error) {
-                console.error('Error al cargar los documentos:', error);
-                statusMessage.textContent = `Error: No se pudieron cargar los documentos. (${error.message})`;
-                documentsList.innerHTML = '<p class="no-results">No se pudieron cargar los documentos. Por favor, inténtalo de nuevo más tarde.</p>';
-            } finally {
-                showLoading(false);
+                console.error('Error al cargar el archivo HTML:', error);
+                showLoading(false, `Error: No se pudo cargar el archivo "${DOCUMENT_HTML_PATH}". Asegúrate de que lo subiste a GitHub. (${error.message})`);
+                contentDisplay.innerHTML = '<p class="no-results">No se pudo cargar el contenido. Por favor, asegúrate de haber generado el archivo HTML con tu Colab y de haberlo subido correctamente a GitHub en la misma carpeta que este archivo.</p>';
+                searchInput.disabled = true;
+                searchButton.disabled = true;
             }
-        }
-
-        // Función para mostrar los documentos en la lista
-        function displayDocuments(docsToDisplay) {
-            documentsList.innerHTML = ''; // Limpiar la lista actual
-            if (docsToDisplay.length === 0) {
-                documentsList.innerHTML = '<p class="no-results">No se encontraron documentos.</p>';
-                return;
-            }
-
-            docsToDisplay.forEach(doc => {
-                const docItem = document.createElement('div');
-                docItem.classList.add('document-item');
-                
-                // Intenta usar 'name' o 'title' para el encabezado
-                const docTitle = doc.name || doc.title || `Documento ${doc.id || 'Desconocido'}`;
-                docItem.innerHTML = `
-                    <h3>${docTitle}</h3>
-                    <p>Tipo: ${doc.type || 'N/A'}</p>
-                    <p>${(doc.content || 'No hay contenido disponible directamente.').substring(0, 200)}...</p>
-                    ${doc.url ? `<p><a href="${doc.url}" target="_blank">Ver más detalles</a></p>` : ''}
-                `;
-                documentsList.appendChild(docItem);
-            });
         }
 
         // Función para realizar la búsqueda
         function performSearch() {
             const searchTerm = searchInput.value.trim().toLowerCase();
-            if (!searchTerm) {
-                displayDocuments(allDocuments); // Si no hay término de búsqueda, muestra todos
+            searchResults.innerHTML = ''; // Limpiar resultados anteriores
+
+            if (!searchTerm || !fullDocumentContent) {
+                searchResults.innerHTML = '<p class="no-results">Ingresa un término de búsqueda y asegúrate de que el contenido esté cargado.</p>';
                 return;
             }
 
-            const filteredDocuments = allDocuments.filter(doc => {
-                // Ajusta las propiedades 'name' y 'content' según lo que la API te devuelve.
-                // Aquí se busca en el nombre y en un posible campo de contenido.
-                const nameMatch = (doc.name && doc.name.toLowerCase().includes(searchTerm));
-                const contentMatch = (doc.content && doc.content.toLowerCase().includes(searchTerm));
-                
-                return nameMatch || contentMatch;
-            });
-
-            displayDocuments(filteredDocuments);
-            if (filteredDocuments.length === 0) {
-                documentsList.innerHTML = `<p class="no-results">No se encontraron resultados para "${searchInput.value}".</p>`;
-            } else {
-                 statusMessage.textContent = `Se encontraron ${filteredDocuments.length} resultados para "${searchInput.value}".`;
-                 statusMessage.style.display = 'block'; // Asegurarse de que el mensaje de estado sea visible
-            }
-        }
-
-        // Event Listeners
-        searchButton.addEventListener('click', performSearch);
-        searchInput.addEventListener('keyup', (event) => {
-            if (event.key === 'Enter') {
-                performSearch();
-            } else if (searchInput.value.trim() === '' && allDocuments.length > 0) {
-                // Si el campo de búsqueda se vacía, mostrar todos los documentos de nuevo
-                displayDocuments(allDocuments);
-                statusMessage.textContent = `Se cargaron ${allDocuments.length} documentos.`;
-                statusMessage.style.display = 'block';
-            }
-        });
-
-        // Cargar documentos cuando la página se carga
-        window.onload = loadDocuments;
-    </script>
-</body>
-</html>
+            const regex = new RegExp(`(${searchTerm})`, 'gi'); // 'gi' para búsqueda global e insensible a mayúsculas/minúsculas
+            const lines = fullDocumentContent.split('\n');
+            let resultsCount = 0;
+            
+            const MAX_LINES_TO_DISPLAY = 50; // Limitar el número de líneas para no
