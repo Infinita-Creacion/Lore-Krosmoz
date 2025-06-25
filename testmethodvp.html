@@ -15,42 +15,57 @@
             max-width: 1000px;
             margin: 0 auto;
             background: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
             text-align: center;
         }
         .notebook-frame {
             width: 100%;
-            height: 600px;
-            border: 1px solid #ddd;
-            margin: 20px 0;
-            border-radius: 4px;
+            height: 70vh;
+            min-height: 500px;
+            border: 1px solid #e0e0e0;
+            margin: 25px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         }
         .direct-link {
             display: inline-block;
-            padding: 12px 24px;
+            padding: 14px 28px;
             background-color: #4285F4;
             color: white;
             text-decoration: none;
-            border-radius: 4px;
+            border-radius: 6px;
             font-weight: bold;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            margin-top: 15px;
         }
         .direct-link:hover {
             background-color: #3367D6;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        .warning-box {
+            padding: 20px;
+            background: #fff3e0;
+            border-radius: 8px;
+            border-left: 5px solid #ffa000;
+            margin: 20px 0;
+            text-align: left;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Visualizador de Notebook Colab</h1>
+        <h1 style="color: #202124;">Visualizador de Notebook Colab</h1>
         
         <div id="notebook-container">
-            <!-- El iframe se insertará aquí -->
+            <!-- Se llenará dinámicamente -->
         </div>
         
         <a id="direct-link" class="direct-link" target="_blank">
-            Abrir notebook directamente en Colab
+            <i class="fas fa-external-link-alt"></i> Abrir en Colab
         </a>
     </div>
 
@@ -58,35 +73,45 @@
         // Configuración
         const NOTEBOOK_ID = '1UTuch2-IvwpTJxOkq0CXmMCnn9TRpKl-';
         const isGitHub = window.location.host.includes('github.io');
+        const notebookUrl = `https://colab.research.google.com/drive/${NOTEBOOK_ID}`;
 
         // Elementos
         const notebookContainer = document.getElementById('notebook-container');
         const directLink = document.getElementById('direct-link');
 
         // Configurar enlace
-        directLink.href = `https://colab.research.google.com/drive/${NOTEBOOK_ID}`;
+        directLink.href = notebookUrl;
 
         // Cargar notebook
         function loadNotebook() {
             if(isGitHub) {
                 notebookContainer.innerHTML = `
-                    <div style="padding: 20px; background: #fff8e1; border-radius: 8px;">
-                        <p>🔒 GitHub Pages no permite incrustar notebooks de Colab.</p>
-                        <p>Por favor usa el botón azul para abrirlo directamente.</p>
+                    <div class="warning-box">
+                        <h3 style="color: #d35400; margin-top: 0;">Limitación de GitHub Pages</h3>
+                        <p>GitHub no permite mostrar notebooks de Colab directamente por políticas de seguridad.</p>
+                        <p>Haz clic en el botón <strong>"Abrir en Colab"</strong> para ver el notebook en una pestaña nueva.</p>
+                        <p>Si quieres ver la versión con visor integrado, prueba ejecutando este archivo localmente.</p>
                     </div>
                 `;
             } else {
                 notebookContainer.innerHTML = `
                     <iframe class="notebook-frame"
-                        src="https://colab.research.google.com/drive/${NOTEBOOK_ID}"
-                        allowfullscreen>
+                        src="${notebookUrl}"
+                        allowfullscreen
+                        title="Notebook de Colab">
                     </iframe>
+                    <p style="font-size: 14px; color: #666;">
+                        Si no ves el notebook, <a href="${notebookUrl}" target="_blank">ábrelo directamente</a>
+                    </p>
                 `;
             }
         }
 
-        // Iniciar al cargar la página
-        window.addEventListener('DOMContentLoaded', loadNotebook);
+        // Iniciar
+        document.addEventListener('DOMContentLoaded', loadNotebook);
     </script>
+    
+    <!-- Iconos de Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </body>
 </html>
