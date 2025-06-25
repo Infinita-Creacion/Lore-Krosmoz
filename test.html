@@ -3,20 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lector y Buscador de PDFs</title>
+    <title>Buscador de Documentos DofusDB</title>
     
     <style>
-        /* style.css (Para darle un mejor aspecto) - Integrado aquí */
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             display: flex;
             justify-content: center;
-            align-items: flex-start; /* Alinea arriba para evitar que se salga de la pantalla con contenido largo */
+            align-items: flex-start;
             min-height: 100vh;
             background-color: #eef2f7;
             margin: 0;
             padding: 20px;
-            box-sizing: border-box; /* Incluye padding en el tamaño total */
+            box-sizing: border-box;
         }
 
         .container {
@@ -25,7 +24,7 @@
             border-radius: 12px;
             box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
             text-align: center;
-            max-width: 800px;
+            max-width: 900px;
             width: 100%;
         }
 
@@ -35,8 +34,31 @@
             font-size: 2.2em;
         }
 
-        .upload-button {
-            background-color: #3498db;
+        .search-area {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 25px;
+            justify-content: center;
+        }
+
+        #searchInput {
+            flex-grow: 1;
+            max-width: 400px; /* Limita el ancho del input de búsqueda */
+            padding: 12px 18px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 1.1em;
+            outline: none;
+            box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        #searchInput:focus {
+            border-color: #3498db;
+            box-shadow: 0 0 8px rgba(52, 152, 219, 0.4);
+        }
+
+        #searchButton {
+            background-color: #28a745;
             color: white;
             padding: 12px 25px;
             border: none;
@@ -44,257 +66,222 @@
             cursor: pointer;
             font-size: 1.1em;
             transition: background-color 0.3s ease, transform 0.2s ease;
-            display: inline-block; /* Para que parezca un botón */
-            margin-top: 15px;
         }
 
-        .upload-button:hover {
-            background-color: #2980b9;
+        #searchButton:hover {
+            background-color: #218838;
             transform: translateY(-2px);
-        }
-
-        input[type="file"] {
-            display: none; /* Oculta el input de archivo por defecto */
-        }
-
-        #fileNameDisplay {
-            margin-top: 10px;
-            font-style: italic;
-            color: #555;
-        }
-
-        #processingArea {
-            margin-top: 25px;
-            border-top: 1px solid #eee;
-            padding-top: 25px;
         }
 
         #statusMessage {
             color: #e67e22;
             font-weight: bold;
-            margin-bottom: 15px;
-        }
-
-        #pdfTextDisplay {
-            width: calc(100% - 20px); /* Ajusta por padding */
-            height: 300px;
-            padding: 10px;
-            margin-bottom: 20px;
-            border: 1px solid #ccc;
-            border-radius: 6px;
-            font-size: 1em;
-            line-height: 1.6;
-            resize: vertical; /* Permite redimensionar verticalmente */
-            box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
-            text-align: left;
-            overflow-y: scroll; /* Asegura el scroll para contenido largo */
-        }
-
-        .search-area {
-            display: flex;
-            gap: 10px;
             margin-bottom: 20px;
         }
 
-        #searchInput {
-            flex-grow: 1;
-            padding: 10px 15px;
-            border: 1px solid #ccc;
-            border-radius: 6px;
-            font-size: 1em;
-            outline: none; /* Quita el contorno al enfocar */
-        }
-
-        #searchInput:focus {
-            border-color: #3498db;
-            box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
-        }
-
-        #searchButton {
-            background-color: #28a745;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-            font-size: 1em;
-            transition: background-color 0.3s ease;
-        }
-
-        #searchButton:hover {
-            background-color: #218838;
-        }
-
-        #searchResults {
+        #documentsList {
             text-align: left;
             background-color: #f9f9f9;
             border: 1px solid #eee;
+            border-radius: 10px;
+            padding: 20px;
+            max-height: 600px; /* Limita la altura para el scroll */
+            overflow-y: auto;
+            box-shadow: inset 0 2px 5px rgba(0,0,0,0.03);
+        }
+
+        .document-item {
+            background-color: #ffffff;
+            border: 1px solid #ddd;
             border-radius: 8px;
             padding: 15px;
-            max-height: 250px;
-            overflow-y: auto; /* Scroll para resultados largos */
-            box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
+            margin-bottom: 12px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
 
-        #searchResults p {
+        .document-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .document-item h3 {
+            color: #34495e;
+            margin-top: 0;
             margin-bottom: 8px;
-            line-height: 1.5;
+            font-size: 1.4em;
         }
 
-        #searchResults p strong {
-            background-color: #ffe082; /* Resaltado para la búsqueda */
-            padding: 2px 4px;
-            border-radius: 3px;
+        .document-item p {
+            color: #555;
+            margin-bottom: 5px;
+            line-height: 1.6;
         }
 
-        #searchResults .no-results {
+        .document-item a {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .document-item a:hover {
+            text-decoration: underline;
+        }
+
+        .no-results {
             color: #e74c3c;
             font-weight: bold;
+            font-size: 1.1em;
+            text-align: center;
+        }
+
+        .loading-spinner {
+            border: 4px solid rgba(0, 0, 0, 0.1);
+            border-left-color: #3498db;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            animation: spin 1s linear infinite;
+            margin: 20px auto;
+            display: none; /* Oculto por defecto */
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Lector y Buscador de Contenido</h1>
+        <h1>Buscador de Documentos DofusDB</h1>
         
-        <input type="file" id="pdfFileInput" accept=".pdf">
-        <label for="pdfFileInput" class="upload-button">Subir un archivo PDF</label>
-        <p id="fileNameDisplay"></p>
-
-        <div id="processingArea" style="display: none;">
-            <p id="statusMessage">Cargando PDF...</p>
-            <textarea id="pdfTextDisplay" readonly placeholder="El texto del PDF aparecerá aquí..."></textarea>
-            
-            <div class="search-area">
-                <input type="text" id="searchInput" placeholder="Buscar texto en el PDF...">
-                <button id="searchButton">Buscar</button>
-            </div>
-            
-            <div id="searchResults"></div>
+        <div class="search-area">
+            <input type="text" id="searchInput" placeholder="Buscar por título o contenido...">
+            <button id="searchButton">Buscar</button>
         </div>
+        
+        <p id="statusMessage">Cargando documentos...</p>
+        <div class="loading-spinner" id="loadingSpinner"></div>
+
+        <div id="documentsList">
+            </div>
     </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
     <script>
-        // Configura la ruta del worker de PDF.js
-        pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.worker.min.js';
-    </script>
-
-    <script>
-        // script.js (La lógica de lectura y búsqueda de PDFs) - Integrado aquí
-        const pdfFileInput = document.getElementById('pdfFileInput');
-        const fileNameDisplay = document.getElementById('fileNameDisplay');
-        const processingArea = document.getElementById('processingArea');
-        const statusMessage = document.getElementById('statusMessage');
-        const pdfTextDisplay = document.getElementById('pdfTextDisplay');
         const searchInput = document.getElementById('searchInput');
         const searchButton = document.getElementById('searchButton');
-        const searchResults = document.getElementById('searchResults');
+        const statusMessage = document.getElementById('statusMessage');
+        const documentsList = document.getElementById('documentsList');
+        const loadingSpinner = document.getElementById('loadingSpinner');
 
-        let fullPdfText = ''; // Variable para almacenar todo el texto del PDF
+        const API_URL = 'https://api.dofusdb.fr/documents'; // La API que mencionaste
 
-        pdfFileInput.addEventListener('change', async (event) => {
-            const file = event.target.files[0];
-            if (!file) {
-                fileNameDisplay.textContent = '';
-                processingArea.style.display = 'none';
-                return;
+        let allDocuments = []; // Almacenará todos los documentos cargados de la API
+
+        // Función para mostrar el spinner de carga
+        function showLoading(show) {
+            loadingSpinner.style.display = show ? 'block' : 'none';
+            statusMessage.style.display = show ? 'block' : 'none';
+            if (!show) {
+                statusMessage.textContent = ''; // Limpiar mensaje de estado al ocultar
             }
+        }
 
-            if (file.type !== 'application/pdf') {
-                alert('Por favor, selecciona un archivo PDF.');
-                pdfFileInput.value = ''; // Limpia la selección
-                return;
-            }
-
-            fileNameDisplay.textContent = `Archivo seleccionado: ${file.name}`;
-            processingArea.style.display = 'block';
-            statusMessage.textContent = 'Leyendo y extrayendo texto del PDF...';
-            pdfTextDisplay.value = '';
-            searchResults.innerHTML = '';
-            fullPdfText = '';
+        // Función para cargar los documentos de la API
+        async function loadDocuments() {
+            showLoading(true);
+            statusMessage.textContent = 'Cargando documentos desde DofusDB...';
+            documentsList.innerHTML = ''; // Limpiar lista anterior
 
             try {
-                const arrayBuffer = await file.arrayBuffer();
-                const pdf = await pdfjsLib.getDocument({ data: arrayBuffer }).promise;
-                let textContent = [];
-
-                for (let i = 1; i <= pdf.numPages; i++) {
-                    const page = await pdf.getPage(i);
-                    const text = await page.getTextContent();
-                    textContent.push(text.items.map(item => item.str).join(' '));
+                const response = await fetch(API_URL);
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
                 }
-
-                fullPdfText = textContent.join('\n\n'); // Unir el texto de todas las páginas
-                pdfTextDisplay.value = fullPdfText;
-                statusMessage.textContent = `PDF "${file.name}" cargado. Total de ${pdf.numPages} páginas.`;
-
-                // Habilitar la búsqueda una vez que el PDF está cargado
-                searchInput.disabled = false;
-                searchButton.disabled = false;
+                const data = await response.json();
+                
+                // Asumiendo que la API devuelve un array de objetos documento.
+                // Cada objeto podría tener 'id', 'name', 'type', 'content', 'url', etc.
+                // Ajusta las propiedades 'name', 'content' y 'url' según la estructura real de la API.
+                allDocuments = data; // Almacenamos todos los documentos
+                displayDocuments(allDocuments); // Mostrar todos al inicio
+                statusMessage.textContent = `Se cargaron ${allDocuments.length} documentos.`;
 
             } catch (error) {
-                console.error('Error al leer el PDF:', error);
-                statusMessage.textContent = 'Error al cargar el PDF. Revisa la consola.';
-                pdfTextDisplay.value = 'No se pudo leer el PDF.';
-                searchInput.disabled = true;
-                searchButton.disabled = true;
+                console.error('Error al cargar los documentos:', error);
+                statusMessage.textContent = `Error: No se pudieron cargar los documentos. (${error.message})`;
+                documentsList.innerHTML = '<p class="no-results">No se pudieron cargar los documentos. Por favor, inténtalo de nuevo más tarde.</p>';
+            } finally {
+                showLoading(false);
             }
-        });
+        }
 
+        // Función para mostrar los documentos en la lista
+        function displayDocuments(docsToDisplay) {
+            documentsList.innerHTML = ''; // Limpiar la lista actual
+            if (docsToDisplay.length === 0) {
+                documentsList.innerHTML = '<p class="no-results">No se encontraron documentos.</p>';
+                return;
+            }
+
+            docsToDisplay.forEach(doc => {
+                const docItem = document.createElement('div');
+                docItem.classList.add('document-item');
+                
+                // Intenta usar 'name' o 'title' para el encabezado
+                const docTitle = doc.name || doc.title || `Documento ${doc.id || 'Desconocido'}`;
+                docItem.innerHTML = `
+                    <h3>${docTitle}</h3>
+                    <p>Tipo: ${doc.type || 'N/A'}</p>
+                    <p>${(doc.content || 'No hay contenido disponible directamente.').substring(0, 200)}...</p>
+                    ${doc.url ? `<p><a href="${doc.url}" target="_blank">Ver más detalles</a></p>` : ''}
+                `;
+                documentsList.appendChild(docItem);
+            });
+        }
+
+        // Función para realizar la búsqueda
+        function performSearch() {
+            const searchTerm = searchInput.value.trim().toLowerCase();
+            if (!searchTerm) {
+                displayDocuments(allDocuments); // Si no hay término de búsqueda, muestra todos
+                return;
+            }
+
+            const filteredDocuments = allDocuments.filter(doc => {
+                // Ajusta las propiedades 'name' y 'content' según lo que la API te devuelve.
+                // Aquí se busca en el nombre y en un posible campo de contenido.
+                const nameMatch = (doc.name && doc.name.toLowerCase().includes(searchTerm));
+                const contentMatch = (doc.content && doc.content.toLowerCase().includes(searchTerm));
+                
+                return nameMatch || contentMatch;
+            });
+
+            displayDocuments(filteredDocuments);
+            if (filteredDocuments.length === 0) {
+                documentsList.innerHTML = `<p class="no-results">No se encontraron resultados para "${searchInput.value}".</p>`;
+            } else {
+                 statusMessage.textContent = `Se encontraron ${filteredDocuments.length} resultados para "${searchInput.value}".`;
+                 statusMessage.style.display = 'block'; // Asegurarse de que el mensaje de estado sea visible
+            }
+        }
+
+        // Event Listeners
         searchButton.addEventListener('click', performSearch);
         searchInput.addEventListener('keyup', (event) => {
             if (event.key === 'Enter') {
                 performSearch();
+            } else if (searchInput.value.trim() === '' && allDocuments.length > 0) {
+                // Si el campo de búsqueda se vacía, mostrar todos los documentos de nuevo
+                displayDocuments(allDocuments);
+                statusMessage.textContent = `Se cargaron ${allDocuments.length} documentos.`;
+                statusMessage.style.display = 'block';
             }
         });
 
-        function performSearch() {
-            const searchTerm = searchInput.value.trim();
-            searchResults.innerHTML = ''; // Limpiar resultados anteriores
-
-            if (!searchTerm || !fullPdfText) {
-                searchResults.innerHTML = '<p class="no-results">Ingresa un término de búsqueda y asegúrate de que el PDF esté cargado.</p>';
-                return;
-            }
-
-            const regex = new RegExp(`(${searchTerm})`, 'gi'); // 'gi' para búsqueda global e insensible a mayúsculas/minúsculas
-            const lines = fullPdfText.split('\n');
-            let resultsCount = 0;
-            
-            // Limitar el número de líneas a mostrar para evitar sobrecargar el navegador
-            const MAX_LINES_TO_DISPLAY = 100; 
-
-            for (let i = 0; i < lines.length; i++) {
-                const line = lines[i];
-                if (line.match(regex)) {
-                    const highlightedLine = line.replace(regex, '<strong>$1</strong>');
-                    const p = document.createElement('p');
-                    p.innerHTML = `Línea ${i + 1}: ${highlightedLine}`;
-                    searchResults.appendChild(p);
-                    resultsCount++;
-
-                    if (resultsCount >= MAX_LINES_TO_DISPLAY) {
-                        const moreResultsMsg = document.createElement('p');
-                        moreResultsMsg.innerHTML = `<strong class="no-results">Se encontraron más de ${MAX_LINES_TO_DISPLAY} resultados. Mostrando los primeros ${MAX_LINES_TO_DISPLAY}.</strong>`;
-                        searchResults.appendChild(moreResultsMsg);
-                        break;
-                    }
-                }
-            }
-
-            if (resultsCount === 0) {
-                searchResults.innerHTML = `<p class="no-results">No se encontraron resultados para "${searchTerm}".</p>`;
-            } else {
-                const countMsg = document.createElement('p');
-                countMsg.innerHTML = `<strong>Se encontraron ${resultsCount} resultados.</strong>`;
-                searchResults.prepend(countMsg); // Añadir el conteo al principio
-            }
-        }
-
-        // Deshabilitar la búsqueda al inicio hasta que se cargue un PDF
-        searchInput.disabled = true;
-        searchButton.disabled = true;
+        // Cargar documentos cuando la página se carga
+        window.onload = loadDocuments;
     </script>
 </body>
 </html>
