@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-translate="title">Guías del Krosmoz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #d35400;
+            padding: 20px;
+            text-align: center;
+            color: white;
+        }
+        
+        /* Barra de navegación mejorada */
+        .navbar {
+            background-color: #e67e22;
+            border-top: 2px solid #b34700;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 0 0.1%;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            max-width: 1200px;
+            margin: 0 auto;
+            border-radius: 30px 30px 30px 30px;
+        }
+        
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .hamburger {
+            font-size: 28px;
+            color: white;
+            cursor: pointer;
+            display: none;
+            padding: 10px;
+        }
+        
+        .menu {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+            gap: 5px;
+        }
+        
+        .menu > li > a {
+            display: block;
+            padding: 10px 15px;
+            color: white;
+            text-decoration: none;
+            background-color: rgba(0, 0, 0, 0.2);
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            font-weight: bold;
+            border-radius: 10px 10px 10px 10px;
+        }
+        
+        .menu > li > a:hover {
+            background-color: rgba(0, 0, 0, 0.4);
+            transform: translateY(-2px);
+        }
+        
+        .menu > li > a img {
+            vertical-align: middle;
+            height: 24px;
+        }
+        
+        main {
+            padding: 0;
+        }
+        
+        section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(800px, 1fr));
+            gap: 15px;
+            background-image: url('430154.jpg');
+            background-size: contain;
+            background-position: bottom;
+            background-attachment: fixed;
+            padding: 100px;
+            border-radius: 0px;
+        }
+        
+        .chapter {
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 5px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 10px;
+        }
+        
+        .chapter img {
+            width: 100%;
+            max-height: 400px;
+            object-fit: contain;
+        }
+        
+        .chapter a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        
+        .chapter a:hover {
+            color: #d35400;
+        }
+        
+        .new {
+            color: #27ae60;
+            font-weight: bold;
+        }
+        
+        /* Selector de idiomas - Versión limpia */
+        .dropdown-language {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-language > a {
+            display: block;
+            padding: 15px 20px;
+            color: white;
+            text-decoration: none;
+            background-color: rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .dropdown-language:hover > a {
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+
+        .language-dropdown {
+            display: none;
+            position: absolute;
+            background-color: #d35400;
+            min-width: 60px;
+            box-shadow: 0px 4px 8px rgba(0,0,0,0.2);
+            z-index: 1001;
+            border-radius: 0 0 10px 10px;
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            left: 0;
+            top: 100%;
+        }
+
+        .language-dropdown a {
+            color: white;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            font-weight: bold;
+            transition: background 0.3s;
+            text-align: center;
+            border: none !important;
+        }
+
+        .language-dropdown a:hover {
+            background-color: rgba(0, 0, 0, 0.3);
+        }
+
+        .dropdown-language:hover .language-dropdown {
+            display: block;
+        }
+        
+        /* Estilos para el botón de modo oscuro */
+        .dark-mode-toggle > a {
+            display: block;
+            padding: 10px 10px;
+            color: white;
+            text-decoration: none;
+            background-color: rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 15px;
+        }
+        
+        .dark-mode .chapter a {
+            color: #eee; /* Color para modo oscuro */
+        }
+        
+        .dark-mode .chapter a:hover {
+            color: #e67e22; /* Color hover para modo oscuro */
+        }
+        
+        .dark-mode .new {
+            color: #2ecc71; /* Color para "NUEVO" en modo oscuro */
+        }
+        
+        .new {
+            color: #27ae60; /* Cambia este valor al color que prefieras (ej: #e74c3c para rojo) */
+            font-weight: bold;
+        }
+        
+        .dark-mode-toggle:hover > a {
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+        
+        /* Estilos para el modo oscuro */
+        .dark-mode header {
+            background-color: #1a1a1a;
+        }
+        
+        .dark-mode .navbar {
+            background-color: #1a1a1a;
+            border-top: 2px solid #333;
+        }
+        
+        .dark-mode .menu > li > a {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        .dark-mode .menu > li > a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        
+        .dark-mode .chapter {
+            background-color: rgba(0, 0, 0, 0.7);
+            color: #ffffff;
+        }
+        
+        .dark-mode section {
+            background-image: url('430154.jpg');
+            background-color: rgba(0, 0, 0, 0.3);
+            background-blend-mode: multiply;
+        }
+
+        .dark-mode .language-dropdown {
+            background-color: #333;
+            box-shadow: 0px 4px 8px rgba(255,255,255,0.1);
+        }
+
+        .dark-mode .language-dropdown a {
+            color: #fff;
+        }
+
+        .dark-mode .language-dropdown a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            header {
+                padding: 15px;
+                font-size: 18px;
+            }
+            
+            .navbar {
+                padding: 0 5%;
+            }
+            
+            .hamburger {
+                display: block;
+            }
+            
+            .menu {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                gap: 0;
+            }
+            
+            .menu.show {
+                display: flex;
+            }
+            
+            .menu > li {
+                width: 100%;
+            }
+            
+            .menu > li > a {
+                border-radius: 0;
+                border-bottom: 1px solid #b34700;
+                background-color: transparent;
+            }
+            
+            section {
+                padding: 20px;
+                grid-template-columns: 1fr;
+                background-attachment: scroll;
+            }
+            
+            .chapter {
+                padding: 15px;
+            }
+            
+            .chapter img {
+                max-height: 300px;
+            }
+            
+            .dropdown-language {
+                width: 100%;
+            }
+    
+            .dropdown-language > a {
+                border-radius: 0;
+                border-bottom: 1px solid #b34700;
+                background-color: transparent;
+            }
+    
+            .language-dropdown {
+                width: 100%;
+                border-radius: 0;
+            }
+            
+            .dark-mode-toggle {
+                width: 100%;
+            }
+    
+            .dark-mode-toggle > a {
+                border-radius: 0;
+                border-bottom: 1px solid #333;
+                background-color: transparent;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 data-translate="title">Guías del Krosmoz</h1>
+        <nav class="navbar">
+            <div class="container">
+                 <div class="hamburger" id="hamburger">&#9776;</div>
+                <ul class="menu" id="menu">
+                    <li><a href="NCDrop.html" data-translate="nav.drop_wakfu">Calc de Drop Wakfu</a></li>
+                    <li><a href="testmethodindex.html" data-translate="nav.home">Inicio</a></li>
+                    <li><a href="testmethodmisiones.html" data-translate="nav.quests">Misiones</a></li>
+                    <li><a href="#" data-translate="nav.dungeons">Mazmorras</a></li>
+                    <li><a href="#" data-translate="nav.optimization">Optimización</a></li>
+                    <li><a href="#" data-translate="nav.crafts">Oficios</a></li>
+                    <li><a href="#" data-translate="nav.misc">Varios</a></li>
+                    <!-- Nuevo botón de idioma integrado en el menú -->
+                    <li class="dropdown-language">
+                        <a href="#" id="currentLanguage">ES</a>
+                        <ul class="language-dropdown">
+                            <li><a href="#" data-lang="es">ES</a></li>
+                            <li><a href="#" data-lang="pt">PT</a></li>
+                            <li><a href="#" data-lang="en">EN</a></li>
+                        </ul>
+                    <li class="dark-mode-toggle">
+                        <a href="#" id="darkModeToggle">🌙</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <div class="chapter">
+                <a href="testmethod.html"><img src="9536a6485dac2ffdfcc591f8dfd1caf4.png"></a>
+                <a href="testmethod.html" data-translate="chapter.Rii">Rii</a>
+                <span class="new" data-translate="new">NUEVO</span>
+            </div>
+            <div class="chapter">
+                <a href="testmethodcronologia.html"><img src="kroz.jpg"></a>
+                <a href="testmethodcronologia.html" data-translate="chapter.Cronología">Cronología</a>
+                <span class="new" data-translate="new">NUEVO</span>
+            </div>
+            <div class="chapter">
+                <a href="testmethodmisiones.html"><img src="world.png"></a>
+                <a href="testmethodmisiones.html" data-translate="chapter.mision">Misiones</a>
+                <span class="new" data-translate="new">NUEVO</span>
+            </div>
+            <div class="chapter">
+                <a href="index.html"><img src="paso del tiempo mundo.png"></a>
+                <a href="index.html">Lore del Krosmoz (only spanish)</a>
+                <span class="new" data-translate="new">NUEVO</span>
+            </div>
+            
+        </section>
+    </main>
+
+    <script>
+        // ==================== SISTEMA DE TRADUCCIÓN ====================
+        const translations = {
+            es: {
+                "title": "Guías del Krosmoz",
+                "nav.drop_dofus": "Calc Drop Dofus",
+                "nav.drop_wakfu": "Calc Drop Wakfu",
+                "nav.home": "Inicio",
+                "nav.quests": "Misiones",
+                "nav.dungeons": "Mazmorras",
+                "nav.optimization": "Optimización",
+                "nav.crafts": "Oficios",
+                "nav.misc": "Varios",
+                "chapter.Rii": "Rii",
+                "chapter.Cronología": "Cronología",
+                "chapter.mision": "Misiones",
+                "chapter.ovas_wakfu": "",
+                "new": "NUEVO"
+            },
+            pt: {
+                "title": "Guias do Krosmoz",
+                "nav.drop_dofus": "Calc Drop Dofus",
+                "nav.drop_wakfu": "Calc Drop Wakfu",
+                "nav.home": "Início",
+                "nav.quests": "Missões",
+                "nav.dungeons": "Masmorras",
+                "nav.optimization": "Otimização",
+                "nav.crafts": "Profissões",
+                "nav.misc": "Vários",
+                "chapter.Rii": "Rii",
+                "chapter.Cronología": "Cronologia",
+                "chapter.wakfu_t3": "Wakfu Temporada 3",
+                "chapter.ovas_wakfu": "",
+                "new": "NOVO"
+            },
+            en: {
+                "title": "Krosmoz Guides",
+                "nav.drop_dofus": "Dofus Drop Calc",
+                "nav.drop_wakfu": "Wakfu Drop Calc",
+                "nav.home": "Home",
+                "nav.quests": "Quests",
+                "nav.dungeons": "Dungeons",
+                "nav.optimization": "Optimization",
+                "nav.crafts": "Professions",
+                "nav.misc": "Miscellaneous",
+                "chapter.Rii": "Rii",
+                "chapter.Cronología": "Chronology",
+                "chapter.mision": "mission",
+                "chapter.ovas_wakfu": "",
+                "new": "NEW"
+            }
+        };
+
+        // ==================== FUNCIONALIDADES ====================
+
+        // Menú hamburguesa para móviles
+        document.getElementById('hamburger').addEventListener('click', function() {
+            const menu = document.getElementById('menu');
+            menu.classList.toggle('show');
+        });
+
+        // ==================== SISTEMA DE TRADUCCIÓN ====================
+    
+        // Sistema de cambio de idioma
+        let currentLanguage = localStorage.getItem('selectedLanguage') || 'es';
+    
+        function translatePage(lang) {
+            currentLanguage = lang;
+            // Guardar el idioma en localStorage
+            localStorage.setItem('selectedLanguage', lang);
+        
+            // Traducir textos normales
+            document.querySelectorAll('[data-translate]').forEach(element => {
+                const key = element.getAttribute('data-translate');
+                if (translations[lang] && translations[lang][key]) {
+                    element.textContent = translations[lang][key];
+                }
+            });
+
+            // Actualizar botón principal
+            document.getElementById('currentLanguage').textContent = lang.toUpperCase();
+            document.documentElement.lang = lang;
+        }
+
+        // Selector de idiomas
+        document.querySelectorAll('.language-dropdown a[data-lang]').forEach(item => {
+            item.addEventListener('click', function(e) {
+                e.preventDefault();
+                translatePage(this.getAttribute('data-lang'));
+            });
+        });
+
+        // Modo oscuro
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        let darkMode = localStorage.getItem('darkMode') === 'true';
+
+        // Aplicar modo oscuro si estaba activado
+        if (darkMode) {
+            document.body.classList.add('dark-mode');
+            darkModeToggle.textContent = '☀️';
+        }
+
+        // Manejar el click
+        darkModeToggle.addEventListener('click', function(e) {
+            e.preventDefault();
+            darkMode = !darkMode;
+            
+            if (darkMode) {
+                document.body.classList.add('dark-mode');
+                this.textContent = '☀️';
+            } else {
+                document.body.classList.remove('dark-mode');
+                this.textContent = '🌙';
+            }
+            
+            localStorage.setItem('darkMode', darkMode);
+        });
+
+        // Inicializar con el idioma guardado o español por defecto
+        translatePage(currentLanguage);
+    </script>
+</body>
+</html>

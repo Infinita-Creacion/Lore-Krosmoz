@@ -1,0 +1,930 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-translate="title">Guías Misiones Principales</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        
+        header {
+            background-color: #d35400;
+            padding: 1px;
+            text-align: center;
+            color: white;
+        }
+        
+        .navbar {
+            background-color: #d35400;
+            border-top: 2px solid #b34700;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 0 0.1%;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            max-width: 1200px;
+            margin: 0 auto;
+            border-radius: 30px 30px 30px 30px;
+        }
+        
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .hamburger {
+            font-size: 28px;
+            color: white;
+            cursor: pointer;
+            display: none;
+            padding: 10px;
+        }
+        
+        .menu {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+            gap: 5px;
+        }
+        
+        .menu > li > a {
+            display: block;
+            padding: 10px 15px;
+            color: white;
+            text-decoration: none;
+            background-color: rgba(0, 0, 0, 0.2);
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            font-weight: bold;
+            border-radius: 10px 10px 10px 10px;
+        }
+        
+        .menu > li > a:hover {
+            background-color: rgba(0, 0, 0, 0.4);
+            transform: translateY(-2px);
+        }
+        
+        .menu > li > a img {
+            vertical-align: middle;
+            height: 24px;
+        }
+        
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+        
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+        
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        
+        main {
+            padding: 0;
+        }
+        
+        section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(800px, 1fr));
+            gap: 15px;
+            background-image: url('430154.jpg');
+            background-size: auto;
+            background-attachment: fixed; /* Fija la imagen de fondo */
+            padding: 100px 100px 100px 100px;
+            border-radius: 0px;
+        }
+        
+        .quest-container {
+            font-style: arial;
+            font-weight: bold;
+            text-shadow: 1px 1px 15px #ffffff;
+            background-color: rgba(255, 255, 255, 0.65);
+            padding: 30px;
+            border-radius: 5px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .quest-header-image {
+            width: 100%;
+            max-height: 250px;
+            object-fit: cover;
+            border-radius: 5px;
+            margin: 15px 0;
+            box-shadow: 0 0 10px rgba(0,0,0,0.3);
+            border: 2px solid #d35400;
+        }
+        
+        .quest-container h2 {
+            font-weight: bold;
+            text-shadow: 1px 1px 15px #ffffff;
+            color: #27ae60;
+            margin-top: 0;
+            border-bottom: 2px solid #d35400;
+            padding-bottom: 10px;
+        }
+        
+        .category {
+            margin-bottom: 30px;
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 5px;
+            border-left: 4px solid #d35400;
+        }
+        
+        .quest-row {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            padding: 15px;
+            background-color: rgba(211, 84, 0, 0.1);
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            gap: 15px;
+        }
+        
+        .quest-icon {
+            width: 55%;
+            max-height: 400px; /* Limita la altura máxima para dispositivos más pequeños */
+            object-fit: contain;
+            border: 3px solid #d35400;
+            transition: all 0.3s ease
+        }
+        
+        .quest-row:hover {
+            background-color: rgba(211, 84, 0, 0.2);
+        }
+        
+        .quest-row:hover .quest-icon {
+            transform: scale(1.1);
+        }
+        
+        .quest-row a {
+            color: #e00404;
+            text-decoration: none;
+            font-weight: 850;
+            flex-grow: 1;
+        }
+        
+        .quest-row a:hover {
+            text-decoration: underline;
+        }
+        
+        .level-badge {
+            display: inline-block;
+            background-color: #d35400;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-size: 0.8em;
+            margin-left: 10px;
+            font-weight: bold;
+        }
+        
+        .dropdown-language {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-language > a {
+            display: block;
+            padding: 15px 20px;
+            color: white;
+            text-decoration: none;
+            background-color: rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .dropdown-language:hover > a {
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+
+        .language-dropdown {
+            display: none;
+            position: absolute;
+            background-color: #d35400;
+            min-width: 60px;
+            box-shadow: 0px 4px 8px rgba(0,0,0,0.2);
+            z-index: 1001;
+            border-radius: 0 0 10px 10px;
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            left: 0;
+            top: 100%;
+        }
+
+        .language-dropdown a {
+            color: white;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            font-weight: bold;
+            transition: background 0.3s;
+            text-align: center;
+            border: none !important;
+        }
+
+        .language-dropdown a:hover {
+            background-color: rgba(0, 0, 0, 0.3);
+        }
+
+        .dropdown-language:hover .language-dropdown {
+            display: block;
+        }
+        
+        .dark-mode-toggle > a {
+            display: block;
+            padding: 10px 10px;
+            color: white;
+            text-decoration: none;
+            background-color: rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 15px;
+        }
+        
+        .dark-mode-toggle:hover > a {
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+        
+        /* Estilos para el modo oscuro */
+        .dark-mode header {
+            background-color: #1a1a1a;
+        }
+        
+        .dark-mode .navbar {
+            background-color: #1a1a1a;
+            border-top: 2px solid #333;
+        }
+        
+        .dark-mode .menu > li > a {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        .dark-mode .menu > li > a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        
+        .dark-mode .quest-container {
+            background-color: rgba(0, 0, 0, 0.7);
+            color: #eee;
+        }
+        
+        .dark-mode .quest-container h2 {
+            color: #2ecc71;
+        }
+        
+        .dark-mode .category {
+            background-color: rgba(0, 0, 0, 0.3);
+        }
+        
+        .dark-mode .quest-row {
+            background-color: rgba(46, 204, 113, 0.1);
+        }
+        
+        .dark-mode .quest-row:hover {
+            background-color: rgba(46, 204, 113, 0.2);
+        }
+        
+        .dark-mode .quest-row a {
+            color: #2ecc71;
+        }
+        
+        .dark-mode .level-badge {
+            background-color: #2ecc71;
+        }
+
+        .dark-mode .quest-header-image {
+            opacity: 0.9;
+            filter: brightness(0.8);
+            border-color: #2ecc71;
+        }
+
+        .dark-mode .quest-icon {
+            border-color: #2ecc71;
+        }
+
+        .dark-mode section {
+            background-image: url('430154.jpg');
+            background-color: rgba(0, 0, 0, 0.3);
+            background-blend-mode: multiply;
+            background-attachment: fixed; /* También fija la imagen en modo oscuro */
+        }
+
+        .dark-mode .quest-container,
+        .dark-mode .quest-container h2,
+        .dark-mode .quest-row a {
+            text-shadow: none !important;
+        }
+        
+        .dark-mode .language-dropdown {
+            background-color: #333;
+            box-shadow: 0px 4px 8px rgba(255,255,255,0.1);
+        }
+
+        .dark-mode .language-dropdown a {
+            color: #fff;
+        }
+
+        .dark-mode .language-dropdown a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Sidebar de navegación */
+        .sidebar-nav {
+            position: fixed;
+            right: 20px;
+            top: 250px;
+            width: 220px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+            padding: 15px;
+            max-height: 70vh;
+            overflow-y: auto;
+            transition: all 0.3s ease;
+            z-index: 999;
+            backdrop-filter: blur(5px);
+        }
+        
+        .sidebar-nav h3 {
+            color: #d35400;
+            margin-top: 0;
+            border-bottom: 2px solid #d35400;
+            padding-bottom: 10px;
+            text-align: center;
+            font-size: 1.2em;
+            margin-bottom: 15px;
+        }
+        
+        .sidebar-nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .sidebar-nav li {
+            margin-bottom: 8px;
+            position: relative;
+        }
+        
+        .sidebar-nav > ul > li > ul {
+            margin-left: 15px;
+            padding-left: 10px;
+            border-left: 2px solid rgba(211, 84, 0, 0.3);
+        }
+        
+        .sidebar-nav a {
+            color: #333;
+            text-decoration: none;
+            display: block;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            font-size: 0.9em;
+        }
+        
+        .sidebar-nav a:hover {
+            background-color: rgba(211, 84, 0, 0.2);
+            transform: translateX(5px);
+        }
+        
+        .sidebar-nav a.active {
+            background-color: rgba(211, 84, 0, 0.4);
+            font-weight: bold;
+        }
+        
+        /* Estilos para el modo oscuro */
+        .dark-mode .sidebar-nav {
+            background-color: rgba(0, 0, 0, 0.7);
+            color: #eee;
+        }
+        
+        .dark-mode .sidebar-nav h3 {
+            color: #2ecc71;
+            border-bottom: 2px solid #2ecc71;
+        }
+        
+        .dark-mode .sidebar-nav a {
+            color: #eee;
+        }
+        
+        .dark-mode .sidebar-nav a:hover {
+            background-color: rgba(46, 204, 113, 0.2);
+        }
+        
+        .dark-mode .sidebar-nav a.active {
+            background-color: rgba(46, 204, 113, 0.4);
+        }
+        
+        .dark-mode .sidebar-nav > ul > li > ul {
+            border-left: 2px solid rgba(46, 204, 113, 0.3);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            header {
+                padding: 15px;
+                font-size: 18px;
+            }
+            
+            .navbar {
+                padding: 0 5%;
+            }
+            
+            .hamburger {
+                display: block;
+            }
+            
+            .menu {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                gap: 0;
+            }
+            
+            .menu.show {
+                display: flex;
+            }
+            
+            .menu > li {
+                width: 100%;
+            }
+            
+            .menu > li > a {
+                border-radius: 0;
+                border-bottom: 1px solid #b34700;
+                background-color: transparent;
+            }
+            
+            .dropdown-content {
+                position: static;
+                box-shadow: none;
+                background-color: rgba(0, 0, 0, 0.1);
+            }
+            
+            section {
+                padding: 20px;
+                grid-template-columns: 1fr;
+                background-attachment: scroll; /* En móviles, mejor sin fixed por rendimiento */
+            }
+            
+            .quest-container {
+                padding: 15px;
+            }
+            
+            .category {
+                padding: 15px;
+            }
+            
+            .quest-header-image {
+                max-height: 180px;
+            }
+            
+            .quest-icon {
+                width: 60px;
+                height: 60px;
+            }
+            
+            .quest-row {
+                padding: 12px;
+                gap: 12px;
+            }
+            
+            .dropdown-language {
+                width: 100%;
+            }
+    
+            .dropdown-language > a {
+                border-radius: 0;
+                border-bottom: 1px solid #b34700;
+                background-color: transparent;
+            }
+    
+            .language-dropdown {
+                width: 100%;
+                border-radius: 0;
+            }
+            
+            .dark-mode-toggle {
+                width: 100%;
+            }
+    
+            .dark-mode-toggle > a {
+                border-radius: 0;
+                border-bottom: 1px solid #333;
+                background-color: transparent;
+            }
+
+            /* Responsive - Ocultar sidebar en móviles */
+            .sidebar-nav {
+                display: none;
+            }
+            
+            /* Scrollbar personalizada para la sidebar */
+            .sidebar-nav::-webkit-scrollbar {
+                width: 6px;
+            }
+            
+            .sidebar-nav::-webkit-scrollbar-track {
+                background: rgba(0, 0, 0, 0.1);
+                border-radius: 3px;
+            }
+            
+            .sidebar-nav::-webkit-scrollbar-thumb {
+                background: #d35400;
+                border-radius: 3px;
+            }
+            
+            .dark-mode .sidebar-nav::-webkit-scrollbar-thumb {
+                background: #2ecc71;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 data-translate="guides.title">Guías Misiones Principales</h1>
+        <nav class="navbar">
+            <div class="container">
+                 <div class="hamburger" id="hamburger">&#9776;</div>
+                <ul class="menu" id="menu">
+                    <li><a href="NCDrop.html" data-translate="nav.drop_wakfu">Calc de Drop Wakfu</a></li>
+                    <li><a href="testmethodindex.html" data-translate="nav.home">Inicio</a></li>
+                    <li><a href="testmethodmisiones.html" data-translate="nav.quests">Misiones</a></li>
+                    <li><a href="#" data-translate="nav.dungeons">Mazmorras</a></li>
+                    <li><a href="#" data-translate="nav.optimization">Optimización</a></li>
+                    <li><a href="#" data-translate="nav.crafts">Oficios</a></li>
+                    <li><a href="#" data-translate="nav.misc">Varios</a></li>
+                    <!-- Nuevo botón de idioma integrado en el menú -->
+                    <li class="dropdown-language">
+                        <a href="#" id="currentLanguage">ES</a>
+                        <ul class="language-dropdown">
+                            <li><a href="#" data-lang="es">ES</a></li>
+                            <li><a href="#" data-lang="pt">PT</a></li>
+                            <li><a href="#" data-lang="en">EN</a></li>
+                        </ul>
+                    <li class="dark-mode-toggle">
+                        <a href="#" id="darkModeToggle">🌙</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main>
+      <div class="sidebar-nav" id="sidebarNav">
+            <h3 data-translate="sidebar.title">Navegación</h3>
+            <ul>
+                <li><a href="#section-intro" data-translate="sidebar.intro">Introducción</a>
+                    <ul>
+                        <li><a href="#Rii">Rii</a></li>
+                        <li><a href="#Astrub">Astrub</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#nations" data-translate="sidebar.nations">Naciones</a>
+                    <ul>
+                        <li><a href="#amakna">Amakna</a></li>
+                        <li><a href="#bonta">Bonta</a></li>
+                        <li><a href="#brakmar">Brakmar</a></li>
+                        <li><a href="#sufokia">Sufokia</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#adventure-islands" data-translate="sidebar.adventure_islands">Islas de Aventura</a>
+                    <ul>
+                        <li><a href="#ile-wabbit">Isla de los Wabbits</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#divine-dimensions" data-translate="sidebar.divine_dimensions">Dimensiones Divinas</a>
+                    <ul>
+                        <li><a href="#dimension-xelor">Dimensión Xelor</a></li>
+                    </ul>
+                </li>
+<li>
+                    <a href="#mount-zinit" data-translate="sidebar.mount_zinit">Monte Zinith</a>
+                    <ul>
+                        <li><a href="#Plage-du-Mont-Zenit">Playa del Zinith</a></li>
+                </ul>
+        </div>
+        <section>
+            <div class="quest-container">
+                <h1 data-translate="guides.title">Guías Misiones Principales</h1>
+                
+                <div class="category" id="section-intro">
+                    <h2 data-translate="guides.intro">Introducción</h2>
+                    
+                    <div class="quest-row">
+                         <a href="testmethod.html"><img src="9536a6485dac2ffdfcc591f8dfd1caf4.png" class="quest-icon" alt="Rii"></a>
+                        <a href="testmethod.html" data-translate="guides.rii">Rii</a>
+                        <span class="level-badge">Niv.1</span>
+                    </div>
+                    
+                    <div class="quest-row">
+                        <a href="#"><img src="b45f0752975bdcaa7f6c1131d7a47086.jpg" class="quest-icon" alt="Astrub"></a>
+                        <a href="#" data-translate="guides.astrub">Astrub</a>
+                        <span class="level-badge">Niv.</span>
+                    </div>
+                </div>
+                
+                <div class="category" id="nations">
+                    <h2 data-translate="guides.nations">Naciones</h2>
+                    
+                    <div class="quest-row">
+                        <a href="#"><img src="carrousel-amakna.jpg" class="quest-icon" alt="Amakna"></a>
+                        <a href="#" data-translate="guides.amakna">Amakna</a>
+                        <span class="level-badge">Niv.</span>
+                    </div>
+                    
+                    <div class="quest-row">
+                        <a href="#"><img src="carrousel-bonta.jpg" class="quest-icon" alt="Bonta"></a>
+                        <a href="#" data-translate="guides.bonta">Bonta</a>
+                        <span class="level-badge">Niv.</span>
+                    </div>
+                    
+                    <div class="quest-row">
+                        <a href="#"><img src="carrousel-brakmar-3.jpg" class="quest-icon" alt="Brakmar"></a>
+                        <a href="#" data-translate="guides.brakmar">Brakmar</a>
+                        <span class="level-badge">Niv.</span>
+                    </div>
+                    
+                    <div class="quest-row">
+                        <a href="#"><img src="carrousel-sufokia.jpg" class="quest-icon" alt="Sufokia"></a>
+                        <a href="#" data-translate="guides.sufokia">Sufokia</a>
+                        <span class="level-badge">Niv.</span>
+                    </div>
+                </div>
+                
+                <div class="category" id="adventure-islands">
+                    <h2 data-translate="guides.adventure_islands">Islas de Aventura</h2>
+                    
+                    <div class="quest-row">
+                        <a href="#"><img src="1664663.jpg" class="quest-icon" alt="Isla de los Wabbits"></a>
+                        <a href="#" data-translate="guides.ile_wabbit">Isla de los Wabbits</a>
+                        <span class="level-badge">Niv.</span>
+                    </div>
+                </div>
+                
+                <div class="category" id="divine-dimensions">
+                    <h2 data-translate="guides.divine_dimensions">Dimensiones Divinas</h2>
+                    
+                    <div class="quest-row">
+                        <a href="#"><img src="427391.jpg" class="quest-icon" alt="Dimensión Xelor"></a>
+                        <a href="#" data-translate="guides.dimension_xelor">Dimensión Xelor</a>
+                        <span class="level-badge">Niv.</span>
+                    </div>
+                </div>
+                
+                <div class="category" id="mount-zinit">
+                    <h2 data-translate="guides.mount_zinit">Monte Zinit</h2>
+                    
+                    <div class="quest-row">
+                        <a href="#"><img src="661703.jpg" class="quest-icon" alt="Monte Zinit"></a>
+                        <a href="#" data-translate="guides.plage_zinit">Playa del Zinit</a>
+                        <span class="level-badge">Niv.</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // ==================== SISTEMA DE TRADUCCIÓN ====================
+        const translations = {
+            es: {
+                "title": "Guías Misiones Principales",
+                "guides.title": "Guías Misiones Principales",
+                "guides.intro": "Introducción",
+                "guides.nations": "Naciones",
+                "guides.adventure_islands": "Islas de Aventura",
+                "guides.divine_dimensions": "Dimensiones Divinas",
+                "guides.mount_zinit": "Monte Zinit",
+                "guides.rii": "Rii",
+                "guides.astrub": "Astrub",
+                "guides.amakna": "Amakna",
+                "guides.bonta": "Bonta",
+                "guides.brakmar": "Brakmar",
+                "guides.sufokia": "Sufokia",
+                "guides.ile_wabbit": "Isla de los Wabbits",
+                "guides.dimension_xelor": "Dimensión Xelor",
+                "nav.drop_dofus": "Calc Drop Dofus",
+                "nav.drop_wakfu": "Calc Drop Wakfu",
+                "nav.home": "Inicio",
+                "nav.quests": "Misiones",
+                "nav.dungeons": "Mazmorras",
+                "nav.optimization": "Optimización",
+                "nav.crafts": "Oficios",
+                "nav.misc": "Varios",
+                "sidebar.title": "Navegación",
+                "sidebar.intro": "Introducción",
+                "sidebar.nations": "Naciones",
+                "sidebar.adventure_islands": "Islas de Aventura",
+                "sidebar.divine_dimensions": "Dimensiones Divinas"
+            },
+            pt: {
+                "title": "Guias Missões Principais",
+                "guides.title": "Guias Missões Principais",
+                "guides.intro": "Introdução",
+                "guides.nations": "Nações",
+                "guides.adventure_islands": "Ilhas de Aventura",
+                "guides.divine_dimensions": "Dimensões Divinas",
+                "guides.mount_zinit": "Monte Zinit",
+                "guides.rii": "Rii",
+                "guides.astrub": "Astrub",
+                "guides.plage_zinit": "Praia do Zinit",
+                "guides.amakna": "Amakna",
+                "guides.bonta": "Bonta",
+                "guides.brakmar": "Brakmar",
+                "guides.sufokia": "Sufokia",
+                "guides.ile_wabbit": "Ilha dos Wabbits",
+                "guides.dimension_xelor": "Dimensão Xelor",
+                "nav.drop_dofus": "Calc Drop Dofus",
+                "nav.drop_wakfu": "Calc Drop Wakfu",
+                "nav.home": "Início",
+                "nav.quests": "Missões",
+                "nav.dungeons": "Masmorras",
+                "nav.optimization": "Otimização",
+                "nav.crafts": "Profissões",
+                "nav.misc": "Vários",
+                "sidebar.title": "Navegação",
+                "sidebar.intro": "Introdução",
+                "sidebar.nations": "Nações",
+                "sidebar.adventure_islands": "Ilhas de Aventura",
+                "sidebar.divine_dimensions": "Dimensões Divinas"
+            },
+            en: {
+                "title": "Main Quest Guides",
+                "guides.title": "Main Quest Guides",
+                "guides.intro": "Introduction",
+                "guides.nations": "Nations",
+                "guides.adventure_islands": "Adventure Islands",
+                "guides.divine_dimensions": "Divine Dimensions",
+                "guides.mount_zinit": "Mount Zinit",
+                "guides.rii": "Rii",
+                "guides.astrub": "Astrub",
+                "guides.plage_zinit": "Zinit Beach",
+                "guides.amakna": "Amakna",
+                "guides.bonta": "Bonta",
+                "guides.brakmar": "Brakmar",
+                "guides.sufokia": "Sufokia",
+                "guides.ile_wabbit": "Wabbit Island",
+                "guides.ile_otomai": "Otomai Island",
+                "guides.dimension_xelor": "Xelor Dimension",
+                "nav.drop_dofus": "Dofus Drop Calc",
+                "nav.drop_wakfu": "Wakfu Drop Calc",
+                "nav.home": "Home",
+                "nav.quests": "Quests",
+                "nav.dungeons": "Dungeons",
+                "nav.optimization": "Optimization",
+                "nav.crafts": "Professions",
+                "nav.misc": "Miscellaneous",
+                "sidebar.title": "Navigation",
+                "sidebar.intro": "Introduction",
+                "sidebar.nations": "Nations",
+                "sidebar.adventure_islands": "Adventure Islands"
+            }
+        };
+
+        // ==================== FUNCIONALIDADES ====================
+
+        // Sistema de traducción
+        let currentLanguage = localStorage.getItem('selectedLanguage') || 'es';
+
+        function translatePage(lang) {
+            currentLanguage = lang;
+            localStorage.setItem('selectedLanguage', lang);
+            
+            // Traducir textos normales
+            document.querySelectorAll('[data-translate]').forEach(element => {
+                const key = element.getAttribute('data-translate');
+                if (translations[lang] && translations[lang][key]) {
+                    element.textContent = translations[lang][key];
+                }
+            });
+
+            // Actualizar botón de idioma
+            document.getElementById('currentLanguage').textContent = lang.toUpperCase();
+            document.documentElement.lang = lang;
+        }
+
+        // Selector de idiomas
+        document.querySelectorAll('.language-dropdown a[data-lang]').forEach(item => {
+            item.addEventListener('click', function(e) {
+                e.preventDefault();
+                translatePage(this.getAttribute('data-lang'));
+            });
+        });
+
+        // Modo oscuro
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        let darkMode = localStorage.getItem('darkMode') === 'true';
+
+        // Aplicar modo oscuro si estaba activado
+        if (darkMode) {
+            document.body.classList.add('dark-mode');
+            darkModeToggle.textContent = '☀️';
+        }
+
+        // Manejar el click
+        darkModeToggle.addEventListener('click', function(e) {
+            e.preventDefault();
+            darkMode = !darkMode;
+            
+            if (darkMode) {
+                document.body.classList.add('dark-mode');
+                this.textContent = '☀️';
+            } else {
+                document.body.classList.remove('dark-mode');
+                this.textContent = '🌙';
+            }
+            
+            localStorage.setItem('darkMode', darkMode);
+        });
+
+        // Menú hamburguesa para móviles
+        const hamburger = document.getElementById('hamburger');
+        const menu = document.getElementById('menu');
+
+        if (hamburger && menu) {
+            hamburger.addEventListener('click', function() {
+                menu.classList.toggle('show');
+            });
+        }
+
+        // Scroll suave para la sidebar
+        document.querySelectorAll('.sidebar-nav a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 20,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Resaltar sección activa en sidebar
+        function highlightActiveSection() {
+            const sections = document.querySelectorAll('.quest-container [id]');
+            const sidebarLinks = document.querySelectorAll('.sidebar-nav a');
+            let currentActive = null;
+            
+            sections.forEach(section => {
+                const rect = section.getBoundingClientRect();
+                if (rect.top <= 100 && rect.bottom >= 100) {
+                    currentActive = '#' + section.id;
+                }
+            });
+            
+            sidebarLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === currentActive) {
+                    link.classList.add('active');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', highlightActiveSection);
+        window.addEventListener('load', highlightActiveSection);
+
+        // Inicializar con el idioma guardado o español por defecto
+        translatePage(currentLanguage);
+    </script>
+</body>
+</html>
