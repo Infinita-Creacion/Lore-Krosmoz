@@ -6,256 +6,254 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Historias del Krosmoz</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            color: #333;
-            margin: 0;
-            padding: 0;
-        }
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        color: #333;
+        margin: 0;
+        padding: 0;
+    }
+    header {
+        background-color: #d35400;
+        padding: 20px;
+        text-align: center;
+        color: white;
+    }
+    
+    /* Barra de navegación mejorada */
+    .navbar {
+        background-color: #e67e22;
+        border-top: 2px solid #b34700;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        padding: 0 0.1%;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s ease;
+        max-width: 1200px;
+        margin: 0 auto;
+        border-radius: 30px 30px 30px 30px;
+    }
+    
+    .container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+        flex-wrap: wrap;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    
+    .hamburger {
+        font-size: 28px;
+        color: white;
+        cursor: pointer;
+        display: none;
+        padding: 10px;
+    }
+    
+    .menu {
+        list-style: none;
+        display: flex;
+        margin: 0;
+        padding: 0;
+        gap: 5px;
+    }
+    
+    .menu > li > a {
+        display: block;
+        padding: 10px 15px;
+        color: white;
+        text-decoration: none;
+        background-color: rgba(0, 0, 0, 0.2);
+        border-radius: 4px;
+        transition: all 0.3s ease;
+        font-weight: bold;
+        border-radius: 10px 10px 10px 10px;
+    }
+    
+    .menu > li > a:hover {
+        background-color: rgba(0, 0, 0, 0.4);
+        transform: translateY(-2px);
+    }
+    
+    .menu > li > a img {
+        vertical-align: middle;
+        height: 24px;
+    }
+    
+    main {
+        padding: 0;
+    }
+    
+    section {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(800px, 1fr));
+        gap: 15px;
+        background-image: url('430154.jpg');
+        background-size: contain;
+        background-position: bottom;
+        padding: 100px;
+        border-radius: 0px;
+    }
+    
+    .chapter {
+        background-color: rgba(255, 255, 255, 0.8);
+        border-radius: 5px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 10px;
+    }
+    
+    .chapter img {
+        width: 100%;
+        max-height: 400px;
+        object-fit: contain;
+    }
+    
+    .chapter a {
+        text-decoration: none;
+        color: #333;
+        font-weight: bold;
+        margin-top: 10px;
+    }
+    
+    .chapter a:hover {
+        color: #d35400;
+    }
+    
+    .new {
+        color: #27ae60;
+        font-weight: bold;
+    }
+    
+    /* Estilos para el botón de modo oscuro */
+    .dark-mode-toggle > a {
+        display: block;
+        padding: 10px 10px;
+        color: white;
+        text-decoration: none;
+        background-color: rgba(0, 0, 0, 0.2);
+        border-radius: 10px;
+        transition: all 0.3s ease;
+        font-weight: bold;
+        cursor: pointer;
+        font-size: 15px;
+    }
+    
+    .dark-mode .chapter a {
+        color: #eee; /* Color para modo oscuro */
+    }
+    
+    .dark-mode .chapter a:hover {
+        color: #e67e22; /* Color hover para modo oscuro */
+    }
+    
+    .dark-mode .new {
+        color: #2ecc71; /* Color para "NUEVO" en modo oscuro */
+    }
+    
+    .new {
+        color: #27ae60; /* Cambia este valor al color que prefieras (ej: #e74c3c para rojo) */
+        font-weight: bold;
+    }
+    
+    .dark-mode-toggle:hover > a {
+        background-color: rgba(0, 0, 0, 0.4);
+    }
+    
+    /* Estilos para el modo oscuro */
+    .dark-mode header {
+        background-color: #1a1a1a;
+    }
+    
+    .dark-mode .navbar {
+        background-color: #1a1a1a;
+        border-top: 2px solid #333;
+    }
+    
+    .dark-mode .menu > li > a {
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+    
+    .dark-mode .menu > li > a:hover {
+        background-color: rgba(255, 255, 255, 0.2);
+    }
+    
+    .dark-mode .chapter {
+        background-color: rgba(0, 0, 0, 0.7);
+        color: #ffffff;
+    }
+    
+    .dark-mode section {
+        background-image: url('430154.jpg');
+        background-color: rgba(0, 0, 0, 0.3);
+        background-blend-mode: multiply;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
         header {
-            background-color: #d35400;
-            padding: 20px;
-            text-align: center;
-            color: white;
+            padding: 15px;
+            font-size: 18px;
         }
         
-        /* Barra de navegación mejorada */
         .navbar {
-            background-color: #e67e22;
-            border-top: 2px solid #b34700;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            padding: 0 0.1%;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-            transition: all 0.3s ease;
-            max-width: 1200px;
-            margin: 0 auto;
-            border-radius: 30px 30px 30px 30px;
-        }
-        
-        .container {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 0;
-            flex-wrap: wrap;
-            max-width: 1200px;
-            margin: 0 auto;
+            padding: 0 5%;
         }
         
         .hamburger {
-            font-size: 28px;
-            color: white;
-            cursor: pointer;
-            display: none;
-            padding: 10px;
+            display: block;
         }
         
         .menu {
-            list-style: none;
+            display: none;
+            flex-direction: column;
+            width: 100%;
+            gap: 0;
+        }
+        
+        .menu.show {
             display: flex;
-            margin: 0;
-            padding: 0;
-            gap: 5px;
+        }
+        
+        .menu > li {
+            width: 100%;
         }
         
         .menu > li > a {
-            display: block;
-            padding: 10px 15px;
-            color: white;
-            text-decoration: none;
-            background-color: rgba(0, 0, 0, 0.2);
-            border-radius: 4px;
-            transition: all 0.3s ease;
-            font-weight: bold;
-            border-radius: 10px 10px 10px 10px;
-        }
-        
-        .menu > li > a:hover {
-            background-color: rgba(0, 0, 0, 0.4);
-            transform: translateY(-2px);
-        }
-        
-        .menu > li > a img {
-            vertical-align: middle;
-            height: 24px;
-        }
-        
-        main {
-            padding: 0;
+            border-radius: 0;
+            border-bottom: 1px solid #b34700;
+            background-color: transparent;
         }
         
         section {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(800px, 1fr));
-            gap: 15px;
-            background-image: url('430154.jpg');
-            background-size: contain;
-            background-position: bottom;
-            background-attachment: fixed;
-            padding: 100px;
-            border-radius: 0px;
+            padding: 20px;
+            grid-template-columns: 1fr;
         }
         
         .chapter {
-            background-color: rgba(255, 255, 255, 0.8);
-            border-radius: 5px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            padding: 10px;
+            padding: 15px;
         }
         
         .chapter img {
+            max-height: 300px;
+        }
+        
+        .dark-mode-toggle {
             width: 100%;
-            max-height: 400px;
-            object-fit: contain;
         }
-        
-        .chapter a {
-            text-decoration: none;
-            color: #333;
-            font-weight: bold;
-            margin-top: 10px;
-        }
-        
-        .chapter a:hover {
-            color: #d35400;
-        }
-        
-        .new {
-            color: #27ae60;
-            font-weight: bold;
-        }
-        
-        /* Estilos para el botón de modo oscuro */
-        .dark-mode-toggle > a {
-            display: block;
-            padding: 10px 10px;
-            color: white;
-            text-decoration: none;
-            background-color: rgba(0, 0, 0, 0.2);
-            border-radius: 10px;
-            transition: all 0.3s ease;
-            font-weight: bold;
-            cursor: pointer;
-            font-size: 15px;
-        }
-        
-        .dark-mode .chapter a {
-            color: #eee; /* Color para modo oscuro */
-        }
-        
-        .dark-mode .chapter a:hover {
-            color: #e67e22; /* Color hover para modo oscuro */
-        }
-        
-        .dark-mode .new {
-            color: #2ecc71; /* Color para "NUEVO" en modo oscuro */
-        }
-        
-        .new {
-            color: #27ae60; /* Cambia este valor al color que prefieras (ej: #e74c3c para rojo) */
-            font-weight: bold;
-        }
-        
-        .dark-mode-toggle:hover > a {
-            background-color: rgba(0, 0, 0, 0.4);
-        }
-        
-        /* Estilos para el modo oscuro */
-        .dark-mode header {
-            background-color: #1a1a1a;
-        }
-        
-        .dark-mode .navbar {
-            background-color: #1a1a1a;
-            border-top: 2px solid #333;
-        }
-        
-        .dark-mode .menu > li > a {
-            background-color: rgba(255, 255, 255, 0.1);
-        }
-        
-        .dark-mode .menu > li > a:hover {
-            background-color: rgba(255, 255, 255, 0.2);
-        }
-        
-        .dark-mode .chapter {
-            background-color: rgba(0, 0, 0, 0.7);
-            color: #ffffff;
-        }
-        
-        .dark-mode section {
-            background-image: url('430154.jpg');
-            background-color: rgba(0, 0, 0, 0.3);
-            background-blend-mode: multiply;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            header {
-                padding: 15px;
-                font-size: 18px;
-            }
-            
-            .navbar {
-                padding: 0 5%;
-            }
-            
-            .hamburger {
-                display: block;
-            }
-            
-            .menu {
-                display: none;
-                flex-direction: column;
-                width: 100%;
-                gap: 0;
-            }
-            
-            .menu.show {
-                display: flex;
-            }
-            
-            .menu > li {
-                width: 100%;
-            }
-            
-            .menu > li > a {
-                border-radius: 0;
-                border-bottom: 1px solid #b34700;
-                background-color: transparent;
-            }
-            
-            section {
-                padding: 20px;
-                grid-template-columns: 1fr;
-                background-attachment: scroll;
-            }
-            
-            .chapter {
-                padding: 15px;
-            }
-            
-            .chapter img {
-                max-height: 300px;
-            }
-            
-            .dark-mode-toggle {
-                width: 100%;
-            }
     
-            .dark-mode-toggle > a {
-                border-radius: 0;
-                border-bottom: 1px solid #333;
-                background-color: transparent;
-            }
+        .dark-mode-toggle > a {
+            border-radius: 0;
+            border-bottom: 1px solid #333;
+            background-color: transparent;
         }
-    </style>
+    }
+</style>
 </head>
 <body>
     <header>
