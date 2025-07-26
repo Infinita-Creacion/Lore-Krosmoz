@@ -90,7 +90,7 @@
             min-width: 160px;
             box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
             z-index: 1;
-            }
+        }
         
         .dropdown-content a {
             color: black;
@@ -202,7 +202,7 @@
         .sp-embed-player iframe {
           width: 100%;
           height: 100%;
-          position: relative;
+          position: absolute;
           top: 0;
           left: 0;
           border: none !important;
@@ -318,7 +318,7 @@
         
         .dark-mode section {
             background-image: url('430154.jpg');
-            background-color: rgba(0, 0, 0, 0.3); 
+            background-color: rgba(0, 0, 0, 0.3); /* Ajusta el valor alpha (0.6) */
             background-blend-mode: multiply;
         }
 
@@ -433,104 +433,81 @@
         .dark-mode .sidebar-nav > ul > li > ul {
             border-left: 2px solid rgba(46, 204, 113, 0.3);
         }
-
-        .dark-mode .sidebar-nav::-webkit-scrollbar-thumb {
-    background: #2ecc71;
-}
         
         /* Responsive */
         @media (max-width: 768px) {
-    header {
-        padding: 15px;
-        font-size: 18px;
-    }
-    
-    .navbar {
-        padding: 0 5%;
-    }
-    
-    .hamburger {
-        display: block;
-    }
-    
-    .menu {
-        display: none;
-        flex-direction: column;
-        width: 100%;
-        gap: 0;
-    }
-    
-    .menu.show {
-        display: flex;
-    }
-    
-    .menu > li {
-        width: 100%;
-    }
-    
-    .menu > li > a {
-        border-radius: 0;
-        border-bottom: 1px solid #b34700;
-        background-color: transparent;
-    }
-    
-    .dropdown-content {
-        position: static;
-        box-shadow: none;
-        background-color: rgba(0, 0, 0, 0.1);
-    }
-    
-    section {
-        padding: 10px;
-        grid-template-columns: 1fr;
-    }
-    
-    .quest-container {
-        padding: 10px;
-    }
-    
-    .quest {
-        padding: 10px;
-    }
-    
-    .quest img {
-        max-height: 300px;
-    }
-    
-    .dropdown-language {
-        width: 100%;
-    }
-
-    .dropdown-language > a {
-        border-radius: 0;
-        border-bottom: 1px solid #b34700;
-        background-color: transparent;
-    }
-
-    .language-dropdown {
-        width: 100%;
-        border-radius: 0;
-    }
-
-    /* Ajustes para móviles video */
-    .sp-embed-player {
-        margin: 2rem 0; /* Menos margen en móviles */
-        min-width: 150px;
-        min-height: 150px; /* Altura más baja en móviles */
-    }
-    
-    @media (max-width: 768px) {
-            .dark-mode-toggle {
+            header {
+                padding: 15px;
+                font-size: 18px;
+            }
+            
+            .navbar {
+                padding: 0 5%;
+            }
+            
+            .hamburger {
+                display: block;
+            }
+            
+            .menu {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                gap: 0;
+            }
+            
+            .menu.show {
+                display: flex;
+            }
+            
+            .menu > li {
                 width: 100%;
             }
-
-    .dark-mode-toggle > a {
+            
+            .menu > li > a {
                 border-radius: 0;
-                border-bottom: 1px solid #333;
+                border-bottom: 1px solid #b34700;
                 background-color: transparent;
             }
+            
+            .dropdown-content {
+                position: static;
+                box-shadow: none;
+                background-color: rgba(0, 0, 0, 0.1);
+            }
+            
+            section {
+                padding: 10px;
+                grid-template-columns: 1fr;
+            }
+            
+            .quest-container {
+                padding: 10px;
+            }
+            
+            .quest {
+                padding: 10px;
+            }
+            
+            .quest img {
+                max-height: 300px;
+            }
+            .dropdown-language {
+                width: 100%;
+            }
+    
+            .dropdown-language > a {
+                border-radius: 0;
+                border-bottom: 1px solid #b34700;
+                background-color: transparent;
+            }
+    
+            .language-dropdown {
+                width: 100%;
+                border-radius: 0;
+            }
 
-    /* Ajustes para móviles video */
+            /* Ajustes para móviles video */
             @media (max-width: 768px) {
               .sp-embed-player {
                 margin: 2rem 0; /* Menos margen en móviles */
@@ -553,31 +530,26 @@
                 .sidebar-nav {
                     display: none;
                 }
-
-    /* Responsive - Ocultar sidebar en móviles */
-    .sidebar-nav {
-        display: none;
-    }
-
-    @media (max-width: 768px) {
-    .navbar .menu {
-        display: none;
-        flex-direction: column;
-        width: 100%;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        background-color: #d35400;
-        z-index: 1000;
-    }
-    
-    .navbar .menu.show {
-        display: flex;
-    }
-
-    .navbar .container {
-    position: relative;
-}
+            }
+            
+            /* Scrollbar personalizada para la sidebar */
+            .sidebar-nav::-webkit-scrollbar {
+                width: 6px;
+            }
+            
+            .sidebar-nav::-webkit-scrollbar-track {
+                background: rgba(0, 0, 0, 0.1);
+                border-radius: 3px;
+            }
+            
+            .sidebar-nav::-webkit-scrollbar-thumb {
+                background: #d35400;
+                border-radius: 3px;
+            }
+            
+            .dark-mode .sidebar-nav::-webkit-scrollbar-thumb {
+                background: #2ecc71;
+            }
 
             /* ===== SOLUCIÓN DEFINITIVA PARA ENLACES ROJOS ===== */
             /* Aplicar a todos los enlaces dentro de .quest-container */
@@ -761,7 +733,7 @@
                         
                         <div class="quest" id="subquest1">
                         <div class="quest-header" data-translate="quest1.subquest1.title"> 1.1 - Las bases del combate.</div>
-                            <div class="quest-details">
+                            <div class="quest-details"></div>
                             <img data-translate-src="01Rii/22.png|01Rii/22_pt.png|01Rii/22_en.png" src="01Rii/22.png">
                                 <p data-translate="quest1.subquest1.desc1"> En el dojo celestial, Airyna te ofrece un repaso de las capacidades básicas de combate.</p>
                                 <p data-translate="quest1.subquest1.desc2"> ¡Completa todas las pruebas del principiante para obtener el diploma de su escuela! </p>
@@ -808,8 +780,6 @@
                                 <p data-translate="quest1.subquest1.desc27"> Al lado derecho también el orden de turno de los monstruos y personajes, tiempo de turno y una barra verde que se llena más rápido, cuando pasamos turno rápido, esto nos permite elegir una de las 6 opciones de bonus extra, si no se usan se mantienen, pero si se escoge una, otro jugador no podrá usarla, por lo que lo mejor es usarlo cada que aparece.</p>
                                 <p class="quest-reward" data-translate="quest1.subquest1.reward"> Recompensa: Experiencia (varía según el nivel) - Emote Saludar. </p>
                             </div>
-                        </div>
-                        <div>
                                <p data-translate="quest1.kheperalia_title"> Habla con Kheperalia (la Sadida):</p>
                                <img src="01Rii\5.png" width="50%">
                                <p data-translate="quest1.kheperalia_desc"> Ella estará caminando por toda la isla, por lo que deberemos buscarla. </p>
@@ -987,8 +957,6 @@
                                 
                                 <p class="quest-reward" data-translate="quest1.subquest3.reward">Recompensa: Experiencia (varía según tu nivel) - Emote Estar asustado - Emote acostarse - Bolsa celestial.</p>
                             </div>
-                        </div>
-                        
                         <p> Una vez terminemos el combate, nos darán la última misión que es ir directamente a Astrub, pero antes debemos hacer un logro que nos dará otro emote importante para misiones a futuro. </p>
                         <div class="quest" id="logro">
                                 <div class="quest-header" data-translate="quest1.logro_title">Logro - Encarnado guerrero </div>
@@ -1006,10 +974,10 @@
                         <p class="quest-reward" data-translate="quest1.subquest4.reward">Recompensa: Título: Encarnado guerrero - Emote Reír.</p>
                         
                             </div>
-                        
+                        <div>
                         <img src="01Rii/72.png" width="100%"> 
                         <p> Ahora si, nos dirigiremos al zaap para terminar la primera parte del tutorial. </p>
-                        
+                        </div>
                         <div class="quest" id="astrub">
                                 <div class="quest-header" data-translate="quest1.astrub_title">1.5 - Llegar al Mundo de los Doce </div>
                         <img src="01Rii/73.png">
@@ -1033,7 +1001,7 @@
     allowfullscreen="true">
                   </iframe>
                 </div>
-                    
+                    <div>
                     <p> Espero que hayan disfrutado esta lectura y aprendizaje, el resto del contenido sigue en desarrollo. Y se irá publicando a medida que me dé la gana como siempre. </p>
                     <p> Atentamente: Drarios </p>
                     
