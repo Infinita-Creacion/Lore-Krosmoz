@@ -318,7 +318,7 @@
         
         .dark-mode section {
             background-image: url('430154.jpg');
-            background-color: rgba(0, 0, 0, 0.3); /* Ajusta el valor alpha (0.6) */
+            background-color: rgba(0, 0, 0, 0.3); 
             background-blend-mode: multiply;
         }
 
@@ -433,6 +433,10 @@
         .dark-mode .sidebar-nav > ul > li > ul {
             border-left: 2px solid rgba(46, 204, 113, 0.3);
         }
+
+        .dark-mode .sidebar-nav::-webkit-scrollbar-thumb {
+    background: #2ecc71;
+}
         
         /* Responsive */
         @media (max-width: 768px) {
