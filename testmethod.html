@@ -179,12 +179,40 @@
             border-top: 1px dashed #ccc;
         }
 
-        .quest img {
-            width: 100%;
-            max-height: 600px;
-            object-fit: contain;
-            border-radius: 3px;
-        }
+        .quest img,
+.quest-container img,
+img[data-translate-src] {
+    max-width: 100%;
+    height: auto;
+    border-radius: 3px;
+    margin: 10px 0;
+    display: block; /* Asegura que las imágenes no tengan espacio extra debajo */
+}
+
+/* Imágenes de ancho completo por defecto */
+.full-width-img {
+    width: 100%;
+    height: auto;
+}
+
+/* Imágenes de medio ancho (para escritorio) */
+.half-width-img {
+    width: 50%;
+    height: auto;
+}
+
+/* Contenedor de imágenes en flex */
+.image-flex-container {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap; /* Permite que las imágenes se ajusten en pantallas pequeñas */
+    justify-content: center; /* Centra las imágenes */
+}
+
+.image-flex-container img {
+    flex: 1 1 auto; /* Las imágenes crecen y se encogen según el espacio disponible */
+    min-width: 150px; /* Ancho mínimo para evitar que sean demasiado pequeñas */
+}
 
         /* Contenedor principal del video */
         .sp-embed-player {
@@ -489,9 +517,32 @@
                 padding: 10px;
             }
             
-            .quest img {
-                max-height: 300px;
-            }
+            .quest img,
+    .quest-container img,
+    img[data-translate-src] {
+        max-height: 300px !important;
+        object-fit: contain;
+    }
+
+    /* Forzar ancho completo en móviles */
+    .half-width-img,
+    img[width="50%"],
+    img[width="100%"] {
+        width: 100% !important;
+        height: auto !important;
+    }
+
+    /* Contenedores flex en columna */
+    .image-flex-container {
+        flex-direction: column;
+    }
+
+    /* Ajuste específico para imágenes en quest */
+    .quest > div > img {
+        width: 100% !important;
+        height: auto !important;
+    }
+
             .dropdown-language {
                 width: 100%;
             }
@@ -669,20 +720,20 @@
                 </div>
                 <p data-translate="section.intro1">Tras fallar en nuestra misión en la era de los Dofus y ser re/encarnados, empezaremos una nueva aventura pero en la era del Wakfu.</p>
                 <p data-translate="section.intro2">Luego de re/encarnarte generarás una gran onda de Wakfu, estarás a las puertas de la isla de Incarnam, te preguntaras «¿por qué a las afueras y no en la isla de Incarnam?», Hace un tiempo la isla de la dragona Prismaradona (Incarnam es una dragona llamado Prismaradona hija del Gran Dragón que junto a la Gran Diosa o Diosa Selatrop crearon el universo) fue contaminada con la Stasis y los primeros encarnados de esta era no lograron solventar el caos de la isla, (los jugadores que empezaron en la Alpha/beta o antes de la versión 1.81 serían esas las primeras almas de la era del Wakfu) aun cuando contaban con el apoyo del gran alquimista Otomai.</p>
-                <img src="01Rii\20.png" width="100%">
+                <img src="01Rii\20.png" >
                 <p data-translate="section.image1_desc">Gran parte de las nubes son violetas porque la Stasis está consumiendo la isla (la Stasis junto al Wakfu son las energías que crearon el universo, Stasis la energía de la destrucción y Wakfu energía de la vida, generando así el ciclo de la vida), pero tranquilo por el momento aprenderemos a desplazarnos, lo más básico del combate peleando con un Wonejo (esté huira después de golpearlo, dejara en el piso parte de una llave), el ecosistema (te darán unos esquejes de árbol de wakfu para plantarlo, verlo crecer y talarlo) y la fabricación (donde crearás la pieza faltante de la llave para abrir el último portón de la isla).</p>
                 <p data-translate="section.intro3">Tras abrir el último portón de Incarnam, donde nos espera de nuevo el Wonejo al cual volveremos a golpear, esté huira y mientras nosotros observamos desde el precipicio si podemos ver el mundo de los 12, poco después volverá junto al  Dark Wonejo, serás empujado por el Wonejo de la isla de Incarnam, caerás a la isla Celestial de Rii.</p>
-                <img src="01Rii\21.png" width="100%">
+                <img src="01Rii\21.png" >
                 <p data-translate="section.intro4">Otomai el alquimista y el dragón Grugaloragrán se encuentran en la isla de Rii, guiados por la poderosa onda de Wakfu de tu re/encarnación. Hacía tiempo que no sentían algo parecido. Ellos creen que es tu primera encarnación (si es tu primera vez jugando, estarán en lo correcto) en el plano material, aunque realmente es la segunda. Igualmente, te aconsejan adaptarte a tu nuevo cuerpo haciendo algunas interacciones en la isla.</p>
                 <img data-translate-src="01Rii/1.png|01Rii/1_pt.png" src="01Rii/1.png">
                 <p data-translate="quest1.desc1">La isla celestial llamada Rii propone numerosas enseñanzas.</p>
                 <p data-translate="quest1.desc2">No dudes en dar una vuelta por el lugar antes de ir a ver a Grugaloragrán</p>
                 <p data-translate="quest1.desc3">Estas misiones te enseñarán lo básico del combate, posicionamiento, funciones, entre otras cosas, pero tranquilo/a te iré acompañando paso a paso.</p>
-                <img data-translate-src="01Rii/19.png|01Rii/19_pt.png|01Rii/19_en.png" src="01Rii/19.png"  width="100%">
+                <img data-translate-src="01Rii/19.png|01Rii/19_pt.png|01Rii/19_en.png" src="01Rii/19.png"  >
                 <p data-translate="quest1.desc4">A la izquierda de la pantalla veremos un texto flotante, son las misiones que adquieres y «sigues» es decir misiones que seleccionamos para saber qué debemos hacer sin necesidad de abrir la interfaz de misiones (esta se abre con la Q después hablaremos de dicha interfaz), podemos tener un máximo de 4 «seguidas», además hay una pequeña brújula, al darle clic nos aparecerá una flecha al rededor del personaje que nos guiará en el mapa (solo funciona si estamos en la zona de la misión si estamos en otra isla no aparecerá el botón).</p>
-                <img src="01Rii\23.png"  width="50%">
+                <img src="01Rii\23.png"  >
                 <p data-translate="quest1.desc5">Primero te comentaré la ubicación de todo y un par de cositas que necesitas saber. Con la tecla M abrirás el mapa completo, a la izquierda verás diferentes iconos, estos te permiten filtrar diferentes cosas en el mapa, por ejemplo la torre, para las mazmorras, además en la parte inferior derecha verás las coordenadas en X e Y, está función sirve para indicar debidamente a otro jugador algo en específico de una zona o isla, el comando Shift + M abrirá la interfaz de un mini mapa que podrás acomodar a tu gusto.</p>
-                        <img src="01Rii\10.png" width="100%">
+                        <img src="01Rii\10.png" >
                         <p data-translate="quest1.desc6"> Como puedes observar, en el mapa hay varias marcas. En la de color rojo estará Huly, al lado de ella estará un altar que te permite cambiar de clase, siempre y cuando no sobrepases el nivel 30. </p>
                         <p data-translate="quest1.desc7"> En la marca morada estará Otomai y el taller para la fabricación de la pócima. </p>
                         <p data-translate="quest1.desc8"> En la marca verde encontrarás a Airyna y además es donde podrás probar a los sacos de papas, criaturas diseñadas para que testes tus daños.</p>
@@ -708,7 +759,7 @@
                         <p data-translate="quest1.desc10"> En la marca amarilla encontrarás a Grugaloragrán, que será el final de todo. </p>
                         <p data-translate="quest1.desc11"> Con estas misiones que deberás aprender lo básico del combate, posicionamiento, funciones, entre otras cosas, pero tranquilo/a, te iré acompañando paso a paso </p>
                         <p data-translate="quest1.Huly_title"> Habla con Huly (la Aniripsa):</p>
-                        <img src="01Rii\2.png"  width="50%">
+                        <img src="01Rii\2.png"  >
                         <p data-translate="quest1.Huly_desc">Huly nos contará cómo funcionan las reencarnaciones. </p>
                         <p data-translate="quest1.Huly_desc2"> Nos comenta que las almas no mueren, aun cuando dejan su cuerpo, simplemente son redirigidas por el flujo del Wakfu y son reencarnadas en Incarnam.</p>
                         <p data-translate="quest1.Huly_desc3"> Tras ese proceso perdemos nuestras memorias de nuestra vida anterior. Ya fuésemos reyes o panaderos, todos partimos desde el mismo punto otra vez en Incarnam.</p>
@@ -726,7 +777,7 @@
                         <p data-translate="quest1.Huly_desc5">También nos dice que no somos los únicos en caer en Rii, algunas almas bajan directo al mundo tras encarnarse en Incarnam, además de que cada alma es libre de escoger a qué clase/religión, es decir, de quién quiere ser discípulo/fiel.</p>
                         
                         <p data-translate="quest1.airyna_title"> Habla con Airyna (la Sacrógrito):</p>
-                        <img src="01Rii\11.png"  width="50%">
+                        <img src="01Rii\11.png"  >
                         <p data-translate="quest1.airyna_desc"> Entra en el dojo y habla con ella. </p>
                         <p data-translate="quest1.airyna_desc2"> Nos dará la bienvenida a her dojo, preguntando si nos interesa aprender las bases del combate.</p>
                         <p data-translate="quest1.airyna_desc3"> Al aceptar nos darán una nueva misión. </p>
@@ -781,7 +832,7 @@
                                 <p class="quest-reward" data-translate="quest1.subquest1.reward"> Recompensa: Experiencia (varía según el nivel) - Emote Saludar. </p>
                             </div>
                                <p data-translate="quest1.kheperalia_title"> Habla con Kheperalia (la Sadida):</p>
-                               <img src="01Rii\5.png" width="50%">
+                               <img src="01Rii\5.png" >
                                <p data-translate="quest1.kheperalia_desc"> Ella estará caminando por toda la isla, por lo que deberemos buscarla. </p>
                                <p data-translate="quest1.kheperalia_desc2"> Una vez la encontremos, nos comentará que ayuda a Otomai regulando la fauna y flora de los ecosistemas y responde tranquilamente nuestras preguntas sobre estos. </p>
                                <p data-translate="quest1.kheperalia_desc3"> Nos contará que le gusta el equilibrio de las fuerzas que nos rodean (Wakfu energía de la vida y Stasis energía de la destrucción), por eso le da una gran importancia al equilibrio del ecosistema. </p>
@@ -975,7 +1026,7 @@
                         
                             </div>
                         <div>
-                        <img src="01Rii/72.png" width="100%"> 
+                        <img src="01Rii/72.png"> 
                         <p> Ahora si, nos dirigiremos al zaap para terminar la primera parte del tutorial. </p>
                         </div>
                         <div class="quest" id="astrub">
