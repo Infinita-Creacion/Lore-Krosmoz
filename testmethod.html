@@ -436,120 +436,118 @@
         
         /* Responsive */
         @media (max-width: 768px) {
-            header {
-                padding: 15px;
-                font-size: 18px;
-            }
-            
-            .navbar {
-                padding: 0 5%;
-            }
-            
-            .hamburger {
-                display: block;
-            }
-            
-            .menu {
-                display: none;
-                flex-direction: column;
-                width: 100%;
-                gap: 0;
-            }
-            
-            .menu.show {
-                display: flex;
-            }
-            
-            .menu > li {
-                width: 100%;
-            }
-            
-            .menu > li > a {
-                border-radius: 0;
-                border-bottom: 1px solid #b34700;
-                background-color: transparent;
-            }
-            
-            .dropdown-content {
-                position: static;
-                box-shadow: none;
-                background-color: rgba(0, 0, 0, 0.1);
-            }
-            
-            section {
-                padding: 10px;
-                grid-template-columns: 1fr;
-            }
-            
-            .quest-container {
-                padding: 10px;
-            }
-            
-            .quest {
-                padding: 10px;
-            }
-            
-            .quest img {
-                max-height: 300px;
-            }
-            .dropdown-language {
-                width: 100%;
-            }
+    header {
+        padding: 15px;
+        font-size: 18px;
+    }
     
-            .dropdown-language > a {
-                border-radius: 0;
-                border-bottom: 1px solid #b34700;
-                background-color: transparent;
-            }
+    .navbar {
+        padding: 0 5%;
+    }
     
-            .language-dropdown {
-                width: 100%;
-                border-radius: 0;
-            }
+    .hamburger {
+        display: block;
+    }
+    
+    .menu {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        gap: 0;
+    }
+    
+    .menu.show {
+        display: flex;
+    }
+    
+    .menu > li {
+        width: 100%;
+    }
+    
+    .menu > li > a {
+        border-radius: 0;
+        border-bottom: 1px solid #b34700;
+        background-color: transparent;
+    }
+    
+    .dropdown-content {
+        position: static;
+        box-shadow: none;
+        background-color: rgba(0, 0, 0, 0.1);
+    }
+    
+    section {
+        padding: 10px;
+        grid-template-columns: 1fr;
+    }
+    
+    .quest-container {
+        padding: 10px;
+    }
+    
+    .quest {
+        padding: 10px;
+    }
+    
+    .quest img {
+        max-height: 300px;
+    }
+    
+    .dropdown-language {
+        width: 100%;
+    }
 
-            /* Ajustes para móviles video */
-            @media (max-width: 768px) {
-              .sp-embed-player {
-                margin: 2rem 0; /* Menos margen en móviles */
-                min-height: 250px; /* Altura más baja en móviles */
-              }
-            
-            @media (max-width: 768px) {
-            .dark-mode-toggle {
-                width: 100%;
-            }
-    
-            .dark-mode-toggle > a {
-                border-radius: 0;
-                border-bottom: 1px solid #333;
-                background-color: transparent;
-            }
+    .dropdown-language > a {
+        border-radius: 0;
+        border-bottom: 1px solid #b34700;
+        background-color: transparent;
+    }
 
-            /* Responsive - Ocultar sidebar en móviles */
-            @media (max-width: 768px) {
-                .sidebar-nav {
-                    display: none;
-                }
-            }
-            
-            /* Scrollbar personalizada para la sidebar */
-            .sidebar-nav::-webkit-scrollbar {
-                width: 6px;
-            }
-            
-            .sidebar-nav::-webkit-scrollbar-track {
-                background: rgba(0, 0, 0, 0.1);
-                border-radius: 3px;
-            }
-            
-            .sidebar-nav::-webkit-scrollbar-thumb {
-                background: #d35400;
-                border-radius: 3px;
-            }
-            
-            .dark-mode .sidebar-nav::-webkit-scrollbar-thumb {
-                background: #2ecc71;
-            }
+    .language-dropdown {
+        width: 100%;
+        border-radius: 0;
+    }
+
+    /* Ajustes para móviles video */
+    .sp-embed-player {
+        margin: 2rem 0; /* Menos margen en móviles */
+        min-height: 250px; /* Altura más baja en móviles */
+    }
+    
+    .dark-mode-toggle {
+        width: 100%;
+    }
+
+    .dark-mode-toggle > a {
+        border-radius: 0;
+        border-bottom: 1px solid #333;
+        background-color: transparent;
+    }
+
+    /* Responsive - Ocultar sidebar en móviles */
+    .sidebar-nav {
+        display: none;
+    }
+
+    @media (max-width: 768px) {
+    .navbar .menu {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: #d35400;
+        z-index: 1000;
+    }
+    
+    .navbar .menu.show {
+        display: flex;
+    }
+
+    .navbar .container {
+    position: relative;
+}
 
             /* ===== SOLUCIÓN DEFINITIVA PARA ENLACES ROJOS ===== */
             /* Aplicar a todos los enlaces dentro de .quest-container */
@@ -1669,6 +1667,16 @@ document.querySelectorAll('iframe[data-translate-src]').forEach(iframe => {
     document.getElementById('currentLanguage').textContent = lang.toUpperCase();
     document.documentElement.lang = lang;
 }
+
+// Menú hamburguesa para móviles
+        const hamburger = document.getElementById('hamburger');
+        const menu = document.getElementById('menu');
+
+        if (hamburger && menu) {
+            hamburger.addEventListener('click', function() {
+                menu.classList.toggle('show');
+            });
+        }
 
 // Selector de idiomas
 document.querySelectorAll('.language-dropdown a[data-lang]').forEach(item => {
