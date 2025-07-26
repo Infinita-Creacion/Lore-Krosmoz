@@ -586,7 +586,7 @@
             padding: 10px;
         }
         
-        /* Ajustes específicos para imágenes en móviles */
+        /* Ajustes mejorados para imágenes y videos en móviles */
         .quest img,
         .quest-container img,
         img[data-translate-src] {
@@ -594,6 +594,21 @@
             height: auto !important;
             max-height: 300px !important;
             object-fit: contain;
+            display: block;
+            margin: 10px auto;
+        }
+
+        /* Ajustes para videos embebidos */
+        .sp-embed-player {
+            min-height: 200px !important;
+            max-height: 300px !important;
+            margin: 1rem 0;
+            aspect-ratio: 16/9;
+        }
+
+        .sp-embed-player iframe {
+            height: 100% !important;
+            width: 100% !important;
         }
 
         /* Forzar ancho completo en móviles */
@@ -602,23 +617,20 @@
         .image-flex-container img {
             width: 100% !important;
             height: auto !important;
+            max-height: none !important;
         }
 
         /* Contenedores flex en columna */
         .image-flex-container {
             flex-direction: column;
+            align-items: center;
         }
 
         /* Ajuste específico para imágenes en quest */
         .quest > div > img {
             width: 100% !important;
             height: auto !important;
-        }
-
-        /* Ajustes para móviles video */
-        .sp-embed-player {
-            margin: 2rem 0;
-            min-height: 250px;
+            max-height: 250px !important;
         }
 
         .dropdown-language {
@@ -649,6 +661,28 @@
         /* Responsive - Ocultar sidebar en móviles */
         .sidebar-nav {
             display: none;
+        }
+    }
+
+    /* Media queries adicionales para pantallas muy pequeñas */
+    @media (max-width: 480px) {
+        .quest img,
+        .quest-container img,
+        img[data-translate-src] {
+            max-height: 250px !important;
+        }
+        
+        .sp-embed-player {
+            min-height: 180px !important;
+            max-height: 250px !important;
+        }
+        
+        .quest-container {
+            padding: 8px;
+        }
+        
+        .quest {
+            padding: 8px;
         }
     }
 </style>
