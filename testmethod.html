@@ -521,6 +521,30 @@
         background-color: transparent;
     }
 
+    /* Ajustes para móviles video */
+            @media (max-width: 768px) {
+              .sp-embed-player {
+                margin: 2rem 0; /* Menos margen en móviles */
+                min-height: 250px; /* Altura más baja en móviles */
+              }
+            
+            @media (max-width: 768px) {
+            .dark-mode-toggle {
+                width: 100%;
+            }
+    
+            .dark-mode-toggle > a {
+                border-radius: 0;
+                border-bottom: 1px solid #333;
+                background-color: transparent;
+            }
+
+            /* Responsive - Ocultar sidebar en móviles */
+            @media (max-width: 768px) {
+                .sidebar-nav {
+                    display: none;
+                }
+
     /* Responsive - Ocultar sidebar en móviles */
     .sidebar-nav {
         display: none;
