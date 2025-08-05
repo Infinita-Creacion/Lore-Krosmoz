@@ -113,7 +113,7 @@
             gap: 15px;
             background-image: url('430154.jpg');
             background-size: auto;
-            background-attachment: fixed; /* Fija la imagen de fondo */
+            background-attachment: fixed;
             padding: 100px 100px 100px 100px;
             border-radius: 0px;
         }
@@ -170,7 +170,7 @@
         
         .quest-icon {
             width: 55%;
-            max-height: 400px; /* Limita la altura máxima para dispositivos más pequeños */
+            max-height: 400px;
             object-fit: contain;
             border: 3px solid #d35400;
             transition: all 0.3s ease
@@ -339,7 +339,7 @@
             background-image: url('430154.jpg');
             background-color: rgba(0, 0, 0, 0.3);
             background-blend-mode: multiply;
-            background-attachment: fixed; /* También fija la imagen en modo oscuro */
+            background-attachment: fixed;
         }
 
         .dark-mode .quest-container,
@@ -497,7 +497,7 @@
             section {
                 padding: 20px;
                 grid-template-columns: 1fr;
-                background-attachment: scroll; /* En móviles, mejor sin fixed por rendimiento */
+                background-attachment: scroll;
             }
             
             .quest-container {
@@ -595,6 +595,7 @@
                             <li><a href="#" data-lang="pt">PT</a></li>
                             <li><a href="#" data-lang="en">EN</a></li>
                         </ul>
+                    </li>
                     <li class="dark-mode-toggle">
                         <a href="#" id="darkModeToggle">🌙</a>
                     </li>
@@ -608,36 +609,38 @@
             <ul>
                 <li><a href="#section-intro" data-translate="sidebar.intro">Introducción</a>
                     <ul>
-                        <li><a href="#Rii">Rii</a></li>
-                        <li><a href="#Astrub">Astrub</a></li>
+                        <li><a href="#Rii" data-translate="guides.rii">Rii</a></li>
+                        <li><a href="#Astrub" data-translate="guides.astrub">Astrub</a></li>
                     </ul>
                 </li>
                 <li>
                     <a href="#nations" data-translate="sidebar.nations">Naciones</a>
                     <ul>
-                        <li><a href="#amakna">Amakna</a></li>
-                        <li><a href="#bonta">Bonta</a></li>
-                        <li><a href="#brakmar">Brakmar</a></li>
-                        <li><a href="#sufokia">Sufokia</a></li>
+                        <li><a href="#amakna" data-translate="guides.amakna">Amakna</a></li>
+                        <li><a href="#bonta" data-translate="guides.bonta">Bonta</a></li>
+                        <li><a href="#brakmar" data-translate="guides.brakmar">Brakmar</a></li>
+                        <li><a href="#sufokia" data-translate="guides.sufokia">Sufokia</a></li>
                     </ul>
                 </li>
                 <li>
-                    <a href="#adventure-islands" data-translate="sidebar.adventure_islands">Islas de Aventura</a>
+                    <a href="#evento" data-translate="sidebar.evento">Eventos</a>
                     <ul>
-                        <li><a href="#ile-wabbit">Isla de los Wabbits</a></li>
+                        <li><a href="#almadraba" data-translate="guides.almadraba">La Älmädräbä</a></li>
                     </ul>
                 </li>
                 <li>
                     <a href="#divine-dimensions" data-translate="sidebar.divine_dimensions">Dimensiones Divinas</a>
                     <ul>
-                        <li><a href="#dimension-xelor">Dimensión Xelor</a></li>
+                        <li><a href="#dimension-xelor" data-translate="guides.dimension_xelor">Dimensión Xelor</a></li>
                     </ul>
                 </li>
-<li>
-                    <a href="#mount-zinit" data-translate="sidebar.mount_zinit">Monte Zinith</a>
+                <li>
+                    <a href="#mount-zinit" data-translate="sidebar.mount_zinit">Monte Zinit</a>
                     <ul>
-                        <li><a href="#Plage-du-Mont-Zenit">Playa del Zinith</a></li>
-                </ul>
+                        <li><a href="#Plage-du-Mont-Zenit" data-translate="guides.plage_zinit">Playa del Zinit</a></li>
+                    </ul>
+                </li>
+            </ul>
         </div>
         <section>
             <div class="quest-container">
@@ -687,13 +690,13 @@
                     </div>
                 </div>
                 
-                <div class="category" id="adventure-islands">
-                    <h2 data-translate="guides.adventure_islands">Islas de Aventura</h2>
+                <div class="category" id="evento">
+                    <h2 data-translate="guides.evento">Eventos</h2>
                     
                     <div class="quest-row">
-                        <a href="#"><img src="1664663.jpg" class="quest-icon" alt="Isla de los Wabbits"></a>
-                        <a href="#" data-translate="guides.ile_wabbit">Isla de los Wabbits</a>
-                        <span class="level-badge">Niv.</span>
+                        <a href="verano.html"><img src="verano.png" class="quest-icon" alt="La Älmädräbä"></a>
+                        <a href="verano.html" data-translate="guides.almadraba">La Älmädräbä</a>
+                        <span class="level-badge">Niv.10</span>
                     </div>
                 </div>
                 
@@ -728,16 +731,17 @@
                 "guides.title": "Guías Misiones Principales",
                 "guides.intro": "Introducción",
                 "guides.nations": "Naciones",
-                "guides.adventure_islands": "Islas de Aventura",
+                "guides.evento": "Eventos",
                 "guides.divine_dimensions": "Dimensiones Divinas",
                 "guides.mount_zinit": "Monte Zinit",
+                "guides.plage_zinit": "Playa del Zinit",
                 "guides.rii": "Rii",
                 "guides.astrub": "Astrub",
                 "guides.amakna": "Amakna",
                 "guides.bonta": "Bonta",
                 "guides.brakmar": "Brakmar",
                 "guides.sufokia": "Sufokia",
-                "guides.ile_wabbit": "Isla de los Wabbits",
+                "guides.almadraba": "La Älmädräbä",
                 "guides.dimension_xelor": "Dimensión Xelor",
                 "nav.drop_dofus": "Calc Drop Dofus",
                 "nav.drop_wakfu": "Calc Drop Wakfu",
@@ -750,25 +754,26 @@
                 "sidebar.title": "Navegación",
                 "sidebar.intro": "Introducción",
                 "sidebar.nations": "Naciones",
-                "sidebar.adventure_islands": "Islas de Aventura",
-                "sidebar.divine_dimensions": "Dimensiones Divinas"
+                "sidebar.evento": "Eventos",
+                "sidebar.divine_dimensions": "Dimensiones Divinas",
+                "sidebar.mount_zinit": "Monte Zinit"
             },
             pt: {
                 "title": "Guias Missões Principais",
                 "guides.title": "Guias Missões Principais",
                 "guides.intro": "Introdução",
                 "guides.nations": "Nações",
-                "guides.adventure_islands": "Ilhas de Aventura",
+                "guides.evento": "Eventos",
                 "guides.divine_dimensions": "Dimensões Divinas",
                 "guides.mount_zinit": "Monte Zinit",
+                "guides.plage_zinit": "Praia do Zinit",
                 "guides.rii": "Rii",
                 "guides.astrub": "Astrub",
-                "guides.plage_zinit": "Praia do Zinit",
                 "guides.amakna": "Amakna",
                 "guides.bonta": "Bonta",
                 "guides.brakmar": "Brakmar",
                 "guides.sufokia": "Sufokia",
-                "guides.ile_wabbit": "Ilha dos Wabbits",
+                "guides.almadraba": "Älmadräva",
                 "guides.dimension_xelor": "Dimensão Xelor",
                 "nav.drop_dofus": "Calc Drop Dofus",
                 "nav.drop_wakfu": "Calc Drop Wakfu",
@@ -781,25 +786,26 @@
                 "sidebar.title": "Navegação",
                 "sidebar.intro": "Introdução",
                 "sidebar.nations": "Nações",
-                "sidebar.adventure_islands": "Ilhas de Aventura",
-                "sidebar.divine_dimensions": "Dimensões Divinas"
+                "sidebar.evento": "Eventos",
+                "sidebar.divine_dimensions": "Dimensões Divinas",
+                "sidebar.mount_zinit": "Monte Zinit"
             },
             en: {
                 "title": "Main Quest Guides",
                 "guides.title": "Main Quest Guides",
                 "guides.intro": "Introduction",
                 "guides.nations": "Nations",
-                "guides.adventure_islands": "Adventure Islands",
+                "guides.evento": "Events",
                 "guides.divine_dimensions": "Divine Dimensions",
                 "guides.mount_zinit": "Mount Zinit",
+                "guides.plage_zinit": "Zinit Beach",
                 "guides.rii": "Rii",
                 "guides.astrub": "Astrub",
-                "guides.plage_zinit": "Zinit Beach",
                 "guides.amakna": "Amakna",
                 "guides.bonta": "Bonta",
                 "guides.brakmar": "Brakmar",
                 "guides.sufokia": "Sufokia",
-                "guides.ile_wabbit": "Wabbit Island",
+                "guides.almadraba": "La Mädrague",
                 "guides.ile_otomai": "Otomai Island",
                 "guides.dimension_xelor": "Xelor Dimension",
                 "nav.drop_dofus": "Dofus Drop Calc",
@@ -813,7 +819,9 @@
                 "sidebar.title": "Navigation",
                 "sidebar.intro": "Introduction",
                 "sidebar.nations": "Nations",
-                "sidebar.adventure_islands": "Adventure Islands"
+                "sidebar.evento": "Events",
+                "sidebar.divine_dimensions": "Divine Dimensions",
+                "sidebar.mount_zinit": "Mount Zinit"
             }
         };
 
