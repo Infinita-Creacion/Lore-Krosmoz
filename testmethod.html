@@ -179,6 +179,42 @@
         border-top: 1px dashed #ccc;
     }
 
+    /* Estilos para imágenes */
+    .quest img,
+    .quest-container img,
+    img[data-translate-src] {
+        max-width: 100%;
+        height: auto;
+        border-radius: 3px;
+        margin: 10px 0;
+        display: block;
+    }
+
+    /* Imágenes de ancho completo por defecto */
+    .full-width-img {
+        width: 100%;
+        height: auto;
+    }
+
+    /* Imágenes de medio ancho (para escritorio) */
+    .half-width-img {
+        width: 50%;
+        height: auto;
+    }
+
+    /* Contenedor de imágenes en flex */
+    .image-flex-container {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .image-flex-container img {
+        flex: 1 1 auto;
+        min-width: 150px;
+    }
+
     /* Contenedor principal del video */
     .sp-embed-player {
       width: 100%;
@@ -718,20 +754,20 @@
                 </div>
                 <p data-translate="section.intro1">Tras fallar en nuestra misión en la era de los Dofus y ser re/encarnados, empezaremos una nueva aventura pero en la era del Wakfu.</p>
                 <p data-translate="section.intro2">Luego de re/encarnarte generarás una gran onda de Wakfu, estarás a las puertas de la isla de Incarnam, te preguntaras «¿por qué a las afueras y no en la isla de Incarnam?», Hace un tiempo la isla de la dragona Prismaradona (Incarnam es una dragona llamado Prismaradona hija del Gran Dragón que junto a la Gran Diosa o Diosa Selatrop crearon el universo) fue contaminada con la Stasis y los primeros encarnados de esta era no lograron solventar el caos de la isla, (los jugadores que empezaron en la Alpha/beta o antes de la versión 1.81 serían esas las primeras almas de la era del Wakfu) aun cuando contaban con el apoyo del gran alquimista Otomai.</p>
-                <img src="01Rii\20.png" width="100%">
+                <img src="01Rii\20.png" >
                 <p data-translate="section.image1_desc">Gran parte de las nubes son violetas porque la Stasis está consumiendo la isla (la Stasis junto al Wakfu son las energías que crearon el universo, Stasis la energía de la destrucción y Wakfu energía de la vida, generando así el ciclo de la vida), pero tranquilo por el momento aprenderemos a desplazarnos, lo más básico del combate peleando con un Wonejo (esté huira después de golpearlo, dejara en el piso parte de una llave), el ecosistema (te darán unos esquejes de árbol de wakfu para plantarlo, verlo crecer y talarlo) y la fabricación (donde crearás la pieza faltante de la llave para abrir el último portón de la isla).</p>
                 <p data-translate="section.intro3">Tras abrir el último portón de Incarnam, donde nos espera de nuevo el Wonejo al cual volveremos a golpear, esté huira y mientras nosotros observamos desde el precipicio si podemos ver el mundo de los 12, poco después volverá junto al  Dark Wonejo, serás empujado por el Wonejo de la isla de Incarnam, caerás a la isla Celestial de Rii.</p>
-                <center><img src="01Rii\21.png"></center>
+                <img src="01Rii\21.png" >
                 <p data-translate="section.intro4">Otomai el alquimista y el dragón Grugaloragrán se encuentran en la isla de Rii, guiados por la poderosa onda de Wakfu de tu re/encarnación. Hacía tiempo que no sentían algo parecido. Ellos creen que es tu primera encarnación (si es tu primera vez jugando, estarán en lo correcto) en el plano material, aunque realmente es la segunda. Igualmente, te aconsejan adaptarte a tu nuevo cuerpo haciendo algunas interacciones en la isla.</p>
-                <center><img data-translate-src="01Rii/1.png|01Rii/1_pt.png" src="01Rii/1.png"></center>
+                <img data-translate-src="01Rii/1.png|01Rii/1_pt.png" src="01Rii/1.png">
                 <p data-translate="quest1.desc1">La isla celestial llamada Rii propone numerosas enseñanzas.</p>
                 <p data-translate="quest1.desc2">No dudes en dar una vuelta por el lugar antes de ir a ver a Grugaloragrán</p>
                 <p data-translate="quest1.desc3">Estas misiones te enseñarán lo básico del combate, posicionamiento, funciones, entre otras cosas, pero tranquilo/a te iré acompañando paso a paso.</p>
-                <center><img data-translate-src="01Rii/19.png|01Rii/19_pt.png|01Rii/19_en.png" src="01Rii/19.png" width="50%"></center>
+                <img data-translate-src="01Rii/19.png|01Rii/19_pt.png|01Rii/19_en.png" src="01Rii/19.png"  >
                 <p data-translate="quest1.desc4">A la izquierda de la pantalla veremos un texto flotante, son las misiones que adquieres y «sigues» es decir misiones que seleccionamos para saber qué debemos hacer sin necesidad de abrir la interfaz de misiones (esta se abre con la Q después hablaremos de dicha interfaz), podemos tener un máximo de 4 «seguidas», además hay una pequeña brújula, al darle clic nos aparecerá una flecha al rededor del personaje que nos guiará en el mapa (solo funciona si estamos en la zona de la misión si estamos en otra isla no aparecerá el botón).</p>
-                <center><img src="01Rii\23.png" width="50%"></center>
+                <img src="01Rii\23.png"  >
                 <p data-translate="quest1.desc5">Primero te comentaré la ubicación de todo y un par de cositas que necesitas saber. Con la tecla M abrirás el mapa completo, a la izquierda verás diferentes iconos, estos te permiten filtrar diferentes cosas en el mapa, por ejemplo la torre, para las mazmorras, además en la parte inferior derecha verás las coordenadas en X e Y, está función sirve para indicar debidamente a otro jugador algo en específico de una zona o isla, el comando Shift + M abrirá la interfaz de un mini mapa que podrás acomodar a tu gusto.</p>
-                        <img src="01Rii\10.png" width="100%">
+                        <img src="01Rii\10.png" >
                         <p data-translate="quest1.desc6"> Como puedes observar, en el mapa hay varias marcas. En la de color rojo estará Huly, al lado de ella estará un altar que te permite cambiar de clase, siempre y cuando no sobrepases el nivel 30. </p>
                         <p data-translate="quest1.desc7"> En la marca morada estará Otomai y el taller para la fabricación de la pócima. </p>
                         <p data-translate="quest1.desc8"> En la marca verde encontrarás a Airyna y además es donde podrás probar a los sacos de papas, criaturas diseñadas para que testes tus daños.</p>
@@ -757,7 +793,7 @@
                         <p data-translate="quest1.desc10"> En la marca amarilla encontrarás a Grugaloragrán, que será el final de todo. </p>
                         <p data-translate="quest1.desc11"> Con estas misiones que deberás aprender lo básico del combate, posicionamiento, funciones, entre otras cosas, pero tranquilo/a, te iré acompañando paso a paso </p>
                         <p data-translate="quest1.Huly_title"> Habla con Huly (la Aniripsa):</p>
-                        <center><img src="01Rii\2.png" width="30%"></center>
+                        <img src="01Rii\2.png"  >
                         <p data-translate="quest1.Huly_desc">Huly nos contará cómo funcionan las reencarnaciones. </p>
                         <p data-translate="quest1.Huly_desc2"> Nos comenta que las almas no mueren, aun cuando dejan su cuerpo, simplemente son redirigidas por el flujo del Wakfu y son reencarnadas en Incarnam.</p>
                         <p data-translate="quest1.Huly_desc3"> Tras ese proceso perdemos nuestras memorias de nuestra vida anterior. Ya fuésemos reyes o panaderos, todos partimos desde el mismo punto otra vez en Incarnam.</p>
@@ -775,7 +811,7 @@
                         <p data-translate="quest1.Huly_desc5">También nos dice que no somos los únicos en caer en Rii, algunas almas bajan directo al mundo tras encarnarse en Incarnam, además de que cada alma es libre de escoger a qué clase/religión, es decir, de quién quiere ser discípulo/fiel.</p>
                         
                         <p data-translate="quest1.airyna_title"> Habla con Airyna (la Sacrógrito):</p>
-                        <center><img src="01Rii\11.png" width="30%"></center>
+                        <img src="01Rii\11.png"  >
                         <p data-translate="quest1.airyna_desc"> Entra en el dojo y habla con ella. </p>
                         <p data-translate="quest1.airyna_desc2"> Nos dará la bienvenida a her dojo, preguntando si nos interesa aprender las bases del combate.</p>
                         <p data-translate="quest1.airyna_desc3"> Al aceptar nos darán una nueva misión. </p>
@@ -783,29 +819,29 @@
                         <div class="quest" id="subquest1">
                         <div class="quest-header" data-translate="quest1.subquest1.title"> 1.1 - Las bases del combate.</div>
                             <div class="quest-details"></div>
-                            <center><img data-translate-src="01Rii/22.png|01Rii/22_pt.png|01Rii/22_en.png" src="01Rii/22.png"></center>
+                            <img data-translate-src="01Rii/22.png|01Rii/22_pt.png|01Rii/22_en.png" src="01Rii/22.png">
                                 <p data-translate="quest1.subquest1.desc1"> En el dojo celestial, Airyna te ofrece un repaso de las capacidades básicas de combate.</p>
                                 <p data-translate="quest1.subquest1.desc2"> ¡Completa todas las pruebas del principiante para obtener el diploma de su escuela! </p>
                                 <h5 data-translate="quest1.subquest1.note">NOTA: Los PA o Puntos de Acción, son algo que necesitas para poder atacar con prácticamente cualquier cosa. Los PM o Puntos de Movimiento, son lo que te permite desplazarte. 1 PM es una casilla. Los PW/BC/S o Puntos de Wakfu/Brisa Cuadramental/Stasis son un punto extra que, dependiendo de cada clase varía su regeneración y método de regeneración, a diferencia de los PA o PM que se regeneran cada inicio de turno.</h5>
-                            <center><img data-translate-src="01Rii/24.png|01Rii/24_pt.png|01Rii/24_en.png" src="01Rii/24.png"></center>
+                            <img data-translate-src="01Rii/24.png|01Rii/24_pt.png|01Rii/24_en.png" src="01Rii/24.png">
                                 <p data-translate="quest1.subquest1.desc3"> En la primera tarea aprenderemos sobre la orientación, a diferencia de otros juegos, acá en Wakfu el daño por los costados aumenta un 10% y por espalda un 25%, por lo que es importante antes de terminar el turno cambiar la orientación de nuestro personaje.</p>
-                                <center><img src="01Rii\25.png"></center>
-                                <p data-translate="quest1.subquest1.desc4"> Podemos usar las flechas del teclado para indicar la dirección del personaje o las flechas bajo la barra de turnos en la parte inferior derecha. </p>
+                                <img src="01Rii\25.png">
+                                <p data-translate="quest1.subquest1.desc4"> Podemos usar las flechas del teclado para indicar la dirección del personaje o las flechas bajo la vida. </p>
                                 <p data-translate="quest1.subquest1.desc5"> Nuestro objetivo en este combate, es caminar hasta la espalda y golpear al Saco de papas con cualquier cosa. </p>
-                                <center><img src="01Rii\26.png" width="40%"></center>
+                                <img src="01Rii\26.png">
                                 <p data-translate="quest1.subquest1.desc6"> En la segunda tarea aprenderemos sobre las resistencias elementales y los daños elementales.</p>
-                            <center><img data-translate-src="01Rii/27.png|01Rii/27_pt.png|01Rii/27_en.png" src="01Rii/27.png"></center>
+                            <img data-translate-src="01Rii/27.png|01Rii/27_pt.png|01Rii/27_en.png" src="01Rii/27.png">
                                 <p data-translate="quest1.subquest1.desc7"> Haciendo clic derecho sobre el monstruo, nos abrirá una interfaz del enemigo que nos dirá sus estadísticas (la espada es el daño, el escudo la resistencia). (También funciona con nuestro personaje o el de un aliado). </p>
-                                <center><img src="01Rii\28.png"></center>
+                                <img src="01Rii\28.png">
                                 <p data-translate="quest1.subquest1.desc8">Lo que debemos hacer es mirar a que tiene 0 de resistencia y pegarle con uno de los hechizos especiales que nos han dado, para hacer daño a la resistencia más baja, esto lo denominamos "debilidad elemental" o "debilidad" (en algunos combates o mazmorras nos darán hechizos especiales para cumplir ciertas condiciones, por favor léanlos antes de iniciar combates).</p>
                                 <p data-translate="quest1.subquest1.desc9">Deberemos hacer 1 golpe por turno y ganaremos el combate al realizar 4 golpes con las debilidades correctas, además cada turno la "debilidad" posiblemente cambie, por lo que será necesario mirar la interfaz de estadísticas del Saco de papas antes de pegarle (en algunas mazmorras varios monstruos o el jefe tendrán está condición, además algunas clases tienen hechizos para bajar las resistencias de los enemigos).</p>
-                                <center><img src="01Rii\29.png"></center>
+                                <img src="01Rii\29.png">
                                 <p data-translate="quest1.subquest1.desc10"> En la tercera tarea aprenderemos las distancias. En Wakfu se considera un ataque melé/CaC cuando un objetivo está a 2 o menos casillas y un ataque a distancia cuando el objetivo.</p>
                                 <p data-translate="quest1.subquest1.desc11">Como podemos ver en la imagen, las casillas en verde es la zona melé/CaC del Saco de papas y la zona en rojo es la zona distancia, para ganar deberemos hacer daño posicionándonos en las casillas verdes y usar el hechizo especial que nos dieron, cambiará cada golpe que demos, acá no será necesario pasar de turno.</p>
                                 <p data-translate="quest1.subquest1.desc12"> Esto es importante porque forma parte de las estadísticas de nuestro personaje y las podemos subir para mejorar nuestros daños o curas.</p>
-                            <center><img data-translate-src="01Rii/32.png|01Rii/32_pt.png|01Rii/32_en.png" src="01Rii/32.png"></center>
+                            <img data-translate-src="01Rii/32.png|01Rii/32_pt.png|01Rii/32_en.png" src="01Rii/32.png">
                                 <p data-translate="quest1.subquest1.desc13"> En la cuarta tarea aprenderemos sobre la línea de visión. </p>
-                            <center><img data-translate-src="01Rii/33.png|01Rii/33_pt.png|01Rii/33_en.png" src="01Rii/33.png"></center>
+                            <img data-translate-src="01Rii/33.png|01Rii/33_pt.png|01Rii/33_en.png" src="01Rii/33.png">
                                 <p data-translate="quest1.subquest1.desc14"> En la imagen podemos observar los datos del hechizo, para esto basta con poner el ratón sobre el hechizo y podremos leer los datos, entre ellos están el alcance, daños, efectos, entre otros. </p>
                                 <p data-translate="quest1.subquest1.desc15"> Además, veremos que hay un pequeño ojito, este nos indicará si podemos golpear o no a través de un obstáculo. Para saber si podemos, deberá haber una “X” sobre el ojo, también habrá otro con unas líneas sobre el mismo, esto nos indicará si el hechizo tiene alcance modificable (ya que con algunas partes de equipamiento o subiendo un punto en nuestras estadísticas podremos aumentar el alcance). </p>
                                 <p data-translate="quest1.subquest1.desc16"> Ahora, si el hechizo NO tiene la “X” en el ojo, le denominamos que tiene línea de visión. Si, por el contrario, tiene la “X”, denominamos que NO tiene línea de visión. </p>
@@ -813,23 +849,24 @@
                                 <p data-translate="quest1.subquest1.desc17"> Nuestro objetivo será pegar al Saco de papas sin que nos estorben los pedruscos. Cada golpe que hagamos cambiará la posición de estos, además deberemos golpear a 4 casillas de distancia, ya que es el alcance mínimo del hechizo especial que nos darán. </p>
                                 <img src="01Rii\31.png">
                                 <p data-translate="quest1.subquest1.desc18"> En la quinta tarea aprenderemos sobre la zona de los hechizos. Algunos hechizos hacen daño en más de una casilla, estos los llamamos hechizos en zona, mientras que los que hemos estado usando son hechizos mono objetivo.</p>
-                                <center><img src="01Rii\34.png"></center>
+                                <img src="01Rii\34.png">
                                 <p data-translate="quest1.subquest1.desc19"> Al igual que en los combates anteriores, nos darán hechizos especiales, en este caso serán 3. La idea es que golpeemos a todos los sacos de papas al mismo tiempo, para poder ganar debemos golpearlos 4 veces. </p>
                                 <p data-translate="quest1.subquest1.desc20"> Así mismo cada que los golpeemos cambiaran su posición, por ende deberemos variar el hechizo que usamos para hacer daño (si estás con daño melé y la zona afecta hasta la casilla 3, el monstruo en esa última casilla lo tomará como distancia y el daño se reduce y viceversa si la zona de efecto de tu hechizo golpea a un enemigo que este a melé de ti se reduce el daño si eres de distancia).</p>
-                                <center><img src="01Rii\35.png" width="50%"></center>
+                                <img src="01Rii\35.png">
                                 <p data-translate="quest1.subquest1.desc21"> En la sexta tarea aprenderemos sobre los hechizos de desplazamiento. </p>
                                 <p data-translate="quest1.subquest1.desc22"> Existen 5 tipos de desplazamientos: Teleportación propia, teleportación aliado/enemigo, transposición (intercambio de posición con el objetivo), empuje y atracción. </p>
                                 <p data-translate="quest1.subquest1.desc23">Nuestro objetivo es usar los 4 hechizos especiales, tendremos transposición, teleportación propia, atracción y empuje, con estos llevar al Saco de papas a la casilla verde, no tendremos PM y tendremos PA suficientes para usar 3 hechizos en 1 turno y deberemos hacerlo 4 veces.</p>
-                            <center><img data-translate-src="01Rii/36.png|01Rii/36_pt.png|01Rii/36_en.png" src="01Rii/36.png"></center>
+                            <img data-translate-src="01Rii/36.png|01Rii/36_pt.png|01Rii/36_en.png" src="01Rii/36.png">
                                 <p data-translate="quest1.subquest1.desc24"> En la última tarea aprenderemos sobre los efectos de combate.</p>
+                            <img data-translate-src="01Rii/37.png|01Rii/37_pt.png|01Rii/37_en.png" src="01Rii/37.png">
                                 <p data-translate="quest1.subquest1.desc25"> Nuestro objetivo será generar daño según el efecto que tiene el saco de papas, tendrá 4 efectos aleatorios: Hacerte a más de 6 casillas de distancia y pasar de turno, hacerte en contacto con el Saco de papas y pasar de turno, hacerte sobre una casilla roja y usar el hechizo especial para golpear al Saco de papas y finalmente hacerte en una casilla verde y usar el hechizo especial para golpear al Saco de papas.</p>
-                            <center><img data-translate-src="01Rii/37.png|01Rii/37_pt.png|01Rii/37_en.png" src="01Rii/37.png"></center>
+                                <img src="01Rii\38.png">
                                 <p data-translate="quest1.subquest1.desc26"> Además, podremos ver nuestros estados en la parte superior derecha de la pantalla, de esta forma no será necesario abrir nuestra interfaz normalmente. </p>
                                 <p data-translate="quest1.subquest1.desc27"> Al lado derecho también el orden de turno de los monstruos y personajes, tiempo de turno y una barra verde que se llena más rápido, cuando pasamos turno rápido, esto nos permite elegir una de las 6 opciones de bonus extra, si no se usan se mantienen, pero si se escoge una, otro jugador no podrá usarla, por lo que lo mejor es usarlo cada que aparece.</p>
                                 <p class="quest-reward" data-translate="quest1.subquest1.reward"> Recompensa: Experiencia (varía según el nivel) - Emote Saludar. </p>
                             </div>
                                <p data-translate="quest1.kheperalia_title"> Habla con Kheperalia (la Sadida):</p>
-                               <center><img src="01Rii\5.png" width="40%"></center>
+                               <img src="01Rii\5.png" >
                                <p data-translate="quest1.kheperalia_desc"> Ella estará caminando por toda la isla, por lo que deberemos buscarla. </p>
                                <p data-translate="quest1.kheperalia_desc2"> Una vez la encontremos, nos comentará que ayuda a Otomai regulando la fauna y flora de los ecosistemas y responde tranquilamente nuestras preguntas sobre estos. </p>
                                <p data-translate="quest1.kheperalia_desc3"> Nos contará que le gusta el equilibrio de las fuerzas que nos rodean (Wakfu energía de la vida y Stasis energía de la destrucción), por eso le da una gran importancia al equilibrio del ecosistema. </p>
@@ -839,15 +876,15 @@
                         <div class="quest" id="subquest2">
                         <div class="quest-header" data-translate="quest1.subquest2.title"> 1.2 - Las bases del ecosistema </div>
                             <div class="quest-details">
-                                <center><img data-translate-src="01Rii/39.png|01Rii/39_pt.png|01Rii/39_en.png" src="01Rii/39.png"></center>
+                                <img data-translate-src="01Rii/39.png|01Rii/39_pt.png|01Rii/39_en.png" src="01Rii/39.png">
                                 <p data-translate="quest1.subquest2.desc1">Kheperalia te ha confiado unas misiones para controlar el ecosistema de la isla celestial.</p>
                                 <p data-translate="quest1.subquest2.desc2"> Cuando muere un monstruo, desaparece para siempre, al igual que los árboles talados o las plantas recolectadas. </p>
                                 <p data-translate="quest1.subquest2.desc3"> Depende de ti replantar en el ecosistema lo que consumes, ¡o podrías desajustarlo! </p>
-                                <center><img src="01Rii\41.png" width="30%"></center>
-                                <p data-translate="quest1.subquest2.desc4"> Con la tecla "W" o clicando en la estrella bajo la imagen del Miembro De Clan (MDC), en la parte superior derecha de la pantalla abriremos una nueva interfaz. </p>
-                                <center><img data-translate-src="01Rii/7.png|01Rii/7_pt.png|01Rii/7_en.png" src="01Rii/7.png"></center>
+                                <img src="01Rii\41.png">
+                                <p data-translate="quest1.subquest2.desc4"> Con la tecla "W" o clicando en el Jalató bajo la imagen del Miembro De Clan (MDC), en la parte superior derecha de la pantalla abriremos una nueva interfaz. </p>
+                                <img data-translate-src="01Rii/7.png|01Rii/7_pt.png|01Rii/7_en.png" src="01Rii/7.png">
                                 <p data-translate="quest1.subquest2.desc5"> Con esta interfaz podremos conocer el estado del territorio que maneja él/la MDC.</p>
-                                <center><img data-translate-src="01Rii/49.png|01Rii/49_pt.png|01Rii/49_en.png" src="01Rii/49.png" width="50%"></center>
+                                <img data-translate-src="01Rii/49.png|01Rii/49_pt.png|01Rii/49_en.png" src="01Rii/49.png">
                                 <p data-translate="quest1.subquest2.desc6">La sabiduría es una característica que nos aumenta el porcentual (%) de experiencia ganada, 1 punto equivale al 1% de experiencia extra y tiene un tope de 150% (aunque el juego diga 200%). </p>
                                 <p>
                                 <span data-translate="quest1.subquest2.desc7.part1"> La prospección aumenta la probabilidad de obtener recursos de monstruos, equipables u otros objetos, esto lo explico mejor en la </span>   
@@ -859,7 +896,7 @@
                                 </a>
                                 <span data-translate="quest1.subquest2.desc7.part2"> tiene un límite de 200 puntos. </span>
                                 </p>
-                                <center><img src="01Rii\48.png"></center>
+                                <img src="01Rii\48.png">
                                 <p data-translate="quest1.subquest2.desc8"> Abajo del nivel de satisfacción podemos observar unos frascos con una línea a la izquierda que indica la cantidad de monstruos o recursos recolectables y bajo de estos, en algunos casos, una estrella con 2 límites de cantidad. </p>
                                 <p data-translate="quest1.subquest2.desc9"> Si la cantidad de recursos/monstruos está dentro de los límites indicados, aumentará el nivel de satisfacción y esto nos ayudará a subir más fácil los oficios o el personaje de nivel. </p>
                                 <p data-translate="quest1.subquest2.desc10"> También los logos nos dirán qué tipo de recurso. Los monstruos tendrán su propio logo que será una pequeña imagen de la cara de dicho monstruo, mientras que los recursos de oficios serán todos un solo logo por categoría. </p>
@@ -883,19 +920,19 @@
   </a>
   <span data-translate="quest1.subquest2.desc12.part3">.</span>
 </p>
-                                <center><img src="01Rii\50.png" width="40%"></center>
+                                <img src="01Rii\50.png">
                                 <p data-translate="quest1.subquest2.desc13"> Para esto debemos dar clic derecho en alguno de los monstruos y darle clic izquierdo a la imagen de la espada, de esta forma iniciamos un combate. </p>
                                 <p data-translate="quest1.subquest2.desc14">También al poner el ratón sobre un monstruo, veremos la cantidad de monstruos en el grupo al que nos enfrentaremos, esta varía de 1 a 6 generalmente, pero acá es un máximo de 4. </p>
-                                <center><img src="01Rii\42.png" width="40%"></center>
+                                <img src="01Rii\42.png">
                                 <p data-translate="quest1.subquest2.desc15"> Ahora deberemos conseguir 3 semillas de monstruo y plantarlas para mantener el equilibrio del ecosistema. </p>
                                 <p data-translate="quest1.subquest2.desc16"> Para esto debemos hacer el mismo proceso anterior, pero con la diferencia de escoger la pócima en lugar de la espada. </p>
                                 <p data-translate="quest1.subquest2.desc17"> Nos agacharemos para recoger la semilla. Esta animación tiene un tiempo de espera de la recolección y aplica en todos los oficios. En la ciudad de Astrub veremos este tema con más detalle. </p>
                                 <p data-translate="quest1.subquest2.desc18"> Por defecto se agregará a la interfaz de acceso rápido en la parte inferior derecha de la pantalla </p>
-                                <center><img src="01Rii\43.png" width="80%"></center>
-                                <p data-translate="quest1.subquest2.desc19">También podemos verlas en el inventario al cual podemos acceder con la tecla "I" o accediendo desde la interfaz de accesos en la parte inferior izquierda de la pantalla, dando un clic izquierdo en la mochila. </p>
-                                <center><img src="01Rii\44.png" width="10%"></center>
+                                <img src="01Rii\43.png">
+                                <p data-translate="quest1.subquest2.desc19">También podemos verlas en el inventario al cual podemos acceder con la tecla "I" o accediendo desde la interfaz de accesos en la parte inferior izquierda de la pantalla, dando un clic izquierdo en la bolsa. </p>
+                                <img src="01Rii\44.png">
                                 <p data-translate="quest1.subquest2.desc20"> En la interfaz de inventario veremos varias cosas. </p>
-                                <center><img src="01Rii\45.png"></center>
+                                <img src="01Rii\45.png">
                                 <p>
                                   <span data-translate="quest1.subquest2.desc21.part1">Primero veremos en la parte superior izquierda la cara de nuestro personaje y abajo de esta un círculo con un "+" esto es en caso de tener el </span>
                                   <a href="#!" 
@@ -917,120 +954,122 @@
                                 <p data-translate="quest1.subquest2.desc23"> Luego tendremos los "Bolsillos" o "Bolsos" que a la derecha tendremos el botón "↑↓" para order solo ese bolsillo y la cantidad de espacios disponibles que a diferencia de muchos juegos que nos limitan la cantidad de objetos por peso, en este caso se limita por cantidad diferente de objetos, si son los mismos objetos se acumulan entre ellos y se les llama "Stacks", por lo que el límite de espacios se basa en la cantidad de diferentes objetos. </p>
                                 <p data-translate="quest1.subquest2.desc24"> Finalmente tendremos 5 espacios, 3 para "Bolsos" y 2 para "Cajitas". Estas últimas varían su función de almacenamiento según el tipo de caja y la cantidad de kamas.</p>
                                 <p data-translate="quest1.subquest2.desc25">Para usar las semillas tendremos que usar la tecla "1" (si las tenemos en la barra de acceso rápido) o en el inventario doble clic izquierdo para usar la semilla. </p>
-                                <div style="display: flex; justify-content: center; gap: 5px;">
-                                    <img src="01Rii\51.png" width="40%">
-                                    <img src="01Rii\52.png" width="40%">
+                                <div style="display: flex; gap: 10px;">
+                                    <img src="01Rii\51.png">
+                                    <img src="01Rii\52.png">
                                 </div>
                                     <p data-translate="quest1.subquest2.desc26">Generalmente tendremos casillas específicas para plantar, ya sean monstruos o recursos.</p>
                                     <p data-translate="quest1.subquest2.desc27">Si hay un exceso en la zona, el personaje simplemente negará con la cabeza.</p>
-                                    <center><img src="01Rii\53.png" width="40%"></center>
+                                    <img src="01Rii\53.png">
                                     <p data-translate="quest1.subquest2.desc28">Una vez plantadas las semillas, deberemos volver a buscar a Kheperalia.</p>
                                     <p data-translate="quest1.subquest2.desc29">Le diremos que nos hemos ocupado de los Wonejos, a lo que ella nos dirá que hemos comprendido la fauna y ahora toca la flora.</p>
                                     <p data-translate="quest1.subquest2.desc30">Una pequeña diferencia de la misión anterior, en esta nos dan 3 semillas de Flor celestial, otra diferencia es un pequeño tiempo de espera para poder recolectar algo que otro jugador plantó, es decir, si otra persona planta las flores, nadie podrá interactuar con ese recurso por un pequeño periodo de tiempo.</p>
                                     <p data-translate="quest1.subquest2.desc31">Acá les comentaré también un par de diferencias entre cultivos. Los árboles solo se puede sacar esqueje o recolectar la madera, mientras que los cultivos puedes recolectar el recurso y la semilla, pero con siempre con un orden, primero la semilla, luego el recurso. Lo veremos más en detalle en Astrub.</p>
                                     <p data-translate="quest1.subquest2.desc32">De resto, el funcionamiento es el mismo, tendremos que plantar 3, recolectar 3 semillas y 3 recursos.</p>
-                                    <center><img src="01Rii\54.png" width="50%"></center>
+                                    <img src="01Rii\54.png">
                                     <p data-translate="quest1.subquest2.desc33">Con la mano recolectas la semilla y con la tijera el recurso.</p>
                                     <p data-translate="quest1.subquest2.desc34">Hecho esto, volvemos a hablar con Kheperalia.</p>
                                     <p data-translate="quest1.subquest2.desc35">Nos felicitará por cuidar el ecosistema y nos enviará al taller de Otomai para fabricar algunas pócimas.</p>
-                                    <center><img src="01Rii\56.png"></center>
+                                    <img src="01Rii\56.png">
                                     <p data-translate="quest1.subquest2.desc36">Si no tenemos los recursos, nos aparecerá una "X" en la receta.</p>
-                                    <center><img src="01Rii\55.png"></center>
+                                    <img src="01Rii\55.png">
                                     <p data-translate="quest1.subquest2.desc37">Mientras que al tener los recursos nos saldrá un "✔" es que tenemos los recursos para poder fabricar la receta. Esto será muy útil para aquellos que quieran subir oficios o fabricar algo.</p>
-                                    <center><img src="01Rii\13.png"></center>
+                                    <img src="01Rii\13.png">
                                     <p data-translate="quest1.subquest2.desc38">Una vez clicamos en la receta, podremos ver los recursos que pide y, al igual que antes, con "X" o "✔" sabremos si los tenemos o no dichos recursos.</p>
                 <p data-translate="quest1.subquest2.desc39">Tenemos que hacer 3 pócimas, para esto solo es clicar en el espacio enumerado, cambiar la cantidad y luego en el martillo para que empiece a fabricar.</p>
-                                    <center><img src="01Rii\57.png" width="60%"></center>
+                                    <img src="01Rii\57.png">
                                     <p data-translate="quest1.subquest2.desc40">En caso de empezar a fabricar algo que no queríamos, tendremos unos 2 segundos para clicar en este icono que remplaza el martillo, para cancelar la fabricación.</p>
                                     <p class="quest-reward" data-translate="quest1.subquest2.reward"> Recompensa: Experiencia (varía según el nivel). </p>
                             </div>
                         </div>
 
-                                <p> Aprovecharemos que estamos al lado del gran Alquimista Otomai y hablaremos con él. </p>
-                                <center><img src="01Rii\58.png" width="30%"></center>
-                                <p> Otomai se presentará como cienciomago y alquimista, que no debemos confiarnos de su apariencia, pues tiene varios siglos vivo, dedicado al estudio de las diversas formas de vida. </p>
-                                <p> Si hablamos con los otros habitantes de la isla y que el mismo también está libre para hacerle preguntas para obtener algo de información, de la cual hablaremos en un momento. </p>
-                                <p> Por ahora, vamos a obtener una misión oculta. </p>
-                                <p> Para esto debemos mostrar un interés por el Mundo de los Doce y su historia. </p>
-                                <center><img data-translate-src="01Rii/17.png|01Rii/17_pt.png|01Rii/17_en.png" src="01Rii/17.png"></center>
-                                <p> Con eso dicho le diremos "Me gustaría que me contaras todo lo que sabes sobre el Mundo de los Doce". Con esto tendremos nuestra misión oculta. </p>
+                                <p data-translate="quest1.subquest2.desc41"> Aprovecharemos que estamos al lado del gran Alquimista Otomai y hablaremos con él. </p>
+                                <img src="01Rii\58.png">
+                                <p data-translate="quest1.subquest2.desc42"> Otomai se presentará como cienciomago y alquimista, que no debemos confiarnos de su apariencia, pues tiene varios siglos vivo, dedicado al estudio de las diversas formas de vida. </p>
+                                <p data-translate="quest1.subquest2.desc43"> Si hablamos con los otros habitantes de la isla y que el mismo también está libre para hacerle preguntas para obtener algo de información, de la cual hablaremos en un momento. </p>
+                                <p data-translate="quest1.subquest2.desc44"> Por ahora, vamos a obtener una misión oculta. </p>
+                                <p data-translate="quest1.subquest2.desc45"> Para esto debemos mostrar un interés por el Mundo de los Doce y su historia. </p>
+                                <img data-translate-src="01Rii/17.png|01Rii/17_pt.png|01Rii/17_en.png" src="01Rii/17.png">
+                                <p data-translate="quest1.subquest2.desc46"> Con eso dicho le diremos "Me gustaría que me contaras todo lo que sabes sobre el Mundo de los Doce". Con esto tendremos nuestra misión oculta. </p>
                                 <div class="quest" id="otomai">
                                 <div class="quest-header" data-translate="quest1.otomai_title">1.3 - Búsqueda en el pasado</div>
-                                <center><img data-translate-src="01Rii/60.png|01Rii/60_pt.png|01Rii/60_en.png" src="01Rii/60.png"></center>
-                                <p> Rii es un lugar extraño y lleno de misterios.</p>
-                                <p> A pesar de ello, el Mundo de los Doce, tu próximo destino, sigue siendo un misterio para ti. Efectivamente, no conservas muchos recuerdos de cómo era antes de tu muerte. </p>
-                                <p> Si lo deseas, sigue las indicaciones de Otomai: explora la zona y encuentra el santuario. </p>
-                                <p> Allí podrás obtener más información sobre tu futuro mundo de acogida. </p>
-                                <center><img src="01Rii/61.png"></center>
-                                <p> Nos contará que viene del Mundo de los Doce, un mundo poblado por miles de habitantes, varios ecosistemas y maravillosos paisajes repartidos en islas. </p>
-                                <p> Si queremos saber la historia de que dio origen a todo, miremos los frescos en el Santuario, nuestra próxima parada. </p>
-                                <p> Acá puede que te sorprenda el hecho de que habla de islas y no del continente que alguna vez fue, si vienes de dofus, pero las respuestas las tendremos con los frescos. </p>
-                                <p> Sin más preámbulo, nos dirigiremos al santuario. </p>
-                                <center><img src="01Rii/62.png" width="100%"></center>
-                                <p> Una vez dentro iremos a la parte más profunda e interactuaremos con los frescos (los muros que flotan). </p>
-                                <center><img src="01Rii/65.png"></center>
-                                <p> Son 3 y los debemos leer de izquierda a derecha. </p>
-                                <center><img data-translate-src="01Rii/66.png|01Rii/66_pt.png|01Rii/66_en.png" src="01Rii/66.png" width="100%"></center>
-                                <center><img data-translate-src="01Rii/67.png|01Rii/67_pt.png|01Rii/67_en.png" src="01Rii/67.png" width="100%"></center>
-                                <center><img data-translate-src="01Rii/68.png|01Rii/68_pt.png|01Rii/68_en.png" src="01Rii/68.png" width="100%"></center>
-                                <center><img data-translate-src="01Rii/69.png|01Rii/69_pt.png|01Rii/69_en.png" src="01Rii/69.png" width="100%"></center>
-                                <center><img data-translate-src="01Rii/70.png|01Rii/70_pt.png|01Rii/70_en.png" src="01Rii/70.png" width="100%"></center>
-                                <center><img data-translate-src="01Rii/71.png|01Rii/71_pt.png|01Rii/71_en.png" src="01Rii/71.png" width="100%"></center>
-                                <p>Estos frescos nos contarán la historia desde el cataclismo creado por Ogrest.</p>
-                                <p> Que es el punto y aparte entre la era Dofus y la era Wakfu, llamado "El caos de Ogrest". </p>
-                                <p> Algunos dirán, ¿quién es Ogrest? Bueno, es un ogro creado por accidente por Otomai. Este se enamoró de Dhatura una muñeca divina creada por el dios Sadida para enamorar a los dragones y así generar Dofus para mantener el mundo a salvo con la armonía que generan (sabrán más de esto en la sección de cronología o leyendo "Los fragmentos encontrados" y los mangas de "Ogrest" en el apartado de Lore). </p>
-                                <p> Según los frescos, el mundo fue sacudido por un ogro, que tenía la idea de encontrar los Dofus. Como sabemos, cuando a un ogro se le mete una idea en la cabeza, es irreversible. </p>
-                                <p> Ogrest sembró el temor en los hombres en su búsqueda por los Dofus. Y así creó su leyenda al ¡reunir los seis Dofus! Nadie imaginó que realizó tal proeza por el amor de Dhatura una de las muñecas de Sadida. </p>
-                                <p> Nadie sabe qué pasó realmente, algunos cuentan que cayó en el abismo y esto partió el corazón de Ogrest... Su tristeza y rabia, ampliados por el poder inconmensurable de los Dofus sumergieron al Mundo de los Doce bajo un diluvio aterrador. </p>
-                                <p> El nivel del agua subió inundando el mundo. Actualmente, han emergido islas, formando archipiélagos poblados por los fieles. </p>
-                                <p> Los dioses impotentes ante el diluvio y la destrucción del mundo. Se inclinaron sobre lo que quedaba y cada uno dio un nuevo don para la supervivencia de sus fieles. </p>
-                                <p> Anutrof creó los merkasacos, sacos mágicos cuyas dimensiones pueden llegar a ser infinitas. Osamodas ayudado por sus dragones, volvió a poblar el mundo con sus criaturas, pero con la condición de que sean los aventureros quienes los cuiden, si el mundo ha de prosperar, no será en detrimento de sus criaturas. </p>
-                                <p> Sadida volvió a dar vida a los árboles, flores y semillas, pero también recordó los árboles de antaño talados por ávidos leñadores, quienes no daban cuartel y el equilibrio quebrado, donde su poder no daba abasto para repoblar la flora por lo que dio una nueva oportunidad a los aventureros y pondría la misma condición que Osamodas. </p>
-                                <p> Siguiendo el ejemplo de estos 3, los demás dioses dieron diferentes dones al mundo: la diosa Feca extendió su escudo sobre la ciudad de Bonta, la diosa Pandawa protegió las tabernas y el dios Yopuka, las forjas... </p>
-                                <p> Algunos discípulos fueron elegidos por los dioses. Serían sus mensajeros, los que indicarían si el equilibrio de la naturaleza se mantenía o se rompía. En cada una de las islas del mundo, estos discípulos se agruparon en clanes. Los llaman: ¡los Miembros de Clan! </p>
+                                <img data-translate-src="01Rii/60.png|01Rii/60_pt.png|01Rii/60_en.png" src="01Rii/60.png">
+                                <p data-translate="quest1.otomai_desc1"> Rii es un lugar extraño y lleno de misterios.</p>
+                                <p data-translate="quest1.otomai_desc2"> A pesar de ello, el Mundo de los Doce, tu próximo destino, sigue siendo un misterio para ti. Efectivamente, no conservas muchos recuerdos de cómo era antes de tu muerte. </p>
+                                <p data-translate="quest1.otomai_desc3"> Si lo deseas, sigue las indicaciones de Otomai: explora la zona y encuentra el santuario. </p>
+                                <p data-translate="quest1.otomai_desc4"> Allí podrás obtener más información sobre tu futuro mundo de acogida. </p>
+                                <img src="01Rii/61.png">
+                                <p data-translate="quest1.otomai_desc5"> Nos contará que viene del Mundo de los Doce, un mundo poblado por miles de habitantes, varios ecosistemas y maravillosos paisajes repartidos en islas. </p>
+                                <p data-translate="quest1.otomai_desc6"> Si queremos saber la historia de que dio origen a todo, miremos los frescos en el Santuario, nuestra próxima parada. </p>
+                                <p data-translate="quest1.otomai_desc7"> Acá puede que te sorprenda el hecho de que habla de islas y no del continente que alguna vez fue, si vienes de dofus, pero las respuestas las tendremos con los frescos. </p>
+                                <p data-translate="quest1.otomai_desc8"> Sin más preámbulo, nos dirigiremos al santuario. </p>
+                                <img src="01Rii/62.png">
+                                <p data-translate="quest1.otomai_desc9"> Una vez dentro iremos a la parte más profunda e interactuaremos con los frescos (los muros que flotan). </p>
+                                <img src="01Rii/65.png">
+                                <p data-translate="quest1.otomai_desc10"> Son 3 y los debemos leer de izquierda a derecha. </p>
+                                <img data-translate-src="01Rii/66.png|01Rii/66_pt.png|01Rii/66_en.png" src="01Rii/66.png">
+                                <img data-translate-src="01Rii/67.png|01Rii/67_pt.png|01Rii/67_en.png" src="01Rii/67.png">
+                                <img data-translate-src="01Rii/68.png|01Rii/68_pt.png|01Rii/68_en.png" src="01Rii/68.png">
+                                <img data-translate-src="01Rii/69.png|01Rii/69_pt.png|01Rii/69_en.png" src="01Rii/69.png">
+                                <img data-translate-src="01Rii/70.png|01Rii/70_pt.png|01Rii/70_en.png" src="01Rii/70.png">
+                                <img data-translate-src="01Rii/71.png|01Rii/71_pt.png|01Rii/71_en.png" src="01Rii/71.png">
+                                <p data-translate="quest1.otomai_desc11">Estos frescos nos contarán la historia desde el cataclismo creado por Ogrest.</p>
+                                <p data-translate="quest1.otomai_desc12"> Que es el punto y aparte entre la era Dofus y la era Wakfu, llamado "El caos de Ogrest". </p>
+                                <p data-translate="quest1.otomai_desc13"> Algunos dirán, ¿quién es Ogrest? Bueno, es un ogro creado por accidente por Otomai. Este se enamoró de Dhatura una muñeca divina creada por el dios Sadida para enamorar a los dragones y así generar Dofus para mantener el mundo a salvo con la armonía que generan (sabrán más de esto en la sección de cronología o leyendo "Los fragmentos encontrados" y los mangas de "Ogrest" en el apartado de Lore). </p>
+                                <p data-translate="quest1.otomai_desc14"> Según los frescos, el mundo fue sacudido por un ogro, que tenía la idea de encontrar los Dofus. Como sabemos, cuando a un ogro se le mete una idea en la cabeza, es irreversible. </p>
+                                <p data-translate="quest1.otomai_desc15"> Ogrest sembró el temor en los hombres en su búsqueda por los Dofus. Y así creó su leyenda al ¡reunir los seis Dofus! Nadie imaginó que realizó tal proeza por el amor de Dhatura una de las muñecas de Sadida. </p>
+                                <p data-translate="quest1.otomai_desc16"> Nadie sabe qué pasó realmente, algunos cuentan que cayó en el abismo y esto partió el corazón de Ogrest... Su tristeza y rabia, ampliados por el poder inconmensurable de los Dofus sumergieron al Mundo de los Doce bajo un diluvio aterrador. </p>
+                                <p data-translate="quest1.otomai_desc17"> El nivel del agua subió inundando el mundo. Actualmente, han emergido islas, formando archipiélagos poblados por los fieles. </p>
+                                <p data-translate="quest1.otomai_desc18"> Los dioses impotentes ante el diluvio y la destrucción del mundo. Se inclinaron sobre lo que quedaba y cada uno dio un nuevo don para la supervivencia de sus fieles. </p>
+                                <p data-translate="quest1.otomai_desc19"> Anutrof creó los merkasacos, sacos mágicos cuyas dimensiones pueden llegar a ser infinitas. Osamodas ayudado por sus dragones, volvió a poblar el mundo con sus criaturas, pero con la condición de que sean los aventureros quienes los cuiden, si el mundo ha de prosperar, no será en detrimento de sus criaturas. </p>
+                                <p data-translate="quest1.otomai_desc20"> Sadida volvió a dar vida a los árboles, flores y semillas, pero también recordó los árboles de antaño talados por ávidos leñadores, quienes no daban cuartel y el equilibrio quebrado, donde su poder no daba abasto para repoblar la flora por lo que dio una nueva oportunidad a los aventureros y pondría la misma condición que Osamodas. </p>
+                                <p data-translate="quest1.otomai_desc21"> Siguiendo el ejemplo de estos 3, los demás dioses dieron diferentes dones al mundo: la diosa Feca extendió su escudo sobre la ciudad de Bonta, la diosa Pandawa protegió las tabernas y el dios Yopuka, las forjas... </p>
+                                <p data-translate="quest1.otomai_desc22"> Algunos discípulos fueron elegidos por los dioses. Serían sus mensajeros, los que indicarían si el equilibrio de la naturaleza se mantenía o se rompía. En cada una de las islas del mundo, estos discípulos se agruparon en clanes. Los llaman: ¡los Miembros de Clan! </p>
 
-                                <p class="quest-reward" data-translate="quest1.subquest3.reward"> Recompensa: Experiencia (varía según el nivel) - Título: Cronista de Incarnam </p>
+                                <p class="quest-reward" data-translate="quest1.otomai_reward"> Recompensa: Experiencia (varía según el nivel) - Título: Cronista de Incarnam </p>
                             </div>
                                 
-                                <p> Ahora solo nos queda hablar y enfrentarnos a Grugaloragrán. </p>
+                                <p data-translate="quest1.otomai_desc23"> Ahora solo nos queda hablar y enfrentarnos a Grugaloragrán. </p>
                                 
                                 <div class="quest" id="santuario">
                                 <div class="quest-header" data-translate="quest1.santuario_title">1.4 - Enfrentarse a un guardián de mazmorra. </div>
-                                <center><img data-translate-src="01Rii/63.png|01Rii/63_pt.png|01Rii/63_en.png" src="01Rii/63.png"></center>
-                                <p> Tras haber explorado la isla, es hora de ir a enfrentarte a Grugaloragrán. </p>
-                                <center><img src="01Rii/64.png" width="30%"></center>
-                                <p> Nos mirará por encima del hombro, nosotros le diremos que hemos recuperado nuestros poderes y estamos listos para enfrentarnos a las criaturas más poderosas del Krosmoz </p>
-                                <p> Grugaloragrán nos dirá que no estamos preparados, que no somos aventureros tan experimentados. Contestaremos que está celoso de nuestro potencial. Y empezará un combate.
-                                <p> El combate se hace solo, no pierdan tiempo, solo pasen turno, porque es imposible ganar. </p>
+                                <img data-translate-src="01Rii/63.png|01Rii/63_pt.png|01Rii/63_en.png" src="01Rii/63.png">
+                                <p data-translate="quest1.santuario_desc1"> Tras haber explorado la isla, es hora de ir a enfrentarte a Grugaloragrán. </p>
+                                <img src="01Rii/64.png">
+                                <p data-translate="quest1.santuario_desc2"> Nos mirará por encima del hombro, nosotros le diremos que hemos recuperado nuestros poderes y estamos listos para enfrentarnos a las criaturas más poderosas del Krosmoz </p>
+                                <p data-translate="quest1.santuario_desc3"> Grugaloragrán nos dirá que no estamos preparados, que no somos aventureros tan experimentados. Contestaremos que está celoso de nuestro potencial. Y empezará un combate.
+                                <p data-translate="quest1.santuario_desc4"> El combate se hace solo, no pierdan tiempo, solo pasen turno, porque es imposible ganar. </p>
                                 
-                                <p class="quest-reward" data-translate="quest1.subquest3.reward">Recompensa: Experiencia (varía según tu nivel) - Emote Estar asustado - Emote acostarse - Bolsa celestial.</p>
+                                <p class="quest-reward" data-translate="quest1.santuario_reward">Recompensa: Experiencia (varía según tu nivel) - Emote Estar asustado - Emote acostarse - Bolsa celestial.</p>
                             </div>
-                        <p> Una vez terminemos el combate, nos darán la última misión que es ir directamente a Astrub, pero antes debemos hacer un logro que nos dará otro emote importante para misiones a futuro. </p>
+                        <p data-translate="quest1.santuario_desc5"> Una vez terminemos el combate, nos darán la última misión que es ir directamente a Astrub, pero antes debemos hacer un logro que nos dará otro emote importante para misiones a futuro. </p>
+
                         <div class="quest" id="logro">
                                 <div class="quest-header" data-translate="quest1.logro_title">Logro - Encarnado guerrero </div>
                         
-                        <center><img data-translate-src="01Rii/12.png|01Rii/12_pt.png|01Rii/12_en.png" src="01Rii/12.png"></center>
-                        <p> ¡Te has enfrentado a todos los peligros de la isla celestial! </p>
-                        <p> Con este logro les explicaré una función del juego que poco se habla. La invocación de Archismonstruos, estos seres fueron creador por la diosa Aniripsa y la diosa Feca, que sintieron pena por el abuso de aventureros experimentados sobre diferentes grupos de familias de monstruos. </p>
-                        <p> Los archimonstruos aparecen para proteger a su familia de monstruos, pero no siempre son invocados, la mayoría por debajo del nivel 200 suelen aparecer cada cierto tiempo. </p>
-                        <p> En este caso debemos invocar al Dark Wonejo y al Jalato Celestial, para eso debemos cumplir con ciertas condiciones. La primera es esperar 10 minutos tras la muerte de uno de cada uno para poder volver a invocarlos. La siguiente es la cantidad de flores celestiales, si hay un menos de 60 flores aparecerá el Dark Wonejo. La última es que haya más de 130 flores para que aparezca el Jalato Celestial. </p>
-                        <p> Estas son las condiciones y formas de invocar al Dark Wonejo. </p>
-                        <center><img src="01Rii/3.png" width="30%"></center>
-                        <p> Y para el Jalato Celestial. </p>
-                        <center><img src="01Rii/4.png" width="30%"></center>
-                        <p> Son combates muy simples, por lo que no tendrán problemas en emplear todo lo aprendido sobre el ecosistema y el combate. </p>
-                        <p class="quest-reward" data-translate="quest1.subquest4.reward">Recompensa: Título: Encarnado guerrero - Emote Reír.</p>
+                        <img data-translate-src="01Rii/12.png|01Rii/12_pt.png|01Rii/12_en.png" src="01Rii/12.png">
+                        <p data-translate="quest1.logro_desc1"> ¡Te has enfrentado a todos los peligros de la isla celestial! </p>
+                        <p data-translate="quest1.logro_desc2"> Con este logro les explicaré una función del juego que poco se habla. La invocación de Archismonstruos, estos seres fueron creador por la diosa Aniripsa y la diosa Feca, que sintieron pena por el abuso de aventureros experimentados sobre diferentes grupos de familias de monstruos. </p>
+                        <p data-translate="quest1.logro_desc3"> Los archimonstruos aparecen para proteger a su familia de monstruos, pero no siempre son invocados, la mayoría por debajo del nivel 200 suelen aparecer cada cierto tiempo. </p>
+                        <p data-translate="quest1.logro_desc4"> En este caso debemos invocar al Dark Wonejo y al Jalato Celestial, para eso debemos cumplir con ciertas condiciones. La primera es esperar 10 minutos tras la muerte de uno de cada uno para poder volver a invocarlos. La siguiente es la cantidad de flores celestiales, si hay un menos de 60 flores aparecerá el Dark Wonejo. La última es que haya más de 130 flores para que aparezca el Jalato Celestial. </p>
+                        <p data-translate="quest1.logro_desc5"> Estas son las condiciones y formas de invocar al Dark Wonejo. </p>
+                        <img src="01Rii/3.png">
+                        <p data-translate="quest1.logro_desc6"> Y para el Jalato Celestial. </p>
+                        <img src="01Rii/4.png">
+                        <p data-translate="quest1.logro_desc7"> Son combates muy simples, por lo que no tendrán problemas en emplear todo lo aprendido sobre el ecosistema y el combate. </p>
+                        <p class="quest-reward" data-translate="quest1.logro_reward">Recompensa: Título: Encarnado guerrero - Emote Reír.</p>
                         
                             </div>
                         <div>
-                        <center><img src="01Rii/72.png" width="100%"></center> 
-                        <p> Ahora si, nos dirigiremos al zaap para terminar la primera parte del tutorial. </p>
+                        <img src="01Rii/72.png"> 
+                        <p data-translate="quest1.logro_desc8"> Ahora si, nos dirigiremos al zaap para terminar la primera parte del tutorial. </p>
                         </div>
                         <div class="quest" id="astrub">
                                 <div class="quest-header" data-translate="quest1.astrub_title">1.5 - Llegar al Mundo de los Doce </div>
-                        <center><img src="01Rii/73.png"></center>
-                        <p> ¡Ya pareces preparado para ir a Astrub! </p>
-                        <p> Al llegar al zaap el Dark Wonejo tomará venganza y te empujará. </p>
+                        <img src="01Rii/73.png">
+                        <p data-translate="quest1.astrub_desc1"> ¡Ya pareces preparado para ir a Astrub! </p>
+                        <p data-translate="quest1.astrub_desc2"> Al llegar al zaap el Dark Wonejo tomará venganza y te empujará. </p>
+                        <p class="quest-reward" data-translate="quest1.subquest5.reward">Recompensa: </p>
                     </div>
                     
                     <div class="sp-embed-player" data-id="cZlr2Cnen79">
@@ -1050,8 +1089,8 @@
                   </iframe>
                 </div>
                     <div>
-                    <p> Espero que hayan disfrutado esta lectura y aprendizaje, el resto del contenido sigue en desarrollo. Y se irá publicando a medida que me dé la gana como siempre. </p>
-                    <p> Atentamente: Drarios </p>
+                    <p data-translate="quest1.final_desc"> Espero que hayan disfrutado esta lectura y aprendizaje, el resto del contenido sigue en desarrollo. Y se irá publicando a medida que me dé la gana como siempre. </p>
+                    <p data-translate="quest1.final_firma"> Atentamente: Drarios </p>
                     
                 </div>
             </div>
@@ -1108,7 +1147,7 @@
   "quest1.subquest1.desc2": "¡Completa todas las pruebas del principiante para obtener el diploma de su escuela!",
   "quest1.subquest1.note": "NOTA: Los PA o Puntos de Acción, son algo que necesitas para poder atacar con prácticamente cualquier cosa. Los PM o Puntos de Movimiento, son lo que te permite desplazarte. 1 PM es una casilla. Los PW/BC/S o Puntos de Wakfu/Brisa Cuadramental/Stasis son un punto extra que, dependiendo de cada clase varía su regeneración y método de regeneración, a diferencia de los PA o PM que se regeneran cada inicio de turno.",
   "quest1.subquest1.desc3": "En la primera tarea aprenderemos sobre la orientación, a diferencia de otros juegos, acá en Wakfu el daño por los costados aumenta un 10% y por espalda un 25%, por lo que es importante antes de terminar el turno cambiar la orientación de nuestro personaje.",
-  "quest1.subquest1.desc4": "Podemos usar las flechas del teclado para indicar la dirección del personaje o las flechas bajo la barra de turnos en la parte inferior derecha.",
+  "quest1.subquest1.desc4": "Podemos usar las flechas del teclado para indicar la dirección del personaje o las flechas bajo la vida.",
   "quest1.subquest1.desc5": "Nuestro objetivo en este combate, es caminar hasta la espalda y golpear al Saco de papas con cualquier cosa.",
   "quest1.subquest1.desc6": "En la segunda tarea aprenderemos sobre las resistencias elementales y los daños elementales.",
   "quest1.subquest1.desc7": "Haciendo clic derecho sobre el monstruo, nos abrirá una interfaz del enemigo que nos dirá sus estadísticas (la espada es el daño, el escudo la resistencia). (También funciona con nuestro personaje o el de un aliado).",
@@ -1143,7 +1182,7 @@
   "quest1.subquest2.desc1": "Kheperalia te ha confiado unas misiones para controlar el ecosistema de la isla celestial.",
   "quest1.subquest2.desc2": "Cuando muere un monstruo, desaparece para siempre, al igual que los árboles talados o las plantas recolectadas.",
   "quest1.subquest2.desc3": "Depende de ti replantar en el ecosistema lo que consumes, ¡o podrías desajustarlo!",
-  "quest1.subquest2.desc4": "Con la tecla \"W\" o clicando en la estrella bajo la imagen del Miembro De Clan (MDC), en la parte superior derecha de la pantalla abriremos una nueva interfaz.",
+  "quest1.subquest2.desc4": "Con la tecla \"W\" o clicando en el Jalató bajo la imagen del Miembro De Clan (MDC), en la parte superior derecha de la pantalla abriremos una nueva interfaz.",
   "quest1.subquest2.desc5": "Con esta interfaz podremos conocer el estado del territorio que maneja él/la MDC.",
   "quest1.subquest2.desc6": "La sabiduría es una característica que nos aumenta el porcentual (%) de experiencia ganada, 1 punto equivale al 1% de experiencia extra y tiene un tope de 150% (aunque el juego diga 200%).",
   "quest1.subquest2.desc7.part1": "La prospección aumenta la probabilidad de obtener recursos de monstruos, equipables u otros objetos, esto lo explico mejor en la",
@@ -1161,7 +1200,7 @@
   "quest1.subquest2.desc16": "Para esto debemos hacer el mismo proceso anterior, pero con la diferencia de escoger la pócima en lugar de la espada.",
   "quest1.subquest2.desc17": "Nos agacharemos para recoger la semilla. Esta animación tiene un tiempo de espera de la recolección y aplica en todos los oficios. En la ciudad de Astrub veremos este tema con más detalle.",
   "quest1.subquest2.desc18": "Por defecto se agregará a la interfaz de acceso rápido en la parte inferior derecha de la pantalla",
-  "quest1.subquest2.desc19": "También podemos verlas en el inventario al cual podemos acceder con la tecla \"I\" o accediendo desde la interfaz de accesos en la parte inferior izquierda de la pantalla, dando un clic izquierdo en la mochila.",
+  "quest1.subquest2.desc19": "También podemos verlas en el inventario al cual podemos acceder con la tecla \"I\" o accediendo desde la interfaz de accesos en la parte inferior izquierda de la pantalla, dando un clic izquierdo en la bolsa.",
   "quest1.subquest2.desc20": "En la interfaz de inventario veremos varias cosas.",
   "quest1.subquest2.desc21.part1": "Primero veremos en la parte superior izquierda la cara de nuestro personaje y abajo de esta un círculo con un \"+\" esto es en caso de tener el",
   "quest1.subquest2.desc21.part2": ", luego en la parte derecha veremos 5 imágenes: Un bolso que será nuestro inventario tal cual. Una llave que serán objetos clave de misiones y otras cosas que algunas se comparten entre los personajes del mismo servidor. -Una estrella que será donde se guardarán todos nuestros cosméticos y, al igual que en la anterior, se comparten entre los personajes del mismo servidor. Un martillo que sirve para romper recursos o equipables para tener más espacio. -Un diablo que esto es parte de una función del juego llamada",
@@ -1185,7 +1224,13 @@
                 "quest1.subquest2.desc38": "Una vez clicamos en la receta, podremos ver los recursos que pide y, al igual que antes, con \"X\" o \"✔\" sabremos si los tenemos o no dichos recursos.",
                 "quest1.subquest2.desc39": "Tenemos que hacer 3 pócimas, para esto solo es clicar en el espacio enumerado, cambiar la cantidad y luego en el martillo para que empiece a fabricar.",
                 "quest1.subquest2.desc40": "En caso de empezar a fabricar algo que no queríamos, tendremos unos 2 segundos para clicar en este icono que remplaza el martillo, para cancelar la fabricación.",
-  "quest1.subquest2.reward": "Recompensa: Experiencia (varía según el nivel).",
+                "quest1.subquest2.desc41": "Aprovecharemos que estamos al lado del gran Alquimista Otomai y hablaremos con él.",
+                "quest1.subquest2.desc42": "Otomai se presentará como cienciomago y alquimista, que no debemos confiarnos de su apariencia, pues tiene varios siglos vivo, dedicado al estudio de las diversas formas de vida.",
+                "quest1.subquest2.desc43": "Si hablamos con los otros habitantes de la isla y que el mismo también está libre para hacerle preguntas para obtener algo de información, de la cual hablaremos en un momento.",
+                "quest1.subquest2.desc44": "Por ahora, vamos a obtener una misión oculta.",
+                "quest1.subquest2.desc45": "Para esto debemos mostrar un interés por el Mundo de los Doce y su historia.",
+                "quest1.subquest2.desc46": "Con eso dicho le diremos \"Me gustaría que me contaras todo lo que sabes sobre el Mundo de los Doce\". Con esto tendremos nuestra misión oculta.",
+                "quest1.subquest2.reward": "Recompensa: Experiencia (varía según el nivel).",
   "quest1.otomai_title": "1.3 - Búsqueda en el pasado",
   "quest1.otomai_desc1": "Rii es un lugar extraño y lleno de misterios.",
   "quest1.otomai_desc2": "A pesar de ello, el Mundo de los Doce, tu próximo destino, sigue siendo un misterio para ti. Efectivamente, no conservas muchos recuerdos de cómo era antes de tu muerte.",
@@ -1198,7 +1243,7 @@
   "quest1.otomai_desc9": "Una vez dentro iremos a la parte más profunda e interactuaremos con los frescos (los muros que flotan).",
   "quest1.otomai_desc10": "Son 3 y los debemos leer de izquierda a derecha.",
   "quest1.otomai_desc11": "Estos frescos nos contaran la historía desde el cataclismo creado",
-  "quest1.otomai_desc12": "Estos frescos nos contarán la historia desde el cataclismo creado por Ogrest, que es el punto y aparte entre la era Dofus y la era Wakfu, llamado \"El caos de Ogrest\".",
+  "quest1.otomai_desc12": "Que es el punto y aparte entre la era Dofus y la era Wakfu, llamado \"El caos de Ogrest\".",
   "quest1.otomai_desc13": "Algunos dirán, ¿quién es Ogrest? Bueno, es un ogro creado por accidente por Otomai. Este se enamoró de Dhatura una muñeca divina creada por el dios Sadida para enamorar a los dragones y así generar Dofus para mantener el mundo a salvo con la armonía que generan (sabrán más de esto en la sección de cronología o leyendo \"Los fragmentos encontrados\" y los mangas de \"Ogrest\" en el apartado de Lore).",
   "quest1.otomai_desc14": "Según los frescos, el mundo fue sacudido por un ogro, que tenía la idea de encontrar los Dofus. Como sabemos, cuando a un ogro se le mete una idea en la cabeza, es irreversible.",
   "quest1.otomai_desc15": "Ogrest sembró el temor en los hombres en su búsqueda por los Dofus. Y así creó su leyenda al ¡reunir los seis Dofus! Nadie imaginó que realizó tal proeza por el amor de Dhatura una de las muñecas de Sadida.",
@@ -1209,13 +1254,15 @@
   "quest1.otomai_desc20": "Sadida volvió a dar vida a los árboles, flores y semillas, pero también recordó los árboles de antaño talados por ávidos leñadores, quienes no daban cuartel y el equilibrio quebrado, donde su poder no daba abasto para repoblar la flora por lo que dio una nueva oportunidad a los aventureros y pondría la misma condición que Osamodas.",
   "quest1.otomai_desc21": "Siguiendo el ejemplo de estos 3, los demás dioses dieron diferentes dones al mundo: la diosa Feca extendió su escudo sobre la ciudad de Bonta, la diosa Pandawa protegió las tabernas y el dios Yopuka, las forjas...",
   "quest1.otomai_desc22": "Algunos discípulos fueron elegidos por los dioses. Serían sus mensajeros, los que indicarían si el equilibrio de la naturaleza se mantenía o se rompía. En cada una de las islas del mundo, estos discípulos se agruparon en clanes. Los llaman: ¡los Miembros de Clan!",
-  "quest1.otomai_reward": "Recompensa: Experiencia (varía según el nivel) - Título: Cronista de Incarnam",
+  "quest1.otomai_reward": "Recompensa: Experiencia (varía según el nivel) - Título: Cronista de Incarnam.",
+  "quest1.otomai_desc23": "Ahora solo nos queda hablar y enfrentarnos a Grugaloragrán.",
   "quest1.santuario_title": "1.4 - Enfrentarse a un guardián de mazmorra.",
   "quest1.santuario_desc1": "Tras haber explorado la isla, es hora de ir a enfrentarte a Grugaloragrán.",
   "quest1.santuario_desc2": "Nos mirará por encima del hombro, nosotros le diremos que hemos recuperado nuestros poderes y estamos listos para enfrentarnos a las criaturas más poderosas del Krosmoz",
   "quest1.santuario_desc3": "Grugaloragrán nos dirá que no estamos preparados, que no somos aventureros tan experimentados. Contestaremos que está celoso de nuestro potencial. Y empezará un combate.",
   "quest1.santuario_desc4": "El combate se hace solo, no pierdan tiempo, solo pasen turno, porque es imposible ganar.",
   "quest1.santuario_reward": "Recompensa: Experiencia (varía según tu nivel) - Emote Estar asustado - Emote acostarse - Bolsa celestial.",
+  "quest1.santuario_desc5": "Una vez terminemos el combate, nos darán la última misión que es ir directamente a Astrub, pero antes debemos hacer un logro que nos dará otro emote importante para misiones a futuro.",
   "quest1.logro_title": "Logro - Encarnado guerrero",
   "quest1.logro_desc1": "¡Te has enfrentado a todos los peligros de la isla celestial!",
   "quest1.logro_desc2": "Con este logro les explicaré una función del juego que poco se habla. La invocación de Archismonstruos, estos seres fueron creador por la diosa Aniripsa y la diosa Feca, que sintieron pena por el abuso de aventureros experimentados sobre diferentes grupos de familias de monstruos.",
@@ -1225,9 +1272,11 @@
   "quest1.logro_desc6": "Y para el Jalato Celestial.",
   "quest1.logro_desc7": "Son combates muy simples, por lo que no tendrán problemas en emplear todo lo aprendido sobre el ecosistema y el combate.",
   "quest1.logro_reward": "Recompensa: Título: Encarnado guerrero - Emote Reír.",
+  "quest1.logro_desc8": "Ahora si, nos dirigiremos al zaap para terminar la primera parte del tutorial.",
   "quest1.astrub_title": "1.5 - Llegar al Mundo de los Doce",
   "quest1.astrub_desc1": "¡Ya pareces preparado para ir a Astrub!",
   "quest1.astrub_desc2": "Al llegar al zaap el Dark Wonejo tomará venganza y te empujará.",
+  "quest1.subquest5.reward": "Recompensa:", 
   "quest1.final_desc": "Espero que hayan disfrutado esta lectura y aprendizaje, el resto del contenido sigue en desarrollo. Y se irá publicando a medida que me dé la gana como siempre.",
   "quest1.final_firma": "Atentamente: Drarios",
                 "sidebar.title": "Navegación",
@@ -1365,6 +1414,12 @@
                 "quest1.subquest2.desc38": "Ao clicar na receita, poderemos ver os recursos necessários e, como antes, com \"X\" ou \"✔\" saberemos se temos ou não tais recursos.",
                 "quest1.subquest2.desc39": "Temos que fazer 3 poções. Para isso, basta clicar no espaço numerado, mudar a quantidade e depois no martelo para começar a fabricação.",
                 "quest1.subquest2.desc40": "Caso comece a fabricar algo que não queria, terá cerca de 2 segundos para clicar neste ícone que substitui o martelo, para cancelar a fabricação.",
+                "quest1.subquest2.desc41": "Aproveitaremos que estamos ao lado do grande Alquimista Otomai e falaremos com ele.",
+                "quest1.subquest2.desc42": "Otomai se apresentará como cienciomago e alquimista, e não devemos nos confiar em sua aparência, pois ele já vive vários séculos, dedicado ao estudo das diversas formas de vida.",
+                "quest1.subquest2.desc43": "Se falarmos com os outros habitantes da ilha, ele também estará disponível para responder perguntas e obter alguma informação, da qual falaremos em um momento.",
+                "quest1.subquest2.desc44": "Por agora, vamos obter uma missão oculta.",
+                "quest1.subquest2.desc45": "Para isso, devemos demonstrar interesse pelo Mundo dos Doze e sua história.",
+                "quest1.subquest2.desc46": "Com isso dito, diremos a ele: \"Gostaria que me contasse tudo o que sabe sobre o Mundo dos Doze.\" Com isso, teremos nossa missão oculta.",
     "quest1.subquest2.reward": "Recompensa: Experiência (varia de acordo com o nível).",
     "quest1.otomai_title": "1.3 - Busca no passado",
     "quest1.otomai_desc1": "Rii é um lugar estranho e cheio de mistérios.",
@@ -1389,13 +1444,15 @@
     "quest1.otomai_desc20": "Sadida deu vida novamente às árvores, flores e sementes, mas também lembrou das árvores de outrora, derrubadas por lenhadores ávidos, que não davam trégua e desequilibraram o mundo, onde seu poder não era suficiente para repovoar a flora. Por isso, ele deu uma nova chance aos aventureiros e impôs a mesma condição que Osamodas.",
     "quest1.otomai_desc21": "Seguindo o exemplo desses 3, os outros deuses deram diferentes dons ao mundo: a deusa Feca estendeu seu escudo sobre a cidade de Bonta, a deusa Pandawa protegeu as tavernas, e o deus Yopuka, as forjas...",
     "quest1.otomai_desc22": "Alguns discípulos foram escolhidos pelos deuses. Eles seriam seus mensageiros, indicando se o equilíbrio da natureza era mantido ou quebrado. Em cada uma das ilhas do mundo, esses discípulos se agruparam em clãs. Eles são chamados de: os Membros de Clã!",
-    "quest1.otomai_reward": "Recompensa: Experiência (varia de acordo com o nível) - Título: Cronista de Incarnam",
+  "quest1.otomai_reward": "Recompensa: Experiência (varia conforme o nível) - Título: Cronista de Incarnam.",
+  "quest1.otomai_desc23": "Agora só nos resta falar e enfrentar Grugaloragrán.",
     "quest1.santuario_title": "1.4 - Enfrentar um guardião de masmorra.",
     "quest1.santuario_desc1": "Depois de explorar a ilha, é hora de enfrentar Grugaloragrán.",
     "quest1.santuario_desc2": "Ele nos olhará por cima do ombro, e diremos que recuperamos nossos poderes e estamos prontos para enfrentar as criaturas mais poderosas do Krosmoz.",
     "quest1.santuario_desc3": "Grugaloragrán nos dirá que não estamos preparados, que não somos aventureiros tão experientes. Responderemos que ele está com ciúmes do nosso potencial. E começará um combate.",
     "quest1.santuario_desc4": "O combate acontece sozinho; não percam tempo, apenas passem o turno, porque é impossível vencer.",
-    "quest1.santuario_reward": "Recompensa: Experiência (varia de acordo com o nível) - Emote Estar assustado - Emote Deitar - Bolsa celestial.",
+    "quest1.santuario_reward": "Recompensa: Experiência (varia conforme o nível) - Emote Estar assustado - Emote deitar-se - Bolsa celestial.",
+  "quest1.santuario_desc5": "Assim que terminarmos o combate, receberemos a última missão, que é ir diretamente para Astrub, mas antes precisamos concluir um feito que nos dará outro emote importante para missões futuras.",
     "quest1.logro_title": "Conquista - Encarnado guerreiro",
     "quest1.logro_desc1": "Você enfrentou todos os perigos da ilha celestial!",
     "quest1.logro_desc2": "Com essa conquista, explicarei uma função do jogo pouco comentada: a invocação de Archimonstros. Esses seres foram criados pela deusa Aniripsa e a deusa Feca, que sentiram pena do abuso de aventureiros experientes sobre diferentes famílias de monstros.",
@@ -1405,9 +1462,11 @@
     "quest1.logro_desc6": "E para o Jalato Celestial.",
     "quest1.logro_desc7": "São combates muito simples, então você não terá problemas para empregar tudo o que aprendeu sobre o ecossistema e o combate.",
     "quest1.logro_reward": "Recompensa: Título: Encarnado guerreiro - Emote Rir.",
+  "quest1.logro_desc8": "Agora sim, nos dirigiremos ao zaap para terminar a primeira parte do tutorial.",
     "quest1.astrub_title": "1.5 - Chegar ao Mundo dos Doze",
     "quest1.astrub_desc1": "Você já parece preparado para ir a Astrub!",
     "quest1.astrub_desc2": "Ao chegar no zaap, o Dark Wonejo se vingará e o empurrará.",
+  "quest1.subquest5.reward": "Recompensa:",
     "quest1.final_desc": "Espero que tenham gostado desta leitura e aprendizado. O restante do conteúdo ainda está em desenvolvimento e será publicado conforme eu quiser, como sempre.",
     "quest1.final_firma": "Atenciosamente: Drarios",
     "sidebar.title": "Navegação",
@@ -1544,6 +1603,13 @@
                 "quest1.subquest2.desc38": "Clicking on the recipe will show us the required resources, and as before, with 'X' or '✔' we'll know if we have them or not.",
                 "quest1.subquest2.desc39": "We need to make 3 potions. For this, just click on the numbered space, change the quantity, and then click the hammer to start crafting.",
                 "quest1.subquest2.desc40": "If you start crafting something you didn't want, you'll have about 2 seconds to click this icon that replaces the hammer to cancel the crafting.",
+                "quest1.subquest2.desc41": "We’ll take advantage of being next to the great Alchemist Otomai and speak with him.",
+                "quest1.subquest2.desc42": "Otomai will introduce himself as a sciencimagus and alchemist, and we shouldn’t be fooled by his appearance, as he has lived for several centuries, dedicated to studying various life forms.",
+                "quest1.subquest2.desc43": "If we talk to the other island inhabitants, he will also be available to answer questions and provide some information, which we’ll discuss in a moment.",
+                "quest1.subquest2.desc44": "For now, we’ll obtain a hidden quest.",
+                "quest1.subquest2.desc45": "To do this, we must show interest in the World of the Twelve and its history.",
+                "quest1.subquest2.desc46": "With that said, we’ll tell him: \"I’d like you to tell me everything you know about the World of the Twelve.\" This will give us our hidden quest.",
+
     "quest1.subquest2.reward": "Reward: Experience (varies by level).",
     "quest1.otomai_title": "1.3 - Searching the Past",
     "quest1.otomai_desc1": "Rii is a strange place full of mysteries.",
@@ -1569,12 +1635,14 @@
     "quest1.otomai_desc21": "Following the example of these three, the other gods gave different gifts to the world: the goddess Feca extended her shield over the city of Bonta, the goddess Pandawa protected the taverns, and the god Yopuka, the forges...",
     "quest1.otomai_desc22": "Some disciples were chosen by the gods. They would be their messengers, indicating whether nature's balance was maintained or broken. On each of the world's islands, these disciples grouped into clans. They're called: the Clan Members!",
     "quest1.otomai_reward": "Reward: Experience (varies by level) - Title: Chronicler of Incarnam",
+    "quest1.otomai_desc23": "Now, all that’s left is to talk to and face Grugaloragrán.",
     "quest1.santuario_title": "1.4 - Facing a Dungeon Guardian",
     "quest1.santuario_desc1": "After exploring the island, it's time to face Grugaloragrán.",
     "quest1.santuario_desc2": "He'll look down on us, and we'll say we've regained our powers and are ready to face the most powerful creatures of the Krosmoz.",
     "quest1.santuario_desc3": "Grugaloragrán will tell us we're not prepared, that we're not such experienced adventurers. We'll respond that he's jealous of our potential. And a combat will begin.",
     "quest1.santuario_desc4": "The combat happens automatically; don't waste time, just skip turns, because it's impossible to win.",
     "quest1.santuario_reward": "Reward: Experience (varies by level) - Scared Emote - Lie Down Emote - Celestial Bag.",
+  "quest1.santuario_desc5": "Once we finish the battle, we’ll receive the final quest, which is to go directly to Astrub, but first, we must complete an achievement that will grant us another important emote for future quests.",
     "quest1.logro_title": "Achievement - Incarnated Warrior",
     "quest1.logro_desc1": "You've faced all the dangers of the celestial island!",
     "quest1.logro_desc2": "With this achievement, I'll explain a little-discussed game feature: the summoning of Archmonsters. These beings were created by the goddess Aniripsa and the goddess Feca, who pitied the abuse of experienced adventurers over different monster families.",
@@ -1584,9 +1652,11 @@
     "quest1.logro_desc6": "And for the Celestial Jalato.",
     "quest1.logro_desc7": "They're very simple combats, so you won't have problems applying everything you've learned about the ecosystem and combat.",
     "quest1.logro_reward": "Reward: Title: Incarnated Warrior - Laugh Emote.",
+  "quest1.logro_desc8": "Now, we’ll head to the zaap to finish the first part of the tutorial.",
     "quest1.astrub_title": "1.5 - Reaching the World of Twelve",
     "quest1.astrub_desc1": "You seem ready to go to Astrub!",
     "quest1.astrub_desc2": "When reaching the zaap, the Dark Wonejo will take revenge and push you.",
+  "quest1.subquest5.reward": "Reward:",
     "quest1.final_desc": "I hope you've enjoyed this reading and learning. The rest of the content is still in development and will be published whenever I feel like it, as always.",
     "quest1.final_firma": "Sincerely: Drarios",
     "sidebar.title": "Navigation",
