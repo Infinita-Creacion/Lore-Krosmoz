@@ -1,0 +1,1532 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-translate="title">Guía de Rii</title>
+    <style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        color: #333;
+        margin: 0;
+        padding: 0;
+    }
+    header {
+        background-color: #d35400;
+        padding: 1px;
+        text-align: center;
+        color: white;
+    }
+    
+    /* Barra de navegación mejorada */
+    .navbar {
+        background-color: #d35400;
+        border-top: 2px solid #b34700;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        padding: 0 0.1%;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s ease;
+        max-width: 1200px;
+        margin: 0 auto;
+        border-radius: 30px 30px 30px 30px;
+    }
+    
+    .container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+        flex-wrap: wrap;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    
+    .hamburger {
+        font-size: 28px;
+        color: white;
+        cursor: pointer;
+        display: none;
+        padding: 10px;
+    }
+    
+    .menu {
+        list-style: none;
+        display: flex;
+        margin: 0;
+        padding: 0;
+        gap: 5px;
+    }
+    
+    .menu > li > a {
+        display: block;
+        padding: 10px 15px;
+        color: white;
+        text-decoration: none;
+        background-color: rgba(0, 0, 0, 0.2);
+        border-radius: 4px;
+        transition: all 0.3s ease;
+        font-weight: bold;
+        border-radius: 10px 10px 10px 10px;
+    }
+    
+    .menu > li > a:hover {
+        background-color: rgba(0, 0, 0, 0.4);
+        transform: translateY(-2px);
+    }
+    
+    .menu > li > a img {
+        vertical-align: middle;
+        height: 24px;
+    }
+    
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+    }
+    
+    .dropdown-content a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+    }
+    
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
+    
+    main {
+        padding: 0;
+    }
+    
+    section {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(800px, 1fr));
+        gap: 15px;
+        background-image: url('430154.jpg');
+        background-size: auto;
+        padding: 100px 100px 100px 100px;
+        border-radius: 0px;
+    }
+    
+    .quest-container {
+        font-style: arial;
+        font-weight: bold;
+        text-shadow: 1px 1px 15px #ffffff;
+                     -1px -1px 15px #ffffff;
+        background-color: rgba(255, 255, 255, 0.65);
+        padding: 30px;
+        border-radius: 5px;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+        max-width: 1000px;
+        margin: 0 auto;
+    }
+    
+    .quest-container h2 {
+        font-weight: bold;
+        text-shadow: 1px 1px 15px #ffffff;
+                     -1px -1px 15px #ffffff;
+        color: #27ae60;
+        margin-top: 0;
+        border-bottom: 2px solid #d35400;
+        padding-bottom: 10px;
+    }
+    
+    .quest {
+        margin-bottom: 30px;
+        background-color: rgba(255, 255, 255, 0.1);
+        padding: 20px;
+        border-radius: 5px;
+        border-left: 4px solid #d35400;
+    }
+    
+    .quest a {
+        font-weight: bold;
+        text-shadow: 1px 1px 15px #ffffff;
+                     -1px -1px 15px #ffffff;
+        text-decoration: none;
+        color: #e00404;
+        font-weight: 850;
+        margin-top: 10px;
+    }
+    .quest-header {
+        font-weight: bold;
+        font-size: 1.2em;
+        color: #27ae60;
+        margin-bottom: 10px;
+    }
+    
+    .quest-details {
+        line-height: 1.6;
+    }
+    
+    .quest-reward {
+        font-style: italic;
+        text-shadow: 1px 1px 15px #ffffff;
+                     -1px -1px 15px #ffffff;
+        font-weight: 850;
+        color: #e00404;
+        margin-top: 10px;
+        padding-top: 10px;
+        border-top: 1px dashed #ccc;
+    }
+
+    /* Contenedor principal del video */
+    .sp-embed-player {
+      width: 100%;
+      margin: 3rem 0;
+      position: relative;
+      aspect-ratio: 16/9;
+      min-height: 600px;
+      background: #000;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    /* Iframe del video (llena todo el contenedor) */
+    .sp-embed-player iframe {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      border: none !important;
+    }
+    
+    /* Selector de idiomas - Versión limpia */
+    .dropdown-language {
+        position: relative;
+        display: inline-block;
+    }
+
+    .dropdown-language > a {
+        display: block;
+        padding: 15px 20px;
+        color: white;
+        text-decoration: none;
+        background-color: rgba(0, 0, 0, 0.2);
+        border-radius: 10px;
+        transition: all 0.3s ease;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+    .dropdown-language:hover > a {
+        background-color: rgba(0, 0, 0, 0.4);
+    }
+
+    .language-dropdown {
+        display: none;
+        position: absolute;
+        background-color: #d35400;
+        min-width: 60px;
+        box-shadow: 0px 4px 8px rgba(0,0,0,0.2);
+        z-index: 1001;
+        border-radius: 0 0 10px 10px;
+        padding: 0;
+        margin: 0;
+        list-style: none;
+        left: 0;
+        top: 100%;
+    }
+
+    .language-dropdown a {
+        color: white;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+        font-weight: bold;
+        transition: background 0.3s;
+        text-align: center;
+        border: none !important;
+    }
+
+    .language-dropdown a:hover {
+        background-color: rgba(0, 0, 0, 0.3);
+    }
+
+    .dropdown-language:hover .language-dropdown {
+        display: block;
+    }
+    
+    /* Estilos para el botón de modo oscuro */
+    .dark-mode-toggle > a {
+        display: block;
+        padding: 10px 10px;
+        color: white;
+        text-decoration: none;
+        background-color: rgba(0, 0, 0, 0.2);
+        border-radius: 10px;
+        transition: all 0.3s ease;
+        font-weight: bold;
+        cursor: pointer;
+        font-size: 15px;
+    }
+    
+    .dark-mode-toggle:hover > a {
+        background-color: rgba(0, 0, 0, 0.4);
+    }
+    
+    /* Estilos para el modo oscuro */
+    .dark-mode header {
+        background-color: #1a1a1a;
+    }
+    
+    .dark-mode .navbar {
+        background-color: #1a1a1a;
+        border-top: 2px solid #333;
+    }
+    
+    .dark-mode .menu > li > a {
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+    
+    .dark-mode .menu > li > a:hover {
+        background-color: rgba(255, 255, 255, 0.2);
+    }
+    
+    .dark-mode .quest-container {
+        background-color: rgba(0, 0, 0, 0.7);
+        color: #eee;
+    }
+    
+    .dark-mode .quest-container h2 {
+        color: #2ecc71;
+    }
+    
+    .dark-mode .quest {
+        background-color: rgba(0, 0, 0, 0.3);
+    }
+    section {
+        background-attachment: fixed;
+    }
+    
+    .dark-mode section {
+        background-image: url('430154.jpg');
+        background-color: rgba(0, 0, 0, 0.3);
+        background-blend-mode: multiply;
+    }
+
+    .dark-mode .quest-container,
+    .dark-mode .quest-container h2,
+    .dark-mode .quest a,
+    .dark-mode .quest-reward,
+    .dark-mode .quest-details {
+        text-shadow: none !important;
+    }
+    
+    .dark-mode .language-dropdown {
+        background-color: #333;
+        box-shadow: 0px 4px 8px rgba(255,255,255,0.1);
+    }
+
+    .dark-mode .language-dropdown a {
+        color: #fff;
+    }
+
+    .dark-mode .language-dropdown a:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    /* Sidebar de navegación */
+    .sidebar-nav {
+        position: fixed;
+        right: 20px;
+        top: 250px;
+        width: 220px;
+        background-color: rgba(255, 255, 255, 0.8);
+        border-radius: 10px;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+        padding: 15px;
+        max-height: 70vh;
+        overflow-y: auto;
+        transition: all 0.3s ease;
+        z-index: 999;
+        backdrop-filter: blur(5px);
+    }
+    
+    .sidebar-nav h3 {
+        color: #d35400;
+        margin-top: 0;
+        border-bottom: 2px solid #d35400;
+        padding-bottom: 10px;
+        text-align: center;
+        font-size: 1.2em;
+        margin-bottom: 15px;
+    }
+    
+    .sidebar-nav ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+    
+    .sidebar-nav li {
+        margin-bottom: 8px;
+        position: relative;
+    }
+    
+    .sidebar-nav > ul > li > ul {
+        margin-left: 15px;
+        padding-left: 10px;
+        border-left: 2px solid rgba(211, 84, 0, 0.3);
+    }
+    
+    .sidebar-nav a {
+        color: #333;
+        text-decoration: none;
+        display: block;
+        padding: 5px 10px;
+        border-radius: 5px;
+        transition: all 0.3s ease;
+        font-size: 0.9em;
+    }
+    
+    .sidebar-nav a:hover {
+        background-color: rgba(211, 84, 0, 0.2);
+        transform: translateX(5px);
+    }
+    
+    .sidebar-nav a.active {
+        background-color: rgba(211, 84, 0, 0.4);
+        font-weight: bold;
+    }
+    
+    /* Estilos para el modo oscuro */
+    .dark-mode .sidebar-nav {
+        background-color: rgba(0, 0, 0, 0.7);
+        color: #eee;
+    }
+    
+    .dark-mode .sidebar-nav h3 {
+        color: #2ecc71;
+        border-bottom: 2px solid #2ecc71;
+    }
+    
+    .dark-mode .sidebar-nav a {
+        color: #eee;
+    }
+    
+    .dark-mode .sidebar-nav a:hover {
+        background-color: rgba(46, 204, 113, 0.2);
+    }
+    
+    .dark-mode .sidebar-nav a.active {
+        background-color: rgba(46, 204, 113, 0.4);
+    }
+    
+    .dark-mode .sidebar-nav > ul > li > ul {
+        border-left: 2px solid rgba(46, 204, 113, 0.3);
+    }
+    
+    /* Scrollbar personalizada para la sidebar */
+    .sidebar-nav::-webkit-scrollbar {
+        width: 6px;
+    }
+    
+    .sidebar-nav::-webkit-scrollbar-track {
+        background: rgba(0, 0, 0, 0.1);
+        border-radius: 3px;
+    }
+    
+    .sidebar-nav::-webkit-scrollbar-thumb {
+        background: #d35400;
+        border-radius: 3px;
+    }
+    
+    .dark-mode .sidebar-nav::-webkit-scrollbar-thumb {
+        background: #2ecc71;
+    }
+
+    /* ===== SOLUCIÓN DEFINITIVA PARA ENLACES ROJOS ===== */
+    /* Aplicar a todos los enlaces dentro de .quest-container */
+    .quest-container a,
+    .quest-container a:link,
+    .quest-container a:visited,
+    .quest-container a:hover,
+    .quest-container a:active,
+    .quest-container a:focus {
+        color: #e00404 !important;
+        text-decoration: none !important;
+        text-shadow: 1px 1px 15px #ffffff, -1px -1px 15px #ffffff !important;
+        font-weight: 850 !important;
+    }
+
+    /* Específico para modo oscuro */
+    .dark-mode .quest-container a,
+    .dark-mode .quest-container a:link,
+    .dark-mode .quest-container a:visited,
+    .dark-mode .quest-container a:hover,
+    .dark-mode .quest-container a:active,
+    .dark-mode .quest-container a:focus {
+        color: #e00404 !important;
+        text-shadow: none !important;
+    }
+
+    /* Reset completo para enlaces en párrafos */
+    .quest p a,
+    .quest p a:link,
+    .quest p a:visited,
+    .quest p a:hover,
+    .quest p a:active,
+    .quest p a:focus {
+        color: #e00404 !important;
+        text-decoration: none !important;
+        text-shadow: 1px 1px 15px #ffffff, -1px -1px 15px #ffffff !important;
+        font-weight: 850 !important;
+    }
+
+    /* Reset para modo oscuro en párrafos */
+    .dark-mode .quest p a,
+    .dark-mode .quest p a:link,
+    .dark-mode .quest p a:visited,
+    .dark-mode .quest p a:hover,
+    .dark-mode .quest p a:active,
+    .dark-mode .quest p a:focus {
+        color: #e00404 !important;
+        text-shadow: none !important;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+        header {
+            padding: 15px;
+            font-size: 18px;
+        }
+        
+        .navbar {
+            padding: 0 5%;
+        }
+        
+        .hamburger {
+            display: block;
+        }
+        
+        .menu {
+            display: none;
+            flex-direction: column;
+            width: 100%;
+            gap: 0;
+        }
+        
+        .menu.show {
+            display: flex;
+        }
+        
+        .menu > li {
+            width: 100%;
+        }
+        
+        .menu > li > a {
+            border-radius: 0;
+            border-bottom: 1px solid #b34700;
+            background-color: transparent;
+        }
+        
+        .dropdown-content {
+            position: static;
+            box-shadow: none;
+            background-color: rgba(0, 0, 0, 0.1);
+        }
+        
+        section {
+            padding: 10px;
+            grid-template-columns: 1fr;
+        }
+        
+        .quest-container {
+            padding: 10px;
+        }
+        
+        .quest {
+            padding: 10px;
+        }
+        
+        /* Ajustes mejorados para imágenes y videos en móviles */
+        .quest img,
+        .quest-container img,
+        img[data-translate-src] {
+            max-width: 100% !important;
+            height: auto !important;
+            max-height: 300px !important;
+            object-fit: contain;
+            display: block;
+            margin: 10px auto;
+        }
+
+        /* Ajustes para videos embebidos */
+        .sp-embed-player {
+            min-height: 200px !important;
+            max-height: 300px !important;
+            margin: 1rem 0;
+            aspect-ratio: 16/9;
+        }
+
+        .sp-embed-player iframe {
+            height: 100% !important;
+            width: 100% !important;
+        }
+
+        /* Forzar ancho completo en móviles */
+        .half-width-img,
+        .full-width-img,
+        .image-flex-container img {
+            width: 100% !important;
+            height: auto !important;
+            max-height: none !important;
+        }
+
+        /* Contenedores flex en columna */
+        .image-flex-container {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Ajuste específico para imágenes en quest */
+        .quest > div > img {
+            width: 100% !important;
+            height: auto !important;
+            max-height: 250px !important;
+        }
+
+        .dropdown-language {
+            width: 100%;
+        }
+    
+        .dropdown-language > a {
+            border-radius: 0;
+            border-bottom: 1px solid #b34700;
+            background-color: transparent;
+        }
+    
+        .language-dropdown {
+            width: 100%;
+            border-radius: 0;
+        }
+    
+        .dark-mode-toggle {
+            width: 100%;
+        }
+    
+        .dark-mode-toggle > a {
+            border-radius: 0;
+            border-bottom: 1px solid #333;
+            background-color: transparent;
+        }
+
+        /* Responsive - Ocultar sidebar en móviles */
+        .sidebar-nav {
+            display: none;
+        }
+    }
+
+    /* Media queries adicionales para pantallas muy pequeñas */
+    @media (max-width: 480px) {
+        .quest img,
+        .quest-container img,
+        img[data-translate-src] {
+            max-height: 250px !important;
+        }
+        
+        .sp-embed-player {
+            min-height: 180px !important;
+            max-height: 250px !important;
+        }
+        
+        .quest-container {
+            padding: 8px;
+        }
+        
+        .quest {
+            padding: 8px;
+        }
+    }
+</style>
+</head>
+<body>
+    <header>
+        <h1 data-translate="section.t">Guía de Älmädräbä</h1>
+        <nav class="navbar">
+            <div class="container">
+                 <div class="hamburger" id="hamburger">&#9776;</div>
+                <ul class="menu" id="menu">
+                    <li><a href="testmethodindex.html" data-translate="nav.home">Inicio</a></li>
+                    <li><a href="NCDrop.html" 
+       data-translate-href="es|NCDrop.html|pt|NCDrop.html|en|NCDropen.html" 
+       data-translate="nav.drop_wakfu">Calc de Drop Wakfu</a></li>
+                    <li><a href="testmethodmisiones.html" data-translate="nav.quests">Misiones</a></li>
+                    <li><a href="#" data-translate="nav.dungeons">Mazmorras</a></li>
+                    <li><a href="#" data-translate="nav.optimization">Optimización</a></li>
+                    <li><a href="#" data-translate="nav.crafts">Oficios</a></li>
+                    <li><a href="#" data-translate="nav.misc">Varios</a></li>
+                    <!-- Nuevo botón de idioma integrado en el menú -->
+                    <li class="dropdown-language">
+                        <a href="#" id="currentLanguage">ES</a>
+                        <ul class="language-dropdown">
+                            <li><a href="#" data-lang="es">ES</a></li>
+                            <li><a href="#" data-lang="pt">PT</a></li>
+                            <li><a href="#" data-lang="en">EN</a></li>
+                        </ul>
+                    <li class="dark-mode-toggle">
+    <a href="#" id="darkModeToggle">🌙</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main>
+      <div class="sidebar-nav" id="sidebarNav">
+            <h3 data-translate="sidebar.title">Navegación</h3>
+            <ul>
+                <li><a href="#section-intro" data-translate="sidebar.quest1">Älmädräbä</a></li>
+                <li>
+                    <ul>
+                        <li><a href="#subquest1" data-translate="sidebar.subquest1"> Välvas y ärenä finä</a></li>
+                        <li><a href="#subquest2" data-translate="sidebar.subquest2"> Botellä al aguä</a></li>
+                        <li><a href="#subquest3" data-translate="sidebar.subquest3"> Alerta en la pläyä de la Älmädräbä</a></li>
+                        <li><a href="#subquest4" data-translate="sidebar.subquest4"> Han rescatado al Pästelero </a></li>
+                        <li><a href="#subquest5" data-translate="sidebar.subquest5"> Gäräbäto del Pästelero </a></li>
+                        <li><a href="#subquest6" data-translate="sidebar.subquest6"> Recompensas y misiones secundarías </a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <section>
+            <div class="quest-container">
+                <h2 id="section-intro" data-translate="section.title">La Älmädräbä</h2>
+                
+                <p><span data-translate="section.intro1.part1">Cómo cada año </span><a href="https://www.krosmoz.com/es/almanax/2025-06-22"
+     data-translate-href="es|https://www.krosmoz.com/es/almanax/2025-06-22|pt|https://www.krosmoz.com/pt/almanax/2025-06-22|en|https://www.krosmoz.com/en/almanax/2025-06-22"
+                             target="_blank"
+                             rel="noopener noreferrer"
+                             data-translate-text="es|Gnat|pt|Gnat|en|Gnat">
+                            Gnat
+                          </a>
+                <span data-translate="section.intro1.part2"> el Santo de las caracolas, nos invita a explorar las playas y traerle un poco de ärenä finä.</span>
+                </p>
+                <p data-translate="section.intro2">Siendo el santo del verano, busca aventureros dispuestos a disfrutar de las vacaciones de mitad de año, con su búsqueda por la Ärenä finä y ¿por qué no?, darle una paliza a los Härenosos.</p>
+                <h5 data-translate="section.intro3">Nota: los santos son deidades menores que hicieron un pacto con los dioses del panteón divino y gozan de un poder un poco mayor que la mayoría de deidades menores. Siendo además protectores de cada uno de los 365 días del año. También existen los protectores de los meses y los demonios de las horas. Según un NPC de la era de los Dofus hay al menos 1824, además no tienen casi poder, porque no tienen muchos fieles, pero son seres que aportan bastante y quienes oramos desde el templo del Almanax.</h5>
+                
+                        <div class="quest" id="subquest1">
+                        <div class="quest-header" data-translate="quest1.subquest1.title">Välvas y ärenä finä</div>
+                            <div class="quest-details"></div>
+                            <center><img data-translate-src="verano/0.png|verano/0_pt.png|verano/0_en.png" src="verano/0.png"></center>
+                <p data-translate="quest1.subquest1.desc1">¿Qué opinas de unas vacaciones al sol y en buena compañía?</p>
+                <p data-translate="quest1.subquest1.desc2">Ven a verme a Astrub, te espero allí.</p>
+                        <div style="display: flex; justify-content: center; gap: 5px;">
+                                    <img data-translate-src="verano/1.png|verano/1_pt.png|verano/1_en.png" src="verano/1.png" width="50%">
+                                    <img data-translate-src="verano/2.png|verano/2_pt.png|verano/2_en.png" src="verano/2.png" width="50%">
+                                </div>
+                <p data-translate="quest1.subquest1.desc3">Nos dirigiremos al centro de la ciudad de Astrub y al norte. Antes de llegar al mercado, veremos a Gnat quien nos recibirá con alegría y bastante entusiasmo, y nos contará que anda en busca de nobles y poderosos aventureros dispuestos a explorar la Pläyä de la Älmädräbä, para conseguir su preciada ärenä finä.</p>
+                            <center><img data-translate-src="verano/3.png|verano/3_pt.png|verano/3_en.png" src="verano/3.png"></center>
+                            <center><img data-translate-src="verano/4.png|verano/4_pt.png|verano/4_en.png" src="verano/4.png"></center>
+                <p data-translate="quest1.subquest1.desc4">También ha visto la llegada de unas botellas en las diferentes naciones con mensajes en su interior, pero cómo es demasiado esfuerzo para él y prefiere tostar sus caracolas nos deja con la intriga para ir a buscarlas.</p>
+                            <center><img data-translate-src="verano/5.png|verano/5_pt.png|verano/5_en.png" src="verano/5.png"></center>
+                            <p class="quest-reward" data-translate="quest1.subquest1.reward"> Recompensa: Experiencia (varía según el nivel) - 5 Ärenichäs. </p>
+                </div>
+                <p data-translate="quest1.subquest1.desc5">Les recomiendo algo de paciencia, aun con los dragopavos tendremos que caminar bastante (excepto en Amakna, que curiosamente es bastante cerca).</p>
+                <p></p>
+
+
+
+                        <div class="quest" id="subquest2">
+                        <div class="quest-header" data-translate="quest1.subquest2.title">Botellä al aguä</div>
+
+
+
+                            <center><img data-translate-src="verano/6.png|verano/6_pt.png|verano/6_en.png" src="verano/6.png"></center>
+
+                <p data-translate="quest1.subquest2.desc1">Gnat te ha encargado que encuentres los mensäjes guardados en las botelläs que han naufragado por todo el mundo.</p>
+                <p data-translate="quest1.subquest2.desc2">Nos dirigiremos primero a la nación de Amakna a buscar la primera botella, que se encuentra en los Campos Cantarines.</p>
+                        <div style="display: flex; justify-content: center; gap: 5px;">
+                                    <img data-translate-src="verano/7.png|verano/7_pt.png|verano/7_en.png" src="verano/7.png" width="50%">
+                                    <img data-translate-src="verano/8.png|verano/8_pt.png|verano/8_en.png" src="verano/8.png" width="50%">
+                                </div>
+                <p data-translate="quest1.subquest2.desc3">El mensaje nos dirá "Estoy en una isla cerca de Bilbyza".</p>
+                <p data-translate="quest1.subquest2.desc4">Por lo visto, alguien ha llegado primero que nadie a la Pläyä de la Älmädräbä.</p>
+                <p data-translate="quest1.subquest2.desc5">Ahora partiremos a Bonta, donde nos aguarda la segunda botella en el puente que conecta el Bosquecillo de Túkulo con las llanuras de Cania.</p>
+                        <div style="display: flex; justify-content: center; gap: 5px;">
+                                    <img data-translate-src="verano/9.png|verano/9_pt.png|verano/9_en.png" src="verano/9.png" width="50%">
+                                    <img data-translate-src="verano/10.png|verano/10_pt.png|verano/10_en.png" src="verano/10.png" width="50%">
+                                </div>
+                <p data-translate="quest1.subquest2.desc6">"He construido el Päläcio Märino". Por lo visto, ha creado un castillo de arena en ese territorio.</p>
+                <p data-translate="quest1.subquest2.desc7">Partiremos ahora en dirección a Brakmar, en busca de la tercera botella en los Campos Téril.</p>
+                        <div style="display: flex; justify-content: center; gap: 5px;">
+                                    <img data-translate-src="verano/11.png|verano/11_pt.png|verano/11_en.png" src="verano/11.png" width="50%">
+                                    <img data-translate-src="verano/12.png|verano/12_pt.png|verano/12_en.png" src="verano/12.png" width="50%">
+                                </div>
+                <p data-translate="quest1.subquest2.desc8">"¿Hay alguien? ¡Socorro!". Al parecer se ha metido en un problema grave este aventurero, tendremos que darnos prisa si queremos salvarle.</p>
+                <p data-translate="quest1.subquest2.desc9">Rápido iremos a Sufokia, donde nos espera la cuarta y última botella, en la Duna Cana.</p>
+                        <div style="display: flex; justify-content: center; gap: 5px;">
+                                    <img data-translate-src="verano/13.png|verano/13_pt.png|verano/13_en.png" src="verano/13.png" width="50%">
+                                    <img data-translate-src="verano/14.png|verano/14_pt.png|verano/14_en.png" src="verano/14.png" width="50%">
+                                </div>
+                <p data-translate="quest1.subquest2.desc10">""¡Tengo hambre!", el viaje está siendo largo y ahora sufre de hambre, pero hemos descubierto toda la información necesaria. Regresemos con Gnat y contémosle la situación.</p>
+                            <center><img data-translate-src="verano/15.png|verano/15_pt.png|verano/15_en.png" src="verano/15.png"></center>
+                            <center><img data-translate-src="verano/16.png|verano/16_pt.png|verano/16_en.png" src="verano/16.png"></center>
+                <p data-translate="quest1.subquest2.desc11">Al parecer, Gnat tenía una extraña impresión de alguien pidiendo ayuda desde Bilbyza, que nos dará una brújula, para llegar a salvo a la Pläyä de la Älmädräbä.</p>
+                            <p class="quest-reward" data-translate="quest1.subquest2.reward">Recompensa: 10 Ärenichäs - Brújulä compästivä - Llave del Päläcio Märino </p>
+                            <center><img data-translate-src="verano/18.png|verano/18_pt.png|verano/18_en.png" src="verano/18.png"></center>
+                            </div>
+
+
+
+                        <div class="quest" id="subquest3">
+                        <div class="quest-header" data-translate="quest1.subquest3.title">Alerta en la pläyä de la Älmädräbä</div>
+
+
+
+                            <center><img data-translate-src="verano/17.png|verano/17_pt.png|verano/17_en.png" src="verano/17.png"></center>
+
+                <p data-translate="quest1.subquest3.desc1"> Los mensäjes son claros: un hombre está en apuros en la pläyä de la Älmädräbä, en Bilbyza.</p>
+                <p data-translate="quest1.subquest3.desc2">Debes ir a ayudarlo cuanto antes. La brújula que te ha entregado Gnat te guiará hasta ese lugar enigmático.</p>
+                            <center><img data-translate-src="verano/19.png|verano/19_pt.png|verano/19_en.png" src="verano/19.png"></center>
+                <p data-translate="quest1.subquest3.desc3">Una vez en Bilbyza iremos al suroeste.</p>
+                <p data-translate="quest1.subquest3.desc4">El Päläcio Märino es una mazmorra un tanto meme, pues cada personaje va a necesitar una llave (ya recibimos una previamente) para entrar en la mazmorra.</p>
+                            <center><img data-translate-src="verano/20.png|verano/20_pt.png|verano/20_en.png" src="verano/20.png"></center>
+                <p data-translate="quest1.subquest3.desc5">Sí, por error entraron sin grupo, les tocará usar otra llave. Esto lo aclaro, porque entraremos 2 veces a la mazmorra y para el segundo intento, sí o si necesitan 6 jugadores.</p>
+                            <center><img data-translate-src="verano/21.png|verano/21_pt.png|verano/21_en.png" src="verano/21.png"></center>
+                <p data-translate="quest1.subquest3.desc6">Una vez dentro de la mazmorra nos darán una pala para buscar la llave, pero no será algo fijo.</p>
+                        <div style="display: flex; justify-content: center; gap: 5px;">
+                                    <img data-translate-src="verano/22.png|verano/22_pt.png|verano/22_en.png" src="verano/22.png" width="40%">
+                                    <img data-translate-src="verano/23.png|verano/23_pt.png|verano/23_en.png" src="verano/23.png" width="40%">
+                            </div>
+                            <center><img data-translate-src="verano/24.png|verano/24_pt.png|verano/24_en.png" src="verano/24.png" width="50%"></center>
+                <p data-translate="quest1.subquest3.desc7">Podrá salirnos un grupo de monstruos o Ärenä finä.</p>
+                            <center><img data-translate-src="verano/25.png|verano/25_pt.png|verano/25_en.png" src="verano/25.png" width="50%"></center>
+                <p data-translate="quest1.subquest3.desc8">Les comentaré un poco sobre las habilidades de los Härenosos.</p>
+                        <div style="display: flex; justify-content: center; gap: 5px;">
+                                    <img data-translate-src="verano/27.png|verano/27_pt.png|verano/27_en.png" src="verano/27.png" width="40%">
+                                    <img data-translate-src="verano/28.png|verano/28_pt.png|verano/28_en.png" src="verano/28.png" width="40%">
+                                    <img data-translate-src="verano/26.png|verano/26_pt.png|verano/26_en.png" src="verano/26.png" width="40%">
+                            </div>
+                <p><span data-translate="quest1.subquest3.desc9.part1">Empiezan el combate con 80 dominio espalda, dura 1 turno, pero se puede acumular la duración y quien aumenta, esto es el </span><a href="https://www.wakfu.com/es/mmorpg/enciclopedia/monstruos/4020-torrejae-imperiael"
+     data-translate-href="es|https://www.wakfu.com/es/mmorpg/enciclopedia/monstruos/4020-torrejae-imperiael|pt|https://www.wakfu.com/pt/mmorpg/enciclopedia/monstros/4020-baeldi-aequino|en|https://www.wakfu.com/en/mmorpg/encyclopedia/monsters/4020-imperiael-skaete"
+                             target="_blank"
+                             rel="noopener noreferrer"
+                             data-translate-text="es|Torrejä imperiäl|pt|Bäldi Äquino|en|Imperiäl Skäte">
+                            Torrejä imperiäl
+                          </a>
+                <span data-translate="quest1.subquest3.desc9.part2"> este monstruo, quita PM y da dominio espalda a los demás enemigos, pero si ya tienen el bonus aumenta 1 turno de duración como dije antes, </span><a href="https://www.wakfu.com/es/mmorpg/enciclopedia/monstruos/4019-maegdaerenae"
+     data-translate-href="es|https://www.wakfu.com/es/mmorpg/enciclopedia/monstruos/4019-maegdaerenae|pt|https://www.wakfu.com/pt/mmorpg/enciclopedia/monstros/4019-baeldi-aedor|en|https://www.wakfu.com/en/mmorpg/encyclopedia/monsters/4019-bubble-skaete"
+                             target="_blank"
+                             rel="noopener noreferrer"
+                             data-translate-text="es|Bubble Skäte|pt|Bäldi Ädor|en|Bubble Skäte">
+                            Bubble Skäte
+                          </a>
+                <span data-translate="quest1.subquest3.desc9.part4"> este puede pegar en una zona algo amplia, por último nos enfrentaremos a </span><a href="https://www.wakfu.com/es/mmorpg/enciclopedia/monstruos/4018-torrejillae-aerenae"
+     data-translate-href="es|https://www.wakfu.com/es/mmorpg/enciclopedia/monstruos/4018-torrejillae-aerenae|pt|https://www.wakfu.com/pt/mmorpg/enciclopedia/monstros/4018-fifi-baeldeirae|en|https://www.wakfu.com/en/mmorpg/encyclopedia/monsters/4018-mimi-skaete"
+                             target="_blank"
+                             rel="noopener noreferrer"
+                             data-translate-text="es|Torrejillä de ärenä|pt|Fifi Bäldeirä|en|Mimi Skäte">
+                            Torrejillä de ärenä
+                          </a>
+                <span data-translate="quest1.subquest3.desc9.part5"> este simplemente pega a melé al igual que el primero, pero todos pueden saltar y quedar a nuestra espalda o costado, de ahí el bonus a daño espalda, tengan cuidado.
+                </span>
+                </p>
+                <center><img data-translate-src="verano/29.png|verano/29_pt.png|verano/29_en.png" src="verano/29.png" width="50%"></center>
+                <p data-translate="quest1.subquest3.desc10">Como siempre, los límites del campo nos darán un debuffo, en este caso menos 100 en resistencia espalda.</p>
+                <p data-translate="quest1.subquest3.desc11">Aunque muestro la sala de banderas azules, pueden empezar por otra, pero les comentaré en el orden en que lo hice yo.</p>
+                <center><img data-translate-src="verano/30.png|verano/30_pt.png|verano/30_en.png" src="verano/30.png" width="50%"></center>
+                <p data-translate="quest1.subquest3.desc12">Una vez tengamos la llave, podremos avanzar ahora sí a la primera sala de combate de la mazmorra. </p>
+                <p data-translate="quest1.subquest3.desc13">En la primera sala nos enfrentaremos al siguiente grupo de monstruos.</p>
+                        <div style="display: flex; justify-content: center; gap: 5px;">
+                                    <img src="verano/31.png" width="40%">
+                                    <img data-translate-src="verano/32.png|verano/32_pt.png|verano/32_en.png" src="verano/32.png" width="40%">
+                            </div>
+                <p data-translate="quest1.subquest3.desc14">En la segunda sala, la de banderas verdes, nos enfrentaremos a un grupo un poco más grande.</p>
+                        <div style="display: flex; justify-content: center; gap: 5px;">
+                                    <img src="verano/33.png" width="40%">
+                                    <img data-translate-src="verano/34.png|verano/34_pt.png|verano/34_en.png" src="verano/34.png" width="40%">
+                            </div>
+                <p data-translate="quest1.subquest3.desc15">En la penúltima sala, la de banderas moradas, os enfrentaremos al grupo más grande de toda la mazmorra.</p>
+                <p data-translate="quest1.subquest3.desc16"></p>
+                        <div style="display: flex; justify-content: center; gap: 5px;">
+                                    <img src="verano/35.png" width="40%">
+                                    <img data-translate-src="verano/36.png|verano/36_pt.png|verano/36_en.png" src="verano/36.png" width="40%">
+                            </div>
+                <p data-translate="quest1.subquest3.desc17">Finalmente, nos enfrentaremos al jefe de la mazmorra.</p>
+                        <div style="display: flex; justify-content: center; gap: 5px;">
+                                    <img src="verano/37.png" width="40%">
+                                    <img data-translate-src="verano/38.png|verano/38_pt.png|verano/38_en.png" src="verano/38.png" width="40%">
+                            </div>
+                <p><span data-translate="quest1.subquest3.desc18.part1">El jefe de la mazmorra  </span><a href="https://www.wakfu.com/es/mmorpg/enciclopedia/monstruos/4021-caestillo-enhaerenaedo"
+     data-translate-href="es|https://www.wakfu.com/es/mmorpg/enciclopedia/monstruos/4021-caestillo-enhaerenaedo|pt|https://www.wakfu.com/pt/mmorpg/enciclopedia/monstros/4021-caestelo-aereia|en|https://www.wakfu.com/en/mmorpg/encyclopedia/monsters/4021-saend-caestle"
+                             target="_blank"
+                             rel="noopener noreferrer"
+                             data-translate-text="es|Cästillo Enhärenädo|pt|Cästelo de äreia|en|Sänd Cästle">
+                            Cästillo Enhärenädo
+                          </a> 
+                          <span data-translate="quest1.subquest3.desc18.part2"> tiene la habilidad de invocar a Torrejä imperiäl y Bubble Skäte, no se mueve, pero igualmente te puede golpear a distancia y melé en área, además es invulnerable.
+                </span>
+                </p>
+                            <center><img data-translate-src="verano/39.png|verano/39_pt.png|verano/39_en.png" src="verano/39.png" width="40%"></center>
+                <p data-translate="quest1.subquest3.desc19">Para quitarle la invulnerabilidad tendremos que poner a uno de sus aliados a una distancia de 4 o menos casillas para que reciba el golpe en área y de esta forma poder golpearlo (valen sus invocaciones, al matar al Cästillo Enhärenädo morirán todas las invocaciones).</p>
+                            <center><img src="verano/45.png" width="40%"></center>
+                <p data-translate="quest1.subquest3.desc20">Una vez vencido el Cästillo Enhärenädo podremos hablar con "el aventurero".</p>
+                            <center><img data-translate-src="verano/82.png|verano/82_pt.png|verano/82_en.png" src="verano/82.png" width="80%"></center>
+                <p data-translate="quest1.subquest3.desc21">Quien nos critica por haberla ayudado, pues según ella podía cuidarse sola.</p>
+                            <center><img data-translate-src="verano/80.png|verano/80_pt.png|verano/80_en.png" src="verano/80.png" width="80%"></center>
+                <p data-translate="quest1.subquest3.desc22">Nos sorprendemos al descubrir que es una mujer, además de una Salteadorilla. Dice que en las botellas había aclarado eso, pero esa nunca nos llegó a las islas.</p>
+                            <center><img data-translate-src="verano/81.png|verano/81_pt.png|verano/81_en.png" src="verano/81.png" width="80%"></center>
+                <p data-translate="quest1.subquest3.desc23">También nos cuenta que ella fue la creadora de los Härenosos, pues llegó hace bastante tiempo a la isla y ha estado creando a estos seres por aburrimiento y arrojando botelläs al mar, esperando que alguien fuera a rescatarla, pero ahora no quiere irse.</p>
+
+
+
+                            <p class="quest-reward" data-translate="quest1.subquest3.reward"> Recompensa: Experiencia (varía según el nivel) -  Receta de los härinosos - 50 Ärenichäs - 1 Perla</p>
+                                    <div style="display: flex; justify-content: center; gap: 5px;">
+                                    <img data-translate-src="verano/40.png|verano/40_pt.png|verano/40_en.png" src="verano/40.png" width="30%">
+                                    <img data-translate-src="verano/70.png|verano/70_pt.png|verano/70_en.png" src="verano/70.png" width="30%">
+                            </div>
+                            </div>
+
+
+
+                        <div class="quest" id="subquest4">
+                        <div class="quest-header" data-translate="quest1.subquest4.title">Han rescatado al Pästelero</div>
+
+
+
+                            <center><img data-translate-src="verano/41.png|verano/41_pt.png|verano/41_en.png" src="verano/41.png"></center>
+
+                <p data-translate="quest1.subquest4.desc1">Has cumplido tu misión con valentía.</p>
+                <p data-translate="quest1.subquest4.desc2">Como el Pästelero no quería abandonar su playa, has decidido dejarlo tranquilo y avisar a Gnat.</p>
+                            <center><img data-translate-src="verano/42.png|verano/42_pt.png|verano/42_en.png" src="verano/42.png"></center>
+                <p data-translate="quest1.subquest4.desc3">Volveremos a hablar con Gnat, nos felicitará y le contaremos que el Pästelero no quiso volver con nosotros.</p>
+                            <center><img data-translate-src="verano/43.png|verano/43_pt.png|verano/43_en.png" src="verano/43.png"></center>
+
+
+
+                            <p class="quest-reward" data-translate="quest1.subquest4.reward"> Recompensa: Experiencia (varía según el nivel) -  Título: El veraneante relajado - 60 Ärenichäs</p>
+                            </div>
+
+
+                <p data-translate="quest1.subquest4.desc4">Desde este momento podremos empezar a hacer unas misiones secundarias y una diaria de entregarle 10 unidades de Ärenä finä a Gnat. Te dará algo de experiencia y unas cuantas Ärenichäs y la verdad no vale mucho la pena hacerlas.</p>
+
+                        <div class="quest" id="subquest5">
+                        <div class="quest-header" data-translate="quest1.subquest5.title">Gäräbäto del Pästelero</div>
+
+
+
+                            <center><img data-translate-src="verano/44.png|verano/44_pt.png|verano/44_en.png" src="verano/44.png"></center>
+
+                
+                <p data-translate="quest1.subquest5.desc1">Conseguir los garabatos de Lerä Pästy</p>
+                <p data-translate="quest1.subquest5.desc2">Si tuvimos suerte, habremos dropeado una segunda llave en la mazmorra.</p>
+                <p data-translate="quest1.subquest5.desc3">En caso de no haber dropeado una llave, tendremos que ir a Astrub a matar a los Härenosos para conseguir otra llave o comprarla en el mercado.</p>
+                        <div style="display: flex; justify-content: center; gap: 5px;">
+                                    <img data-translate-src="verano/46.png|verano/46_pt.png|verano/46_en.png" src="verano/46.png" width="50%">
+                                    <img data-translate-src="verano/47.png|verano/47_pt.png|verano/47_en.png" src="verano/47.png" width="50%">
+                            </div>
+                <p data-translate="quest1.subquest5.desc4">Una vez hayamos pasado por segunda vez la mazmorra, tendremos casi todos los logros.</p>
+                <p data-translate="quest1.subquest5.desc5">Nos dirá que este jefe oculto es su máxima creación, pero debemos pararnos en las baldosas en un orden específico.</p>
+                                    <center><img data-translate-src="verano/48.png|verano/48_pt.png|verano/48_en.png" src="verano/48.png" width="50%"></center>
+                <p data-translate="quest1.subquest5.desc6">Para eso necesitaremos este objeto que nos acaba de dar Lerä Pästelerä y necesitaremos a 6 personajes, acá no valen los héroes.</p>
+                <p data-translate="quest1.subquest5.desc7">Este objeto es importante para saber cómo ubicarnos en el mapa del centro.</p>
+                                    <center><img src="verano/49.png" width="70%"></center>
+                <p data-translate="quest1.subquest5.desc8">Observamos que hay varias baldosas con diferentes figuras, tengamos cuidado y no las pisemos de momento, primero abriremos los Gäräbätos del Pästelero.</p>
+                                    <center><img src="verano/50.png" width="50%"></center>
+                <p data-translate="quest1.subquest5.desc9">Al abrirlo vemos que hay un orden numérico y justo en ese orden se deben ir posicionando cada uno de los personajes o jugadores.</p>
+                                    <center><img src="verano/51.png" width="70%"></center>
+                <p data-translate="quest1.subquest5.desc10">Una vez nos posicionemos, el nivel del agua bajará y podremos acceder al jefe oculto.</p>
+                                    <div style="display: flex; justify-content: center; gap: 5px;">
+                                    <img src="verano/52.png" width="50%">
+                                    <img data-translate-src="verano/53.png|verano/53_pt.png|verano/53_en.png" src="verano/53.png" width="50%">
+                            </div>
+                <p><span data-translate="quest1.subquest5.desc11.part1">Hablemos de </span><a href="https://www.wakfu.com/es/mmorpg/enciclopedia/monstruos/4022-paetinojaeldre"
+     data-translate-href="es|https://www.wakfu.com/es/mmorpg/enciclopedia/monstruos/4022-paetinojaeldre|pt|https://www.wakfu.com/pt/mmorpg/enciclopedia/monstros/4022-baeldi-aeguaefria|en|https://www.wakfu.com/en/mmorpg/encyclopedia/monsters/4022-blaeck-skaete"
+                             target="_blank"
+                             rel="noopener noreferrer"
+                             data-translate-text="es|Pätinojäldre|pt|Bäldi Äguäfria|en|Bläck Skäte">
+                            Pätinojäldre
+                          </a>
+                          <span data-translate="quest1.subquest5.desc11.part2"> puede empujar 2 casillas, deplazarce hasta el objetivo y se teleporta a la espalda en melé, la mayoría de sus ataques son monoobjetivo.
+                </span>
+                </p>
+                                    <center><img data-translate-src="verano/54.png|verano/54_pt.png|verano/54_en.png" src="verano/54.png" width="50%"></center>
+                <p><span data-translate="quest1.subquest5.desc12.part1">Pero no es todo, cuando baje a un cuarto de su vida, se volvera invulnerable e invocara 2 </span><a href="https://www.wakfu.com/es/mmorpg/enciclopedia/monstruos/4033-clon-paetinojaeldre"
+     data-translate-href="es|https://www.wakfu.com/es/mmorpg/enciclopedia/monstruos/4033-clon-paetinojaeldre|pt|https://www.wakfu.com/pt/mmorpg/enciclopedia/monstros/4033-clone-do-baeldi-aeguaefria|en|https://www.wakfu.com/en/mmorpg/encyclopedia/monsters/4033-blaeck-skaete-clone"
+                             target="_blank"
+                             rel="noopener noreferrer"
+                             data-translate-text="es|Clon del pätinojäldre|pt|Clone do Bäldi Äguäfria|en|Bläck Skäte Clone">
+                            Clon del pätinojäldre
+                          </a>
+                          <span data-translate="quest1.subquest5.desc12.part2"> estos clones tienen las mismas habilidades del original y al morir curaran 100 puntos de vida al original.
+                </span>
+                </p>
+                                    <div style="display: flex; justify-content: center; gap: 5px;">
+                                    <img data-translate-src="verano/55.png|verano/55_pt.png|verano/55_en.png" src="verano/55.png" width="50%">
+                                    <img data-translate-src="verano/56.png|verano/56_pt.png|verano/56_en.png" src="verano/56.png" width="50%">
+                            </div>
+                                    <center><img data-translate-src="verano/57.png|verano/57_pt.png|verano/57_en.png" src="verano/57.png" width="50%"></center>
+                <p data-translate="quest1.subquest5.desc13"> Por lo tanto tendra casi toda su vida al maximo de nuevo.</p>
+                
+                
+                <p class="quest-reward" data-translate="quest1.subquest4.reward"> Recompensa:</p>
+                            </div>
+                <p data-translate="quest1.subquest5.desc14">Una vez terminada la mazmorra habremos terminado todos los logros y misiones principales.</p>
+                                    <div style="display: flex; justify-content: center; gap: 5px;">
+                                    <img data-translate-src="verano/72.png|verano/72_pt.png|verano/72_en.png" src="verano/72.png" width="50%">
+                                    <img data-translate-src="verano/73.png|verano/73_pt.png|verano/73_en.png" src="verano/73.png" width="50%">
+                            </div>
+
+                        <div class="quest" id="subquest6">
+                        <div class="quest-header" data-translate="quest1.subquest6.title">Recompensas y misiones secundarías</div>
+
+
+
+                <p data-translate="quest1.subquest5.desc15">Ahora al volver a hablar con Gnat, tendremos la opción de conseguir las 2 misiones diarias, que como comente anteriormente, no te aportan practicamente nada.</p>
+                                    <div style="display: flex; justify-content: center; gap: 5px;">
+                                    <img data-translate-src="verano/58.png|verano/58_pt.png|verano/58_en.png" src="verano/58.png" width="50%">
+                                    <img data-translate-src="verano/59.png|verano/59_pt.png|verano/59_en.png" src="verano/59.png" width="50%">
+                            </div>
+                                    <div style="display: flex; justify-content: center; gap: 5px;">
+                                    <img data-translate-src="verano/60.png|verano/60_pt.png|verano/60_en.png" src="verano/60.png" width="50%">
+                                    <img data-translate-src="verano/61.png|verano/61_pt.png|verano/61_en.png" src="verano/61.png" width="50%">
+                            </div>
+                                    <center><img data-translate-src="verano/62.png|verano/62_pt.png|verano/62_en.png" src="verano/62.png" width="50%"></center>
+                <p data-translate="quest1.subquest5.desc16">Además la última misión que nos da Gnat es darle 10 Ärenä negrä y solo obtienes 1 por personaje en el combate del jefe oculto, es decir deberás repetir muchas veces la mazmorra.</p>
+                                    <div style="display: flex; justify-content: center; gap: 5px;">
+                                    <img data-translate-src="verano/63.png|verano/63_pt.png|verano/63_en.png" src="verano/63.png" width="50%">
+                                    <img data-translate-src="verano/64.png|verano/64_pt.png|verano/64_en.png" src="verano/64.png" width="40%">
+                            </div>
+                <p data-translate="quest1.subquest5.desc17">Sin mencionar que solo hay 1 recompensa en el crupier que vale la pena en la inmensa lista que les mostrare.</p>
+                                    <div style="display: flex; justify-content: center; gap: 5px;">
+                                    <img data-translate-src="verano/65.png|verano/65_pt.png|verano/65_en.png" src="verano/65.png" width="40%">
+                                    <img data-translate-src="verano/66.png|verano/66_pt.png|verano/66_en.png" src="verano/66.png" width="40%">
+                            </div>
+                                    <div style="display: flex; justify-content: center; gap: 5px;">
+                                    <img data-translate-src="verano/67.png|verano/67_pt.png|verano/67_en.png" src="verano/67.png" width="40%">
+                                    <img data-translate-src="verano/68.png|verano/68_pt.png|verano/68_en.png" src="verano/68.png" width="40%">
+                            </div>
+                <p data-translate="quest1.subquest5.desc18">Son los Härinosos unos panes que los curán un 8% de sus puntos de vida maximos, de resto son solo cosmeticos y equipables que no aportan practicamente nada.</p>
+                            </div>
+                <p data-translate="quest1.subquest5.desc19">Espero les haya gustado la guía, se que es mucho texto, pero creanme que se demoran poco menos de 30 minutos en hacer todo.</p>
+                <p data-translate="quest1.subquest5.desc20">Nos vemos en otra entrega.</p>
+                <p data-translate="quest1.subquest5.desc21">Atentamente: Drarios.</p>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // ==================== SISTEMA DE TRADUCCIÓN ====================
+        
+
+            // ==================== ES version ==================== \\
+        const translations = {
+        es: {
+            "title": "Guía de Älmädräbä",
+                "section.t": "Guía de Älmädräbä",
+                "nav.drop_wakfu": "Calc Drop Wakfu",
+                "nav.home": "Inicio",
+                "nav.quests": "Misiones",
+                "nav.dungeons": "Mazmorras",
+                "nav.optimization": "Optimización",
+                "nav.crafts": "Oficios",
+                "nav.misc": "Varios",
+        "section.title": "La Älmädräbä",
+        "section.intro1.part1": "Cómo cada año ",
+        "section.intro1.part2": " el Santo de las caracolas, nos invita a explorar las playas y traerle un poco de ärenä finä.",
+        "section.intro2": "Siendo el santo del verano, busca aventureros dispuestos a disfrutar de las vacaciones de mitad de año, con su búsqueda por la Ärenä finä y ¿por qué no?, darle una paliza a los Härenosos.",
+        "section.intro3": "Nota: los santos son deidades menores que hicieron un pacto con los dioses del panteón divino y gozan de un poder un poco mayor que la mayoría de deidades menores. Siendo además protectores de cada uno de los 365 días del año. También existen los protectores de los meses y los demonios de las horas. Según un NPC de la era de los Dofus hay al menos 1824, además no tienen casi poder, porque no tienen muchos fieles, pero son seres que aportan bastante y quienes oramos desde el templo del Almanax.",
+        
+        "quest1.subquest1.title": "Välvas y ärenä finä",
+        "quest1.subquest1.desc1": "¿Qué opinas de unas vacaciones al sol y en buena compañía?",
+        "quest1.subquest1.desc2": "Ven a verme a Astrub, te espero allí.",
+        "quest1.subquest1.desc3": "Nos dirigiremos al centro de la ciudad de Astrub y al norte. Antes de llegar al mercado, veremos a Gnat quien nos recibirá con alegría y bastante entusiasmo, y nos contará que anda en busca de nobles y poderosos aventureros dispuestos a explorar la Pläyä de la Älmädräbä, para conseguir su preciada ärenä finä.",
+        "quest1.subquest1.desc4": "También ha visto la llegada de unas botellas en las diferentes naciones con mensajes en su interior, pero cómo es demasiado esfuerzo para él y prefiere tostar sus caracolas nos deja con la intriga para ir a buscarlas.",
+        "quest1.subquest1.desc5": "Les recomiendo algo de paciencia, aun con los dragopavos tendremos que caminar bastante (excepto en Amakna, que curiosamente es bastante cerca).",
+        "quest1.subquest1.reward": "Recompensa: Experiencia (varía según el nivel) - 5 Ärenichäs",
+        
+        "quest1.subquest2.title": "Botellä al aguä",
+        "quest1.subquest2.desc1": "Gnat te ha encargado que encuentres los mensäjes guardados en las botelläs que han naufragado por todo el mundo.",
+        "quest1.subquest2.desc2": "Nos dirigiremos primero a la nación de Amakna a buscar la primera botella, que se encuentra en los Campos Cantarines.",
+        "quest1.subquest2.desc3": "El mensaje nos dirá 'Estoy en una isla cerca de Bilbyza'.",
+        "quest1.subquest2.desc4": "Por lo visto, alguien ha llegado primero que nadie a la Pläyä de la Älmädräbä.",
+        "quest1.subquest2.desc5": "Ahora partiremos a Bonta, donde nos aguarda la segunda botella en el puente que conecta el Bosquecillo de Túkulo con las llanuras de Cania.",
+        "quest1.subquest2.desc6": "'He construido el Päläcio Märino'. Por lo visto, ha creado un castillo de arena en ese territorio.",
+        "quest1.subquest2.desc7": "Partiremos ahora en dirección a Brakmar, en busca de la tercera botella en los Campos Téril.",
+        "quest1.subquest2.desc8": "'¿Hay alguien? ¡Socorro!'. Al parecer se ha metido en un problema grave este aventurero, tendremos que darnos prisa si queremos salvarle.",
+        "quest1.subquest2.desc9": "Rápido iremos a Sufokia, donde nos espera la cuarta y última botella, en la Duna Cana.",
+        "quest1.subquest2.desc10": "'¡Tengo hambre!', el viaje está siendo largo y ahora sufre de hambre, pero hemos descubierto toda la información necesaria. Regresemos con Gnat y contémosle la situación.",
+        "quest1.subquest2.desc11": "Al parecer, Gnat tenía una extraña impresión de alguien pidiendo ayuda desde Bilbyza, que nos dará una brújula, para llegar a salvo a la Pläyä de la Älmädräbä.",
+        "quest1.subquest2.reward": "Recompensa: 10 Ärenichäs - Brújulä compästivä - Llave del Päläcio Märino",
+        
+        "quest1.subquest3.title": "Alerta en la pläyä de la Älmädräbä",
+        "quest1.subquest3.desc1": "Los mensäjes son claros: un hombre está en apuros en la pläyä de la Älmädräbä, en Bilbyza.",
+        "quest1.subquest3.desc2": "Debes ir a ayudarlo cuanto antes. La brújula que te ha entregado Gnat te guiará hasta ese lugar enigmático.",
+        "quest1.subquest3.desc3": "Una vez en Bilbyza iremos al suroeste.",
+        "quest1.subquest3.desc4": "El Päläcio Märino es una mazmorra un tanto meme, pues cada personaje va a necesitar una llave (ya recibimos una previamente) para entrar en la mazmorra.",
+        "quest1.subquest3.desc5": "Sí, por error entraron sin grupo, les tocará usar otra llave. Esto lo aclaro, porque entraremos 2 veces a la mazmorra y para el segundo intento, sí o si necesitan 6 jugadores.",
+        "quest1.subquest3.desc6": "Una vez dentro de la mazmorra nos darán una pala para buscar la llave, pero no será algo fijo.",
+        "quest1.subquest3.desc7": "Podrá salirnos un grupo de monstruos o Ärenä finä.",
+        "quest1.subquest3.desc8": "Les comentaré un poco sobre las habilidades de los Härenosos.",
+        "quest1.subquest3.desc9.part1": "Empiezan el combate con 80 dominio espalda, dura 1 turno, pero se puede acumular la duración y quien aumenta, esto es el ",
+        "quest1.subquest3.desc9.part2": " este monstruo, quita PM y da dominio espalda a los demás enemigos, pero si ya tienen el bonus aumenta 1 turno de duración como dije antes, ",
+        "quest1.subquest3.desc9.part4": " este puede pegar en una zona algo amplia, por último nos enfrentaremos a ",
+        "quest1.subquest3.desc9.part5": " este simplemente pega a melé al igual que el primero, pero todos pueden saltar y quedar a nuestra espalda o costado, de ahí el bonus a daño espalda, tengan cuidado.",
+        "quest1.subquest3.desc10": "Como siempre, los límites del campo nos darán un debuffo, en este caso menos 100 en resistencia espalda.",
+        "quest1.subquest3.desc11": "Aunque muestro la sala de banderas azules, pueden empezar por otra, pero les comentaré en el orden en que lo hice yo.",
+        "quest1.subquest3.desc12": "Una vez tengamos la llave, podremos avanzar ahora sí a la primera sala de combate de la mazmorra.",
+        "quest1.subquest3.desc13": "En la primera sala nos enfrentaremos al siguiente grupo de monstruos.",
+        "quest1.subquest3.desc14": "En la segunda sala, la de banderas verdes, nos enfrentaremos a un grupo un poco más grande.",
+        "quest1.subquest3.desc15": "En la penúltima sala, la de banderas moradas, os enfrentaremos al grupo más grande de toda la mazmorra.",
+        "quest1.subquest3.desc16": "",
+        "quest1.subquest3.desc17": "Finalmente, nos enfrentaremos al jefe de la mazmorra.",
+        "quest1.subquest3.desc18.part1": "El jefe de la mazmorra ",
+        "quest1.subquest3.desc18.part2": " tiene la habilidad de invocar a Torrejä imperiäl y Bubble Skäte, no se mueve, pero igualmente te puede golpear a distancia y melé en área, además es invulnerable.",
+        "quest1.subquest3.desc19": "Para quitarle la invulnerabilidad tendremos que poner a uno de sus aliados a una distancia de 4 o menos casillas para que reciba el golpe en área y de esta forma poder golpearlo (valen sus invocaciones, al matar al Cästillo Enhärenädo morirán todas las invocaciones).",
+        "quest1.subquest3.desc20": "Una vez vencido el Cästillo Enhärenädo podremos hablar con 'el aventurero'.",
+        "quest1.subquest3.desc21": "Quien nos critica por haberla ayudado, pues según ella podía cuidarse sola.",
+        "quest1.subquest3.desc22": "Nos sorprendemos al descubrir que es una mujer, además de una Salteadorilla. Dice que en las botellas había aclarado eso, pero esa nunca nos llegó a las islas.",
+        "quest1.subquest3.desc23": "También nos cuenta que ella fue la creadora de los Härenosos, pues llegó hace bastante tiempo a la isla y ha estado creando a estos seres por aburrimiento y arrojando botelläs al mar, esperando que alguien fuera a rescatarla, pero ahora no quiere irse.",
+        "quest1.subquest3.reward": "Recompensa: Experiencia (varía según el nivel) - Receta de los härinosos - 50 Ärenichäs - 1 Perla",
+        
+        "quest1.subquest4.title": "Han rescatado al Pästelero",
+        "quest1.subquest4.desc1": "Has cumplido tu misión con valentía.",
+        "quest1.subquest4.desc2": "Como el Pästelero no quería abandonar su playa, has decidido dejarlo tranquilo y avisar a Gnat.",
+        "quest1.subquest4.desc3": "Volveremos a hablar con Gnat, nos felicitará y le contaremos que el Pästelero no quiso volver con nosotros.",
+        "quest1.subquest4.desc4": "Desde este momento podremos empezar a hacer unas misiones secundarias y una diaria de entregarle 10 unidades de Ärenä finä a Gnat. Te dará algo de experiencia y unas cuantas Ärenichäs y la verdad no vale mucho la pena hacerlas.",
+        "quest1.subquest4.reward": "Recompensa: Experiencia (varía según el nivel) - Título: El veraneante relajado - 60 Ärenichäs",
+        
+        "quest1.subquest5.title": "Gäräbäto del Pästelero",
+        "quest1.subquest5.desc1": "Conseguir los garabatos de Lerä Pästy",
+        "quest1.subquest5.desc2": "Si tuvimos suerte, habremos dropeado una segunda llave en la mazmorra.",
+        "quest1.subquest5.desc3": "En caso de no haber dropeado una llave, tendremos que ir a Astrub a matar a los Härenosos para conseguir otra llave o comprarla en el mercado.",
+        "quest1.subquest5.desc4": "Una vez hayamos pasado por segunda vez la mazmorra, tendremos casi todos los logros.",
+        "quest1.subquest5.desc5": "Nos dirá que este jefe oculto es su máxima creación, pero debemos pararnos en las baldosas en un orden específico.",
+        "quest1.subquest5.desc6": "Para eso necesitaremos este objeto que nos acaba de dar Lerä Pästelerä y necesitaremos a 6 personajes, acá no valen los héroes.",
+        "quest1.subquest5.desc7": "Este objeto es importante para saber cómo ubicarnos en el mapa del centro.",
+        "quest1.subquest5.desc8": "Observamos que hay varias baldosas con diferentes figuras, tengamos cuidado y no las pisemos de momento, primero abriremos los Gäräbätos del Pästelero.",
+        "quest1.subquest5.desc9": "Al abrirlo vemos que hay un orden numérico y justo en ese orden se deben ir posicionando cada uno de los personajes o jugadores.",
+        "quest1.subquest5.desc10": "Una vez nos posicionemos, el nivel del agua bajará y podremos acceder al jefe oculto.",
+        "quest1.subquest5.desc11.part1": "Hablemos de ",
+        "quest1.subquest5.desc11.part2": " puede empujar 2 casillas, deplazarce hasta el objetivo y se teleporta a la espalda en melé, la mayoría de sus ataques son monoobjetivo.",
+        "quest1.subquest5.desc12.part1": "Pero no es todo, cuando baje a un cuarto de su vida, se volvera invulnerable e invocara 2 ",
+        "quest1.subquest5.desc12.part2": " estos clones tienen las mismas habilidades del original y al morir curaran 100 puntos de vida al original.",
+        "quest1.subquest5.desc13": "Por lo tanto tendra casi toda su vida al maximo de nuevo.",
+        "quest1.subquest5.desc14": "Una vez terminada la mazmorra habremos terminado todos los logros y misiones principales.",
+        "quest1.subquest6.title": "Recompensas y misiones secundarías",
+        "quest1.subquest5.desc15": "Ahora al volver a hablar con Gnat, tendremos la opción de conseguir las 2 misiones diarias, que como comente anteriormente, no te aportan practicamente nada.",
+        "quest1.subquest5.desc16": "Además la última misión que nos da Gnat es darle 10 Ärenä negrä y solo obtienes 1 por personaje en el combate del jefe oculto, es decir deberás repetir muchas veces la mazmorra.",
+        "quest1.subquest5.desc17": "Sin mencionar que solo hay 1 recompensa en el crupier que vale la pena en la inmensa lista que les mostrare.",
+        "quest1.subquest5.desc18": "Son los Härinosos unos panes que los curán un 8% de sus puntos de vida maximos, de resto son solo cosmeticos y equipables que no aportan practicamente nada.",
+        "quest1.subquest5.desc19": "Espero les haya gustado la guía, se que es mucho texto, pero creanme que se demoran poco menos de 30 minutos en hacer todo.",
+        "quest1.subquest5.desc20": "Nos vemos en otra entrega.",
+        "quest1.subquest5.desc21": "Atentamente: Drarios.",
+  
+                "sidebar.title": "Navegación",
+                "sidebar.quest1": "La Älmädräbä",
+                "sidebar.subquest1": "Välväs y ärenä finä",
+                "sidebar.subquest2": "Botellä al aguä",
+                "sidebar.subquest3": "Alerta en la pläyä de la Älmädräbä",
+                "sidebar.subquest4": "Han rescatado al Pästelero",
+                "sidebar.subquest5": "Gäräbäto del Pästelero",
+                "sidebar.subquest6": "Recompensas y misiones secundarías"
+            },
+            
+
+            // ==================== PT version ==================== \\
+            pt: {
+            "title": "Guia do Älmadräva",
+                "section.t": "Guia do Älmadräva",
+                "nav.drop_wakfu": "Calc Drop Wakfu",
+                "nav.home": "Início",
+                "nav.quests": "Missões",
+                "nav.dungeons": "Masmorras",
+                "nav.optimization": "Otimização",
+                "nav.crafts": "Profissões",
+                "nav.misc": "Vários",
+                "section.title": "Älmadräva",
+        "section.intro1.part1": "Como todos os anos ",
+        "section.intro1.part2": " o Santo das conchas nos convida a explorar as praias e trazer um pouco de äreia fina.",
+        "section.intro2": "Sendo o santo do verão, busca aventureiros dispostos a aproveitar as férias de meio de ano, com sua busca pela Äreia fina e por que não? dar uma surra nos Bäldieos.",
+        "section.intro3": "Nota: os santos são deidades menores que fizeram um pacto com os deuses do panteão divino e desfrutam de um poder um pouco maior que a maioria das deidades menores. Sendo também protetores de cada um dos 365 dias do ano. Também existem os protetores dos meses e os demônios das horas. Segundo um NPC da era dos Dofus há pelo menos 1824, além disso não têm quase poder, porque não têm muitos fiéis, mas são seres que contribuem bastante e a quem rezamos desde o templo do Almanax.",
+        
+        "quest1.subquest1.title": "Conchas e äreia fina",
+        "quest1.subquest1.desc1": "O que acha de umas férias ao sol e em boa companhia?",
+        "quest1.subquest1.desc2": "Venha me ver em Astrub, te espero lá.",
+        "quest1.subquest1.desc3": "Iremos ao centro da cidade de Astrub e ao norte. Antes de chegar ao mercado, veremos Gnat que nos receberá com alegria e bastante entusiasmo, e nos contará que está em busca de nobres e poderosos aventureiros dispostos a explorar a Praia da Älmadräva, para conseguir sua preciosa äreia fina.",
+        "quest1.subquest1.desc4": "Ele também viu a chegada de algumas garrafas nas diferentes nações com mensagens dentro, mas como é muito esforço para ele e prefere torrar suas conchas, nos deixa com a curiosidade de ir procurá-las.",
+        "quest1.subquest1.desc5": "Recomendo um pouco de paciência, mesmo com os dragopavos teremos que caminhar bastante (exceto em Amakna, que curiosamente é bem perto).",
+        "quest1.subquest1.reward": "Recompensa: Experiência (varia conforme o nível) - 5 Ärenichäs",
+        
+        "quest1.subquest2.title": "Garrafa ao mar",
+        "quest1.subquest2.desc1": "Gnat te encarregou de encontrar as mensagens guardadas nas garrafas que naufragaram por todo o mundo.",
+        "quest1.subquest2.desc2": "Primeiro iremos para a nação de Amakna buscar a primeira garrafa, que está nos Campos Cantantes.",
+        "quest1.subquest2.desc3": "A mensagem dirá 'Estou em uma ilha perto de Bilbyza'.",
+        "quest1.subquest2.desc4": "Pelo visto, alguém chegou antes de todos na Praia da Älmadräva.",
+        "quest1.subquest2.desc5": "Agora partiremos para Bonta, onde nos espera a segunda garrafa na ponte que conecta o Matagal de Telbrioko com as planícies Cânia.",
+        "quest1.subquest2.desc6": "'Eu construí o Palácio Marinho'. Pelo visto, ele criou um castelo de areia nesse território.",
+        "quest1.subquest2.desc7": "Agora partiremos em direção a Brakmar, em busca da terceira garrafa nos Campos pabongo.",
+        "quest1.subquest2.desc8": "'Tem alguém aí? Socorro!'. Parece que esse aventureiro se meteu em um problema sério, teremos que nos apressar se quisermos salvá-lo.",
+        "quest1.subquest2.desc9": "Rapidamente iremos para Sufokia, onde nos espera a quarta e última garrafa, na Dunas Terrâneas.",
+        "quest1.subquest2.desc10": "'Estou com fome!', a viagem está sendo longa e agora ele sofre de fome, mas descobrimos todas as informações necessárias. Vamos voltar com Gnat e contar a situação.",
+        "quest1.subquest2.desc11": "Parece que Gnat tinha uma estranha impressão de alguém pedindo ajuda desde Bilbyza, que nos dará uma bússola, para chegar em segurança à Praia da Älmadräva.",
+        "quest1.subquest2.reward": "Recompensa: 10 Ärenichäs - Bússola combäldecida - Chave do Pälácio Märinho",
+        
+        "quest1.subquest3.title": "Alerta na praia da Älmadräva",
+        "quest1.subquest3.desc1": "As mensagens são claras: um homem está em apuros na praia da Älmadräva, em Bilbyza.",
+        "quest1.subquest3.desc2": "Você deve ir ajudá-lo o quanto antes. A bússola que Gnat te entregou te guiará até esse lugar enigmático.",
+        "quest1.subquest3.desc3": "Uma vez em Bilbyza iremos para o sudoeste.",
+        "quest1.subquest3.desc4": "O Palácio Marinho é uma masmorra meio meme, pois cada personagem vai precisar de uma chave (já recebemos uma anteriormente) para entrar na masmorra.",
+        "quest1.subquest3.desc5": "Sim, por erro entraram sem grupo, terão que usar outra chave. Isso eu esclareço, porque entraremos 2 vezes na masmorra e para a segunda tentativa, sim ou sim precisam de 6 jogadores.",
+        "quest1.subquest3.desc6": "Uma vez dentro da masmorra nos darão uma pá para buscar a chave, mas não será algo fixo.",
+        "quest1.subquest3.desc7": "Pode nos sair um grupo de monstros ou Äreia fina.",
+        "quest1.subquest3.desc8": "Vou comentar um pouco sobre as habilidades dos Bäldieos.",
+        "quest1.subquest3.desc9.part1": "Começam o combate com 80 domínio nas costas, dura 1 turno, mas pode acumular a duração e quem aumenta, isso é o ",
+        "quest1.subquest3.desc9.part2": " esse monstro, tira PM e dá domínio nas costas aos outros inimigos, mas se já tiverem o bônus aumenta 1 turno de duração como disse antes, ",
+        "quest1.subquest3.desc9.part4": " esse pode acertar em uma zona um pouco ampla, por último enfrentaremos ",
+        "quest1.subquest3.desc9.part5": " esse simplesmente acerta em corpo a corpo como o primeiro, mas todos podem pular e ficar em nossas costas ou lateral, daí o bônus a dano nas costas, tenham cuidado.",
+        "quest1.subquest3.desc10": "Como sempre, os limites do campo nos darão um debuff, neste caso menos 100 em resistência nas costas.",
+        "quest1.subquest3.desc11": "Apesar de mostrar a sala de bandeiras azuis, podem começar por outra, mas vou comentar na ordem que eu fiz.",
+        "quest1.subquest3.desc12": "Uma vez que tenhamos a chave, poderemos avançar agora sim para a primeira sala de combate da masmorra.",
+        "quest1.subquest3.desc13": "Na primeira sala enfrentaremos o seguinte grupo de monstros.",
+        "quest1.subquest3.desc14": "Na segunda sala, a de bandeiras verdes, enfrentaremos um grupo um pouco maior.",
+        "quest1.subquest3.desc15": "Na penúltima sala, a de bandeiras roxas, enfrentaremos o grupo maior de toda a masmorra.",
+        "quest1.subquest3.desc16": "",
+        "quest1.subquest3.desc17": "Finalmente, enfrentaremos o chefe da masmorra.",
+        "quest1.subquest3.desc18.part1": "O chefe da masmorra ",
+        "quest1.subquest3.desc18.part2": " tem a habilidade de invocar Torrejä imperial e Bubble Skäte, não se move, mas mesmo assim pode te golpear à distância e em área corpo a corpo, além de ser invulnerável.",
+        "quest1.subquest3.desc19": "Para tirar sua invulnerabilidade teremos que colocar um de seus aliados a uma distância de 4 ou menos casas para que receba o golpe em área e desta forma poder golpeá-lo (valem suas invocações, ao matar o Cästelo de äreia morrerão todas as invocações).",
+        "quest1.subquest3.desc20": "Uma vez derrotado o Cästelo de äreia poderemos falar com 'o aventureiro'.",
+        "quest1.subquest3.desc21": "Que nos critica por tê-la ajudado, pois segundo ela podia se cuidar sozinha.",
+        "quest1.subquest3.desc22": "Ficamos surpresos ao descobrir que é uma mulher, além de uma Salteadorilla. Ela diz que isso estava esclarecido nas garrafas, mas isso nunca chegou às ilhas.",
+        "quest1.subquest3.desc23": "Ela também nos conta que foi a criadora dos Härenosos, pois chegou há muito tempo à ilha e tem criado esses seres por tédio e jogando garrafas ao mar, esperando que alguém fosse resgatá-la, mas agora não quer mais ir embora.",
+        "quest1.subquest3.reward": "Recompensa: Experiência (varia conforme o nível) - Receita dos biscoitos Bäldieos - 50 Ärenichäs - 1 Pérolä",
+        
+        "quest1.subquest4.title": "O Bälderneiro foi salvo",
+        "quest1.subquest4.desc1": "Você cumpriu sua missão com valentia.",
+        "quest1.subquest4.desc2": "Como o Bälderneiro não queria abandonar sua praia, você decidiu deixá-lo em paz e avisar Gnat.",
+        "quest1.subquest4.desc3": "Voltaremos a falar com Gnat, ele nos parabenizará e contaremos que o Bälderneiro não quis voltar conosco.",
+        "quest1.subquest4.desc4": "A partir deste momento poderemos começar a fazer umas missões secundárias e uma diária de entregar 10 unidades de Äreia fina a Gnat. Ele te dará um pouco de experiência e algumas Ärenichäs e a verdade é que não vale muito a pena fazê-las.",
+        "quest1.subquest4.reward": "Recompensa: Experiência (varia conforme o nível) - Título: O veranista relaxado - 60 Ärenichäs",
+        
+        "quest1.subquest5.title": "Esboços do Bälderneiro",
+        "quest1.subquest5.desc1": "Conseguir os esboços de Dona Baldaquiana",
+        "quest1.subquest5.desc2": "Se tivemos sorte, teremos dropado uma segunda chave na masmorra.",
+        "quest1.subquest5.desc3": "Caso não tenha dropado uma chave, teremos que ir a Astrub matar os Bäldieos para conseguir outra chave ou comprá-la no mercado.",
+        "quest1.subquest5.desc4": "Uma vez que tenhamos passado pela segunda vez a masmorra, teremos quase todos os logros.",
+        "quest1.subquest5.desc5": "Ele nos dirá que este chefe oculto é sua máxima criação, mas devemos pisar nos azulejos em uma ordem específica.",
+        "quest1.subquest5.desc6": "Para isso precisaremos deste objeto que Dona Baldaquiana nos deu e precisaremos de 6 personagens, aqui não valem os heróis.",
+        "quest1.subquest5.desc7": "Este objeto é importante para saber como nos posicionar no mapa do centro.",
+        "quest1.subquest5.desc8": "Observamos que há vários azulejos com diferentes figuras, tenhamos cuidado e não pisemos neles por enquanto, primeiro abriremos os Esboços do Bälderneiro.",
+        "quest1.subquest5.desc9": "Ao abri-lo vemos que há uma ordem numérica e justo nessa ordem devem se posicionar cada um dos personagens ou jogadores.",
+        "quest1.subquest5.desc10": "Uma vez posicionados, o nível da água baixará e poderemos acessar o chefe oculto.",
+        "quest1.subquest5.desc11.part1": "Vamos falar de ",
+        "quest1.subquest5.desc11.part2": " pode empurrar 2 casas, se deslocar até o objetivo e se teleportar para as costas em corpo a corpo, a maioria de seus ataques são mono-objetivo.",
+        "quest1.subquest5.desc12.part1": "Mas não é tudo, quando baixar a um quarto de sua vida, se tornará invulnerável e invocará 2 ",
+        "quest1.subquest5.desc12.part2": " esses clones têm as mesmas habilidades do original e ao morrer curarão 100 pontos de vida ao original.",
+        "quest1.subquest5.desc13": "Portanto terá quase toda sua vida no máximo de novo.",
+        "quest1.subquest5.desc14": "Uma vez terminada a masmorra teremos terminado todos os logros e missões principais.",
+        "quest1.subquest6.title": "Recompensas e missões secundárias",
+        "quest1.subquest5.desc15": "Agora ao voltar a falar com Gnat, teremos a opção de conseguir as 2 missões diárias, que como comentei antes, não te aportam praticamente nada.",
+        "quest1.subquest5.desc16": "Além disso a última missão que Gnat nos dá é entregar 10 Äreia negra e só consegue 1 por personagem no combate do chefe oculto, ou seja terá que repetir muitas vezes a masmorra.",
+        "quest1.subquest5.desc17": "Sem mencionar que só há 1 recompensa no crupiê que vale a pena na imensa lista que vou mostrar.",
+        "quest1.subquest5.desc18": "São os Biscoitos Bäldieo uns pães que curam 8% de seus pontos de vida máximos, de resto são só cosméticos e equipamentos que não aportam praticamente nada.",
+        "quest1.subquest5.desc19": "Espero que tenham gostado do guia, sei que é muito texto, mas acreditem que demoram pouco menos de 30 minutos para fazer tudo.",
+        "quest1.subquest5.desc20": "Nos vemos em outra entrega.",
+        "quest1.subquest5.desc21": "Atenciosamente: Drarios.",
+    
+    "sidebar.title": "Navegação",
+    "sidebar.quest1": "Älmadräva",
+    "sidebar.subquest1": "Conchas e äreia fina",
+    "sidebar.subquest2": "Garrafa ao mar",
+    "sidebar.subquest3": "SOS präia da Älmadräva",
+    "sidebar.subquest4": "O Bälderneiro foi salvo",
+    "sidebar.subquest5": "Esboços do Bälderneiro",
+    "sidebar.subquest6": "Recompensas e missões secundárias"
+},
+
+            // ==================== EN version ==================== \\
+            en: {
+                "title": "Guide of La Mädrague",
+                "section.t": "Guide of La Mädrague",
+                "nav.drop_wakfu": "Wakfu Drop Calc",
+                "nav.home": "Home",
+                "nav.quests": "Quests",
+                "nav.dungeons": "Dungeons",
+                "nav.optimization": "Optimization",
+                "nav.crafts": "Professions",
+                "nav.misc": "Miscellaneous",
+                "section.title": "La Mädrague",
+    "section.intro1.part1": "Every year ",
+        "section.intro1.part2": " the Saint of Seashells invites us to explore the beaches and bring him some fine sänd.",
+        "section.intro2": "As the summer saint, he seeks adventurers willing to enjoy mid-year vacations, searching for fine sänd and why not, beating up the Sänd Skätes.",
+        "section.intro3": "Note: saints are minor deities who made a pact with the gods of the divine pantheon and enjoy slightly more power than most minor deities. They protect each of the 365 days of the year. There are also protectors of the months and demons of the hours. According to an NPC from the Dofus era, there are at least 1824, and they don't have much power because they don't have many followers, but they are beings who contribute a lot and whom we pray to from the Almanax temple.",
+        
+        "quest1.subquest1.title": "Seashells and Fine Sänd",
+        "quest1.subquest1.desc1": "How about a sunny vacation in good company?",
+        "quest1.subquest1.desc2": "Come see me in Astrub, I'll be waiting there.",
+        "quest1.subquest1.desc3": "We'll head to the center of Astrub city and north. Before reaching the market, we'll see Gnat who will welcome us with joy and enthusiasm, telling us he's looking for noble and powerful adventurers willing to explore La Mädrague Beach to get his precious fine sänd.",
+        "quest1.subquest1.desc4": "He's also seen bottles arriving in different nations with messages inside, but since it's too much effort for him and he prefers to toast his seashells, he leaves us intrigued to go find them.",
+        "quest1.subquest1.desc5": "I recommend some patience, even with dragoturkeys we'll have to walk quite a bit (except in Amakna, which is curiously quite close).",
+        "quest1.subquest1.reward": "Reward: Experience (varies by level) - 5 Sänd Coins",
+        
+        "quest1.subquest2.title": "Message in a Bottle",
+        "quest1.subquest2.desc1": "Gnat has tasked you with finding the messages in bottles that have shipwrecked around the world.",
+        "quest1.subquest2.desc2": "First we'll go to the nation of Amakna to find the first bottle in the Singing Fields.",
+        "quest1.subquest2.desc3": "The message will say 'I'm on an island near Bilbyza'.",
+        "quest1.subquest2.desc4": "Apparently, someone has reached La Mädrague Beach before anyone else.",
+        "quest1.subquest2.desc5": "Now we'll head to Bonta, where the second bottle awaits on the bridge connecting Túkulo Grove to Cania Plains.",
+        "quest1.subquest2.desc6": "'I've built the Seä Päläce'. Apparently, he's created a sand castle in that territory.",
+        "quest1.subquest2.desc7": "Now we'll head to Brakmar in search of the third bottle in the Téril Fields.",
+        "quest1.subquest2.desc8": "'Is anyone there? Help!' This adventurer seems to have gotten into serious trouble, we'll have to hurry if we want to save him.",
+        "quest1.subquest2.desc9": "Quickly we'll go to Sufokia, where the fourth and final bottle awaits in the Sugär Dunä.",
+        "quest1.subquest2.desc10": "'I'm hungry!' The journey has been long and now he's suffering from hunger, but we've discovered all the necessary information. Let's return to Gnat and tell him the situation.",
+        "quest1.subquest2.desc11": "Apparently, Gnat had a strange impression of someone asking for help from Bilbyza, who will give us a compass to safely reach La Mädrague Beach.",
+        "quest1.subquest2.reward": "Reward: 10 Sänd Coins - Compäss - Key to the Seä Päläce",
+        
+        "quest1.subquest3.title": "Alert on La Mädrague Beach",
+        "quest1.subquest3.desc1": "The messages are clear: a man is in trouble on La Mädrague Beach in Bilbyza.",
+        "quest1.subquest3.desc2": "You must go help him as soon as possible. The compass Gnat gave you will guide you to this enigmatic place.",
+        "quest1.subquest3.desc3": "Once in Bilbyza we'll head southwest.",
+        "quest1.subquest3.desc4": "The Seä Päläce is a somewhat meme dungeon, as each character will need a key (we already received one previously) to enter the dungeon.",
+        "quest1.subquest3.desc5": "Yes, by mistake they entered without a group, they'll have to use another key. I clarify this because we'll enter the dungeon twice and for the second attempt, you'll definitely need 6 players.",
+        "quest1.subquest3.desc6": "Once inside the dungeon we'll get a shovel to search for the key, but it won't be fixed.",
+        "quest1.subquest3.desc7": "We might encounter a group of monsters or Fine Sänd.",
+        "quest1.subquest3.desc8": "I'll tell you a bit about the Sänd Skätes' abilities.",
+        "quest1.subquest3.desc9.part1": "They start combat with 80 back mastery, lasts 1 turn, but the duration can stack and who increases, this is the ",
+        "quest1.subquest3.desc9.part2": " this monster, removes MP and gives back mastery to other enemies, but if they already have the bonus it increases duration by 1 turn as I said before, ",
+        "quest1.subquest3.desc9.part4": " this one can hit in a somewhat wide area, finally we'll face ",
+        "quest1.subquest3.desc9.part5": " this one simply melees like the first, but all can jump and end up at our back or side, hence the back damage bonus, be careful.",
+        "quest1.subquest3.desc10": "As always, the field limits will give us a debuff, in this case minus 100 back resistance.",
+        "quest1.subquest3.desc11": "Although I show the blue flags room, you can start with another, but I'll tell you in the order I did it.",
+        "quest1.subquest3.desc12": "Once we have the key, we can now advance to the first combat room of the dungeon.",
+        "quest1.subquest3.desc13": "In the first room we'll face the following group of monsters.",
+        "quest1.subquest3.desc14": "In the second room, the green flags one, we'll face a slightly larger group.",
+        "quest1.subquest3.desc15": "In the penultimate room, the purple flags one, we'll face the largest group in the entire dungeon.",
+        "quest1.subquest3.desc16": "",
+        "quest1.subquest3.desc17": "Finally, we'll face the dungeon boss.",
+        "quest1.subquest3.desc18.part1": "The dungeon boss ",
+        "quest1.subquest3.desc18.part2": " has the ability to summon Imperiäl Skäte and Bubble Skäte, doesn't move, but can still hit at range and melee in area, plus is invulnerable.",
+        "quest1.subquest3.desc19": "To remove his invulnerability we'll need to place one of his allies within 4 or fewer squares so he receives the area hit and thus we can hit him (his summons count, when the Sänd Cästle dies all summons will die).",
+        "quest1.subquest3.desc20": "Once we defeat the Sänd Cästle we can talk to 'the adventurer'.",
+        "quest1.subquest3.desc21": "Who criticizes us for helping her, as according to her she could take care of herself.",
+        "quest1.subquest3.desc22": "We are surprised to discover that she is a woman, as well as a Salteadorilla. She says that she had clarified this on the bottles, but that never reached us on the islands.",
+        "quest1.subquest3.desc23": "She also tells us that she was the creator of the Sänd skätes, as she arrived on the island quite some time ago and has been creating these beings out of boredom and throwing bottles into the sea, hoping that someone would come to rescue her, but now she doesn't want to leave.",
+        "quest1.subquest3.reward": "Reward: Experience (varies by level) - Little shortbread biscuits recipe - 50 Sänd Coins - 1 Pearl",
+        
+        "quest1.subquest4.title": "We Rescued the Skäter",
+        "quest1.subquest4.desc1": "You've bravely completed your mission.",
+        "quest1.subquest4.desc2": "Since the Skäter didn't want to leave his beach, you decided to leave him alone and notify Gnat.",
+        "quest1.subquest4.desc3": "We'll talk to Gnat again, he'll congratulate us and we'll tell him the Skäter didn't want to come back with us.",
+        "quest1.subquest4.desc4": "From this moment we can start doing some side quests and a daily quest to give Gnat 10 units of Fine Sänd. It will give you some experience and a few Sänd Coins and honestly it's not really worth doing them.",
+        "quest1.subquest4.reward": "Reward: Experience (varies by level) - Title: The Relaxed Vacationer - 60 Sänd Coins",
+        
+        "quest1.subquest5.title": "The Skäter's Scribble",
+        "quest1.subquest5.desc1": "Get Sister Kate's scribbles",
+        "quest1.subquest5.desc2": "If we were lucky, we'll have dropped a second key in the dungeon.",
+        "quest1.subquest5.desc3": "If we didn't get a key drop, we'll have to go to Astrub to kill Sänd Skätes to get another key or buy it on the market.",
+        "quest1.subquest5.desc4": "Once we've completed the dungeon a second time, we'll have almost all achievements.",
+        "quest1.subquest5.desc5": "He'll tell us this secret boss is his ultimate creation, but we must stand on tiles in a specific order.",
+        "quest1.subquest5.desc6": "For this we'll need this item Sister Kate just gave us and we'll need 6 characters, heroes don't count here.",
+        "quest1.subquest5.desc7": "This item is important to know how to position ourselves on the center map.",
+        "quest1.subquest5.desc8": "We see several tiles with different figures, let's be careful and not step on them yet, first we'll open the Skäter's Scribble.",
+        "quest1.subquest5.desc9": "When opened we see there's a numerical order and exactly in that order each character or player must position themselves.",
+        "quest1.subquest5.desc10": "Once positioned, the water level will lower and we can access the secret boss.",
+        "quest1.subquest5.desc11.part1": "Let's talk about ",
+        "quest1.subquest5.desc11.part2": " can push 2 squares, move to target and teleport to back in melee, most attacks are single target.",
+        "quest1.subquest5.desc12.part1": "But that's not all, when reduced to a quarter health, becomes invulnerable and summons 2 ",
+        "quest1.subquest5.desc12.part2": " these clones have the same abilities as the original and when dying will heal the original by 100 HP.",
+        "quest1.subquest5.desc13": "Therefore he'll have almost all his health maxed again.",
+        "quest1.subquest5.desc14": "Once the dungeon is finished we'll have completed all main achievements and quests.",
+        "quest1.subquest6.title": "Rewards and Side Quests",
+        "quest1.subquest5.desc15": "Now when talking to Gnat again, we'll have the option to get the 2 daily quests, which as I mentioned before, don't really give you anything.",
+        "quest1.subquest5.desc16": "Plus the last quest Gnat gives us is to give him 10 Bläck Sänd and you only get 1 per character in the secret boss fight, meaning you'll have to repeat the dungeon many times.",
+        "quest1.subquest5.desc17": "Not to mention there's only 1 reward at the trader worth it in the huge list I'll show you.",
+        "quest1.subquest5.desc18": "The Little Shortbread Biscuits are breads that heal 8% of their max HP, the rest are just cosmetics and equippables that don't really add anything.",
+        "quest1.subquest5.desc19": "I hope you liked the guide, I know it's a lot of text, but believe me it takes less than 30 minutes to do everything.",
+        "quest1.subquest5.desc20": "See you in another installment.",
+        "quest1.subquest5.desc21": "Sincerely: Drarios.",
+    
+    "sidebar.title": "Navigation",
+    "sidebar.quest1": "La Mädrague",
+    "sidebar.subquest1": "Shells and Fine Sänd",
+    "sidebar.subquest2": "Message in a Bottle",
+    "sidebar.subquest3": "Alert on La Mädrague Beach",
+    "sidebar.subquest4": "We Saved the Skäter",
+    "sidebar.subquest5": "The Skäter's Scribble",
+    "sidebar.subquest6": "Rewards and side missions"
+},
+    };
+
+        // ==================== FUNCIONALIDAD DE LA SIDEBAR ====================
+
+        // Scroll suave para los enlaces de la sidebar
+        document.querySelectorAll('.sidebar-nav a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 20,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Resaltar la sección activa en la sidebar
+        function highlightActiveSection() {
+            const sections = document.querySelectorAll('.quest-container [id]');
+            const sidebarLinks = document.querySelectorAll('.sidebar-nav a');
+            let currentActive = null;
+            
+            sections.forEach(section => {
+                const rect = section.getBoundingClientRect();
+                if (rect.top <= 100 && rect.bottom >= 100) {
+                    currentActive = '#' + section.id;
+                }
+            });
+            
+            sidebarLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === currentActive) {
+                    link.classList.add('active');
+                }
+            });
+        }
+
+        // Escuchar el evento de scroll
+        window.addEventListener('scroll', highlightActiveSection);
+        window.addEventListener('load', highlightActiveSection);
+    
+        // ==================== SISTEMA DE TRADUCCIÓN ====================
+    
+        // Sistema de cambio de idioma
+            let currentLanguage = localStorage.getItem('selectedLanguage') || 'es';
+    
+            function translatePage(lang) {
+            currentLanguage = lang;
+        // Guardar el idioma en localStorage
+            localStorage.setItem('selectedLanguage', lang);
+        
+        // Traducir textos normales
+            document.querySelectorAll('[data-translate]').forEach(element => {
+            const key = element.getAttribute('data-translate');
+            if (translations[lang] && translations[lang][key]) {
+            element.textContent = translations[lang][key];
+        }
+    });
+
+    // Traducir imágenes
+    document.querySelectorAll('[data-translate-src]').forEach(img => {
+        const sources = img.getAttribute('data-translate-src').split('|');
+        img.src = sources[lang === 'es' ? 0 : lang === 'pt' ? 1 : 2] || sources[0];
+    });
+
+    // Traducir embeds de video (iframes)
+document.querySelectorAll('iframe[data-translate-src]').forEach(iframe => {
+    try {
+        const sources = JSON.parse(iframe.getAttribute('data-translate-src'));
+        if (sources[lang]) {
+            iframe.src = sources[lang];
+        }
+    } catch (e) {
+        console.error("Error parsing translate-src JSON:", e);
+    }
+});
+
+    // Traducir enlaces (tanto href como texto)
+    document.querySelectorAll('[data-translate-href]').forEach(link => {
+        // Manejar href
+        const hrefs = link.getAttribute('data-translate-href').split('|');
+        let selectedHref = hrefs[1]; // Valor por defecto (URL en español)
+
+        for (let i = 0; i < hrefs.length; i += 2) {
+            if (hrefs[i] === lang) {
+                selectedHref = hrefs[i + 1];
+                break;
+            }
+        }
+        link.href = selectedHref;
+
+        // Manejar texto
+        if (link.hasAttribute('data-translate-text')) {
+            const texts = link.getAttribute('data-translate-text').split('|');
+            let selectedText = texts[1]; // Valor por defecto (texto en español)
+
+            for (let i = 0; i < texts.length; i += 2) {
+                if (texts[i] === lang) {
+                    selectedText = texts[i + 1];
+                    break;
+                }
+            }
+            link.textContent = selectedText;
+        }
+    });
+
+    // Actualizar botón principal
+    document.getElementById('currentLanguage').textContent = lang.toUpperCase();
+    document.documentElement.lang = lang;
+}
+
+// Menú hamburguesa para móviles
+        const hamburger = document.getElementById('hamburger');
+        const menu = document.getElementById('menu');
+
+        if (hamburger && menu) {
+            hamburger.addEventListener('click', function() {
+                menu.classList.toggle('show');
+            });
+        }
+
+// Selector de idiomas
+document.querySelectorAll('.language-dropdown a[data-lang]').forEach(item => {
+    item.addEventListener('click', function(e) {
+        e.preventDefault();
+        translatePage(this.getAttribute('data-lang'));
+    });
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Fuerza el color rojo en todos los enlaces dentro de quest
+    const questLinks = document.querySelectorAll('.quest a, .quest-container a');
+    questLinks.forEach(link => {
+        link.style.setProperty('color', '#e00404', 'important');
+        link.style.setProperty('text-decoration', 'none', 'important');
+    });
+});
+
+// Modo oscuro
+const darkModeToggle = document.getElementById('darkModeToggle');
+let darkMode = localStorage.getItem('darkMode') === 'true';
+
+// Aplicar modo oscuro si estaba activado
+if (darkMode) {
+    document.body.classList.add('dark-mode');
+    darkModeToggle.textContent = '☀️';
+}
+
+// Manejar el click
+darkModeToggle.addEventListener('click', function(e) {
+    e.preventDefault();
+    darkMode = !darkMode;
+    
+    if (darkMode) {
+        document.body.classList.add('dark-mode');
+        this.textContent = '☀️';
+    } else {
+        document.body.classList.remove('dark-mode');
+        this.textContent = '🌙';
+    }
+    
+    localStorage.setItem('darkMode', darkMode);
+});
+
+// Inicializar con el idioma guardado o español por defecto
+translatePage(currentLanguage);
+</script>
+</body>
+</html>
