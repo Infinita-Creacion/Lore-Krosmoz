@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mangas de Ogrest</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        
+        header {
+            background-color: #d35400;
+            padding: 1px;
+            text-align: center;
+            color: white;
+        }
+        
+        .navbar {
+            background-color: #d35400;
+            border-top: 2px solid #b34700;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 0 0.1%;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            max-width: 1200px;
+            margin: 0 auto;
+            border-radius: 30px 30px 30px 30px;
+        }
+        
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .hamburger {
+            font-size: 28px;
+            color: white;
+            cursor: pointer;
+            display: none;
+            padding: 10px;
+        }
+        
+        .menu {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+            gap: 5px;
+        }
+        
+        .menu > li > a {
+            display: block;
+            padding: 10px 15px;
+            color: white;
+            text-decoration: none;
+            background-color: rgba(0, 0, 0, 0.2);
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            font-weight: bold;
+            border-radius: 10px 10px 10px 10px;
+        }
+        
+        .menu > li > a:hover {
+            background-color: rgba(0, 0, 0, 0.4);
+            transform: translateY(-2px);
+        }
+        
+        .menu > li > a img {
+            vertical-align: middle;
+            height: 24px;
+        }
+        
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+        
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+        
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        
+        main {
+            padding: 0;
+        }
+        
+        section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(800px, 1fr));
+            gap: 15px;
+            background-image: url('430154.jpg');
+            background-size: auto;
+            background-attachment: fixed; /* Fija la imagen de fondo */
+            padding: 100px 100px 100px 100px;
+            border-radius: 0px;
+        }
+        
+        .quest-container {
+            font-style: arial;
+            font-weight: bold;
+            text-shadow: 1px 1px 15px #ffffff;
+            background-color: rgba(255, 255, 255, 0.65);
+            padding: 30px;
+            border-radius: 5px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .quest-header-image {
+            width: 100%;
+            max-height: 250px;
+            object-fit: cover;
+            border-radius: 5px;
+            margin: 15px 0;
+            box-shadow: 0 0 10px rgba(0,0,0,0.3);
+            border: 2px solid #d35400;
+        }
+        
+        .quest-container h2 {
+            font-weight: bold;
+            text-shadow: 1px 1px 15px #ffffff;
+            color: #27ae60;
+            margin-top: 0;
+            border-bottom: 2px solid #d35400;
+            padding-bottom: 10px;
+        }
+        
+        .category {
+            margin-bottom: 30px;
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 5px;
+            border-left: 4px solid #d35400;
+        }
+        
+        .quest-row {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            padding: 15px;
+            background-color: rgba(211, 84, 0, 0.1);
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            gap: 15px;
+        }
+        
+        .quest-row:hover {
+            background-color: rgba(211, 84, 0, 0.2);
+        }
+        
+        .quest-row a {
+            color: #000000;
+            text-decoration: none;
+            font-weight: 850;
+            flex-grow: 1;
+        }
+        
+        .quest-row a:hover {
+            text-decoration: underline;
+        }
+        
+        .level-badge {
+            display: inline-block;
+            background-color: #000000;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-size: 0.8em;
+            margin-left: 10px;
+            font-weight: bold;
+        }
+        
+        .dark-mode-toggle > a {
+            display: block;
+            padding: 10px 10px;
+            color: white;
+            text-decoration: none;
+            background-color: rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 15px;
+        }
+        
+        .dark-mode-toggle:hover > a {
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+        
+        /* Estilos para el modo oscuro */
+        .dark-mode header {
+            background-color: #1a1a1a;
+        }
+        
+        .dark-mode .navbar {
+            background-color: #1a1a1a;
+            border-top: 2px solid #333;
+        }
+        
+        .dark-mode .menu > li > a {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        .dark-mode .menu > li > a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        
+        .dark-mode .quest-container {
+            background-color: rgba(0, 0, 0, 0.7);
+            color: #eee;
+        }
+        
+        .dark-mode .quest-container h2 {
+            color: #2ecc71;
+        }
+        
+        .dark-mode .category {
+            background-color: rgba(0, 0, 0, 0.3);
+        }
+        
+        .dark-mode .quest-row {
+            background-color: rgba(46, 204, 113, 0.1);
+        }
+        
+        .dark-mode .quest-row:hover {
+            background-color: rgba(46, 204, 113, 0.2);
+        }
+        
+        .dark-mode .quest-row a {
+            color: #2ecc71;
+        }
+        
+        .dark-mode .level-badge {
+            background-color: #2ecc71;
+        }
+
+        .dark-mode .quest-header-image {
+            opacity: 0.9;
+            filter: brightness(0.8);
+            border-color: #2ecc71;
+        }
+
+        .dark-mode .quest-icon {
+            border-color: #2ecc71;
+        }
+
+        .dark-mode section {
+            background-image: url('430154.jpg');
+            background-color: rgba(0, 0, 0, 0.3);
+            background-blend-mode: multiply;
+            background-attachment: fixed; /* También fija la imagen en modo oscuro */
+        }
+
+        .dark-mode .quest-container,
+        .dark-mode .quest-container h2,
+        .dark-mode .quest-row a {
+            text-shadow: none !important;
+        }
+        
+        /* Estilos para el modo oscuro */
+        .dark-mode .sidebar-nav {
+            background-color: rgba(0, 0, 0, 0.7);
+            color: #eee;
+        }
+        
+        .dark-mode .sidebar-nav h3 {
+            color: #2ecc71;
+            border-bottom: 2px solid #2ecc71;
+        }
+        
+        .dark-mode .sidebar-nav a {
+            color: #eee;
+        }
+        
+        .dark-mode .sidebar-nav a:hover {
+            background-color: rgba(46, 204, 113, 0.2);
+        }
+        
+        .dark-mode .sidebar-nav a.active {
+            background-color: rgba(46, 204, 113, 0.4);
+        }
+        
+        .dark-mode .sidebar-nav > ul > li > ul {
+            border-left: 2px solid rgba(46, 204, 113, 0.3);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            header {
+                padding: 15px;
+                font-size: 18px;
+            }
+            
+            .navbar {
+                padding: 0 5%;
+            }
+            
+            .hamburger {
+                display: block;
+            }
+            
+            .menu {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                gap: 0;
+            }
+            
+            .menu.show {
+                display: flex;
+            }
+            
+            .menu > li {
+                width: 100%;
+            }
+            
+            .menu > li > a {
+                border-radius: 0;
+                border-bottom: 1px solid #b34700;
+                background-color: transparent;
+            }
+            
+            .dropdown-content {
+                position: static;
+                box-shadow: none;
+                background-color: rgba(0, 0, 0, 0.1);
+            }
+            
+            section {
+                padding: 20px;
+                grid-template-columns: 1fr;
+                background-attachment: scroll; /* En móviles, mejor sin fixed por rendimiento */
+            }
+            
+            .quest-container {
+                padding: 15px;
+            }
+            
+            .category {
+                padding: 15px;
+            }
+            
+            .quest-header-image {
+                max-height: 180px;
+            }
+            
+            .quest-icon {
+                width: 60px;
+                height: 60px;
+            }
+            
+            .quest-row {
+                padding: 12px;
+                gap: 12px;
+            }
+            
+            .dark-mode-toggle {
+                width: 100%;
+            }
+    
+            .dark-mode-toggle > a {
+                border-radius: 0;
+                border-bottom: 1px solid #333;
+                background-color: transparent;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Mangas de Ogrest</h1>
+        <nav class="navbar">
+            <div class="container">
+                 <div class="hamburger" id="hamburger">&#9776;</div>
+                <ul class="menu" id="menu">
+                    <li><a href="testmethodindex.html">Inicio</a></li>
+                    <li><a href="index.html">Otras historias</a></li>
+                    <li><a href="testmethodcronologia.html">Cronología</a></li>
+                    <li><a href="NCDrop.html">Calc de Drop Wakfu</a></li>
+                    <li class="dark-mode-toggle">
+                        <a href="#" id="darkModeToggle">🌙</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <div class="quest-container">
+                <h1><center>Mangas de Ogrest</center></h1>
+                    <div style="text-align: center; margin-bottom: 20px;">
+                        <img src="ogrest.jpg" style="width: 80%; height: auto; display: block; margin: 0 auto;">
+                    </div>
+
+                    <div class="quest-row">
+                         <a href="Ogrest4.html">Tomo 4</a>
+                <span class="level-badge">NUEVO</span>
+                    </div>
+                    <div class="quest-row">
+                         <a href="Ogrest3.html">Tomo 3</a>
+                <span class="level-badge">NUEVO</span>
+                    </div>
+                    <div class="quest-row">
+                         <a href="Ogrest2.html">Tomo 2</a>
+                <span class="level-badge">NUEVO</span>
+                    </div>
+                    <div class="quest-row">
+                         <a href="Ogrest1.html">Tomo 1</a>
+                <span class="level-badge">NUEVO</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        
+        // ==================== FUNCIONALIDADES ====================
+
+        // Menú hamburguesa para móviles
+        document.getElementById('hamburger').addEventListener('click', function() {
+            const menu = document.getElementById('menu');
+            menu.classList.toggle('show');
+        });
+
+        // Modo oscuro
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        let darkMode = localStorage.getItem('darkMode') === 'true';
+
+        // Aplicar modo oscuro si estaba activado
+        if (darkMode) {
+            document.body.classList.add('dark-mode');
+            darkModeToggle.textContent = '☀️';
+        }
+
+        // Manejar el click
+        darkModeToggle.addEventListener('click', function(e) {
+            e.preventDefault();
+            darkMode = !darkMode;
+            
+            if (darkMode) {
+                document.body.classList.add('dark-mode');
+                this.textContent = '☀️';
+            } else {
+                document.body.classList.remove('dark-mode');
+                this.textContent = '🌙';
+            }
+            
+            localStorage.setItem('darkMode', darkMode);
+        });
+
+        // Inicializar con el idioma guardado o español por defecto
+        translatePage(currentLanguage);
+    </script>
+</body>
+</html>
