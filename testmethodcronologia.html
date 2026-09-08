@@ -6,9 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cronología</title>
     <style>
-/* Reset global para evitar desbordamiento horizontal */
-* {
+/* Reset global dinámico y seguro */
+*, *::before, *::after {
     box-sizing: border-box;
+}
+
+html {
+    /* Mantiene un tamaño de fuente dinámico y fluido */
+    font-size: clamp(14px, 1vw + 10px, 18px);
 }
 
 body {
@@ -18,11 +23,12 @@ body {
     margin: 0;
     padding: 0;
     overflow-x: hidden;
+    width: 100%;
 }
 
 header {
     background-color: #d35400;
-    padding: 1px;
+    padding: clamp(10px, 2vw, 20px);
     text-align: center;
     color: white;
 }
@@ -34,10 +40,11 @@ header {
     position: sticky;
     top: 0;
     z-index: 1000;
-    padding: 0 0.1%;
+    padding: 0 1%;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
     transition: all 0.3s ease;
     max-width: 1200px;
+    width: 95%;
     margin: 0 auto;
     border-radius: 30px;
 }
@@ -48,6 +55,7 @@ header {
     justify-content: center;
     padding: 0;
     flex-wrap: wrap;
+    width: 100%;
     max-width: 1200px;
     margin: 0 auto;
 }
@@ -63,6 +71,8 @@ header {
 .menu {
     list-style: none;
     display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     margin: 0;
     padding: 0;
     gap: 5px;
@@ -111,6 +121,7 @@ header {
 
 main {
     padding: 0;
+    width: 100%;
 }
 
 section {
@@ -119,9 +130,9 @@ section {
     gap: 15px;
     background-image: url('430154.jpg');
     background-size: cover;
-    background-attachment: fixed;
-    padding: 100px 20px;
-    border-radius: 0px;
+    background-position: center;
+    background-attachment: scroll; /* Se cambia fixed por scroll para mejor compatibilidad en móviles */
+    padding: clamp(20px, 5vw, 100px) clamp(10px, 3vw, 20px);
     width: 100%;
 }
 
@@ -130,8 +141,8 @@ section {
     font-weight: bold;
     text-shadow: 1px 1px 15px #ffffff, -1px -1px 15px #ffffff;
     background-color: rgba(255, 255, 255, 0.65);
-    padding: 30px;
-    border-radius: 5px;
+    padding: clamp(12px, 3vw, 30px);
+    border-radius: 8px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
     max-width: 1000px;
     width: 100%;
@@ -145,14 +156,16 @@ section {
     margin-top: 0;
     border-bottom: 2px solid #d35400;
     padding-bottom: 10px;
+    font-size: clamp(1.2rem, 2.5vw, 2rem);
 }
 
 .quest {
     margin-bottom: 30px;
     background-color: rgba(255, 255, 255, 0.1);
-    padding: 20px;
+    padding: clamp(10px, 2.5vw, 20px);
     border-radius: 5px;
     border-left: 4px solid #d35400;
+    width: 100%;
 }
 
 .quest a {
@@ -161,11 +174,12 @@ section {
     text-decoration: none;
     color: #e00404;
     margin-top: 10px;
+    word-break: break-word; /* Evita que los enlaces largos rompan el diseño en pantallas pequeñas */
 }
 
 .quest-header {
     font-weight: bold;
-    font-size: 1.2em;
+    font-size: clamp(1em, 1.5vw, 1.3em);
     color: #27ae60;
     margin-bottom: 10px;
 }
@@ -184,55 +198,60 @@ section {
     border-top: 1px dashed #ccc;
 }
 
-/* Estilos para imágenes */
+/* Adaptabilidad para Imágenes e Contenido */
+img, video, iframe, table {
+    max-width: 100% !important;
+    height: auto;
+}
+
 .quest img,
 .quest-container img,
 img[data-translate-src] {
     max-width: 100%;
     height: auto;
     border-radius: 3px;
-    margin: 10px 0;
+    margin: 10px auto;
     display: block;
 }
 
-/* Imágenes de ancho completo por defecto */
 .full-width-img {
     width: 100%;
     height: auto;
 }
 
-/* Imágenes de medio ancho (para escritorio) */
 .half-width-img {
     width: 50%;
     height: auto;
 }
 
-/* Contenedor de imágenes en flex */
+/* Contenedor de imágenes en flex totalmente responsivo */
 .image-flex-container {
     display: flex;
     gap: 10px;
     flex-wrap: wrap;
     justify-content: center;
+    width: 100%;
 }
 
 .image-flex-container img {
-    flex: 1 1 auto;
-    min-width: 150px;
+    flex: 1 1 200px; /* Se ajustan y escalan automáticamente a partir de 200px */
+    max-width: 100%;
+    object-fit: cover;
 }
 
-/* Contenedor principal del video */
+/* Reproductor de video adaptable automático */
 .sp-embed-player {
     width: 100%;
-    margin: 3rem 0;
+    margin: 2rem 0;
     position: relative;
     aspect-ratio: 16/9;
-    min-height: 400px;
+    height: auto;
+    min-height: auto;
     background: #000;
     border-radius: 8px;
     overflow: hidden;
 }
 
-/* Iframe del video */
 .sp-embed-player iframe {
     width: 100%;
     height: 100%;
@@ -261,35 +280,13 @@ img[data-translate-src] {
 }
 
 /* Estilos para el modo oscuro */
-.dark-mode header {
-    background-color: #1a1a1a;
-}
-
-.dark-mode .navbar {
-    background-color: #1a1a1a;
-    border-top: 2px solid #333;
-}
-
-.dark-mode .menu > li > a {
-    background-color: rgba(255, 255, 255, 0.1);
-}
-
-.dark-mode .menu > li > a:hover {
-    background-color: rgba(255, 255, 255, 0.2);
-}
-
-.dark-mode .quest-container {
-    background-color: rgba(0, 0, 0, 0.7);
-    color: #eee;
-}
-
-.dark-mode .quest-container h2 {
-    color: #2ecc71;
-}
-
-.dark-mode .quest {
-    background-color: rgba(0, 0, 0, 0.3);
-}
+.dark-mode header { background-color: #1a1a1a; }
+.dark-mode .navbar { background-color: #1a1a1a; border-top: 2px solid #333; }
+.dark-mode .menu > li > a { background-color: rgba(255, 255, 255, 0.1); }
+.dark-mode .menu > li > a:hover { background-color: rgba(255, 255, 255, 0.2); }
+.dark-mode .quest-container { background-color: rgba(0, 0, 0, 0.7); color: #eee; }
+.dark-mode .quest-container h2 { color: #2ecc71; }
+.dark-mode .quest { background-color: rgba(0, 0, 0, 0.3); }
 
 .dark-mode section {
     background-image: url('430154.jpg');
@@ -310,7 +307,7 @@ img[data-translate-src] {
     position: fixed;
     right: 20px;
     top: 250px;
-    width: 220px;
+    width: clamp(180px, 18vw, 240px);
     background-color: rgba(255, 255, 255, 0.8);
     border-radius: 10px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
@@ -332,16 +329,8 @@ img[data-translate-src] {
     margin-bottom: 15px;
 }
 
-.sidebar-nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.sidebar-nav li {
-    margin-bottom: 8px;
-    position: relative;
-}
+.sidebar-nav ul { list-style: none; padding: 0; margin: 0; }
+.sidebar-nav li { margin-bottom: 8px; position: relative; }
 
 .sidebar-nav > ul > li > ul {
     margin-left: 15px;
@@ -370,74 +359,26 @@ img[data-translate-src] {
 }
 
 /* Estilos para el modo oscuro en Sidebar */
-.dark-mode .sidebar-nav {
-    background-color: rgba(0, 0, 0, 0.7);
-    color: #eee;
-}
+.dark-mode .sidebar-nav { background-color: rgba(0, 0, 0, 0.7); color: #eee; }
+.dark-mode .sidebar-nav h3 { color: #2ecc71; border-bottom: 2px solid #2ecc71; }
+.dark-mode .sidebar-nav a { color: #eee; }
+.dark-mode .sidebar-nav a:hover { background-color: rgba(46, 204, 113, 0.2); }
+.dark-mode .sidebar-nav a.active { background-color: rgba(46, 204, 113, 0.4); }
+.dark-mode .sidebar-nav > ul > li > ul { border-left: 2px solid rgba(46, 204, 113, 0.3); }
 
-.dark-mode .sidebar-nav h3 {
-    color: #2ecc71;
-    border-bottom: 2px solid #2ecc71;
-}
+/* Scrollbar para la sidebar */
+.sidebar-nav::-webkit-scrollbar { width: 6px; }
+.sidebar-nav::-webkit-scrollbar-track { background: rgba(0, 0, 0, 0.1); border-radius: 3px; }
+.sidebar-nav::-webkit-scrollbar-thumb { background: #d35400; border-radius: 3px; }
+.dark-mode .sidebar-nav::-webkit-scrollbar-thumb { background: #2ecc71; }
 
-.dark-mode .sidebar-nav a {
-    color: #eee;
-}
-
-.dark-mode .sidebar-nav a:hover {
-    background-color: rgba(46, 204, 113, 0.2);
-}
-
-.dark-mode .sidebar-nav a.active {
-    background-color: rgba(46, 204, 113, 0.4);
-}
-
-.dark-mode .sidebar-nav > ul > li > ul {
-    border-left: 2px solid rgba(46, 204, 113, 0.3);
-}
-
-/* Scrollbar personalizada para la sidebar */
-.sidebar-nav::-webkit-scrollbar {
-    width: 6px;
-}
-
-.sidebar-nav::-webkit-scrollbar-track {
-    background: rgba(0, 0, 0, 0.1);
-    border-radius: 3px;
-}
-
-.sidebar-nav::-webkit-scrollbar-thumb {
-    background: #d35400;
-    border-radius: 3px;
-}
-
-.dark-mode .sidebar-nav::-webkit-scrollbar-thumb {
-    background: #2ecc71;
-}
-
-/* ===== SOLUCIÓN PARA ENLACES ROJOS ===== */
+/* ENLACES ROJOS */
 .quest-container a,
 .quest-container a:link,
 .quest-container a:visited,
 .quest-container a:hover,
 .quest-container a:active,
-.quest-container a:focus {
-    color: #e00404 !important;
-    text-decoration: none !important;
-    text-shadow: 1px 1px 15px #ffffff, -1px -1px 15px #ffffff !important;
-    font-weight: 850 !important;
-}
-
-.dark-mode .quest-container a,
-.dark-mode .quest-container a:link,
-.dark-mode .quest-container a:visited,
-.dark-mode .quest-container a:hover,
-.dark-mode .quest-container a:active,
-.dark-mode .quest-container a:focus {
-    color: #e00404 !important;
-    text-shadow: none !important;
-}
-
+.quest-container a:focus,
 .quest p a,
 .quest p a:link,
 .quest p a:visited,
@@ -450,6 +391,12 @@ img[data-translate-src] {
     font-weight: 850 !important;
 }
 
+.dark-mode .quest-container a,
+.dark-mode .quest-container a:link,
+.dark-mode .quest-container a:visited,
+.dark-mode .quest-container a:hover,
+.dark-mode .quest-container a:active,
+.dark-mode .quest-container a:focus,
 .dark-mode .quest p a,
 .dark-mode .quest p a:link,
 .dark-mode .quest p a:visited,
@@ -460,16 +407,17 @@ img[data-translate-src] {
     text-shadow: none !important;
 }
 
-/* Responsive - Dispositivos Móviles */
-@media (max-width: 768px) {
-    header {
-        padding: 15px;
-        font-size: 18px;
+/* Reglas Responsive y Ocultamiento de Elementos en Tablets y Móviles */
+@media (max-width: 1024px) {
+    .sidebar-nav {
+        display: none !important; /* Oculta la barra lateral para evitar que sobreponga o reduzca el contenido principal */
     }
-    
+}
+
+@media (max-width: 768px) {
     .navbar {
-        padding: 0 5%;
-        border-radius: 15px;
+        width: 100%;
+        border-radius: 0;
     }
     
     .hamburger {
@@ -503,58 +451,8 @@ img[data-translate-src] {
         background-color: rgba(0, 0, 0, 0.1);
     }
     
-    section {
-        padding: 15px 10px !important;
-        grid-template-columns: 1fr !important;
-    }
-    
-    .quest-container {
-        padding: 15px 10px !important;
-        width: 100% !important;
-    }
-    
-    .quest {
-        padding: 12px !important;
-    }
-    
-    /* Contenedores Flex en vertical */
-    div[style*="display: flex"],
-    .image-flex-container {
-        flex-direction: column !important;
-        align-items: center !important;
-        width: 100% !important;
-        gap: 10px !important;
-    }
-
-    .quest img,
-    .quest-container img,
-    img[data-translate-src] {
-        max-width: 100% !important;
-        height: auto !important;
-        display: block;
-        margin: 10px auto;
-    }
-
-    .half-width-img,
-    .full-width-img,
-    .image-flex-container img,
-    .quest > div > img {
-        width: 100% !important;
-        height: auto !important;
-        max-height: none !important;
-    }
-
-    /* Ajustes para el reproductor de video */
-    .sp-embed-player {
-        min-height: 200px !important;
-        max-height: 320px !important;
-        margin: 1rem 0;
-        width: 100% !important;
-    }
-
-    .sp-embed-player iframe {
-        height: 100% !important;
-        width: 100% !important;
+    .half-width-img {
+        width: 100%;
     }
 
     .dark-mode-toggle {
@@ -565,26 +463,6 @@ img[data-translate-src] {
         border-radius: 0;
         border-bottom: 1px solid #333;
         background-color: transparent;
-    }
-
-    .sidebar-nav {
-        display: none !important;
-    }
-}
-
-/* Pantallas pequeñas (teléfonos compactos) */
-@media (max-width: 480px) {
-    .quest-container {
-        padding: 8px !important;
-    }
-    
-    .quest {
-        padding: 8px !important;
-    }
-    
-    .sp-embed-player {
-        min-height: 180px !important;
-        max-height: 250px !important;
     }
 }
 </style>
